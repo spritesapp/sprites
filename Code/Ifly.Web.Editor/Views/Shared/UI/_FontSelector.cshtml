@@ -1,0 +1,38 @@
+﻿@{
+    var id = ViewData.Eval("Id") != null ? ViewData.Eval("Id").ToString() : null;
+
+    var bindingExpression = ViewData.Eval("BindingExpression") != null ?
+        ViewData.Eval("BindingExpression").ToString() : "with: $data";
+}
+
+<div class="dropdown font-list" tabindex="0" id="@id" data-bind="@bindingExpression, css: { 'has-focus': fonts.showDropDown }">
+    <span class="dropdown-arrow icon-angle-down"></span>
+    <span class="dropdown-active">
+        <input type="text" tabindex="1" class="search-box" autocomplete="off" spellcheck="false" data-bind="value: font, valueUpdate: 'afterkeydown', event: { 'focus': function () { $data.onSearchBoxGotFocus(); }, 'blur': function () { $data.onSearchBoxLostFocus(); }, 'keyup': function () { $data.onSearchBoxHasInput(); } }" />
+    </span>
+    <div class="dropdown-menu">
+        <ul class="search-tip" data-bind="visible: !fontsLoaded()">
+            <li>
+                <i class="icon icon-search"></i>
+                <span>@Ifly.Resources.Editor.FontSelector_SearchTip</span>
+            </li>
+        </ul>
+        <ul data-bind="foreach: matchingFonts">
+            <li data-bind="css: { 'active': ($parent.font() == $data) }, event: { mousedown: function (data, e) { $parent.onFontChanging($data, e); } }">
+                <span data-bind="text: $data"></span>
+                <a class="preview" data-bind="event: { mouseenter: function (data, e) { $parent.onShowFontPreview($data, e); }, mouseleave: function () { $parent.onHideFontPreview(); } }">
+                    <i class="icon icon-align-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('FontSelector', {
+        terminology: {
+            fontPreviewText: '@Ifly.Resources.Editor.FontPreviewText',
+            example: '@Ifly.Resources.Editor.Example'
+        }
+    });
+</script>

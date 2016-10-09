@@ -1,0 +1,665 @@
+﻿.mobile-padding() {
+    padding: 0 20px;
+}
+
+.iosfix {
+    height: 101%;
+    overflow: hidden;
+}
+
+@media only screen and (min-width : 300px) and (max-width: 1024px) {
+    #cookie-warning {
+        display: none;
+    }
+
+    .section-next {
+        display: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0.6em !important;
+        margin-bottom: 0.3em !important;
+    }
+
+    p {
+        margin: 0 0 10px !important;
+    }
+
+    #features, #video, #examples, #pricing, #testimonials, #footer, #contact {
+        width: 100%;
+        padding-bottom: 0.3em !important;
+
+        .pitch {
+            width: 100%;
+            height: 100%;
+
+            .pitch-row {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    #features {
+        .pitch {
+            .pitch-row {
+                .first, .second, .third {
+                    width: 33%;
+                    margin: 0 !important;
+
+                    h3, p {
+                        .mobile-padding();
+                    }
+                }
+            }
+        }
+    }
+    
+    #examples {
+        .examples-inner {
+            ul.example-list {
+                .mobile-padding();
+                padding-top: 1em;
+                overflow: hidden;
+
+                li {
+                    width: 50%;
+                    margin-right: 0;
+                    margin-bottom: 40px;
+
+                    &:nth-child(odd) {
+                        float: left;
+                    }
+
+                    &:nth-child(even) {
+                        float: right;
+                        margin-right: 0;
+
+                        > a {
+                            img {
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+
+                    > h4, > p {
+                        .mobile-padding();
+                        width: auto;
+                    }
+
+                    > h4 {
+                        margin-top: 0 !important;
+                    }
+
+                    p {
+                        text-align: justify;
+                    }
+                }
+            }
+
+            p.tutorial {
+                .mobile-padding();
+                margin: 20px 0 !important;
+                display: block;
+                text-align: center;
+
+                a {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    #video {
+        .video-inner {
+            width: 100%;
+            height: 100%;
+
+            h3 {
+            }
+        }
+    }
+
+    #pricing {
+        .pricing-inner {
+            width: 100%;
+            height: 100%;
+
+            h3 {
+            }
+
+            .plans {
+                width: 100%;
+
+                .free, .pro, .agency {
+                    width: 40%;
+                    display: inline-block;
+                    margin: 0 5%;
+                    padding: 0;
+
+                    .box {
+                        h4 {
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #testimonials {
+        .testimonials-inner {
+            width: 100%;
+            height: 100%;
+
+            h3 {
+                margin: 0.6em 0;
+            }
+
+            ul.quotes {
+                width: 100%;
+                margin-bottom: 4em;
+            }
+        }
+    }
+
+    #contact {
+        .contact-inner {
+            width: 100%;
+            height: 100%;
+
+            > p {
+                text-align: justify;
+                margin: 1em 0;
+                .mobile-padding();
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            .form {
+                .mobile-padding();
+
+                .fields-2 {
+                    .form-field {
+                        width: 49%;
+                    }
+                }
+            }
+
+            #feedback-sent {
+                margin-left: 0;
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    body.landing .newsletter-subscribe {
+        display: none !important;
+    }
+
+    #ticker, #sign-in {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .promo-video {
+        width: 640px;
+        max-width: 640px !important;
+
+        .video-container {
+            width: 640px;
+            height: 360px;
+        }
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .promo-video {
+        width: 560px;
+        max-width: 560px !important;
+
+        .video-container {
+            width: 560px;
+            height: 315px;
+        }
+    }
+}
+
+@media only screen and (min-width : 300px) and (max-width : 800px) {
+    #cover {
+        .pitch {
+            width: 100%;
+
+            .pitch-inner {
+                height: 100%;
+                .mobile-padding();
+
+                h1 {
+                    width: 100%;
+                }
+            }
+        }
+
+        .call-to-action-buttons {
+            display: none;
+        }
+    }
+
+    #video {
+        .video-pitch-left {
+            width: 350px !important;
+        }
+    }
+
+    #features {
+        .pitch {
+            .pitch-row {
+                .first, .second, .third {
+                    display: block;
+                    width: 100%;
+                    margin: 0 !important;
+
+                    h3 {
+                    }
+                }
+            }
+        }
+    }
+
+    #examples {
+        .examples-inner {
+            ul.example-list {
+                li {
+                    width: 100%;
+                    display: block;
+                    float: none;
+
+                    &:nth-child(even) {
+                        > a {
+                            img {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #pricing {
+        .pricing-inner {
+            .plans {
+                .free, .pro, .agency {
+                    .box {
+                        .actions {
+                            .form {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #contact {
+        .contact-inner {
+            .form {
+                .row {
+                    margin: 0;
+                }
+
+                .fields-2 {
+                    margin: 0;
+
+                    .form-field {
+                        width: 100%;
+                    }
+                }
+
+                .form-field {
+                    margin: 10px 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    body, html {
+        font-size: 10pt;
+    }
+
+    .primary-stripe {
+        display: none;
+    }
+
+    nav.primary {
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        margin: 0;
+        display: table;
+        background-color: transparent !important;
+
+        div.logo {
+            display: table-row;
+
+            a {
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+        }
+
+        ul {
+            display: table-row;
+
+            li {
+                line-height: 45px;
+                float: none;
+                text-align: center;
+                margin: 0;
+
+                a {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    #features, #video, #examples, #pricing, #testimonials, #footer, #contact {
+        height: auto;
+
+        h3 {
+        }
+
+        .pitch {
+            .pitch-row {
+                margin: 0;
+
+                > div {
+                    h3 {
+                        margin: 0.3em 0;
+                    }
+                }
+
+                .first, .second, .third {
+                    float: none;
+                    margin: 0 !important;
+                    padding: 0;
+                    width: 100%;
+                    height: 50%;
+                }
+            }
+        }
+    }
+
+    #examples h3,
+    #pricing h3,
+    #video h3,
+    #testimonials h3 {
+        font-size: 28pt;
+    }
+
+    #cover {
+        .pitch {
+            width: 100%;
+            height: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+            .pitch-inner {
+                display: none;
+            }
+        }
+    }
+
+    #features {
+        .form {
+            display: none;
+        }
+
+        .pitch {
+            .pitch-row {
+                > div {
+                    h3 {
+                        font-size: 18pt;
+                    }
+                }
+            }
+        }
+    }
+
+    #examples {
+        .form {
+            display: none;
+        }
+
+        .examples-inner {
+            ul.example-list {
+                li {
+                    display: block;
+                    width: 100%;
+
+                    > a {
+                        display: block;
+
+                        img {
+                            margin-top: 20px;
+                            margin-left: auto !important;
+                            margin-right: auto !important;
+                            display: block;
+                            float: none;
+                            padding: 0;
+                            width: 280px;
+                            height: 280px;
+                        }
+                    }
+
+                    > h4, > p {
+                        padding: 0;
+                    }
+
+                    > h4 {
+                        font-weight: normal;
+                        font-size: 14pt;
+                        display: block;
+                        text-align: center;
+                        margin-top: 0.6em !important;
+                        margin-bottom: 0.3em !important;
+                    }
+
+                    > p {
+                        display: block;
+                        font-size: 100%;
+                        text-align: center;
+                    }
+
+                    &:last-child {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    #video {
+        .form {
+            display: none;
+        }
+
+        .video-inner {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .video-pitch {
+            margin-top: 20px !important;
+        }
+
+        .video-pitch-left,
+        .video-pitch-right {
+            width: 300px !important;
+        }
+
+        .video-pitch-right {
+            .image {
+                width: 300px !important;
+                height: 150px !important;
+            }
+        }
+
+        .form {
+            width: 300px !important;
+            margin: 0 auto !important;
+        }
+
+        .video-pitch-left,
+        .video-pitch-right {
+            float: none !important;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    #pricing {
+        .pricing-toolbar {
+            display: none;
+        }
+        
+        .pricing-inner {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            .plans {
+                display: block;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 90%;
+
+                .free, .pro, .agency {
+                    display: inline-block;
+                    width: 100%;
+                    margin: 0;
+                    margin-bottom: 40px;
+                    padding: 0;
+
+                    .box {
+                        margin: 0 20px 0 20px;
+
+                        h4 {
+                            font-size: 18pt;
+                        }
+
+                        .amount {
+                            .figure {
+                                font-size: 30pt;
+                            }
+
+                            .transcript {
+                                font-size: 90%;
+                            }
+                        }
+
+                        .description {
+                            margin: 0;
+                        }
+
+                        .actions {
+                            p {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #testimonials {
+        .form {
+            display: none;
+        }
+
+        .testimonials-inner {
+            width: 100%;
+            height: 100%;
+
+            ul.quotes {
+                height: 90%;
+                display: block;
+                margin-top: 0;
+
+                li {
+                    margin-top: 4em;
+                    width: 100%;
+                    height: (100% / 2);
+                    display: block;
+                    padding: 0;
+
+                    &.middle {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    #contact {
+        .contact-inner {
+            p {
+                margin: 1.6em 0;
+            }
+
+            .form {
+                input,
+                button,
+                textarea,
+                select {
+                    width: 100%;
+                    font-size: 75%;
+                }
+            }
+        }
+    }
+
+    #footer {
+        height: 70px;
+
+        ul.social {
+            width: 100%;
+            top: -50%;
+            left: auto;
+            right: auto;
+
+            li {
+                margin: 0;
+                width: 100% / 3;
+            }
+        }
+
+        .legal, .copyright {
+            position: relative;
+            left: auto;
+            top: auto;
+            display: block;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+﻿<div class="element-image">
+    @Html.Partial("UI/Elements/_Base", new { Type = "image" })
+
+    <div>
+        <label for="ImageSourceTypeUrl">@(Ifly.Resources.Editor.Component_Image_SelectImage):</label>
+        <ul class="field checkable-list image-sources">
+            <li>
+                <input type="radio" name="ImageSourceType" id="ImageSourceTypeGallery" value="1" data-bind="checked: sourceType.checkable" />
+                <label for="ImageSourceTypeGallery" title="@Ifly.Resources.Editor.Component_Image_SelectImage_Gallery"><span class="image-source image-source-gallery">@Ifly.Resources.Editor.Component_Image_SelectImage_Gallery</span></label>
+            </li>
+            <li>
+                <input type="radio" name="ImageSourceType" id="ImageSourceTypeUrl" value="0" data-bind="checked: sourceType.checkable" />
+                <label for="ImageSourceTypeUrl" title="@Ifly.Resources.Editor.Component_Image_SelectImage_URL"><span class="image-source image-source-url">@Ifly.Resources.Editor.Component_Image_SelectImage_URL</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div data-bind="visible: sourceType() != 1">
+        <label for="image-url">@(Ifly.Resources.Editor.Component_Image_Url):</label>
+        <div class="image-url image-with-selector">
+            <input type="text" id="image-url" data-bind="value: url, valueUpdate: 'keyup'" />
+            <a class="link upload image" href="javascript:void(0);" title="@Ifly.Resources.Editor.SelectImage" data-bind="click: selectMedia">
+                <i class="icon icon-folder-open-alt"></i>
+            </a>
+        </div>
+    </div>
+
+    <div data-bind="visible: (url() || '').toLowerCase().indexOf('docs.google.com') >= 0">
+        <p class="field-warning enable-links">
+            @Html.Raw(Ifly.Resources.Editor.SelectImage_ShareWarning_Drive)
+        </p>
+    </div>
+
+    <div data-bind="visible: sourceType() == 1">
+        <label>@(Ifly.Resources.Editor.Component_Image_Image):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: selectIcon, text: iconText"></a>
+        </div>
+    </div>
+
+    <div class="accent-colors" data-bind="visible: sourceType() == 1 && (icon() || '').indexOf('/') < 0">
+        <label for="ImageColorAccent1">@(Ifly.Resources.Editor.Component_Image_ImageColor):</label>
+        <ul class="field checkable-list pull-left">
+            <li>
+                <input type="radio" name="ImageColorAccent" id="ImageColorAccent1" value="0" data-bind="checked: iconColor.checkable" />
+                <label for="ImageColorAccent1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="ImageColorAccent" id="ImageColorAccent2" value="1" data-bind="checked: iconColor.checkable" />
+                <label for="ImageColorAccent2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="ImageColorAccent" id="ImageColorAccent3" value="2" data-bind="checked: iconColor.checkable" />
+                <label for="ImageColorAccent3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="ImageColorAccent" id="ImageColorAccent4" value="3" data-bind="checked: iconColor.checkable" />
+                <label for="ImageColorAccent4" title="@Ifly.Resources.Editor.ColorType_Accent4" class="theme-based"><span class="accent-4 accent-background"></span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Image_Width):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "width", CssClass = "element-property element-property-imagewidth", Minimum = "5|Auto", Maximum = "90%" })
+    </div>
+
+    <div>
+        <label>@Html.Raw(Ifly.Resources.Editor.Component_Image_Rotation):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "rotationAngle", CssClass = "element-property element-property-imagewidth", Minimum = "0|None", Maximum = "360" })
+    </div>
+</div>

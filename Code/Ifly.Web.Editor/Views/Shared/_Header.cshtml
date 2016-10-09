@@ -1,0 +1,15 @@
+﻿<title>@(ViewBag.Title != null ? string.Format("{0} | ", ViewBag.Title) : string.Empty)Sprites</title>
+<meta name="robots" content="noindex, nofollow" />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="shortcut icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+<link rel="icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+
+@Styles.Render("~/css/normalize")
+@Styles.Render("~/css/app")
+@Styles.Render("~/css/embed")
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/github")?theme=@Server.UrlEncode(Ifly.Layout.ThemeSource.GetThemeUrlFromRequest(HttpContext.Current.Request))" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/user")" />

@@ -1,0 +1,136 @@
+﻿@model Ifly.Web.Editor.Models.PresentationDisplayModel
+@{
+    Layout = null;
+}
+
+(function () {
+    /* Credits - Prototype.js */
+    function getDimensions(element) {
+        var ret = null,
+            style = null,
+            newStyles = null,
+            originalStyles = null,
+            display = element.style.display,
+            setStyle = function (e, s) {
+                for (var p in s) {
+                    e.style[p] = s[p];
+                }
+            };
+
+        if (display && display !== 'none') {
+            return { width: element.offsetWidth, height: element.offsetHeight };
+        }
+
+        style = element.style;
+
+        originalStyles = {
+            visibility: style.visibility,
+            position: style.position,
+            display: style.display
+        };
+
+        newStyles = {
+            visibility: 'hidden',
+            display: 'block'
+        };
+
+        if (originalStyles.position !== 'fixed')
+            newStyles.position = 'absolute';
+
+        setStyle(element, newStyles);
+
+        ret = {
+            width: element.offsetWidth,
+            height: element.offsetHeight
+        };
+
+        setStyle(element, originalStyles);
+
+        return ret;
+    }
+
+    function getParent(element) {
+        return element.parentNode || element.parentElement;
+    }
+
+    function subscribe(element, eventName, callback) {
+        if (element.addEventListener) {
+            element.addEventListener(eventName, callback);
+        } else if (element.attachEvent) {
+            element.attachEvent('on' + eventName, callback);
+        }
+    }
+
+    function updateDimensions(iframe, parent) {
+        var w = 0,
+            h = 0,
+            p = null,
+            d = null;
+
+        if (!iframe) {
+            iframe = document.getElementById('@Model.PresentationUrl');
+        }
+
+        p = parent || getParent(iframe);
+        d = getDimensions(p);
+
+        w = d.width;
+        h = parseInt(w / 5 * 3);
+
+        iframe.width = w;
+        iframe.height = h;
+    }
+
+    var w = 0,
+        h = 0,
+        pw = 0,
+        ph = 0,
+        p = null,
+        d = null,
+        ref = null,
+        iframe = null,
+        pUrl = '@Model.PresentationUrl',
+        pUrlQuery = '@Model.PresentationUrlQuery',
+        scripts = document.getElementsByTagName('script');
+
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src == pUrl) {
+            ref = scripts[i];
+            break;
+        }
+    }
+
+    if (!ref) {
+        for (var i = 0; i < scripts.length; i++) {
+            if (scripts[i].src.indexOf(pUrl) == 0) {
+                ref = scripts[i];
+                break;
+            }
+        }
+    }
+
+    if (ref) {
+        p = getParent(ref);
+
+        iframe = document.createElement('iframe');
+
+        updateDimensions(iframe, p);
+
+        iframe.frameBorder = 0;
+        iframe.src = pUrl + (pUrlQuery && pUrlQuery.length ? ('?' + pUrlQuery) : '');
+        iframe.className = 'sprites-embedded';
+        iframe.id = 'sprites_@Model.PresentationId';
+        iframe.setAttribute('data-id', '@Model.PresentationId');
+
+        if (ref.nextSibling) {
+            document.body.insertBefore(iframe, ref.nextSibling);
+        } else {
+            p.appendChild(iframe);
+        }
+
+        p.removeChild(ref);
+
+        subscribe(window, 'resize', function() { updateDimensions(iframe); });
+    }
+})();
+

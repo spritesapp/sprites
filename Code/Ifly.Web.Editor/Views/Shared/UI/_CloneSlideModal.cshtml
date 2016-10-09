@@ -1,0 +1,36 @@
+﻿<div id="clone-slide-modal" title="@Ifly.Resources.Editor.CloneSlide" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <label for="clone-slide-title">@(Ifly.Resources.Editor.CloneSlide_Title):</label>
+            <input id="clone-slide-title" type="text" data-bind="value: title, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }, event: { keyup: function (data, event) { return $parent.onKeyPress(event); } }" />
+        </div>
+
+        <div data-bind="visible: !showTargetPresentationDropDown() || existingPresentations().length == 0">
+            <label>&nbsp;</label>
+            <a href="javascript:void(0);" data-bind="click: function () { $data.showTargetPresentationDropDown(true); }" class="target-presentation-activator">@Ifly.Resources.Editor.CopyToDifferentInfographic</a>
+        </div>
+
+        <div data-bind="visible: showTargetPresentationDropDown" class="no-overflow">
+            <label>@(Ifly.Resources.Editor.TargetPresentation):</label>
+            <div class="dropdown" tabindex="0" id="clone-target-presentation" data-bind="attr: { disabled: !$parent.enabled() }">
+                <span class="dropdown-arrow icon-angle-down"></span>
+                <span class="dropdown-active" data-bind="text: targetInfographicTitle"></span>
+                <div class="dropdown-menu">
+                    <ul data-bind="foreach: existingPresentations">
+                        <li data-bind="css: { 'active': (id == $parent.targetPresentationId()) }, text: name, click: function (data, e) { $parent.onPresentationSelected(data, e); }"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('CloneSlideModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            saving: '@Ifly.Resources.Editor.Saving',
+            cancel: '@Ifly.Resources.Editor.Cancel'
+        }
+    });
+</script>

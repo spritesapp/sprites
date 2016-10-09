@@ -1,0 +1,36 @@
+﻿@{
+    var id = ViewData.Eval("Id") != null ? ViewData.Eval("Id").ToString() : null;
+
+    var bindingExpression = ViewData.Eval("BindingExpression") != null ?
+        ViewData.Eval("BindingExpression").ToString() : "with: $data";
+
+    var label = ViewData.Eval("Label") != null ? ViewData.Eval("Label").ToString() : null;
+    
+    var preview = ViewData.Eval("Preview") != null ? (bool)ViewData.Eval("Preview") : false;
+}
+
+<div id="@id" class="image-selector" data-bind="@bindingExpression">
+    @if (label != null)
+    {
+        <label>@(label):</label>
+    }
+
+    <a class="image-link" href="javascript:void(0);" data-bind="click: selectImage">
+        <span data-bind="visible: !imageSelected()">@Ifly.Resources.Editor.BackgroundImage_Auto</span>
+        <span data-bind="visible: imageSelected">@Ifly.Resources.Editor.ChooseDifferentBackgroundImage</span>
+    </a>
+    <button class="dimmed icon-remove image-remove" title="@Ifly.Resources.Editor.ClearImage" data-bind="visible: imageSelected, click: clearImage"></button>
+
+    @if (preview)
+    {
+        <button class="dimmed icon-info image-preview" data-bind="visible: imageSelected, event: { mouseenter: function (data, e) { $data.onShowImagePreview(e); }, mouseleave: function () { $data.onHideImagePreview(); } }"></button>
+    }
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ImageSelector', {
+        terminology: {
+            preview: '@Ifly.Resources.Editor.ImageSelector_Preview'
+        }
+    });
+</script>

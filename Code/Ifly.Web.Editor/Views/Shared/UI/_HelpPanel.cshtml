@@ -1,0 +1,110 @@
+﻿<div class="help-panel-media-viewer" data-bind="css: { 'visible': help.panel.mediaViewer.isOpen, 'closing': help.panel.mediaViewer.isOpen.closing }, click: function (data, e) { help.panel.mediaViewer.onClick(e); }">
+    <div class="help-panel-media-viewer-inner" data-bind="with: help.panel.mediaViewer">
+        <a class="viewer-close" title="@Ifly.Resources.Editor.Close" href="javascript:void(0);" data-bind="click: function () { $data.close(); }"><i class="icon icon-remove"></i></a>
+
+        <div class="viewer-box" data-bind="with: selectedItem, css: { 'changing': selectedItem.isChanging, 'changing-started': selectedItem.isChanging.started }">
+            <img class="viewer-box-image" data-bind="attr: { 'src': url }" alt="" />
+        </div>
+    </div>
+</div>
+
+<div class="help-panel" style="display: none" data-bind="visible: help.panel.isOpen, css: { 'visible': help.panel.isOpen }">
+    <div class="help-panel-inner" data-bind="with: help.panel">
+        <div class="help-panel-heading" data-bind="visible: !isRendering()">
+            <span class="icon-cover"></span>
+            <i class="icon icon-question-sign"></i>
+
+            <h3>@Ifly.Resources.Editor.HelpCenter</h3>
+        </div>
+        <div class="help-panel-content" data-bind="visible: !isRendering()">
+            <div class="search-box-wrapper">
+                <i class="icon icon-search" data-bind="click: function (data, e) { $(e.target).next('input').focus(); }"></i>
+                <input type="text" autocomplete="off" spellcheck="false" placeholder="@Ifly.Resources.Editor.SearchTopics" data-bind="attr: { 'disabled': isLoadingView.progress() || isLoadingSearchResults() }, value: searchTerm, valueUpdate: 'afterkeydown', event: { keyup: function (data, e) { if ((e.keyCode || e.charCode || e.which) == 13) { $data.search($data.searchTerm()); e.preventDefault(); } } }" />
+                <button data-bind="css: { 'showing': searchTerm() && searchTerm().length }, click: function () { $data.search($data.searchTerm()); }, attr: { 'disabled': isLoadingSearchResults() }">@Ifly.Resources.Editor.Help_Search</button>
+            </div>
+            <div class="help-panel-content-inner">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="help-content-loading" data-bind="css: { 'showing': isLoadingView.progress }">@Ifly.Resources.Editor.Help_Loading</div>
+                        <div data-bind="visible: !isLoadingView()">
+                            <div class="view-welcome help-view showing">
+                                <h3>@Ifly.Resources.Editor.Help_Welcome</h3>
+                                <p>@Ifly.Resources.Editor.Help_Welcome_Description</p>
+                                <h4 class="break-before">@Ifly.Resources.Editor.Help_GettingStarted</h4>
+                                <ul class="no-break">
+                                    <li>
+                                        <a href="javascript:void(0);" data-bind="click: function() { $data.loadTopic('presentations_create'); }">
+                                            @Ifly.Resources.Editor.Help_CreatingNewInfographic
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" data-bind="click: function() { $data.loadTopic('slides_list'); }">
+                                            @Ifly.Resources.Editor.Help_ManagingSlides
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" data-bind="click: function() { $data.loadTopic('elements_gallery'); }">
+                                            @Ifly.Resources.Editor.Help_ExploringBuildingBlocks
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" data-bind="click: function() { $data.loadTopic('presentations_publish'); }">
+                                            @Ifly.Resources.Editor.Help_PublishingYourInfographic
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p class="break-before">
+                                    @Html.Raw(Ifly.Resources.Editor.Help_CheckIndex)
+                                </p>
+                                <p class="break-before">@Ifly.Resources.Editor.Help_Thanks</p>
+                            </div>
+
+                            <div class="view-topic help-view" style="display: none">
+                                <div class="no-topic-found" data-bind="visible: !selectedTopic.exists()">
+                                    <h3>@Ifly.Resources.Editor.Help_NoTopic</h3>
+                                    @Html.Raw(Ifly.Resources.Editor.Help_NoTopic_Description)
+                                </div>
+
+                                <div data-bind="with: selectedTopic, visible: selectedTopic.exists">
+                                    <h3 data-bind="text: title"></h3>
+                                    <div data-bind="html: body.html, attr: { 'class': 'topic-' + referenceKey() }"></div>
+                                    <div class="media-items-wrapper" data-bind="visible: $parent.mediaViewer.items().length > 0">
+                                        <h3>@(Ifly.Resources.Editor.Help_RelatedImages):</h3>
+                                        <ul class="media-items-list">
+                                            <li data-bind="foreach: $parent.mediaViewer.items">
+                                                <a title="@Ifly.Resources.Editor.Help_ClickToView" data-bind="click: function () { $parents[1].mediaViewer.selectItem($data); }, attr: { 'style': 'background-image: url(' + url() + ')' }"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="view-navigation">
+                                    <p>@Html.Raw(Ifly.Resources.Editor.Help_EmailUs)</p>
+                                    <a href="javascript:void(0);" data-bind="click: function () { $data.goBack(); }">&laquo;&nbsp;@Ifly.Resources.Editor.Help_GoBack</a>
+                                    <a href="javascript:void(0);" data-bind="click: function () { $data.goHome(); }">@Ifly.Resources.Editor.Help_GoHome</a>
+                                </div>
+                            </div>
+
+                            <div class="view-search help-view" style="display: none">
+                                <ul class="help-search-results-list" data-bind="visible: searchResults().length > 0">
+                                    <li data-bind="foreach: searchResults">
+                                        <h3><a href="javascript:void(0);" data-bind="click: function (data) { $parent.loadTopic(data.topicReferenceKey()); }, text: title"></a></h3>
+                                        <p data-bind="html: summary.html"></p>
+                                    </li>
+                                </ul>
+                                <div class="help-search-results-empty" data-bind="visible: searchResults().length == 0">
+                                    <h3>@Ifly.Resources.Editor.Help_NoSearchResults</h3>
+                                    @Html.Raw(Ifly.Resources.Editor.Help_NoSearchResults_Description)
+                                </div>
+                                <div class="view-navigation">
+                                    <p>@Html.Raw(Ifly.Resources.Editor.Help_EmailUs)</p>
+                                    <a href="javascript:void(0);" data-bind="click: function () { $data.goBack(); }">&laquo;&nbsp;@Ifly.Resources.Editor.Help_GoBack</a>
+                                    <a href="javascript:void(0);" data-bind="click: function () { $data.goHome(); }">@Ifly.Resources.Editor.Help_GoHome</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

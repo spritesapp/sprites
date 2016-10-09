@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@(ViewBag.Title != null ? string.Format("{0} | Sprites", ViewBag.Title) : Ifly.Resources.Frontpage.Title)</title>
+        <link rel="shortcut icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+        <link rel="icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+        <link rel="alternate" type="application/rss+xml" href="/rss" />
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="@Ifly.Resources.Frontpage.Description" />
+        <meta name="keywords" content="infographic, infographics, presentations, animated infographics, sprites" />
+
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400" type="text/css" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:300" type="text/css" />
+
+        <link rel="apple-touch-icon" href="@Url.Content("~/Assets/img/apple-touch-icons/apple-touch-icon.png")" />
+        <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/Assets/img/apple-touch-icons/apple-touch-icon-76x76.png")" />
+        <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/Assets/img/apple-touch-icons/apple-touch-icon-120x120.png")" />
+        <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/Assets/img/apple-touch-icons/apple-touch-icon-152x152.png")" />
+
+        @Styles.Render("~/css/basic")
+
+        @RenderSection("header", false)
+    </head>
+<body class="@ViewBag.BodyCssClass">
+    <div class="sunset">
+        @Html.Raw(Ifly.Resources.Frontpage.Sunset)
+    </div>
+    <nav class="primary" style="opacity: 0">
+        <div class="logo">
+            <a href="/" title="Sprites">
+                <span class="back"></span>
+                <span class="front"></span>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="/features" onclick="Ifly.App.getInstance().features(); return false;">@Ifly.Resources.Frontpage.About</a>
+            </li>
+            <li class="new-feature">
+                <a href="/video" onclick="Ifly.App.getInstance().video(); return false;">@Ifly.Resources.Frontpage.Video</a>
+            </li>
+            <li>
+                <a href="/examples" onclick="Ifly.App.getInstance().examples(); return false;">@Ifly.Resources.Frontpage.Examples</a>
+            </li>
+            <li>
+                <a href="/pricing" onclick="Ifly.App.getInstance().pricing(); return false;">@Ifly.Resources.Frontpage.Pricing</a>
+            </li>
+            <li>
+                <a href="/testimonials" onclick="Ifly.App.getInstance().testimonials(); return false;">@Ifly.Resources.Frontpage.Testimonials</a>
+            </li>
+            <li>
+                <a href="/contact" onclick="Ifly.App.getInstance().contact(); return false;">@Ifly.Resources.Frontpage.Contact</a>
+            </li>
+            <li>
+                <a href="http://blog.spritesapp.com">@Ifly.Resources.Frontpage.Blog</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="wrapper">
+        <a class="section-next section-top" style="display: none" href="javascript:void(0);" onclick="Ifly.App.getInstance().scrollToTop();">@Ifly.Resources.Frontpage.Up</a>
+        @RenderBody()
+    </div>
+
+    <div id="footer" class="section">
+        <small class="legal">
+            <a style="display: none" class="stt-activator" href="javascript:void(0);" onclick="Ifly.App.getInstance().scrollToSection();">
+                <i class="icon icon-chevron-up"></i>
+                <span>@Ifly.Resources.Frontpage.ScrollToTop</span>
+            </a>
+            <span style="display: none" class="stt-separator">|</span>
+            <a href="/tos">@Ifly.Resources.Frontpage.TermsOfService</a>
+            <span>|</span>
+            <a href="/privacy">@Ifly.Resources.Frontpage.PrivacyPolicy</a>
+        </small>
+        <small class="copyright">&copy; 2015 Sprites</small>
+
+        <ul class="social">
+            <li style="display: none" class="newsletter-subscribe form">
+                <div class="row">
+                    <label for="newsletter-email">@(Ifly.Resources.Frontpage.SubscribeToNewsletter):</label>
+                    <input id="newsletter-email" autocomplete="off" spellcheck="false" type="text" class="form-field" placeholder="@Ifly.Resources.Frontpage.YourEmailSubscribe" />
+                    <button id="newsletter-subscribe" class="form-button" data-text-normal="@Ifly.Resources.Frontpage.Subscribe" data-text-success="@Ifly.Resources.Frontpage.Subscribed"><i class="icon icon-envelope"></i><span>@Ifly.Resources.Frontpage.Subscribe</span></button>
+                </div>
+            </li>
+            <li><a class="icon-pencil" href="http://blog.spritesapp.com" title="@Ifly.Resources.Frontpage.Social_Blog"></a></li>
+            <li><a class="icon-facebook" href="https://www.facebook.com/spritesapp" title="@Ifly.Resources.Frontpage.Social_Facebook"></a></li>
+            <li><a class="icon-twitter" href="https://www.twitter.com/spritesapp" title="@Ifly.Resources.Frontpage.Social_Twitter"></a></li>
+        </ul>
+    </div>
+
+    @RenderSection("footer", false)
+
+    <div id="cookie-warning">
+        <div class="cookie-warning-inner">
+            <span>
+                @Html.Raw(Ifly.Resources.Frontpage.WeUseCookies)
+                <button class="icon icon-ok" title="@Ifly.Resources.Frontpage.WeUseCookies_Dismiss" onclick="Ifly.App.getInstance().acknowledgeCookieWarning();"></button>
+            </span>
+        </div>
+    </div>
+
+    <div id="global-info-bar" class="global-info-bar">
+        <div class="global-info-bar-inner">
+            <span>
+                <i class="global-info-bar-text"></i>
+                <button class="icon icon-remove" title="@Ifly.Resources.Frontpage.Close" onclick="Ifly.App.getInstance().hideInfoBar();"></button>
+            </span>
+        </div>
+    </div>
+
+    @Html.Partial("_Login")
+    @Html.Partial("_Video")
+
+    @if (string.Compare(Request.Path.Trim('/'), "account", true) != 0)
+    {
+        @Html.Partial("_SignUp")
+    }
+    else
+    {
+        @Html.Partial("_PaymentMethodModal")
+        @Html.Partial("_FeedbackModal")
+    }
+
+    <div class="modal-overlay"></div>
+</body>
+
+
+
+    @Scripts.Render("~/js/basic")
+    @Scripts.Render("~/js/views/account")
+
+    <script>
+        Ifly.App.getInstance().initialize();
+    </script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46764627-1', 'spritesapp.com');
+        ga('send', 'pageview');
+    </script>
+
+    @RenderSection("scripts", false)
+</html>

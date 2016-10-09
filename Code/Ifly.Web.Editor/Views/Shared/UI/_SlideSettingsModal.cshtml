@@ -1,0 +1,69 @@
+﻿<div id="slide-settings" title="@Ifly.Resources.Editor.EditSlide" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <label for="slide-title">@(Ifly.Resources.Editor.SlideTitle):</label>
+            <input id="slide-title" type="text" data-bind="value: title, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }, event: { keyup: function (data, event) { return $parent.onKeyPress(event); } }" />
+        </div>
+
+        <div data-bind="visible: useDescription">
+            <label for="slide-description">@(Ifly.Resources.Editor.SlideDescription):</label>
+            <textarea id="slide-description" data-bind="value: description, attr: { disabled: !$parent.enabled() }"></textarea>
+        </div>
+
+        @if (Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic)
+        {
+        <div class="no-overflow" data-bind="visible: id() <= 0">
+            <label>@(Ifly.Resources.Editor.SlideTemplate):</label>
+            @Html.Partial("UI/_TemplateSelector")
+        </div>
+        }
+
+        <div data-bind="visible: !showPlaybackSettings()">
+            <label>&nbsp;</label>
+            <a href="javascript:void(0);" data-bind="click: function () { $data.showPlaybackSettings(true); }" class="playback-settings-activator">@Ifly.Resources.Editor.PlaybackSettings</a>
+        </div>
+
+        <div data-bind="visible: showPlaybackSettings">
+            <label for="slide-playback-time">@(Ifly.Resources.Editor.PlaybackTime):</label>
+            <input id="slide-playback-time" class="slide-playback-time" type="text" placeholder="10.0" data-bind="number: { value: playbackTime, allowFloatingPoint: true, minimum: 1, maximum: 30 }, attr: { disabled: !$parent.enabled() }, event: { keyup: function (data, event) { return $parent.onKeyPress(event); } }" />
+            <span class="dimmed">@Ifly.Resources.Editor.Seconds</span>
+        </div>
+
+        <button class="slide-clone-button" data-bind="visible: !isNew(), click: beginCloneSlide, tooltip: { text: '@Ifly.Resources.Editor.Help_CloneSlide', title: '@Ifly.Resources.Editor.CloneSlide', icon: 'copy' }">
+            <i class="icon-copy"></i><span>@Ifly.Resources.Editor.Clone</span>
+        </button>
+    </div>
+</div>
+
+<div id="slide-delete" class="warning" title="@Ifly.Resources.Editor.DeleteSlide" style="display: none">
+    <center>
+        @Ifly.Resources.Editor.DeleteSlide_Confirm
+    </center>
+</div>
+
+<div id="element-delete" class="warning" title="@Ifly.Resources.Editor.DeleteElement" style="display: none">
+    <center>
+        @Ifly.Resources.Editor.DeleteElement_Confirm
+    </center>
+</div>
+
+<div id="element-delete-selection" class="warning" title="@Ifly.Resources.Editor.DeleteElements" style="display: none">
+    <center>
+        @Ifly.Resources.Editor.DeleteElements_Confirm
+    </center>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('SlideSettingsModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            saving: '@Ifly.Resources.Editor.Saving',
+            newSlide: '@Ifly.Resources.Editor.NewSlide',
+            editSlide: '@Ifly.Resources.Editor.EditSlide',
+            deleteSlide: '@Ifly.Resources.Editor.DeleteSlide',
+            deleteElement: '@Ifly.Resources.Editor.DeleteElement',
+            deleteElements: '@Ifly.Resources.Editor.DeleteElements'
+        }
+    });
+</script>

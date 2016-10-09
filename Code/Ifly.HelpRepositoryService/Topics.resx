@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="elements_gallery" xml:space="preserve">
+    <value />
+  </data>
+  <data name="index" xml:space="preserve">
+    <value># Table of contents
+
+- [Managing infographics](#presentations.manage)
+    - [Creating new infographic](#presentations.create)
+    - [Updating infographic settings](#presentations.edit)
+    - [Cloning an infographic](#presentations.clone)
+    - [Sharing an inographic](#presentations.share)
+    - [Archiving an infographic](#presentations.arhive)
+- [Styling an infographic](#styling)
+    - [Using themes](#styling.themes)
+    - [Creating new theme with Sprites](#styling.themes.wizard)
+    - [Uploading theme file](#styling.themes.css)
+- [Managing slides](#slides.manage)
+    - [Creating new slide](#slides.create)
+    - [Updating slide settings](#slides.edit)
+    - [Reordering slides](#slides.reorder)
+    - [Cloning a slide](#slides.clone)
+    - [Deleting a slide](#slides.delete)
+- [Exploring building blocks](#elements.gallery)
+    - ["Text" element](#elements.text)
+    - ["Fact" element](#elements.fact)
+    - ["Image" element](#elements.image)
+    - ["Figure" element](#elements.figure)
+    - ["Map" element](#elements.map)
+    - ["Chart" element](#elements.chart)
+    - ["Table" element](#elements.table)
+    - ["Line" element](#elements.line)
+    - ["Bars" element](#elements.bars)
+    - ["Callout" element](#elements.callout)
+    - ["Events" element](#elements.events)
+    - ["Widget" element](#elements.widge)
+- [Working with canvas](#canvas.manage)
+    - [Moving elements around](#elements.move)
+    - [Locking an element](#elements.lock)
+    - [Copying/pasting elements](#elements.copy)
+    - [Deleting an element](#elements.delete)
+    - [Using gridlines](#gridlines)
+    - [Using keyboard shortcuts](#shortcuts)
+- [Publishing an infographic](#presentations.publish)
+    - [Password protection](#publish.password)
+    - [Website/blog embedding](#publish.embed)
+    - [Presenting on a large screen](#publish.present)
+    - [Downloading infographic as image](#publish.image)
+    - [Exporting infographic to a video](#publish.video)
+        - [Uploading an audio file](#publish.video.audio)
+        - [Adding voice-over](#publish.video.voice)
+        - [Publishing to YouTube/Facebook](#publish.video.upload)
+- [Advanced features](#advanced)
+    - [Data import](#import)
+        - [Data import using Google Sheets](#import.google)
+        - [Data import using Excel/CSV file](#import.excel)
+        - [Data import using Web URL](#import.url)
+    - [Live data feeds](#live)
+        - [Live data using Google Sheets](#live.google)
+        - [Live data using Excel/CSV file](#live.excel)
+        - [Live data using Web URL](#live.url)
+    - [Media library](#media)
+    - [Real-time team collaboration](#realtime)
+    - [Adding custom elements](#extensibility.elements)
+- [My account](#account)
+    - [Accessing my account](#account.page)
+    - [Switching between plans](#account.plans)
+    - [Cancelling my account](#account.cancel)</value>
+  </data>
+  <data name="presentations_clone" xml:space="preserve">
+    <value># Cloning an infographic
+
+Cloning an existing infographic will copy all the slides, elements and settings into a new infographic with the different name. The new infographic will also have a different URL so that you can publish and share it independently of the original.
+
+To clone an infographic open its [Settings](#presentations.edit) and click the little "Clone" link in the top right corner of the modal window. Clicking that link will bring up another window, which allows you to specify the following:
+
+- **New title** The title of the new infographic. 
+
+When you're ready, click the **Save** button to kick in the cloning process. When it's done, Sprites will reload presenting you with the newly cloned infographic.
+
+Please note that when cloning an infographic, [collaborators](#presentations.share) will not be copied over.
+
+Related images and videos:
+
+- 1.png
+- 2.png</value>
+  </data>
+  <data name="presentations_create" xml:space="preserve">
+    <value># Creating new infographic
+
+When you log into Sprites for the first time, you are presented with the modal dialog asking you to create your first infographic. Creating an infographic only requires a couple of things:
+
+- **Title** This is how your infographic will be named. People will be able to see this name when they open your infographic for viewing. The title can be changed at any time via [Settings](#presentations.edit) screen.
+- **Theme** This allows you to pick a distinctive design for your new infographic. You can either choose from the list of pre-defined designs or you can define your own (either via [creating it in Sprites](#themes.create) or by [uploading it manually](#themes.upload)). The theme can be [changed at any time](#presentations.edit) as well.
+- **Recently created** If this shows up, it displays your most recent infographics so you can pick one for editing rather than creating a new one.
+
+When you're happy with title and theme for your new infographic, press **Create infographic** button to get started.</value>
+  </data>
+  <data name="presentations_edit" xml:space="preserve">
+    <value># Updating infographic settings
+
+Changing settings of an existing infographic is done by [opening it](#presentations.manage) and choosing "Settings" in the main navigation pane (left-hand side). A modal window that pops up offers the following to be changed:
+
+- **Title** This allows you to change the public name of your infographic.
+- **Theme** You can change a [visual theme](#styling) of your infographic without affecting your data (you may need to tweak the placements of certain elements though).
+- **Background** This allows you to customize the background image that will be shown on each slide. Note that this image can always be overruled by [individual slides](#slides.edit).
+
+You can also [clone](#presentations.clone) a currently open infographic from this modal window.
+
+Related images and videos:
+
+- 1.png</value>
+  </data>
+  <data name="presentations_manage" xml:space="preserve">
+    <value># Managing infographics
+
+With Sprites, you can create as many infographics as you want. All your infographics are private unless you [publish them](#presentations.publish) or share the URL with other people. 
+
+Your infographics are available under "My account" menu (a button with your name and a small "persona" icon at top right corner of the Sprites editor window). The list can be divided into three sections:
+
+- **Your infographics** The content created by you.
+- **Shared infographics** The content that was [shared](#presentations.share) with you by other Sprites users.
+- **Archived infographics** The content that you chose to [hide](#presentations.arhive) from the first list.
+
+Related images and videos:
+
+- 1.png</value>
+  </data>
+  <data name="presentations_publish" xml:space="preserve">
+    <value />
+  </data>
+  <data name="slides_create" xml:space="preserve">
+    <value />
+  </data>
+  <data name="slides_edit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="slides_manage" xml:space="preserve">
+    <value />
+  </data>
+</root>

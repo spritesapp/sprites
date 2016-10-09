@@ -1,0 +1,930 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Sprites is a free tool for creating beautiful animated infographics for the Web.</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Feedback_Body" xml:space="preserve">
+    <value>You can send us your comments, feature requests or bug reports (check out our &lt;a href="http://spritesapp.uservoice.com"&gt;support page&lt;/a&gt; and &lt;a href="http://blog.spritesapp.com"&gt;blog&lt;/a&gt; as well). We appreciate all the feedback and will gladly answer every email. Thank you!</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="Headline" xml:space="preserve">
+    <value>Beautiful animated infographics and online presentations. Quick and easy.</value>
+  </data>
+  <data name="MessageSent" xml:space="preserve">
+    <value>Message sent!</value>
+  </data>
+  <data name="Pitch_1" xml:space="preserve">
+    <value>Easy to Use</value>
+  </data>
+  <data name="Pitch_1_Description" xml:space="preserve">
+    <value>With a good set of visual elements and built-in themes composing your infographic becomes super-easy.</value>
+  </data>
+  <data name="Pitch_2" xml:space="preserve">
+    <value>Free and Open</value>
+  </data>
+  <data name="Pitch_2_Description" xml:space="preserve">
+    <value>The basic version of Sprites is absolutely free for everybody and all infographics are released under Creative Commons license.</value>
+  </data>
+  <data name="Pitch_3" xml:space="preserve">
+    <value>Embracing the Web</value>
+  </data>
+  <data name="Pitch_3_Description" xml:space="preserve">
+    <value>Everything in Sprites is 100% HTML5-based and plugin-free. There's no Flash or any other proprietary technology used.</value>
+  </data>
+  <data name="Pitch_4" xml:space="preserve">
+    <value>Fully Scalable</value>
+  </data>
+  <data name="Pitch_4_Description" xml:space="preserve">
+    <value>Sprites infographics utilize the newest responsive design techniques and should look good on pretty much any device.</value>
+  </data>
+  <data name="Pitch_5" xml:space="preserve">
+    <value>Mobile-Ready</value>
+  </data>
+  <data name="Pitch_5_Description" xml:space="preserve">
+    <value>We try to make Sprites infographics shine on as many platforms as possible. You can already try it on your iPhone and iPad.</value>
+  </data>
+  <data name="Pitch_6" xml:space="preserve">
+    <value>Developer-Friendly</value>
+  </data>
+  <data name="Pitch_6_Description" xml:space="preserve">
+    <value>The JavaScript SDK plus the guidelines on making your own themes are available at &lt;a href="https://github.com/spritesapp"&gt;github.com/spritesapp&lt;/a&gt;.</value>
+  </data>
+  <data name="PleaseSignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SendingMessage" xml:space="preserve">
+    <value>Sending...</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send messsage</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Show more</value>
+  </data>
+  <data name="SignIn_Demo" xml:space="preserve">
+    <value>Try out demo version</value>
+  </data>
+  <data name="SignIn_Facebook" xml:space="preserve">
+    <value>Sign in with Facebook</value>
+  </data>
+  <data name="SignIn_Google" xml:space="preserve">
+    <value>Sign in with Google</value>
+  </data>
+  <data name="SignIn_Twitter" xml:space="preserve">
+    <value>Sign in with Twitter</value>
+  </data>
+  <data name="Title_Share" xml:space="preserve">
+    <value>Sprites - beautiful infographics.</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Scroll up</value>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>Your email (optional, won't be shared)</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>What would you like to tell us?</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>Our team</value>
+  </data>
+  <data name="Pricing" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="MeetTheTeam" xml:space="preserve">
+    <value>Who we are</value>
+  </data>
+  <data name="OneMoment" xml:space="preserve">
+    <value>One moment...</value>
+  </data>
+  <data name="Plan_Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Plan_Free_Description" xml:space="preserve">
+    <value>All the basic features</value>
+  </data>
+  <data name="Plan_Free_Figure" xml:space="preserve">
+    <value>$0</value>
+  </data>
+  <data name="Plan_Pro" xml:space="preserve">
+    <value>Pro</value>
+  </data>
+  <data name="Plan_Pro_Feature1" xml:space="preserve">
+    <value>New building blocks</value>
+  </data>
+  <data name="Plan_Pro_Feature2" xml:space="preserve">
+    <value>Rich text editing</value>
+  </data>
+  <data name="Plan_Pro_Feature3" xml:space="preserve">
+    <value>Four new amazing themes</value>
+  </data>
+  <data name="Plan_Pro_Feature4" xml:space="preserve">
+    <value>Ability to upload custom themes</value>
+  </data>
+  <data name="Plan_Pro_Feature5" xml:space="preserve">
+    <value>No Sprites branding</value>
+  </data>
+  <data name="Plan_Pro_Feature6" xml:space="preserve">
+    <value>Infographic statistics</value>
+  </data>
+  <data name="Plan_Pro_Feature7" xml:space="preserve">
+    <value>Google Analytics integration</value>
+  </data>
+  <data name="Plan_Pro_Figure" xml:space="preserve">
+    <value>$3&lt;small&gt;/mo&lt;/small&gt;</value>
+  </data>
+  <data name="SubscriptionPlans" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="Social_Blog" xml:space="preserve">
+    <value>Sprites - Blog</value>
+  </data>
+  <data name="Social_Facebook" xml:space="preserve">
+    <value>Sprites - Facebook</value>
+  </data>
+  <data name="Social_Twitter" xml:space="preserve">
+    <value>Sprites - Twitter</value>
+  </data>
+  <data name="Team_PavelVolgarev" xml:space="preserve">
+    <value>Pavel Volgarev</value>
+  </data>
+  <data name="Team_PavelVolgarev_Roles" xml:space="preserve">
+    <value>Founder/Developer</value>
+  </data>
+  <data name="Team_SayHello" xml:space="preserve">
+    <value>Although we're not currently hiring, you're always welcome to drop us an email and say Hello!</value>
+  </data>
+  <data name="Team_TimofeyVoronov" xml:space="preserve">
+    <value>Timofey Voronov</value>
+  </data>
+  <data name="Team_TimofeyVoronov_Roles" xml:space="preserve">
+    <value>Developer</value>
+  </data>
+  <data name="Team_You" xml:space="preserve">
+    <value>You?</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Terms of service</value>
+  </data>
+  <data name="Account_AccountDetails" xml:space="preserve">
+    <value>Account details</value>
+  </data>
+  <data name="Account_SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Account_YourEmail" xml:space="preserve">
+    <value>Your email</value>
+  </data>
+  <data name="Account_YourEmail_Description" xml:space="preserve">
+    <value>We won't spam you.</value>
+  </data>
+  <data name="Account_YourName" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="Account_YourName_Description" xml:space="preserve">
+    <value>How would you like us to call you?</value>
+  </data>
+  <data name="Account_YourPlan" xml:space="preserve">
+    <value>Your plan</value>
+  </data>
+  <data name="Account_YourPlan_ComparePlans" xml:space="preserve">
+    <value>Compare plans</value>
+  </data>
+  <data name="Account_YourPlan_Description" xml:space="preserve">
+    <value>Choose your plan.</value>
+  </data>
+  <data name="Account_ClickToLogout" xml:space="preserve">
+    <value>Logged in, click to logout</value>
+  </data>
+  <data name="Account_ReturnToEditor" xml:space="preserve">
+    <value>Open editor</value>
+  </data>
+  <data name="Account_Updated" xml:space="preserve">
+    <value>Changes saved!</value>
+  </data>
+  <data name="Account_YourEmail_Required" xml:space="preserve">
+    <value>Please specify your contact email.</value>
+  </data>
+  <data name="Account_YourName_Required" xml:space="preserve">
+    <value>Please tell us your name.</value>
+  </data>
+  <data name="ProBeta" xml:space="preserve">
+    <value>While we're not ready yet to accept payments, the Pro subscription is &lt;strong&gt;free of charge&lt;/strong&gt;!</value>
+  </data>
+  <data name="DemoSignInNote" xml:space="preserve">
+    <value>Note: You won't be able to save your changes or publish your infographic in this mode.</value>
+  </data>
+  <data name="SocialSignIn" xml:space="preserve">
+    <value>Social sign in</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>Examples</value>
+  </data>
+  <data name="ExampleInfographics" xml:space="preserve">
+    <value>Example infographics</value>
+  </data>
+  <data name="Examples_Dxb" xml:space="preserve">
+    <value>Dubai airport</value>
+  </data>
+  <data name="Examples_Dxb_Description" xml:space="preserve">
+    <value>This infographic focuses on the size and capacity of one of the largest airport in the World - Dubai International (DXB).</value>
+  </data>
+  <data name="Examples_Sleep" xml:space="preserve">
+    <value>Facts about sleep</value>
+  </data>
+  <data name="Examples_Sleep_Description" xml:space="preserve">
+    <value>Find out how much sleep is enough (and how much is not),  which country gets most sleep and other interesting facts.</value>
+  </data>
+  <data name="LearnHowTo" xml:space="preserve">
+    <value>Learn how to create infographics here: &lt;a href="http://blog.spritesapp.com/2014/05/21/creating-your-first-infographic.html"&gt;Creating your first infographic&lt;/a&gt;</value>
+  </data>
+  <data name="Examples_Internet" xml:space="preserve">
+    <value>Time on Internet</value>
+  </data>
+  <data name="Examples_Internet_Description" xml:space="preserve">
+    <value>Let's see how much time people spend on Internet and how quickly this medium has grown over the recent years.</value>
+  </data>
+  <data name="Examples_Widgets" xml:space="preserve">
+    <value>The power of widgets</value>
+  </data>
+  <data name="Examples_Widgets_Description" xml:space="preserve">
+    <value>This quick example demonstrates some of the cool things you can do by using widgets in your infographics.</value>
+  </data>
+  <data name="WeUseCookies" xml:space="preserve">
+    <value>Hi there! Just so you know, we use cookies. &lt;a href="/privacy"&gt;Learn more&lt;/a&gt;</value>
+  </data>
+  <data name="WeUseCookies_Dismiss" xml:space="preserve">
+    <value>Acknowledge and dismiss</value>
+  </data>
+  <data name="Plan_Pro_Feature8" xml:space="preserve">
+    <value>Download infographic as an image</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Create infographics and online presentations | Sprites</value>
+  </data>
+  <data name="Account_YourPassword" xml:space="preserve">
+    <value>Your password</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Email_PasswordReset_Body" xml:space="preserve">
+    <value>&lt;div style="border:none;margin:0;padding:50px;background-color:#f4f4f4;font-family:Verdana;font-size:13px;font-color:#333333;"&gt;&lt;table style="border:1px solid #c3c3c3;margin:0 auto;padding:0;background-color:#fff;width:500px;display:block;"&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-bottom:0;padding-top: 20px;"&gt;&lt;a href="https://spritesapp.com"&gt;&lt;img src="https://spritesapp.com/assets/img/sprites-email-header.jpg" style="width:120px;height:68px;border:none;margin:0;padding:0;" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-top:0;"&gt;&lt;div style="height:1px;background-color:#dddddd;margin:0;padding:0;"&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;"&gt;&lt;h1 style="color:#333333;font-size:22px;font-weight:normal;display:block;padding:0;margin:0;"&gt;Hello there!&lt;/h1&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;"&gt;&lt;p style="font-size:14px;margin:0;padding:0;line-height:150%;"&gt;Somebody (maybe you) has requested a password reset for your Sprites account. If this was you, click "Reset password" below to reset your password:&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;"&gt;&lt;a href="{0}" style="display:block;width:200px;background-color:#EB6841;color:#fff;padding:10px 0;text-decoration:none;text-align:center;margin:0 auto;"&gt;Reset password&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;padding-bottom: 20px;"&gt;&lt;p style="margin:0;padding:0;line-height:150%;color:#7B7B7B;font-size:10px;"&gt;All the best,&lt;br /&gt;&lt;a href="mailto:pavel.volgarev@spritesapp.com" style="text-decoration:none;color:#7B7B7B;"&gt;Pavel Volgarev (Sprites).&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Email_PasswordReset_Subject" xml:space="preserve">
+    <value>Sprites password reset</value>
+  </data>
+  <data name="NormalSignIn" xml:space="preserve">
+    <value>Normal sign in</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Create Sprites account</value>
+  </data>
+  <data name="Account_YourPassword_Description" xml:space="preserve">
+    <value>Choose your new password.</value>
+  </data>
+  <data name="Account_YourPassword_Required" xml:space="preserve">
+    <value>Please specify the password.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewAccount" xml:space="preserve">
+    <value>New account</value>
+  </data>
+  <data name="Account_YourEmail_Exists" xml:space="preserve">
+    <value>This email is already in use.</value>
+  </data>
+  <data name="Account_YourPasswordChange_Description" xml:space="preserve">
+    <value>Change your password</value>
+  </data>
+  <data name="CheckYourEmail" xml:space="preserve">
+    <value>Check your inbox!</value>
+  </data>
+  <data name="Email_ValidateEmail_Body" xml:space="preserve">
+    <value>&lt;div style="border:none;margin:0;padding:50px;background-color:#f4f4f4;font-family:Verdana;font-size:13px;font-color:#333333;"&gt;&lt;table style="border:1px solid #c3c3c3;margin:0 auto;padding:0;background-color:#fff;width:500px;display:block;"&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-bottom:0;padding-top: 20px;"&gt;&lt;a href="https://spritesapp.com"&gt;&lt;img src="https://spritesapp.com/assets/img/sprites-email-header.jpg" style="width:120px;height:68px;border:none;margin:0;padding:0;" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-top:0;"&gt;&lt;div style="height:1px;background-color:#dddddd;margin:0;padding:0;"&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;"&gt;&lt;h1 style="color:#333333;font-size:22px;font-weight:normal;display:block;padding:0;margin:0;"&gt;Welcome!&lt;/h1&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;"&gt;&lt;p style="margin:0;padding:0;line-height:150%;"&gt;Hello and welcome to Sprites! To complete the sign-up, we just need to verify your email. Click "Verify email" below to do so:&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center"&gt;&lt;a href="{0}" style="display:block;width:200px;background-color:#EB6841;color:#fff;padding:10px 0;text-decoration:none;text-align:center;margin:0 auto;"&gt;Verify email&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;padding-bottom: 20px;"&gt;&lt;p style="margin:0;padding:0;line-height:150%;color:#7B7B7B;font-size:10px;"&gt;All the best,&lt;br /&gt;&lt;a href="mailto:pavel.volgarev@spritesapp.com" style="text-decoration:none;color:#7B7B7B;"&gt;Pavel Volgarev (Sprites).&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Email_ValidateEmail_Subject" xml:space="preserve">
+    <value>Sprites account confirmation</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SignUp_Success" xml:space="preserve">
+    <value>Almost finished...</value>
+  </data>
+  <data name="SignUp_Success_Description" xml:space="preserve">
+    <value>You're almost there! We've just sent you an email with the link to verify your account. </value>
+  </data>
+  <data name="NewsAndUpdates" xml:space="preserve">
+    <value>News and updates</value>
+  </data>
+  <data name="News_Blog" xml:space="preserve">
+    <value>Latest blog posts</value>
+  </data>
+  <data name="News_Twitter" xml:space="preserve">
+    <value>Latest tweets</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="PaymentHistory" xml:space="preserve">
+    <value>Payment history</value>
+  </data>
+  <data name="PaymentHistory_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="PaymentHistory_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="PaymentHistory_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="PaymentHistory_DownloadReceipt" xml:space="preserve">
+    <value>Download receipt</value>
+  </data>
+  <data name="PaymentHistory_Empty" xml:space="preserve">
+    <value>No payments have been made so far.</value>
+  </data>
+  <data name="PaymentHistory_Receipt" xml:space="preserve">
+    <value>Receipt</value>
+  </data>
+  <data name="OrWatchTheVideo" xml:space="preserve">
+    <value>Or watch the video</value>
+  </data>
+  <data name="WelcomeToSprites" xml:space="preserve">
+    <value>Welcome to Sprites</value>
+  </data>
+  <data name="Email_SubscriptionExpiring_Body" xml:space="preserve">
+    <value>&lt;div style="border:none;margin:0;padding:50px;background-color:#f4f4f4;font-family:Verdana;font-size:13px;font-color:#333333;"&gt;&lt;table style="border:1px solid #c3c3c3;margin:0 auto;padding:0;background-color:#fff;width:500px;display:block;"&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-bottom:0;padding-top: 20px;"&gt;&lt;a href="https://spritesapp.com"&gt;&lt;img src="https://spritesapp.com/assets/img/sprites-email-header.jpg" style="width:120px;height:68px;border:none;margin:0;padding:0;" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-top:0;"&gt;&lt;div style="height:1px;background-color:#dddddd;margin:0;padding:0;"&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;"&gt;&lt;h1 style="color:#333333;font-size:22px;font-weight:normal;display:block;padding:0;margin:0;"&gt;Hello there!&lt;/h1&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;"&gt;&lt;p style="font-size:14px;margin:0;padding:0;line-height:150%;"&gt;Just so you know, your Sprites subscription for &lt;b&gt;{0}&lt;/b&gt; is about to expire soon. If you wish to continue using all the features, click "Go to my account" below and submit a new payment.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;"&gt;&lt;a href="https://spritesapp.com/account" style="display:block;width:200px;background-color:#EB6841;color:#fff;padding:10px 0;text-decoration:none;text-align:center;margin:0 auto;"&gt;Go to my account&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;padding-bottom: 20px;"&gt;&lt;p style="margin:0;padding:0;line-height:150%;color:#7B7B7B;font-size:10px;"&gt;All the best,&lt;br /&gt;&lt;a href="mailto:pavel.volgarev@spritesapp.com" style="text-decoration:none;color:#7B7B7B;"&gt;Pavel Volgarev (Sprites).&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Email_SubscriptionExpiring_Subject" xml:space="preserve">
+    <value>Your Sprites subscription is expiring</value>
+  </data>
+  <data name="UpgradeToUnlock" xml:space="preserve">
+    <value>Upgrade to unlock great features!</value>
+  </data>
+  <data name="PaymentError_InternalError" xml:space="preserve">
+    <value>Your payment didn't go through (your card wasn't charged). Please try again.</value>
+  </data>
+  <data name="PaymentSuccess" xml:space="preserve">
+    <value>Your payment has been accepted. Thank you!</value>
+  </data>
+  <data name="Account_Payment_Agency_OneMonth" xml:space="preserve">
+    <value>One month "Ultimate" plan (${0}).</value>
+  </data>
+  <data name="Account_Payment_Basic_OneMonth" xml:space="preserve">
+    <value>One month "Free" plan (${0}).</value>
+  </data>
+  <data name="Account_Payment_Pro_OneMonth" xml:space="preserve">
+    <value>One month "Pro" plan (${0}).</value>
+  </data>
+  <data name="Account_SaveAndPay" xml:space="preserve">
+    <value>Save and pay</value>
+  </data>
+  <data name="SubscriptionExpired" xml:space="preserve">
+    <value>Please pay for your plan to continue using Sprites.</value>
+  </data>
+  <data name="News_NoTweets" xml:space="preserve">
+    <value>Can't load tweets right now. Go to &lt;a href="https://twitter.com/spritesapp"&gt;twitter.com/spritesapp&lt;/a&gt; to get the latest updates.</value>
+  </data>
+  <data name="Plan_Pro_Feature9" xml:space="preserve">
+    <value>Password-protected infographics</value>
+  </data>
+  <data name="SignIn_AcceptTerms" xml:space="preserve">
+    <value>By signing in you are accepting our &lt;a target="_blank" href="/tos"&gt;terms of service&lt;/a&gt; and &lt;a target="_blank" href="/privacy"&gt;privacy policy&lt;/a&gt;.</value>
+  </data>
+  <data name="News_NoPosts" xml:space="preserve">
+    <value>Can't load posts right now. Go to &lt;a href="http://blog.spritesapp.com"&gt;blog.spritesapp.com/spritesapp&lt;/a&gt; to get the latest updates.</value>
+  </data>
+  <data name="WatchTheVideo" xml:space="preserve">
+    <value>Watch the video</value>
+  </data>
+  <data name="Plan_Agency" xml:space="preserve">
+    <value>Ultimate</value>
+  </data>
+  <data name="Plan_Agency_Feature1" xml:space="preserve">
+    <value>All the "Pro" features</value>
+  </data>
+  <data name="Plan_Agency_Feature2" xml:space="preserve">
+    <value>Export infographic to a video</value>
+  </data>
+  <data name="Plan_Agency_Feature3" xml:space="preserve">
+    <value>Priority support</value>
+  </data>
+  <data name="Plan_Agency_Figure" xml:space="preserve">
+    <value>$9&lt;small&gt;/mo&lt;/small&gt;</value>
+  </data>
+  <data name="Examples_Coffee" xml:space="preserve">
+    <value>Coffee love</value>
+  </data>
+  <data name="Examples_Coffee_Description" xml:space="preserve">
+    <value>Learn how much the average American spends on (and consumes) coffee and who are the big players on the market.</value>
+  </data>
+  <data name="Testimonials" xml:space="preserve">
+    <value>Testimonials</value>
+  </data>
+  <data name="Testimonial_1" xml:space="preserve">
+    <value>This is FANTASTIC! And very easy to use. I cannot wait to plug in all my data to tell stories.</value>
+  </data>
+  <data name="Testimonial_1_Author" xml:space="preserve">
+    <value>Nikki DeLeon, &lt;span&gt;Ava Anderson Non Toxic&lt;/span&gt;</value>
+  </data>
+  <data name="Testimonial_2" xml:space="preserve">
+    <value>Hi Guys - LOVE LOVE LOVE this app.</value>
+  </data>
+  <data name="Testimonial_2_Author" xml:space="preserve">
+    <value>Lindsay Lyons, &lt;span&gt;Dell&lt;/span&gt;</value>
+  </data>
+  <data name="Testimonial_3" xml:space="preserve">
+    <value>Awesome product, I'm going to start playing with it asap.</value>
+  </data>
+  <data name="Testimonial_3_Author" xml:space="preserve">
+    <value>Michael Reen, &lt;span&gt;Bleepr&lt;/span&gt;</value>
+  </data>
+  <data name="WhatOurUsersSay" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="WhatOurUsersSay_Long" xml:space="preserve">
+    <value>What our users say</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="NotEnabled" xml:space="preserve">
+    <value>Not enabled</value>
+  </data>
+  <data name="WhatIsThis" xml:space="preserve">
+    <value>What is this?</value>
+  </data>
+  <data name="SignUpButton" xml:space="preserve">
+    <value>Join for free</value>
+  </data>
+  <data name="AgencyBeta" xml:space="preserve">
+    <value>Join our private beta program and test the new features &lt;strong&gt;for free&lt;/strong&gt;!</value>
+  </data>
+  <data name="AlreadyHaveAccount" xml:space="preserve">
+    <value>Already have an account? &lt;a href="javascript:void(0);" rel="nofollow" onclick="Ifly.App.getInstance().login(); return false;"&gt;Sign in&lt;/a&gt;</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="SignUpSubscriptionButton" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="MakeVideos" xml:space="preserve">
+    <value>Make videos</value>
+  </data>
+  <data name="NewFeature" xml:space="preserve">
+    <value>New!</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="AgencyBetaVideo" xml:space="preserve">
+    <value>Join our private beta program and test video infographics &lt;strong&gt;for free&lt;/strong&gt;!</value>
+  </data>
+  <data name="MakeVideoInfographics" xml:space="preserve">
+    <value>Make video infographics</value>
+  </data>
+  <data name="VideoPitch_1" xml:space="preserve">
+    <value>Convert your entire infographic into a video in just a couple of clicks.</value>
+  </data>
+  <data name="VideoPitch_2" xml:space="preserve">
+    <value>Optionally specify an audio file - great for adding music or narration.</value>
+  </data>
+  <data name="VideoPitch_3" xml:space="preserve">
+    <value>Download your video and share it with your audience the way you want.</value>
+  </data>
+  <data name="Plan_Agency_Feature4" xml:space="preserve">
+    <value>Connect live data</value>
+  </data>
+  <data name="WatchExampleInfographic" xml:space="preserve">
+    <value>Watch example infographic</value>
+  </data>
+  <data name="Plan_Agency_Feature5" xml:space="preserve">
+    <value>YouTube auto-upload</value>
+  </data>
+  <data name="PayNow" xml:space="preserve">
+    <value>Pay now</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="Payment_ChoosePaymentMethod" xml:space="preserve">
+    <value>Apply payment</value>
+  </data>
+  <data name="Payment_PayWithCard" xml:space="preserve">
+    <value>Pay&lt;span&gt;&amp;nbsp;&lt;/span&gt;with card</value>
+  </data>
+  <data name="Payment_PayWithPayPal" xml:space="preserve">
+    <value>Pay&lt;span&gt;&amp;nbsp;&lt;/span&gt;with PayPal</value>
+  </data>
+  <data name="Payment_PleaseChoosePaymentMethod" xml:space="preserve">
+    <value>&lt;strong&gt;Step 2&lt;/strong&gt;. Choose payment method</value>
+  </data>
+  <data name="Payment_ChargedToPayPal" xml:space="preserve">
+    <value>PayPal account</value>
+  </data>
+  <data name="Info_ResetTokenExpired" xml:space="preserve">
+    <value>Your session has expired. Please re-submit your password reset request.</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="JoinFamily" xml:space="preserve">
+    <value>See it yourself</value>
+  </data>
+  <data name="MakeYourOwn" xml:space="preserve">
+    <value>Create your own</value>
+  </data>
+  <data name="Plan_Agency_Transcript" xml:space="preserve">
+    <value>or &lt;span class="highlight"&gt;$81&lt;/span&gt; a year (save 25%)</value>
+  </data>
+  <data name="Plan_Free_Transcript" xml:space="preserve">
+    <value>Completely free.</value>
+  </data>
+  <data name="Plan_Pro_Transcript" xml:space="preserve">
+    <value>or &lt;span class="highlight"&gt;$27&lt;/span&gt; a year (save 25%)</value>
+  </data>
+  <data name="ScrollToTop" xml:space="preserve">
+    <value>Scroll to top</value>
+  </data>
+  <data name="SeeFullList" xml:space="preserve">
+    <value>See other features</value>
+  </data>
+  <data name="StartMakingVideos" xml:space="preserve">
+    <value>Start making videos</value>
+  </data>
+  <data name="Features_Blocks_Description" xml:space="preserve">
+    <value>Sprites offers rich selection of building blocks for you to choose from. Text, charts, maps, tables, images, progress bars and more - all of this will make your presentations speak for themselves like never before.</value>
+  </data>
+  <data name="Features_Blocks_Title" xml:space="preserve">
+    <value>Variety of building blocks</value>
+  </data>
+  <data name="Features_EaseOfUse_Description" xml:space="preserve">
+    <value>Sprites editor is very intuitive and easy to use. We are handling all the complexity so you can focus on what is truly important - your visual story.</value>
+  </data>
+  <data name="Features_EaseOfUse_Title" xml:space="preserve">
+    <value>Simple and intuitive</value>
+  </data>
+  <data name="Features_HTML5_Description" xml:space="preserve">
+    <value>Sprites is built on top of latest and greatest from HTML5 technology stack which includes great typography, slick animations, smooth shadows and gradients and many more.</value>
+  </data>
+  <data name="Features_HTML5_Title" xml:space="preserve">
+    <value>HTML5 at its best</value>
+  </data>
+  <data name="Features_LiveData_Title" xml:space="preserve">
+    <value>Connect live data</value>
+  </data>
+  <data name="Features_MultiSlide_Description" xml:space="preserve">
+    <value>Sprites combines best practices of creating infographics with the flexibility of a normal multi-slide presentation. This unique approach makes it possible to compose exceptional visual stories.</value>
+  </data>
+  <data name="Features_MultiSlide_Title" xml:space="preserve">
+    <value>Multi-slide layout</value>
+  </data>
+  <data name="Features_Password_Description" xml:space="preserve">
+    <value>Every Sprites presentation can be additionally secured with the password so that you can safely share sensitive information with your peers. And in case you have changed your mind, you can always make the presentation public again.</value>
+  </data>
+  <data name="Features_Password_Title" xml:space="preserve">
+    <value>Public vs. private content</value>
+  </data>
+  <data name="Features_Responsive_Description" xml:space="preserve">
+    <value>All Sprites presentations (with no exception) are fully responsive meaning that they look great on pretty much any resolution, from mobile phone to projector. Same applies when you are inserting presentations on your website or blog: they will automagically scale to match the width of your content.</value>
+  </data>
+  <data name="Features_Responsive_Title" xml:space="preserve">
+    <value>Responsive, embeddable</value>
+  </data>
+  <data name="Features_Themes_Description" xml:space="preserve">
+    <value>We have a great selection of colorful, unique built-in themes for every mood, and every occasion. And in case you need a custom (branded) theme, it is super-easy to create your own from scratch or extend existing one.</value>
+  </data>
+  <data name="Features_Themes_Title" xml:space="preserve">
+    <value>Colorful themes</value>
+  </data>
+  <data name="Features_Developer_Description" xml:space="preserve">
+    <value>Sprites is also very developer-friendly: there's a number of ways you can extend the platfom if you know how to write code. For example, you can create your own elements (widgets) or make your own themes. Documentation as well as code examples are available on GitHub.</value>
+  </data>
+  <data name="Features_Developer_Title" xml:space="preserve">
+    <value>Developer-friendly</value>
+  </data>
+  <data name="Features_DownloadImage_Description" xml:space="preserve">
+    <value>Individual slides can be exported as JPG images which is great for making previews, thumbnails or even displaying a complete presentation as an image gallery. You can also download your entire presentation as a single PDF document.</value>
+  </data>
+  <data name="Features_DownloadImage_Title" xml:space="preserve">
+    <value>Download as JPG or PDF</value>
+  </data>
+  <data name="Features_Import_Description" xml:space="preserve">
+    <value>Sprites can take your data residing in Excel file, Google Spreadsheet or under the custom URL and import it into your presentation. This is especially useful when showing charts from calculations that you made previously and that you would like to now publish. </value>
+  </data>
+  <data name="Features_Import_Title" xml:space="preserve">
+    <value>Data import</value>
+  </data>
+  <data name="Features_LiveData_Description" xml:space="preserve">
+    <value>Sprites makes it extremely easy to display real-time data in your presentations. You can connect to Google Sheets, custom URL or Google Analytics. And it's not limited to charts and tables - every building block (including text and images) can display live data.</value>
+  </data>
+  <data name="Features_Sharing_Description" xml:space="preserve">
+    <value>With Sprites sharing your visual masterpiece has never been easier. Click an icon and let your friends and followers know what you're up to and check out your work. </value>
+  </data>
+  <data name="Features_Sharing_Title" xml:space="preserve">
+    <value>One-click social sharing</value>
+  </data>
+  <data name="Features_Support_Description" xml:space="preserve">
+    <value>We are striving to provide every single user with the best possible Sprites experience. Don't hesitate to contact us if you have any questions or need help - we are always there for you.</value>
+  </data>
+  <data name="Features_Support_Title" xml:space="preserve">
+    <value>Amazing email support</value>
+  </data>
+  <data name="Features_Video_Description" xml:space="preserve">
+    <value>Your entire presentation can be turned into an HD video. You can additionally specify an audio file which is great for adding background music or narration. You can also choose to let Sprites upload your video on YouTube for you.</value>
+  </data>
+  <data name="Features_Video_Title" xml:space="preserve">
+    <value>Turn it into a video</value>
+  </data>
+  <data name="Email_PresentationSharing_Body" xml:space="preserve">
+    <value>&lt;div style="border:none;margin:0;padding:50px;background-color:#f4f4f4;font-family:Verdana;font-size:13px;font-color:#333333;"&gt;&lt;table style="border:1px solid #c3c3c3;margin:0 auto;padding:0;background-color:#fff;width:500px;display:block;"&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-bottom:0;padding-top: 20px;"&gt;&lt;a href="https://spritesapp.com"&gt;&lt;img src="https://spritesapp.com/assets/img/sprites-email-header.jpg" style="width:120px;height:68px;border:none;margin:0;padding:0;" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;padding-top:0;"&gt;&lt;div style="height:1px;background-color:#dddddd;margin:0;padding:0;"&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;"&gt;&lt;h1 style="color:#333333;font-size:22px;font-weight:normal;display:block;padding:0;margin:0;"&gt;Hello there!&lt;/h1&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;"&gt;&lt;p style="font-size:14px;margin:0;padding:0;line-height:150%;"&gt;Someone has shared with you an infographic &lt;b&gt;"{0}"&lt;/b&gt;. Click "Confirm sharing" below to access it:&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;"&gt;&lt;a href="{1}" style="display:block;width:200px;background-color:#EB6841;color:#fff;padding:10px 0;text-decoration:none;text-align:center;margin:0 auto;"&gt;Confirm sharing&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="vertical-align:middle;padding:10px 30px;margin-top:0;text-align:center;padding-bottom: 20px;"&gt;&lt;p style="margin:0;padding:0;line-height:150%;color:#7B7B7B;font-size:10px;"&gt;All the best,&lt;br /&gt;&lt;a href="mailto:pavel.volgarev@spritesapp.com" style="text-decoration:none;color:#7B7B7B;"&gt;Pavel Volgarev (Sprites).&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Email_PresentationSharing_NoTitle" xml:space="preserve">
+    <value>[No title]</value>
+  </data>
+  <data name="Email_PresentationSharing_Subject" xml:space="preserve">
+    <value>Sprites infographic sharing</value>
+  </data>
+  <data name="Info_RequiresAgency" xml:space="preserve">
+    <value>This feature requires "Ultimate" subscription.</value>
+  </data>
+  <data name="Features_Title" xml:space="preserve">
+    <value>Product features</value>
+  </data>
+  <data name="Pricing_FAQ_1_A" xml:space="preserve">
+    <value>Month-to-month billing is when you only pay for one month and you are not automatically charged for the following one. This way it is more convenient for you as it allows you to easily switch between different plans and protects you from potentially unwanted long term commitments.</value>
+  </data>
+  <data name="Pricing_FAQ_1_Q" xml:space="preserve">
+    <value>What is month-to-month billing?</value>
+  </data>
+  <data name="Pricing_FAQ_2_A" xml:space="preserve">
+    <value>Simply go to &lt;a href="https://spritesapp.com/account"&gt;spritesapp.com/account&lt;/a&gt;, choose a different plan and click "Save changes".</value>
+  </data>
+  <data name="Pricing_FAQ_2_Q" xml:space="preserve">
+    <value>How do I upgrade to a different plan?</value>
+  </data>
+  <data name="Pricing_FAQ_3_A" xml:space="preserve">
+    <value>You don't need to! As we mentioned, all the payments are non-recurring which means that at the end of the billing period (one month) your subscription will expire and you can either renew your month-to-month subscription by submitting another payment or switch to our free plan.</value>
+  </data>
+  <data name="Pricing_FAQ_3_Q" xml:space="preserve">
+    <value>How do I cancel my plan?</value>
+  </data>
+  <data name="Pricing_FAQ_4_A" xml:space="preserve">
+    <value>Nothing! All the visual content you have previously created under your paid plan will continue to work even after you switch to our free plan. We do not lock or disable anything related to your data or the content you have already published, but you will only be able to edit your existing content under the free plan feature-set.</value>
+  </data>
+  <data name="Pricing_FAQ_4_Q" xml:space="preserve">
+    <value>What happens to my work when I cancel my plan?</value>
+  </data>
+  <data name="Pricing_FAQ_5_A" xml:space="preserve">
+    <value>Definitely! If you are a student or a non-for-profit organization and wish to test out one of our advanced plans, simply contact us at &lt;a href="mailto:contact@spritesapp.com"&gt;contact@spritesapp.com&lt;/a&gt; and we will figure something out!</value>
+  </data>
+  <data name="Pricing_FAQ_5_Q" xml:space="preserve">
+    <value>Any options for students/non-profits?</value>
+  </data>
+  <data name="Pricing_FAQ_Title" xml:space="preserve">
+    <value>Frequently Asked Questions</value>
+  </data>
+  <data name="Pricing_Toolbar_FAQ" xml:space="preserve">
+    <value>Pricing FAQ</value>
+  </data>
+  <data name="Pricing_Toolbar_FreeTrial" xml:space="preserve">
+    <value>Request free trial</value>
+  </data>
+  <data name="Features_Collaboration_Description" xml:space="preserve">
+    <value>Sprites offers a unique collaboration functionality that will empower your team and improve your organization's workflow, whether you are big or small. Easy sharing, live collaborative editing and team chat - working together on your infographics has never been easier.</value>
+  </data>
+  <data name="Features_Collaboration_Title" xml:space="preserve">
+    <value>Collaborate like never before</value>
+  </data>
+  <data name="Plan_Agency_Feature6" xml:space="preserve">
+    <value>Collaborate in real time</value>
+  </data>
+  <data name="UpgradePlan" xml:space="preserve">
+    <value>Want to switch to a new plan? &lt;a href="https://spritesapp.com/account"&gt;Go to your account&lt;/a&gt;</value>
+  </data>
+  <data name="Account_Payment_Agency_OneYear" xml:space="preserve">
+    <value>One year "Ultimate" plan (${0}).</value>
+  </data>
+  <data name="Account_Payment_Basic_OneYear" xml:space="preserve">
+    <value>One year "Free" plan (${0}).</value>
+  </data>
+  <data name="Account_Payment_Pro_OneYear" xml:space="preserve">
+    <value>One year "Pro" plan (${0}).</value>
+  </data>
+  <data name="Payment_Duration_OneMonth" xml:space="preserve">
+    <value>One month</value>
+  </data>
+  <data name="Payment_Duration_OneYear" xml:space="preserve">
+    <value>One year</value>
+  </data>
+  <data name="Payment_PleaseChooseDuration" xml:space="preserve">
+    <value>&lt;strong&gt;Step 1&lt;/strong&gt;. Choose subscription period</value>
+  </data>
+  <data name="Subscribe" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="Subscribed" xml:space="preserve">
+    <value>Subscribed!</value>
+  </data>
+  <data name="SubscribeToNewsletter" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="YourEmailSubscribe" xml:space="preserve">
+    <value>Your email address</value>
+  </data>
+  <data name="PleaseChangeYourPassword" xml:space="preserve">
+    <value>We have reset your password. Please specify a new one now.</value>
+  </data>
+  <data name="Account_BasicInformation" xml:space="preserve">
+    <value>General information</value>
+  </data>
+  <data name="Account_CompanyAddress" xml:space="preserve">
+    <value>Company address</value>
+  </data>
+  <data name="Account_CompanyAddress_Description" xml:space="preserve">
+    <value>Where's your company located?</value>
+  </data>
+  <data name="Account_CompanyDetails" xml:space="preserve">
+    <value>Company details</value>
+  </data>
+  <data name="Account_CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="Account_CompanyName_Description" xml:space="preserve">
+    <value>What's that awesome place you work at?</value>
+  </data>
+  <data name="Sunset" xml:space="preserve">
+    <value>Sprites is shutting down on August 1st, 2016. &lt;a href="http://blog.spritesapp.com/2016/05/08/sprites-is-shutting-down.html"&gt;Read the statement&lt;/a&gt;</value>
+  </data>
+  <data name="Payment_NotAccepted" xml:space="preserve">
+    <value>Payments no longer accepted</value>
+  </data>
+</root>

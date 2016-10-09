@@ -1,0 +1,49 @@
+﻿<div id="presentation-stats" class="presentation-stats" title="@Ifly.Resources.Editor.PresentationStats" style="display: none">
+    <div class="form">
+        <div class="stats-outer" data-bind="with: data">
+            <div class="stats-loading" data-bind="css: { 'stats-hidden': isReady }">@Ifly.Resources.Editor.OneMoment</div>
+            <div class="stats-contents" data-bind="css: { 'stats-visible': isReady }">
+                <h3>@Ifly.Resources.Editor.Stats_Views</h3>
+                <div class="chart">
+                </div>
+                <div class="row">
+                    <div class="left">
+                        <h3>@Ifly.Resources.Editor.Stats_Social</h3>
+                        <div class="social-impact">
+                            <ul>
+                                <li class="facebook">
+                                    <span class="value" data-bind="text: facebook.formatted"></span>
+                                    <span class="description">@Ifly.Resources.Editor.Stats_Social_Facebook</span>
+                                </li>
+                                <li class="googleplus">
+                                    <span class="value" data-bind="text: googlePlus.formatted"></span>
+                                    <span class="description">@Ifly.Resources.Editor.Stats_Social_GooglePlus</span>
+                                </li>
+                                <li class="linkedin">
+                                    <span class="value" data-bind="text: linkedIn.formatted"></span>
+                                    <span class="description">@Ifly.Resources.Editor.Stats_Social_LinkedIn</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <h3>@Ifly.Resources.Editor.Stats_GoogleAnalytics</h3>
+                        <input type="text" class="text-editable" data-bind="enable: !isSavingIntegrationSettings(), value: googleAnalyticsTrackingId" placeholder="@Ifly.Resources.Editor.Stats_GoogleAnalytics_TrackingId" />
+                        <button data-bind="text: saveButtonText, enable: !isSavingIntegrationSettings(), click: function () { $parent.saveIntegrationSettings(); }">@Ifly.Resources.Editor.Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('PresentationStatsModal', {
+        terminology: {
+            close: '@Ifly.Resources.Editor.Close',
+            save: '@Ifly.Resources.Editor.Save',
+            saving: '@Ifly.Resources.Editor.Saving',
+            saved: '@Ifly.Resources.Editor.Saved'
+        }
+    });
+</script>

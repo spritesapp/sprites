@@ -1,0 +1,167 @@
+﻿<div id="data-import" class="data-import-modal" title="@Ifly.Resources.Editor.ImportData" style="display: none">
+    <div class="data-import-outer" data-bind="with: data">
+        <div class="import-sources-outer">
+            <h4 class="left">@(Ifly.Resources.Editor.DataImport_ChooseSource):</h4>
+
+            <div class="import-sources">
+                <ul>
+                    <li>
+                        <input type="radio" name="DataImportSourceType" id="DataImportSourceTypeExcel" value="0" data-bind="checked: sourceType.checkable" />
+                        <label for="DataImportSourceTypeExcel"><span>@Ifly.Resources.Editor.DataImportSourceType_Excel</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="DataImportSourceType" id="DataImportSourceTypeGoogle" value="1" data-bind="checked: sourceType.checkable" />
+                        <label for="DataImportSourceTypeGoogle"><span>@Ifly.Resources.Editor.DataImportSourceType_Google</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="DataImportSourceType" id="DataImportSourceTypeURL" value="2" data-bind="checked: sourceType.checkable" />
+                        <label for="DataImportSourceTypeURL"><span>@Ifly.Resources.Editor.DataImportSourceType_URL</span></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="import-source-settings-outer">
+            <div class="import-source-settings">
+                <div class="import-source-overlay" data-bind="visible: isBusy"></div>
+
+                <div class="import-source-excel form" data-bind="visible: sourceType() == 0, with: excel">
+                    <div>
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_File):</label>
+                        <a href="javascript:void(0);" class="upload link" data-bind="upload: true, enable: !isUploading()">@Ifly.Resources.Editor.DataImport_Excel_Select</a>
+                    </div>
+                    <div class="import-error" data-bind="visible: wasError">
+                        @Ifly.Resources.Editor.DataImport_ExcelUploadError
+                    </div>
+                    <div class="import-success" data-bind="visible: !wasError() && sheetData().length > 0">
+                        @Ifly.Resources.Editor.DataImport_Imported:&nbsp;<span data-bind="text: fileSize.formatted"></span>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_StartsWithColumnNames):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Excel_StartsWithColumnNames" id="DataImport_Excel_StartsWithColumnNames1" value="true" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Excel_StartsWithColumnNames1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Excel_StartsWithColumnNames" id="DataImport_Excel_StartsWithColumnNames0" value="false" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Excel_StartsWithColumnNames0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_ContainsRowLabels):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Excel_ContainsRowLabels" id="DataImport_Excel_ContainsRowLabels1" value="true" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Excel_ContainsRowLabels1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Excel_ContainsRowLabels" id="DataImport_Excel_ContainsRowLabels0" value="false" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Excel_ContainsRowLabels0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="no-overflow" data-bind="visible: !wasError() && availableSheets().length > 1">
+                        <label class="sheet-selector-label">@(Ifly.Resources.Editor.DataImport_Excel_Sheet):</label>
+                        <div class="dropdown sheet-selector" tabindex="0">
+                            <span class="dropdown-arrow icon-angle-down"></span>
+                            <span class="dropdown-active" data-bind="text: targetSheetIndex.text"></span>
+                            <div class="dropdown-menu">
+                                <ul data-bind="foreach: availableSheets">
+                                    <li data-bind="css: { 'active': ($index() == $parent.targetSheetIndex()) }, attr: { 'data-index': $index() }, text: $data, click: function (data, e) { $parent.onSheetSelected(parseInt($(e.target).attr('data-index'), 10)); }"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="import-source-google form" data-bind="visible: sourceType() == 1, with: google">
+                    <div class="no-overflow data-url">
+                        <label>@(Ifly.Resources.Editor.DataImport_Google_URL):</label>
+                        <input type="text" autocomplete="off" spellcheck="false" data-bind="value: url, event: { 'keyup': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), null, e); }, 'blur': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), 50); } }" />
+                    </div>
+                    <div class="import-error" data-bind="visible: wasError">
+                        @Ifly.Resources.Editor.DataImport_GoogleImportError
+                    </div>
+                    <div class="import-success after-url" data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        @Ifly.Resources.Editor.DataImport_Imported:&nbsp;<span data-bind="text: fileSize.formatted"></span>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_StartsWithColumnNames):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Google_StartsWithColumnNames" id="DataImport_Google_StartsWithColumnNames1" value="true" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Google_StartsWithColumnNames1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Google_StartsWithColumnNames" id="DataImport_Google_StartsWithColumnNames0" value="false" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Google_StartsWithColumnNames0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_ContainsRowLabels):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Google_ContainsRowLabels" id="DataImport_Google_ContainsRowLabels1" value="true" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Google_ContainsRowLabels1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Google_ContainsRowLabels" id="DataImport_Google_ContainsRowLabels0" value="false" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Google_ContainsRowLabels0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="import-source-url form" data-bind="visible: sourceType() == 2, with: url">
+                    <div class="no-overflow data-url">
+                        <label>@Html.Raw(Ifly.Resources.Editor.DataImport_URL):</label>
+                        <input type="text" autocomplete="off" spellcheck="false" data-bind="value: url, event: { 'keyup': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), null, e); }, 'blur': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), 50); } }" />
+                    </div>
+                    <div class="import-error" data-bind="visible: wasError">
+                        @Ifly.Resources.Editor.DataImport_UrlImportError
+                    </div>
+                    <div class="import-success after-url" data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        @Ifly.Resources.Editor.DataImport_Imported:&nbsp;<span data-bind="text: fileSize.formatted"></span>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_StartsWithColumnNames):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Url_StartsWithColumnNames" id="DataImport_Url_StartsWithColumnNames1" value="true" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Url_StartsWithColumnNames1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Url_StartsWithColumnNames" id="DataImport_Url_StartsWithColumnNames0" value="false" data-bind="checked: sheetDataStartsWithColumnNames.checkable" />
+                                <label for="DataImport_Url_StartsWithColumnNames0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: !wasError() && sheetData.rows().length > 0">
+                        <label>@(Ifly.Resources.Editor.DataImport_Excel_ContainsRowLabels):</label>
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="DataImport_Url_ContainsRowLabels" id="DataImport_Url_ContainsRowLabels1" value="true" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Url_ContainsRowLabels1">@Ifly.Resources.Editor.Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="DataImport_Url_ContainsRowLabels" id="DataImport_Url_ContainsRowLabels0" value="false" data-bind="checked: sheetDataContainsRowLabels.checkable" />
+                                <label for="DataImport_Url_ContainsRowLabels0">@Ifly.Resources.Editor.No</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('DataImportModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            saving: '@Ifly.Resources.Editor.Saving'
+        }
+    });
+</script>

@@ -1,0 +1,14 @@
+﻿@model Ifly.Web.Editor.Models.PresentationEditModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section footer {
+    @if (Model.Presentation != null)
+    {
+    <script>
+        Ifly.Editor.getInstance().onPresentationAvailable(@Html.Raw(new JavaScriptSerializer().Serialize(Model.Presentation)));
+    </script>
+    }
+}

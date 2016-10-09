@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4EA4A711-2236-43EA-8A26-D8C758B881ED}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ifly.Web.Editor</RootNamespace>
+    <AssemblyName>Ifly.Web.Editor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Ifly.Web.Editor.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.2.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.6.0\lib\net40-client\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Ifly\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Volga">
+      <HintPath>..\..\Data\Dependencies\Volga.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\HelpTopicController.cs" />
+    <Compile Include="Api\Hubs\CollaborativeEditsHub.cs" />
+    <Compile Include="Api\Hubs\ChatHub.cs" />
+    <Compile Include="Api\ElementsController.cs" />
+    <Compile Include="Api\Export\VideoExportController.cs" />
+    <Compile Include="Api\Export\ImageExportController.cs" />
+    <Compile Include="Api\ImagesController.cs" />
+    <Compile Include="Api\Import\ExcelDataImportController.cs" />
+    <Compile Include="Api\Import\UrlDataImportController.cs" />
+    <Compile Include="Api\ImpressionsController.cs" />
+    <Compile Include="Api\LogsController.cs" />
+    <Compile Include="Api\MediaController.cs" />
+    <Compile Include="Api\PresentationSharingController.cs" />
+    <Compile Include="Api\Sessions\BoundedSessionAttribute.cs" />
+    <Compile Include="Api\IConfigurableServiceController.cs" />
+    <Compile Include="Api\DataApiController.cs" />
+    <Compile Include="Api\PresentationsController.cs" />
+    <Compile Include="Api\RootApiController.cs" />
+    <Compile Include="Api\Sessions\SessionBasedApplicationContext.cs" />
+    <Compile Include="Api\Sessions\SessionsController.cs" />
+    <Compile Include="Api\Sessions\SessionData.cs" />
+    <Compile Include="Api\Sessions\SessionManager.cs" />
+    <Compile Include="Api\SlidesController.cs" />
+    <Compile Include="Api\ThemesController.cs" />
+    <Compile Include="Controllers\CanvasController.cs" />
+    <Compile Include="Controllers\VideoExportUtilsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageExportUtilsController.cs" />
+    <Compile Include="Controllers\PresentationController.cs" />
+    <Compile Include="Controllers\ThemesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClonePresentationResult.cs" />
+    <Compile Include="Models\ClonePresentationSettings.cs" />
+    <Compile Include="Models\CloneSlideSettings.cs" />
+    <Compile Include="Models\PresentationPresenterSettingsModel.cs" />
+    <Compile Include="Models\PresentationSharingAllModel.cs" />
+    <Compile Include="Models\SlideDataModel.cs" />
+    <Compile Include="Models\SlideReorderResultModel.cs" />
+    <Compile Include="Models\ThemeBuilderTheme.cs" />
+    <Compile Include="Models\VideoExportRequestModel.cs" />
+    <Compile Include="Models\VideoExportResponseModel.cs" />
+    <Compile Include="Models\VideoExportStatusResponseModel.cs" />
+    <Compile Include="Models\ElementBulkElevationChangeModel.cs" />
+    <Compile Include="Models\ElementElevationChangeModel.cs" />
+    <Compile Include="Models\ElementPropertySettingsModel.cs" />
+    <Compile Include="Models\ElementSettingsModel.cs" />
+    <Compile Include="Models\ErrorDetailsModel.cs" />
+    <Compile Include="Models\ExcelDataImportResultModel.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\ImageExportRequestModel.cs" />
+    <Compile Include="Models\ImageExportResponseModel.cs" />
+    <Compile Include="Models\ImageExportStatusResponseModel.cs" />
+    <Compile Include="Models\PresentationDisplayModel.cs" />
+    <Compile Include="Models\PresentationEditModel.cs" />
+    <Compile Include="Models\PresentationIntegrationSettingsModel.cs" />
+    <Compile Include="Models\PresentationPasswordValidationModel.cs" />
+    <Compile Include="Models\PresentationPublishSettingsModel.cs" />
+    <Compile Include="Models\PresentationSettingsModel.cs" />
+    <Compile Include="Models\PresentationUpdateResultModel.cs" />
+    <Compile Include="Models\SessionInitializationModel.cs" />
+    <Compile Include="Models\SlideReoderModel.cs" />
+    <Compile Include="Models\SlideSettingsModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Assets\js\App.ts" />
+    <TypeScriptCompile Include="Assets\js\Editor.ts" />
+    <Content Include="Assets\css\color-picker.min.css" />
+    <Content Include="Assets\css\Embed\Infographic.css">
+      <DependentUpon>Infographic.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Infographic.min.css">
+      <DependentUpon>Infographic.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Player.css">
+      <DependentUpon>Player.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Player.min.css">
+      <DependentUpon>Player.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Error.css">
+      <DependentUpon>Error.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Error.min.css">
+      <DependentUpon>Error.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\jqvmap.css" />
+    <Content Include="Assets\css\Embed\Themes.css">
+      <DependentUpon>Themes.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Themes.min.css">
+      <DependentUpon>Themes.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\Globals.css">
+      <DependentUpon>Globals.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Globals.min.css">
+      <DependentUpon>Globals.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\nanoscroller.css" />
+    <Content Include="Assets\css\Progress.css">
+      <DependentUpon>Progress.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Progress.min.css">
+      <DependentUpon>Progress.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\UI.css">
+      <DependentUpon>UI.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\UI.min.css">
+      <DependentUpon>UI.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\img\color-picker\alpha.png" />
+    <Content Include="Assets\img\color-picker\hue.png" />
+    <Content Include="Assets\img\color-picker\saturation.png" />
+    <Content Include="Assets\img\magnet.ico" />
+    <Content Include="Assets\img\sprites-128x128.png" />
+    <Content Include="Assets\js\ace-editor\ace.js" />
+    <Content Include="Assets\js\ace-editor\mode-javascript.js" />
+    <Content Include="Assets\js\ace-editor\theme-xcode.js" />
+    <Content Include="Assets\js\ace-editor\worker-javascript.js" />
+    <Content Include="Assets\js\color-picker.min.js" />
+    <Content Include="Assets\js\charts\chart.min.js" />
+    <Content Include="Assets\js\jquery-1.10.2.min.js" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpPanel.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpService.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpTopic.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpTopicMediaItem.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpTopicScore.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpTopicSearchResult.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Help\HelpTopicSearchResultSet.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\MediaItem.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\PresentationSharingStatus.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\PresenterModeConfiguration.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\AudioRecorder.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\AudioRecorderWorker.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ChatManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CollaborativeEditsManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CollaboratorEditModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CollaborationManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ColorPicker.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\FontSelector.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ImageSelector.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\MediaSelectorModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\VoiceOverEditModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ThemeBuilderModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Typings\moment.d.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Presentation.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Slide.ts" />
+    <Content Include="Assets\js\jquery-jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-canada-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-europe-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-france-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-germany-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-india-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-italy-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-us-mill-en.js" />
+    <Content Include="Assets\js\jquery-jvectormap\maps\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Assets\js\jquery.nanoscroller.min.js" />
+    <Content Include="Assets\js\knockout-2.3.0.min.js" />
+    <TypeScriptCompile Include="Assets\js\Models\IModel.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\DataTable.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\DataRow.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\DataColumn.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\DataCell.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Element.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\ElementProperty.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Embed\Infographic.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Embed\Player.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\PublishConfiguration.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\PresentationSettingsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ModalForm.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\Component.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\DataSourceSettingsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CompositionManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\Control.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\DataTableView.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\GalleryManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ElementPropertiesPanel.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ElementLinkModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\IconSelectorModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\MapAnnotationsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\SlideSettingsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\SlideManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\PublishSettingsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\PublishManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Generators\ElementFactory.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ThemeSelector.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\UserContextMenu.ts" />
+    <Content Include="Assets\css\Main.css">
+      <DependentUpon>Main.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Main.min.css">
+      <DependentUpon>Main.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Mixins.css">
+      <DependentUpon>Mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Mixins.min.css">
+      <DependentUpon>Mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Normalize.css" />
+    <TypeScriptCompile Include="Assets\js\Typings\q.d.ts" />
+    <TypeScriptCompile Include="Assets\js\Utils\FontLoader.ts" />
+    <TypeScriptCompile Include="Assets\js\Utils\Input.ts" />
+    <TypeScriptCompile Include="Assets\js\Utils\Converters.ts" />
+    <TypeScriptCompile Include="Assets\js\Utils\BindingHandlers.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Globals.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\User.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UserSubscription.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\RichTextEditor.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ProgressBarsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\TimelineItemsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CodeEditor.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CodeEditorModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\PresentationStatsModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\ImpressionSummary.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\IntegrationSettings.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ThemeManager.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\DataImportModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Charts\GoogleChartsProvider.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\Charts\IChartProvider.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\FeedbackModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\CloneSlideModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ShortcutModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\RealtimeDataModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\RealtimeDataConfiguration.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\ClonePresentationModal.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\TemplateSelector.ts" />
+    <TypeScriptCompile Include="Assets\js\Models\UI\TemplateManager.ts" />
+    <Content Include="Assets\js\lame.all.min.js" />
+    <Content Include="Assets\js\marked.min.js" />
+    <Content Include="Assets\js\moment.min.js" />
+    <Content Include="Assets\js\q.min.js" />
+    <Content Include="Assets\js\sortable.min.js" />
+    <Content Include="Assets\js\Typings\jquery.d.ts" />
+    <Content Include="Assets\js\Typings\knockout.d.ts" />
+    <Content Include="Assets\static\RichText.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="robots.txt" />
+    <Content Include="Assets\js\jquery.signalR.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <TypeScriptCompile Include="Assets\js\Utils\ScriptLoader.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ifly.QueueService\Ifly.QueueService.csproj">
+      <Project>{6dfb8635-b9d1-4cb5-99b6-7f45d0a85141}</Project>
+      <Name>Ifly.QueueService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ifly.ServiceAdapter\Ifly.ServiceAdapter.csproj">
+      <Project>{dfcd8e6e-abcb-426d-a37d-07c696383847}</Project>
+      <Name>Ifly.ServiceAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ifly.Web.Common\Ifly.Web.Common.csproj">
+      <Project>{c314c66b-5517-4ee9-84e4-b50f1badd319}</Project>
+      <Name>Ifly.Web.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ifly\Ifly.csproj">
+      <Project>{2e3ee9c5-5e4f-45b9-8905-34e856721c95}</Project>
+      <Name>Ifly</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ifly.Resources\Ifly.Resources.csproj">
+      <Project>{f59025a6-502a-4eb4-9570-2a0e2acd8c9b}</Project>
+      <Name>Ifly.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Main.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Mixins.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_PresentationSettingsModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Progress.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_Progress.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_SlideSettingsModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_SlideManager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_DataTableView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_DataSourceSettingsModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Globals.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Text.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Base.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Embed\Infographic.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_ThemeSelector.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Embed\Themes.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Fact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_IconSelectorModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Image.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_AppLoading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Map.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_MapAnnotationsModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Tables\_Density.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Tables\_TypeAhead.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Chart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\_PublishSettingsModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Presentation\Display.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Embed\Player.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\500.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\501.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Error.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\403.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Presentation\DisplayEmbedded.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Elements\_Table.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UI\Tables\_Mark.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\UI.less" />
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\js\import-sample.json" />
+    <Content Include="Assets\css\Embed\Themes.css.map">
+      <DependentUpon>Themes.css</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Player.css.map">
+      <DependentUpon>Player.css</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Main.css.map">
+      <DependentUpon>Main.css</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\UI.css.map">
+      <DependentUpon>UI.css</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\Embed\Infographic.css.map">
+      <DependentUpon>Infographic.css</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\UI\_StatusBar.cshtml" />
+    <Content Include="Views\Shared\UI\_ElementLinkModal.cshtml" />
+    <Content Include="Views\Shared\UI\_ImageUploadErrorModal.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Figure.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Line.cshtml" />
+    <Content Include="Views\Canvas\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\UI\_Slide.cshtml" />
+    <Content Include="Views\Presentation\DisplayCanvas.cshtml" />
+    <Content Include="Views\Shared\UI\Tables\_Color.cshtml" />
+    <Content Include="Views\Shared\UI\_ThemeUploadErrorModal.cshtml" />
+    <Content Include="Views\Shared\UI\_RichTextEditor.cshtml" />
+    <Content Include="Views\Shared\UI\_ProgressBarsModal.cshtml" />
+    <Content Include="Views\Shared\UI\Tables\_Percentage.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Progress.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Callout.cshtml" />
+    <Content Include="Views\Shared\UI\_TimelineItemsModal.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Timeline.cshtml" />
+    <Content Include="Views\Shared\UI\Tables\_Styles.cshtml" />
+    <Content Include="Views\Shared\UI\_CodeEditorModal.cshtml" />
+    <Content Include="Views\Shared\UI\Elements\_Widget.cshtml" />
+    <Content Include="Views\Shared\UI\_PresentationStatsModal.cshtml" />
+    <Content Include="Views\Shared\UI\_BindingHandlers.cshtml" />
+    <Content Include="Views\Shared\UI\_SyncErrorModal.cshtml" />
+    <Content Include="Views\Shared\UI\_DataImportModal.cshtml" />
+    <Content Include="Views\Shared\UI\_FeedbackModal.cshtml" />
+    <Content Include="Views\Shared\UI\_FeedbackBar.cshtml" />
+    <Content Include="Views\Shared\UI\_CloneSlideModal.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Presentation\Error.cshtml" />
+    <Content Include="Views\Shared\UI\_ShortcutModal.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Shared\UI\_AudioUploadErrorModal.cshtml" />
+    <Content Include="Views\Shared\UI\_RealtimeDataModal.cshtml" />
+    <Content Include="Views\Shared\UI\_ClonePresentationModal.cshtml" />
+    <Content Include="Views\Shared\UI\_Slider.cshtml" />
+    <Content Include="Views\Shared\UI\_TemplateSelector.cshtml" />
+    <Content Include="Views\Shared\UI\_NotSupportedBrowserModal.cshtml" />
+    <Content Include="Views\Shared\UI\_BackgroundImageUploadErrorModal.cshtml" />
+    <Content Include="Views\Shared\UI\_CollaboratorEditModal.cshtml" />
+    <Content Include="Views\Shared\UI\_ChatManager.cshtml" />
+    <Content Include="Views\Shared\UI\_ChatWindow.cshtml" />
+    <Content Include="Views\Shared\UI\_MediaSelectorModal.cshtml" />
+    <Content Include="Views\Shared\UI\_InitShared.cshtml" />
+    <Content Include="Views\Shared\UI\_ThemeBuilderModal.cshtml" />
+    <Content Include="Views\Shared\UI\_FontSelector.cshtml" />
+    <Content Include="Views\Shared\UI\_ColorPicker.cshtml" />
+    <Content Include="Views\Shared\UI\_ImageSelector.cshtml" />
+    <Content Include="Views\Shared\UI\_VoiceOverEditModal.cshtml" />
+    <Content Include="Views\Shared\UI\_BundleRegistration.cshtml" />
+    <Content Include="Views\Shared\UI\_HelpPanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Themes\" />
+    <Folder Include="App_Data\Uploads\" />
+    <Folder Include="Assets\css\Themes\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56376</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

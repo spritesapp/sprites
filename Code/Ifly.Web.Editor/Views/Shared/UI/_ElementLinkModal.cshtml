@@ -1,0 +1,21 @@
+﻿<div id="element-link-edit" title="@Ifly.Resources.Editor.EditElementLink" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <p>@Ifly.Resources.Editor.AboutElementLink</p>
+        </div>
+        <div>
+            <label for="Link_Slide">@(Ifly.Resources.Editor.SlideNumber):</label>
+            <input type="text" class="slide-number" name="Link_Slide" id="Link_Slide" data-bind="value: slide.editable, valueUpdate: 'afterkeydown', event: { keypress: function (data, event) { return $parent.onKeyPress(event); } }" />
+            <span class="dimmed">&nbsp;(1&nbsp;-&nbsp;<span data-bind="text: totalSlides"></span>)</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ElementLinkModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel'
+        }
+    });
+</script>

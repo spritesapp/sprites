@@ -1,0 +1,11 @@
+﻿@{
+    var id = ViewData.Eval("Id") != null ? ViewData.Eval("Id").ToString() : null;
+        
+    var bindingExpression = ViewData.Eval("BindingExpression") != null ?
+        ViewData.Eval("BindingExpression").ToString() : "with: $data";
+}
+
+<div id="@id" class="color-picker" data-bind="@bindingExpression">
+    <input type="text" autocomplete="off" spellcheck="false" maxlength="7" data-bind="value: color, attr: { disabled: !enabled() }" />
+    <span class="current-color" data-bind="click: showPicker"><i data-bind="attr: { 'style': 'background-color: ' + (color() || 'transparent') }"></i></span>
+</div>

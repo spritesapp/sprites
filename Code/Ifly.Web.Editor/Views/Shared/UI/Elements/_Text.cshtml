@@ -1,0 +1,72 @@
+﻿<div class="element-text">
+    @Html.Partial("UI/Elements/_Base", new { Type = "text" })
+
+    <div>
+        <label for="TextTextTypeText">@(Ifly.Resources.Editor.TextType):</label>
+        <ul class="field checkable-list text-types">
+            <li>
+                <input type="radio" name="TextTextType" id="TextTextTypeText" value="0" data-bind="checked: textType.checkable" />
+                <label for="TextTextTypeText" title="@Ifly.Resources.Editor.TextType_Text"><span class="text-type text-type-text">@Ifly.Resources.Editor.TextType_Text</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TextTextType" id="TextTextTypeQuote" value="1" data-bind="checked: textType.checkable" />
+                <label for="TextTextTypeQuote" title="@Ifly.Resources.Editor.TextType_Quote"><span class="text-type text-type-quote">@Ifly.Resources.Editor.TextType_Quote</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div data-bind="css: { 'no-overflow': isRichTextAllowed }">
+        <label for="text-text" data-bind="visible: textType() == Ifly.Models.TextType.text">@(Ifly.Resources.Editor.TextToDisplay):</label>
+        <label for="text-text" data-bind="visible: textType() == Ifly.Models.TextType.quote">@(Ifly.Resources.Editor.QuoteTextAndSignature):</label>
+
+        @Html.Partial("UI/_RichTextEditor", new { BindingExpression = "with: richText, visible: isRichTextAllowed()", CssClass = "richtext-editor-sidepanel" })
+        <textarea id="text-text" data-bind="visible: !isRichTextAllowed(), value: text, valueUpdate: 'keyup'"></textarea>
+
+        <input type="text" class="push-b-10" placeholder="@Ifly.Resources.Editor.ByBobMarley" data-bind="visible: textType() == Ifly.Models.TextType.quote, value: signature, valueUpdate: 'keyup'" />
+    </div>
+
+    <div data-bind="visible: !isRichTextAllowed()">
+        <label for="TextFontSizeMedium">@(Ifly.Resources.Editor.FontSize):</label>
+        <ul class="field checkable-list font-sizes">
+            <li>
+                <input type="radio" name="TextFontSize" id="TextFontSizeExtraSmall" value="2" data-bind="checked: fontSize.checkable" />
+                <label for="TextFontSizeExtraSmall" title="@Ifly.Resources.Editor.FontSize_ExtraSmall"><span class="font-size extrasmall">XS</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TextFontSize" id="TextFontSizeSmall" value="1" data-bind="checked: fontSize.checkable" />
+                <label for="TextFontSizeSmall" title="@Ifly.Resources.Editor.FontSize_Small"><span class="font-size small">S</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TextFontSize" id="TextFontSizeMedium" value="0" data-bind="checked: fontSize.checkable" />
+                <label for="TextFontSizeMedium" title="@Ifly.Resources.Editor.FontSize_Medium"><span class="font-size medium">M</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TextFontSize" id="TextFontSizeLarge" value="3" data-bind="checked: fontSize.checkable" />
+                <label for="TextFontSizeLarge" title="@Ifly.Resources.Editor.FontSize_Large"><span class="font-size large">L</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TextFontSize" id="TextFontSizeExtraLarge" value="4" data-bind="checked: fontSize.checkable" />
+                <label for="TextFontSizeExtraLarge" title="@Ifly.Resources.Editor.FontSize_ExtraLarge"><span class="font-size extralarge">XL</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div data-bind="visible: !isRichTextAllowed()">
+        <label>@(Ifly.Resources.Editor.FontStyles):</label>
+        <ul class="field checkable-list">
+            <li>
+                <input type="checkbox" name="TextFontStyleBold" id="TextFontStyleBold" data-bind="checked: isBold" />
+                <label for="TextFontStyleBold" title="@Ifly.Resources.Editor.FontStyles_Bold">@Ifly.Resources.Editor.FontStyles_Bold</label>
+            </li>
+            <li>
+                <input type="checkbox" name="TextFontStyleItalic" id="TextFontStyleItalic" data-bind="checked: isItalic" />
+                <label for="TextFontStyleItalic" title="@Ifly.Resources.Editor.FontStyles_Italic">@Ifly.Resources.Editor.FontStyles_Italic</label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Text_Width):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "width", CssClass = "element-property element-property-imagewidth", Minimum = "5|Auto", Maximum = "90%" })
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿<div class="element-timeline">
+    @Html.Partial("UI/Elements/_Base", new { Type = "timeline" })
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Timeline_Items):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editItems, text: itemsText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.ClearSelection" data-bind="visible: items().length > 0, click: clearItems"></button>
+        </div>
+    </div>
+
+    <div class="accent-colors">
+        <label for="BarColorAccent1">@(Ifly.Resources.Editor.Component_Timeline_BarColor):</label>
+        <ul class="field checkable-list pull-left">
+            <li>
+                <input type="radio" name="BarColorAccent" id="BarColorAccent1" value="0" data-bind="checked: barColor.checkable" />
+                <label for="BarColorAccent1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="BarColorAccent" id="BarColorAccent2" value="1" data-bind="checked: barColor.checkable" />
+                <label for="BarColorAccent2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="BarColorAccent" id="BarColorAccent3" value="2" data-bind="checked: barColor.checkable" />
+                <label for="BarColorAccent3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="BarColorAccent" id="BarColorAccent4" value="3" data-bind="checked: barColor.checkable" />
+                <label for="BarColorAccent4" title="@Ifly.Resources.Editor.ColorType_Accent4" class="theme-based"><span class="accent-4 accent-background"></span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label for="TimelineOrientation0">@(Ifly.Resources.Editor.Component_Timeline_Orientation):</label>
+        <ul class="field checkable-list timeline-orientations">
+            <li>
+                <input type="radio" name="TimelineOrientation" id="TimelineOrientation0" value="0" data-bind="checked: orientation.checkable" />
+                <label for="TimelineOrientation0" title="@Ifly.Resources.Editor.Orientation_Horizontal"><span class="timeline-orientation">@Ifly.Resources.Editor.Orientation_Horizontal</span></label>
+            </li>
+            <li>
+                <input type="radio" name="TimelineOrientation" id="TimelineOrientation1" value="1" data-bind="checked: orientation.checkable" />
+                <label for="TimelineOrientation1" title="@Ifly.Resources.Editor.Orientation_Vertical"><span class="timeline-orientation">@Ifly.Resources.Editor.Orientation_Vertical</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Timeline_Size):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "size", CssClass = "element-property", Minimum = "5%", Maximum = "90%" })
+    </div>
+</div>

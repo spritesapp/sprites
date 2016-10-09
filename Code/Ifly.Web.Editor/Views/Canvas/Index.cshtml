@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        @Html.Partial("_Header")
+    </head>
+    <body>
+        <div class="editor active">
+            <div class="canvas-container full-screen">
+                <div class="canvas no-slide">
+                    <h3 class="dimmed">@Ifly.Resources.Editor.NoSlideSelected</h3>
+
+                    <div class="grid" style="display: none"></div>
+
+                    <div class="slide slide-editable" style="display: none">
+                        <ul class="stack stack-center"></ul>
+                        <ul class="stack stack-top"></ul>
+                        <ul class="stack stack-left"></ul>
+                        <ul class="stack stack-right"></ul>
+                        <ul class="stack stack-bottom"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Scripts.Render("~/js/app")
+        @Scripts.Render("~/js/embed")
+        @Scripts.Render("~/js/jqvmap")
+        @Scripts.Render("~/js/charts")
+        
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+        <script>
+            Ifly.App.getInstance().addEventListener('loaded', function () {
+                window.parent.Ifly.Editor.getInstance().composition.setHost(document);
+            });
+
+            Ifly.App.getInstance().initialize({
+                embedded: true
+            });
+
+            $(function () {
+                /* Disabling "Back" history action on Backspace. */
+                $(document).on('keydown keypress', function (e) {
+                    if (e.keyCode == 8 && !/input|textarea/i.test(e.target.nodeName)) {
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

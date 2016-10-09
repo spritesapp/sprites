@@ -1,0 +1,183 @@
+@media only screen and (max-width: 520px) {
+  body.landing {
+    font-size: 10pt;
+  }
+  body.landing h1 {
+    font-size: 48px;
+    line-height: 70px;
+  }
+  body.landing h1 span.separator {
+    height: 44px;
+    margin: 0 15px;
+    top: 6px;
+  }
+  body.landing .wrapper .form .input-wrapper {
+    width: 340px;
+  }
+  body.landing .wrapper .form .input-wrapper .icon {
+    top: 14px;
+  }
+  body.landing .wrapper .form .results {
+    width: 340px;
+  }
+  body.landing footer .footer-wrap {
+    font-size: 100%;
+    width: 275px;
+  }
+  body.landing .wrapper .form .results .results-list-wrapper ul li {
+    padding: 5px 40px;
+  }
+  body.landing footer .footer-wrap {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body.landing h1 {
+    font-size: 38px;
+    line-height: 60px;
+  }
+  body.landing h1 span.separator {
+    height: 32px;
+    margin: 0 10px;
+    top: 4px;
+  }
+  body.landing h2 {
+    font-size: 120%;
+  }
+  body.landing .form {
+    margin: 0 10px;
+  }
+  body.landing .wrapper {
+    margin-top: -175px;
+    height: 300px;
+  }
+  body.landing .wrapper .form .input-wrapper {
+    width: 100%;
+  }
+  body.landing .wrapper .form .input-wrapper .icon {
+    display: none;
+  }
+  body.landing .wrapper .form .input-wrapper .submit {
+    width: 29%;
+  }
+  body.landing .wrapper .form .results {
+    width: 100%;
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-2 ul {
+    -webkit-transform: translateX(-296px);
+    -moz-transform: translateX(-296px);
+    -ms-transform: translateX(-296px);
+    -o-transform: translateX(-296px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-3 ul {
+    -webkit-transform: translateX(-592px);
+    -moz-transform: translateX(-592px);
+    -ms-transform: translateX(-592px);
+    -o-transform: translateX(-592px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-4 ul {
+    -webkit-transform: translateX(-888px);
+    -moz-transform: translateX(-888px);
+    -ms-transform: translateX(-888px);
+    -o-transform: translateX(-888px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-5 ul {
+    -webkit-transform: translateX(-1184px);
+    -moz-transform: translateX(-1184px);
+    -ms-transform: translateX(-1184px);
+    -o-transform: translateX(-1184px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-6 ul {
+    -webkit-transform: translateX(-1480px);
+    -moz-transform: translateX(-1480px);
+    -ms-transform: translateX(-1480px);
+    -o-transform: translateX(-1480px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-7 ul {
+    -webkit-transform: translateX(-1776px);
+    -moz-transform: translateX(-1776px);
+    -ms-transform: translateX(-1776px);
+    -o-transform: translateX(-1776px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-8 ul {
+    -webkit-transform: translateX(-2072px);
+    -moz-transform: translateX(-2072px);
+    -ms-transform: translateX(-2072px);
+    -o-transform: translateX(-2072px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-9 ul {
+    -webkit-transform: translateX(-2368px);
+    -moz-transform: translateX(-2368px);
+    -ms-transform: translateX(-2368px);
+    -o-transform: translateX(-2368px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-10 ul {
+    -webkit-transform: translateX(-2664px);
+    -moz-transform: translateX(-2664px);
+    -ms-transform: translateX(-2664px);
+    -o-transform: translateX(-2664px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-11 ul {
+    -webkit-transform: translateX(-2960px);
+    -moz-transform: translateX(-2960px);
+    -ms-transform: translateX(-2960px);
+    -o-transform: translateX(-2960px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-12 ul {
+    -webkit-transform: translateX(-3256px);
+    -moz-transform: translateX(-3256px);
+    -ms-transform: translateX(-3256px);
+    -o-transform: translateX(-3256px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-13 ul {
+    -webkit-transform: translateX(-3552px);
+    -moz-transform: translateX(-3552px);
+    -ms-transform: translateX(-3552px);
+    -o-transform: translateX(-3552px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-14 ul {
+    -webkit-transform: translateX(-3848px);
+    -moz-transform: translateX(-3848px);
+    -ms-transform: translateX(-3848px);
+    -o-transform: translateX(-3848px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-15 ul {
+    -webkit-transform: translateX(-4144px);
+    -moz-transform: translateX(-4144px);
+    -ms-transform: translateX(-4144px);
+    -o-transform: translateX(-4144px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-16 ul {
+    -webkit-transform: translateX(-4440px);
+    -moz-transform: translateX(-4440px);
+    -ms-transform: translateX(-4440px);
+    -o-transform: translateX(-4440px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-17 ul {
+    -webkit-transform: translateX(-4736px);
+    -moz-transform: translateX(-4736px);
+    -ms-transform: translateX(-4736px);
+    -o-transform: translateX(-4736px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-18 ul {
+    -webkit-transform: translateX(-5032px);
+    -moz-transform: translateX(-5032px);
+    -ms-transform: translateX(-5032px);
+    -o-transform: translateX(-5032px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-19 ul {
+    -webkit-transform: translateX(-5328px);
+    -moz-transform: translateX(-5328px);
+    -ms-transform: translateX(-5328px);
+    -o-transform: translateX(-5328px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper.current-20 ul {
+    -webkit-transform: translateX(-5624px);
+    -moz-transform: translateX(-5624px);
+    -ms-transform: translateX(-5624px);
+    -o-transform: translateX(-5624px);
+  }
+  body.landing .wrapper .form .results .results-list-wrapper ul li {
+    width: 296px;
+  }
+}

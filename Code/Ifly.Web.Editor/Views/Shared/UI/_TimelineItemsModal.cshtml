@@ -1,0 +1,21 @@
+﻿<div id="timeline-items" class="timeline-items" title="@Ifly.Resources.Editor.EditTimelineItems" style="display: none">
+    <div class="form">
+        <div class="map-annotations-outer" data-bind="with: data">
+            @Html.Partial("UI/_DataTableView", new { ClientSideModel = "items", FixedColumns = 4, CssClass = "timeline-items-table", FirstCellPlaceholder = string.Empty })
+            <div class="dimmed block center clear">@Ifly.Resources.Editor.EmptyRowsWillTrim</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('TimelineItemsModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            columnLabel: '@Ifly.Resources.Editor.Label',
+            columnDescription: '@Ifly.Resources.Editor.Description',
+            columnSize: '@Ifly.Resources.Editor.Size',
+            columnStyle: '@Ifly.Resources.Editor.Style'
+        }
+    });
+</script>

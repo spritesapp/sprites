@@ -1,0 +1,95 @@
+﻿<div id="media-selector" title="@Ifly.Resources.Editor.SelectMedia" style="display: none">
+    <div class="selector-outer" data-bind="with: data">
+        <div class="selector-wrapper-with-search">
+            <div class="search-box">
+                <div class="search-sources dropdown" tabindex="0" data-bind="attr: { disabled: isUploading() || mediaSource().isLoading() }">
+                    <span class="dropdown-arrow icon-angle-down"></span>
+                    <span class="dropdown-active">
+                        <i class="icon icon-search"></i>
+                        <span data-bind="text: mediaSourceType.description"></span>
+                    </span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li data-bind="click: function (data, e) { $data.onSourceTypeChanging(Ifly.Models.UI.MediaSourceType.sprites, e); }">
+                                <span>@Ifly.Resources.Editor.MediaSourceType_MyLibrary</span>
+                            </li>
+
+                            <li data-bind="click: function (data, e) { $data.onSourceTypeChanging(Ifly.Models.UI.MediaSourceType.flickr, e); }">
+                                <span>@Ifly.Resources.Editor.MediaSourceType_Flickr</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <input type="text" placeholder="@Ifly.Resources.Editor.SearchMedia" data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+                <button class="clear" title="@Ifly.Resources.Editor.ClearSearch" data-bind="attr: { disabled: isUploading() || mediaSource().isLoading() }, visible: searchTerm() != null && searchTerm().length > 0, click: function (data) { data.searchTerm(''); }"><i class="icon-remove"></i></button>
+            </div>
+
+            <div class="upload-button">
+                <a href="javascript:void(0);" class="button upload" data-bind="upload: true, enable: !isUploading() && !mediaSource().isLoading()">
+                    <i class="icon icon-cloud-upload"></i>
+                    @Ifly.Resources.Editor.UploadButton
+                </a>
+            </div>
+
+            <div class="select-from-external dropdown" tabindex="0" data-bind="attr: { disabled: isUploading() || mediaSource().isLoading() }">
+                <span class="dropdown-arrow icon-angle-down"></span>
+                <span class="dropdown-active">@(Ifly.Resources.Editor.SelectImageFrom)...</span>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li data-bind="click: function (data, e) { $data.onExternalFileRequest(Ifly.Models.UI.ExternalMediaSource.drive, e); }">
+                            <span>@Ifly.Resources.Editor.SelectImageFrom_GoogleDrive</span>
+                        </li>
+
+                        <li data-bind="click: function (data, e) { $data.onExternalFileRequest(Ifly.Models.UI.ExternalMediaSource.dropbox, e); }">
+                            <span>@Ifly.Resources.Editor.SelectImageFrom_Dropbox</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scroll-shadow"></div>
+
+            <div class="selector-wrapper">
+                <div class="media-selector-loading" data-bind="visible: mediaSource().isLoading">@Ifly.Resources.Editor.OneMoment</div>
+                <div class="media-selector-empty" data-bind="visible: !mediaSource().isLoading() && (mediaSource().items().length === 0 || ko.utils.arrayFilter(mediaSource().items(), function (item) { return item.isActive(); }).length === 0)">@Ifly.Resources.Editor.NoImagesFound</div>
+
+                <div class="media-selector-contents" data-bind="css: { 'media-selector-contents-visible': mediaSource().isLoading.done }, visible: !mediaSource().isLoading()">
+                    <ul data-bind="foreach: mediaSource().items">
+                        <li data-bind="visible: isActive">
+                            <input type="radio" name="media" data-bind="attr: { 'id': 'opt-media-' + media.url(), disabled: loadingFailed }, value: media.url, checked: $parent.media" />
+                            <label data-bind="attr: { 'for': 'opt-media-' + media.url(), title: media.url }">
+                                <span class="no-media-container">
+                                    <i class="icon icon-picture"></i>
+                                </span>
+
+                                <span class="image-container">
+                                    <img data-bind="attr: { 'src': media.url, 'alt': media.name, 'title': media.name }, event: { 'load': function (data, e) { $data.loadWatcher.onLoad(e.target, data); }, 'error': function (data, e) { $data.loadWatcher.onError(e.target, data); } }" />
+                                </span>
+
+                                <span class="name"><span data-bind="text: media.name, attr: { title: media.name }"></span><span class="date" data-bind="text: media.created.fromNow"></span></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="selector-wrapper-overlay" data-bind="visible: isUploading"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('MediaSelectorModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            dropFilesHere: 'Drop images here',
+            imageElementName: '@Ifly.Resources.Editor.Component_Image',
+            sourceTypes: [
+                '@Ifly.Resources.Editor.MediaSourceType_MyLibrary',
+                '@Ifly.Resources.Editor.MediaSourceType_Flickr'
+            ]
+        }
+    });
+</script>

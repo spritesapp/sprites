@@ -1,0 +1,145 @@
+﻿<div id="theme-builder" title="@Ifly.Resources.Editor.CreateTheme" style="display: none">
+    <div data-bind="with: wizard">
+        <div class="wizard-head">
+            <div class="wizard-step-description">
+                <h3 data-bind="visible: step() === 0" class="step-heading">@Ifly.Resources.Editor.CreateTheme_SelectTemplate</h3>
+                <p data-bind="visible: step() === 0" class="step-description">@Ifly.Resources.Editor.CreateTheme_SelectTemplate_Description</p>
+
+                <h3 data-bind="visible: step() === 1" class="step-heading">@Ifly.Resources.Editor.CreateTheme_Customization</h3>
+                <p data-bind="visible: step() === 1" class="step-description">@Ifly.Resources.Editor.CreateTheme_Customization_Description</p>
+
+                <h3 data-bind="visible: step() === 2" class="step-heading">@Ifly.Resources.Editor.CreateTheme_Confirmation</h3>
+                <p data-bind="visible: step() === 2" class="step-description">@Ifly.Resources.Editor.CreateTheme_Confirmation_Description</p>
+            </div>
+            <div class="wizard-progress">
+                <ul>
+                    <li data-bind="css: {'in-path': step() >= 0, 'passed': step() > 0}">
+                        <a href="javascript:void(0);">
+                            <span class="text">1</span>
+                            <i class="icon icon-ok"></i>
+                        </a>
+                    </li>
+                    <li data-bind="css: {'in-path': step() >= 1, 'passed': step() > 1}">
+                        <a href="javascript:void(0);">
+                            <span class="text">2</span>
+                            <i class="icon icon-ok"></i>
+                        </a>
+                    </li>
+                    <li data-bind="css: {'in-path': step() >= 2, 'passed': step() > 2}">
+                        <a href="javascript:void(0);">
+                            <span class="text">3</span>
+                            <i class="icon icon-ok"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step" data-bind="visible: step() == 0">
+            <div class="step-content" data-bind="with: steps.selectTemplate">
+                <div class="form">
+                    <div class="no-overflow base-theme">
+                        <label>@(Ifly.Resources.Editor.CreateTheme_BaseTheme):</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step" data-bind="visible: step() == 1">
+            <div class="step-content" data-bind="with: steps.customization">
+                <div class="form">
+                    <div class="no-overflow">
+                        <label>@(Ifly.Resources.Editor.CreateTheme_Font):</label>
+                        @Html.Partial("UI/_FontSelector", new { Id = "theme-font", BindingExpression = "with: fonts" })
+                    </div>
+                </div>
+
+                <div class="colors-background-split">
+                    <div class="colors">
+                        <div class="form">
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_AccentColor1):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-accent-color-1", BindingExpression = "with: accentColor1Picker" })
+                            </div>
+
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_AccentColor2):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-accent-color-2", BindingExpression = "with: accentColor2Picker" })
+                            </div>
+
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_AccentColor3):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-accent-color-3", BindingExpression = "with: accentColor3Picker" })
+                            </div>
+
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_AccentColor4):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-accent-color-4", BindingExpression = "with: accentColor4Picker" })
+                            </div>
+                            <div>
+                                <a class="external-link" href="http://www.colourlovers.com/palettes" target="_blank">
+                                    <span>@Ifly.Resources.Editor.CreateTheme_InspireMe</span>
+                                    <i class="icon icon-external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background">
+                        <div class="form">
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_FontColor):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-font-color", BindingExpression = "with: fontColorPicker" })
+                            </div>
+
+                            <div class="no-overflow">
+                                <label>@(Ifly.Resources.Editor.CreateTheme_BackgroundColor):</label>
+                                @Html.Partial("UI/_ColorPicker", new { Id = "theme-background-color", BindingExpression = "with: backgroundColorPicker" })
+                            </div>
+
+                            @Html.Partial("UI/_ImageSelector", new { Label = Ifly.Resources.Editor.CreateTheme_BackgroundImage, BindingExpression = "with: backgroundImageSelector", Preview = true })
+                            @Html.Partial("UI/_ImageSelector", new { Label = Ifly.Resources.Editor.CreateTheme_Logo, BindingExpression = "with: logoSelector", Preview = true })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step" data-bind="visible: step() == 2">
+            <div class="step-content" data-bind="with: steps.confirmation">
+                <div class="form">
+                    <div>
+                        <label>@(Ifly.Resources.Editor.CreateTheme_ThemeName):</label>
+                        <input type="text" autocomplete="off" spellcheck="false" class="theme-name" data-bind="value: name, valueUpdate: 'afterkeydown', attr: { disabled: !enabled() }" />
+                    </div>
+                    <div class="save-warning" data-bind="visible: enabled() && !nameIsUnique()">
+                        <label>&nbsp;</label>
+                        <div>
+                            @Ifly.Resources.Editor.CreateTheme_NameIsNotUnique
+                        </div>
+                    </div>
+                </div>
+
+                <div class="save-error" data-bind="visible: wasError">
+                    @Html.Raw(Ifly.Resources.Editor.ExportImage_Error)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="modal-close-button" title="@Ifly.Resources.Editor.Close">
+        <i class="icon icon-remove"></i>
+    </a>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ThemeBuilderModal', {
+        terminology: {
+            next: '@Ifly.Resources.Editor.CreateTheme_Next',
+            back: '@Ifly.Resources.Editor.CreateTheme_Back',
+            create: '@Ifly.Resources.Editor.CreateTheme_Create',
+            creating: '@Ifly.Resources.Editor.CreateTheme_Creating',
+            copyOf: '@Ifly.Resources.Editor.CopyOf'
+        }
+    });
+</script>

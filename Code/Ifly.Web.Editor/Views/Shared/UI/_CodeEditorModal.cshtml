@@ -1,0 +1,18 @@
+﻿<div id="code-editor" class="code-editor" title="@Ifly.Resources.Editor.EditWidgetCode" style="display: none">
+    <div class="form">
+        <div class="code-editor-outer" data-bind="with: data">
+            <div class="code-editor-loading">@Ifly.Resources.Editor.OneMoment</div>
+            <pre class="code-editor-contents"></pre>
+            <div class="dimmed block center clear">@Html.Raw(Ifly.Resources.Editor.Component_Widget_Description_Short)</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('CodeEditorModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel'
+        }
+    });
+</script>

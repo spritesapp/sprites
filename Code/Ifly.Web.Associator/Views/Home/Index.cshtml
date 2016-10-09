@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.BodyCssClass = "landing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="line"></div>
+
+<div class="wrapper">
+    <h1>
+        <span>Sprites</span>
+        <span class="separator"></span>
+        <span class="highlight">Numbers</span>
+    </h1>
+    <h2>@Ifly.Resources.Associator.Description</h2>
+
+    <div class="form">
+        <div class="input-wrapper">
+            <i class="icon icon-chevron-right"></i>
+
+            <div class="input">
+                <input type="number" class="value" maxlength="10" autofocus="autofocus" autocomplete="off" placeholder="@Ifly.Resources.Associator.YourValueIn" spellcheck="false" />
+            </div>
+            
+            <div class="measure">
+                <div class="measure-selector" tabindex="0" data-value="1">
+                    <div class="current current-1">
+                        <ul>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_Cm_Single" data-text-plural="@Ifly.Resources.Associator.Measure_Cm">@Ifly.Resources.Associator.Measure_Cm</span></li>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_M_Single" data-text-plural="@Ifly.Resources.Associator.Measure_M">@Ifly.Resources.Associator.Measure_M</span></li>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_Km_Single" data-text-plural="@Ifly.Resources.Associator.Measure_Km">@Ifly.Resources.Associator.Measure_Km</span></li>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_G_Single" data-text-plural="@Ifly.Resources.Associator.Measure_G">@Ifly.Resources.Associator.Measure_G</span></li>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_Kg_Single" data-text-plural="@Ifly.Resources.Associator.Measure_Kg">@Ifly.Resources.Associator.Measure_Kg</span></li>
+                            <li><span data-text-single="@Ifly.Resources.Associator.Measure_T_Single" data-text-plural="@Ifly.Resources.Associator.Measure_T">@Ifly.Resources.Associator.Measure_T</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit">
+                <button data-text-busy="@Ifly.Resources.Associator.Comparing" data-text-normal="@Ifly.Resources.Associator.Compare">@Ifly.Resources.Associator.Compare</button>
+            </div>
+
+            <span class="progress-overlay"></span>
+            <span class="progress-bar"></span>
+
+            <div class="waiting-longer">
+                <p>@Ifly.Resources.Associator.TakingLonger</p>
+            </div>
+        </div>
+
+        <div class="results" data-value="1" data-empty-message="@Ifly.Resources.Associator.NoResults">
+            <button class="previous" title="@Ifly.Resources.Associator.PreviousFact"><i class="icon-chevron-left"></i></button>
+            <button class="next" title="@Ifly.Resources.Associator.NextFact"><i class="icon-chevron-right"></i></button>
+
+            <div class="results-list-wrapper current current-1">
+                <ul></ul>
+            </div>
+
+            <div class="numbers">
+                <span class="number-current"></span>
+                <span class="number-separator"> / </span>
+                <span class="number-total"></span>
+            </div>
+        </div>
+    </div>
+</div>

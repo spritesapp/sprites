@@ -1,0 +1,25 @@
+﻿<div id="chat-window" data-bind="with: collaboration.chat.currentSession">
+    <button data-bind="click: toggleVisibility, css: { 'active': isVisible }">
+        <i class="icon icon-comment"></i>
+        <span>@Ifly.Resources.Editor.Chat_TeamChat</span>
+        <span class="new-message-indicator" title="@Ifly.Resources.Editor.Chat_ContainsNewMessages" data-bind="css: { 'active': containsUnreadMessages }"></span>
+    </button>
+
+    <div class="chat-window" data-bind="css: { 'active': isVisible, 'empty-wrapper': messages().length === 0 }">
+        <div class="message-list nano">
+            <ul class="nano-content" data-bind="foreach: messages, visible: messages().length > 0">
+                <li data-bind="css: { 'service-message': name() === null || !name().length }">
+                    <span class="name" data-bind="visible: name() !== null && name().length > 0, text: name() + ':'"></span>
+                    <span class="text" data-bind="html: message.htmlEnabled"></span>
+                </li>
+            </ul>
+
+            <p class="empty" data-bind="visible: messages().length === 0">
+                <i class="icon icon-share"></i>
+                <span>@Html.Raw(Ifly.Resources.Editor.Chat_Empty)</span>
+            </p>
+        </div>
+        <input type="text" autocomplete="off" spellcheck="false" placeholder="@Ifly.Resources.Editor.Chat_TypeYourMessage"
+               data-bind="visible: messages().length > 0, attr: { disabled: messages().length === 0 }, event: { keyup: function (data, event) { $data.onNewMessageKeyUp(event.target.value, event); } }" />
+    </div>
+</div>

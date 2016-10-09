@@ -1,0 +1,99 @@
+﻿@{
+    var widgetSnippet = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(1, Ifly.Resources.Editor.WidgetSnippet_YouTube_Option),
+        new Tuple<int, string>(2, Ifly.Resources.Editor.WidgetSnippet_Twitter_Option),
+        new Tuple<int, string>(4, Ifly.Resources.Editor.WidgetSnippet_TwitterTweet_Option),
+        new Tuple<int, string>(5, Ifly.Resources.Editor.WidgetSnippet_Facebook_Option),
+        new Tuple<int, string>(3, Ifly.Resources.Editor.WidgetSnippet_Typeform_Option)
+    };    
+}
+
+@helper RenderSnippetType(Tuple<int, string> t)
+{
+    <li data-bind="css: { 'active': (snippetType() == @t.Item1) }, click: function (data, e) { $data.onSnippetTypeChanging(@t.Item1, e); }">
+        <span>@t.Item2</span>
+    </li>
+}
+
+<div class="element-widget">
+    @Html.Partial("UI/Elements/_Base", new { Type = "widget" })
+
+    <div class="no-overflow">
+        <label>@(Ifly.Resources.Editor.WidgetSnippet_InsertShippet):</label>
+
+        <div class="dropdown new-chart-types" tabindex="0" id="new-chart-types">
+            <span class="dropdown-arrow icon-angle-down"></span>
+            <span class="dropdown-active" 
+                data-text-0="@Ifly.Resources.Editor.WidgetSnippet_None_Option" 
+                data-text-1="@Ifly.Resources.Editor.WidgetSnippet_YouTube_Option" 
+                data-text-2="@Ifly.Resources.Editor.WidgetSnippet_Twitter_Option" 
+                data-text-3="@Ifly.Resources.Editor.WidgetSnippet_Typeform_Option"
+                data-text-4="@Ifly.Resources.Editor.WidgetSnippet_TwitterTweet_Option"
+                data-text-5="@Ifly.Resources.Editor.WidgetSnippet_Facebook_Option"
+                data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(snippetType() || 0)"></span>
+            <div class="dropdown-menu">
+                <ul>
+                    @foreach (var t in widgetSnippet)
+                    {
+                        @RenderSnippetType(t);
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 1">
+        <label for="snippet-youtube-url">@(Ifly.Resources.Editor.WidgetSnippet_YouTube_Url):</label>
+        <div class="snippet-deferred" data-bind="with: snippetYouTube">
+            <input type="text" id="snippet-youtube-url" data-bind="value: url, event: { keyup: function(data, e) { return data.onValueChanging('url'); }, paste: function(data, e) { return data.onValuePasting('url', e); } }" />
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 2">
+        <label class="snippet-pull-right" for="snippet-twitter-widgetid">@(Html.Raw(Ifly.Resources.Editor.WidgetSnippet_Twitter_WidgetId)):</label>
+        <div class="snippet-deferred" data-bind="with: snippetTwitter">
+            <input type="text" id="snippet-twitter-widgetid" data-bind="value: widgetId, event: { keyup: function(data, e) { return data.onValueChanging('widgetId'); }, paste: function(data, e) { return data.onValuePasting('widgetId', e); } }" />
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 2">
+        <label for="snippet-twitter-handle">@(Ifly.Resources.Editor.WidgetSnippet_Twitter_Handle):</label>
+        <div class="snippet-deferred" data-bind="with: snippetTwitter">
+            <input type="text" id="snippet-twitter-handle" data-bind="value: handle, event: { keyup: function(data, e) { return data.onValueChanging('handle'); }, paste: function(data, e) { return data.onValuePasting('handle', e); } }" />
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 3">
+        <label for="snippet-typeform-url">@(Ifly.Resources.Editor.WidgetSnippet_Typeform_Url):</label>
+        <div class="snippet-deferred" data-bind="with: snippetTypeform">
+            <input type="text" id="snippet-typeform-url" data-bind="value: url, event: { keyup: function(data, e) { return data.onValueChanging('url'); }, paste: function(data, e) { return data.onValuePasting('url', e); } }" />
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 4">
+        <label for="snippet-twitter-tweetId">@(Ifly.Resources.Editor.WidgetSnippet_Twitter_TweetId):</label>
+        <div class="snippet-deferred" data-bind="with: snippetTwitterTweet">
+            <input type="text" id="snippet-twitter-tweetId" data-bind="value: tweetId, event: { keyup: function(data, e) { return data.onValueChanging('tweetId'); }, paste: function(data, e) { return data.onValuePasting('tweetId', e); } }" />
+        </div>
+    </div>
+
+    <div data-bind="visible: snippetType() == 5">
+        <label for="snippet-facebook-postUrl">@(Ifly.Resources.Editor.WidgetSnippet_Facebook_PostUrl):</label>
+        <div class="snippet-deferred" data-bind="with: snippetFacebook">
+            <input type="text" id="snippet-facebook-postUrl" data-bind="value: postUrl, event: { keyup: function(data, e) { return data.onValueChanging('postUrl'); }, paste: function(data, e) { return data.onValuePasting('postUrl', e); } }" />
+        </div>
+    </div>
+
+    <div>
+        <label for="widget-code">@(Ifly.Resources.Editor.Component_Widget_Code):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editCode, text: codeStatus"></a>
+        </div>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Widget_WhatIsWidget):</label>
+        <p>@Html.Raw(Ifly.Resources.Editor.Component_Widget_Description)</p>
+    </div>
+</div>

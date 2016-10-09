@@ -1,0 +1,149 @@
+﻿@{
+    Func<Ifly.Storage.PresentationRecordDescriptor, bool> notArchived = (Ifly.Storage.PresentationRecordDescriptor p) =>
+    {
+        return !p.IsArchived;
+    }; 
+}
+
+<div class="status">
+    <ul>
+        <li id="sync-error">
+            @Ifly.Resources.Editor.UnableToSync:&nbsp;<span title=""></span>
+        </li>
+        <li id="help-center" data-bind="css: { 'active': $root.help.panel.isOpen }" style="display: none">
+            <i id="help-center-button-wrapper" class="help-center-activator" data-bind="css: { 'active': $root.help.panel.isOpen() }, click: function () { $root.userMenu.toggleHelpCenter(); }"><button><i class="icon icon-question-sign"></i><span>@Ifly.Resources.Editor.Help</span></button></i>
+        </li>
+
+        <li id="howdy-user" data-bind="css: { 'active': userMenu.isOpen }" style="margin-right: 0">
+            <i id="current-user" class="user-menu-activator" data-bind="css: { 'active': userMenu.isOpen }, click: function () { $root.userMenu.toggleVisibility(); }"><button><i class="icon icon-user"></i><span>@Ifly.ApplicationContext.Current.User.Name</span></button></i>
+
+            <div class="user-menu" data-bind="css: { 'active': userMenu.isOpen }">
+                @if (Model is Ifly.Web.Editor.Models.PresentationEditModel)
+                {
+                    var m = Model as Ifly.Web.Editor.Models.PresentationEditModel;
+                    var canShare = Ifly.ApplicationContext.Current.User.Subscription.Type == Ifly.SubscriptionType.Agency;
+
+                <h3>
+                    <span class="title">@Ifly.Resources.Editor.MyPresentations</span>
+                    <span class="action-buttons bare">
+                        <button class="new-infographic" title="@Ifly.Resources.Editor.NewPresentation" data-bind="click: function () { $data.userMenu.newPresentation(); }"><i class="icon icon-plus"></i></button>
+                    </span>
+                </h3>
+
+                <div class="all-presentations-header @(m.AllPresentations.Any(notArchived) || m.SharedPresentations.Any() ? string.Empty : "um-hide")">
+                    <ul>
+                        <li class="header">
+                            <span class="col-link">@Ifly.Resources.Editor.Name</span>
+                            <span class="col-created">@Ifly.Resources.Editor.Created</span>
+                            <span class="col-collab @(m.AllPresentations.Any(notArchived) ? string.Empty : "um-hide")">@(canShare ? Ifly.Resources.Editor.Collaboration_Collaborators : string.Empty)</span>
+                            <span class="col-archive">@Ifly.Resources.Editor.Archive</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nano all-presentations all-presentations-fixed">
+                    <ul class="nano-content">
+                        @foreach (var p in m.AllPresentations)
+                            {
+                            <li class="presentation-table-row @(p.IsArchived ? "um-hide" : null)" data-presentation-id="@p.Id">
+                                <span class="col-link">
+                                    <a href="/edit/@p.Id" title="@p.Name" data-presentation-id="@p.Id" data-bind="click: function () { $data.userMenu.onClicked(); return true; }">@(!string.IsNullOrEmpty(p.Name) ? p.Name : string.Format("[{0}]", Ifly.Resources.Editor.NoTitle))</a>
+                                </span>
+                                <span class="col-created">
+                                    @p.Created.ToShortDateString()
+                                </span>
+                                <span class="col-collab">
+                                    @if (canShare)
+                                        {
+                                        <a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.onEditCollaborators(@p.Id, '@((p.Name ?? string.Empty).Replace("'", "\\'"))'); return false; }"><i class="icon icon-edit"></i><span>@Ifly.Resources.Editor.Collaboration_Edit</span></a>
+                                        }
+                                </span>
+                                <span class="col-archive">
+                                    <a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.togglePresentationIsArchived(@p.Id, true); return false; }"><i class="icon icon-ban-circle"></i><span>@Ifly.Resources.Editor.Archive</span></a>
+                                </span>
+                            </li>
+                            }
+
+                        @if (m.SharedPresentations.Any())
+                            {
+                            <li class="empty dimmed no-margin @(!m.AllPresentations.Any(notArchived) ? string.Empty : "um-hide")">
+                                <div>@Ifly.Resources.Editor.NoPresentationsCreated</div>
+                            </li>
+
+                            <li class="separator"><span class="col-link">@(Ifly.Resources.Editor.SharedWithMe):</span></li>
+
+                                foreach (var p in m.SharedPresentations)
+                                {
+                            <li class="presentation-table-row shared-presentation">
+                                <span class="col-link">
+                                    <a href="/edit/@p.Id" title="@p.Name" data-bind="click: function () { $data.userMenu.onClicked(); return true; }">@(!string.IsNullOrEmpty(p.Name) ? p.Name : string.Format("[{0}]", Ifly.Resources.Editor.NoTitle))</a>
+                                </span>
+                                <span class="col-created">
+                                    @p.Created.ToShortDateString()
+                                </span>
+                                <span class="col-collab"></span>
+                                <span class="col-archive"></span>
+                            </li>
+                                }
+                            }
+
+                        <li class="archived-separator separator @(m.AllPresentations.Any(p => p.IsArchived) ? string.Empty : "um-hide")"><span class="col-link">@(Ifly.Resources.Editor.ArchivedPresentations)&nbsp;&mdash;&nbsp;<a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.showArchive(!$data.userMenu.showArchive()); }, text: $data.userMenu.showArchive() ? '@Ifly.Resources.Editor.Archive_Hide' : '@Ifly.Resources.Editor.Archive_Show'"></a></span></li>
+
+                        @foreach (var p in m.AllPresentations.Where(p => p.IsArchived))
+                            {
+                            <li data-bind="visible: $data.userMenu.showArchive" class="presentation-table-row archived-presentation" data-presentation-id="@p.Id">
+                                <span class="col-link">
+                                    @(!string.IsNullOrEmpty(p.Name) ? p.Name : string.Format("[{0}]", Ifly.Resources.Editor.NoTitle))
+                                </span>
+                                <span class="col-created">
+                                    @p.Created.ToShortDateString()
+                                </span>
+                                <span class="col-collab"></span>
+                                <span class="col-archive"><a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.togglePresentationIsArchived(@p.Id, false); return false; }"><i class="icon icon-ok-circle"></i><span>@Ifly.Resources.Editor.UnArchive</span></a></span>
+                            </li>
+                            }
+
+                        <li class="empty dimmed @(m.AllPresentations.Any() || m.SharedPresentations.Any() ? "um-hide" : string.Empty)">
+                            <div>@Ifly.Resources.Editor.NoPresentationsCreated</div>
+                        </li>
+                    </ul>
+                </div>
+
+                    if (1 == 2 && !Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User) && Ifly.ApplicationContext.Current.User.Subscription != null && Ifly.ApplicationContext.Current.User.Subscription.RenewedTo == Ifly.SubscriptionType.Basic)
+                    {
+                <a data-bind="click: function () { $data.userMenu.openMyAccount(); }" href="javascript:void(0);" class="upgrade-link">@Ifly.Resources.Editor.UpgradeToUnlock</a>
+                    }
+
+                <div class="action-buttons">
+                    <button class="my-account" data-bind="visible: userMenu.hasAccount, click: function () { $data.userMenu.openMyAccount(); }">@Ifly.Resources.Editor.MyAccount</button>
+                    <button class="signout" data-bind="click: function () { $data.userMenu.signOut(); }">@Ifly.Resources.Editor.SignOut</button>
+                </div>
+                }
+            </div>
+        </li>
+        <li id="preview-link" data-bind="css: { 'user-menu-open': userMenu.isOpen() || $root.help.panel.isOpen.closing() }">
+            <span class="link"><i class="icon-external-link"></i>@Ifly.Resources.Editor.PreviewAndPresent</span>
+
+            <div class="preview-menu">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.preview(); }"><i class="icon-desktop"></i><span>@Ifly.Resources.Editor.PreviewPresentation</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-bind="click: function () { $data.userMenu.present(); }"><i class="icon-facetime-video"></i><span>@Ifly.Resources.Editor.PresentPresentation</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li id="gridlines">
+            <a href="javascript:void(0);" data-bind="click: function () { $data.composition.toggleShowGrid(); }"><i class="icon-reorder"></i><span data-bind="text: composition.showGrid() ? '@Ifly.Resources.Editor.HideGrid' : '@Ifly.Resources.Editor.ShowGrid'"></span></a>
+        </li>
+        <li id="last-synced">
+            <div class="demo-notice">@Ifly.Resources.Editor.DemoMode</div>
+            <div class="normal-sync">@Ifly.Resources.Editor.SavedAt&nbsp;<span>0:00 PM</span></div>
+        </li>
+        <li class="sunset">
+            @Html.Raw(Ifly.Resources.Frontpage.Sunset)
+        </li>
+    </ul>
+</div>

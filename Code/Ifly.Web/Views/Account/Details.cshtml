@@ -1,0 +1,159 @@
+﻿@model Ifly.Web.Models.UserAccountDetailsModel
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="account-details">
+    @{
+        bool paymentSuccess = string.Compare(Request["payment:success"], "1") == 0,
+            changePassword = string.Compare(Request["changepassword"], "1") == 0,
+            expired = string.Compare(Request["expired"], "1") == 0;
+
+        string paymentError = Request["payment:error"];
+    }
+
+    @if (!string.IsNullOrEmpty(paymentError))
+    {
+        <div class="info-bar info-error">
+            @if (string.Compare(paymentError, "BadRequest", true) == 0)
+            {
+                <span>@Ifly.Resources.Frontpage.PaymentError_InternalError</span>
+            }
+            else
+            {
+                <span>@Ifly.Resources.Frontpage.PaymentError_InternalError</span>
+            }
+        </div>
+    }
+    else if (paymentSuccess)
+    {
+        <div class="info-bar info-success">
+            <span>@Ifly.Resources.Frontpage.PaymentSuccess</span>
+        </div>
+    }
+    else if (changePassword)
+    {
+        <div class="info-bar info-warning">
+            <span>@Ifly.Resources.Frontpage.PleaseChangeYourPassword</span>
+        </div>
+    }
+    else if (expired)
+    {
+        <div class="info-bar info-warning sticky">
+            <span>@Ifly.Resources.Frontpage.SubscriptionExpired</span>
+            <button class="pay-button" onclick="Ifly.Views.Account.PaymentMethodModal.getInstance().show();">@Ifly.Resources.Frontpage.PayNow</button>
+        </div>
+    }
+
+    <h1>@Ifly.Resources.Frontpage.Account_AccountDetails</h1>
+    <div class="form">
+        <h2>@Ifly.Resources.Frontpage.Account_BasicInformation</h2>
+        <div class="form-field account-details-name validatable">
+            <div class="form-field-label">
+                <label for="user-name">@Ifly.Resources.Frontpage.Account_YourName</label>
+                <span>@Ifly.Resources.Frontpage.Account_YourName_Description</span>
+                <i class="validation-message hidden">@Ifly.Resources.Frontpage.Account_YourName_Required</i>
+            </div>
+            <div class="form-field-value">
+                <input id="user-name" class="fixed-width" type="text" value="@(Model.IsEmail(Model.User.Name) ? string.Empty : Model.User.Name)" />
+            </div>
+        </div>
+        <div class="form-field account-details-email validatable">
+            <div class="form-field-label">
+                <label for="user-email">@Ifly.Resources.Frontpage.Account_YourEmail</label>
+                <span>@Ifly.Resources.Frontpage.Account_YourEmail_Description</span>
+                <i class="validation-message hidden">@Ifly.Resources.Frontpage.Account_YourEmail_Required</i>
+                <i class="validation-message hidden existing-email conditional">@Ifly.Resources.Frontpage.Account_YourEmail_Exists</i>
+            </div>
+            <div class="form-field-value">
+                <input id="user-email" type="text" class="fixed-width" value="@(string.IsNullOrEmpty(Model.User.Email) && Model.IsEmail(Model.User.Name) ? Model.User.Name : Model.User.Email)" />
+            </div>
+        </div>
+        @if (string.Compare(Model.User.ExternalId, Model.User.Email, true) == 0)
+        {
+            <div class="form-field account-details-password">
+                <div class="form-field-label">
+                    <label for="user-password">@Ifly.Resources.Frontpage.Account_YourPassword</label>
+                    <span>@Ifly.Resources.Frontpage.Account_YourPasswordChange_Description</span>
+                </div>
+                <div class="form-field-value">
+                    <input id="user-password" class="fixed-width" type="password" name="Password" value="" />
+                </div>
+            </div>
+        }
+        <div class="form-field">
+            <div class="form-field-label">
+                <label>@Ifly.Resources.Frontpage.Account_YourPlan</label>
+                <span>@Ifly.Resources.Frontpage.Account_YourPlan_Description</span>
+            </div>
+            <div class="form-field-value">
+                <ul id="user-plan" class="checkable-list">
+                    <li>
+                        <input type="radio" name="user-plan" id="user-plan-free" value="0" checked="@(Model.User.Subscription != null && Model.User.Subscription.RenewedTo == Ifly.SubscriptionType.Basic ? "checked" : null)" />
+                        <label for="user-plan-free">@Ifly.Resources.Frontpage.Plan_Free</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="user-plan" id="user-plan-pro" value="1" checked="@(Model.User.Subscription != null && Model.User.Subscription.RenewedTo == Ifly.SubscriptionType.Pro ? "checked" : null)" />
+                        <label for="user-plan-pro">@Ifly.Resources.Frontpage.Plan_Pro</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="user-plan" id="user-plan-agency" value="2" checked="@(Model.User.Subscription != null && Model.User.Subscription.RenewedTo == Ifly.SubscriptionType.Agency ? "checked" : null)" />
+                        <label for="user-plan-agency">@Ifly.Resources.Frontpage.Plan_Agency</label>
+                    </li>
+                </ul>
+
+                @{
+                    bool isBasicSubscription = Model.User.Subscription != null && Model.User.Subscription.RenewedTo == Ifly.SubscriptionType.Basic;
+                }
+
+                <div class="plan-options user-plan-options @(isBasicSubscription ? "double-line" : null)">
+                    <div style="display: @(isBasicSubscription ? "block" : "none")">
+                        <i class="icon icon-arrow-left"></i>
+                        <span>@Ifly.Resources.Frontpage.UpgradeToUnlock</span>
+                    </div>
+                    <a href="/pricing" target="_blank">@Ifly.Resources.Frontpage.Account_YourPlan_ComparePlans</a>
+                </div>
+            </div>
+        </div>
+        <h2>@Ifly.Resources.Frontpage.Account_CompanyDetails</h2>
+        <div class="form-field account-details-company-name">
+            <div class="form-field-label">
+                <label for="company-name">@Ifly.Resources.Frontpage.Account_CompanyName</label>
+                <span>@Ifly.Resources.Frontpage.Account_CompanyName_Description</span>
+            </div>
+            <div class="form-field-value">
+                <input id="company-name" class="fixed-width" type="text" value="@(Model.User.CompanyName)" />
+            </div>
+        </div>
+        <div class="form-field account-details-company-name">
+            <div class="form-field-label">
+                <label for="company-address">@Ifly.Resources.Frontpage.Account_CompanyAddress</label>
+                <span>@Ifly.Resources.Frontpage.Account_CompanyAddress_Description</span>
+            </div>
+            <div class="form-field-value">
+                <input id="company-address" class="fixed-width" type="text" value="@(Model.User.CompanyAddress)" />
+            </div>
+        </div>
+        <div class="form-field-separator"></div>
+
+        @{
+            var processor = Ifly.Resolver.Resolve<Ifly.Payments.IPaymentProcessor>();
+
+            bool subscriptionExpiring = Model.User.Subscription != null && Model.User.Subscription.IsExpiring,
+                isPaidCustomer = Model.User.Subscription != null && Model.User.Subscription.RenewedTo != Ifly.SubscriptionType.Basic,
+                hasPayments = Model.User.Subscription != null ? processor.HasValidPayment(Model.User.Id, new Ifly.Payments.PaymentOptions(Model.User.Subscription)) : false;
+        }
+
+        <div class="form-field form-field-last">
+            <div class="form-field-value form-field-stretch form-field-submit-buttons">
+                <input type="button" id="account-details-save" class="clickable" value="@((isPaidCustomer && processor.IsEnabled() && (subscriptionExpiring || !hasPayments || expired)) ? Ifly.Resources.Frontpage.Account_SaveAndPay : Ifly.Resources.Frontpage.Account_SaveChanges)" data-text-pay="@Ifly.Resources.Frontpage.Account_SaveChanges" data-text-busy="@Ifly.Resources.Frontpage.OneMoment" data-text-normal="@Ifly.Resources.Frontpage.Account_SaveChanges" data-text-success="@Ifly.Resources.Frontpage.Account_Updated" />
+                <input type="button" id="account-return" class="clickable secondary" onclick="location.href = '/edit';" value="@Ifly.Resources.Frontpage.Account_ReturnToEditor" />
+            </div>
+        </div>
+
+        <input type="hidden" id="account-subscription-expiring" value="@(subscriptionExpiring.ToString().ToLowerInvariant())" />
+        <input type="hidden" id="account-payments-enabled" value="@(processor.IsEnabled().ToString().ToLowerInvariant())" />
+    </div>
+</div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>

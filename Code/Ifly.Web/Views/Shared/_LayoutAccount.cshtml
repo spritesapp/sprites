@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "account account-wrapper";
+}
+
+<div id="account-card">
+    @if (Ifly.Resolver.Resolve<Ifly.Payments.IPaymentProcessor>().IsEnabled())
+    {
+    <div tabindex="0" class="button payment-history" title="@Ifly.Resources.Frontpage.PaymentHistory" style="display: @(!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User) ? "inline-block" : "none")">
+        <span>@Ifly.Resources.Frontpage.PaymentHistory</span>
+
+        <div class="payment-history-list">
+            @{
+                var processor = Ifly.Resolver.Resolve<Ifly.Payments.IPaymentProcessor>();
+                var payments = processor.GetPaymentHistory(Ifly.ApplicationContext.Current.User.Id);
+                var culture = new System.Globalization.CultureInfo("en-US");
+            }
+
+            @if (payments.Any())
+            {
+            <table>
+                <tr>
+                    <th class="date">@Ifly.Resources.Frontpage.PaymentHistory_Date</th>
+                    <th class="amount">@Ifly.Resources.Frontpage.PaymentHistory_Amount</th>
+                    <th class="receipt">@Ifly.Resources.Frontpage.PaymentHistory_Receipt</th>
+                </tr>
+                
+                @foreach(var p in payments)
+                {
+                    <tr class="payment-receipt-row">
+                        <td class="date">@p.Date.ToString("d", culture)</td>
+                        <td class="amount">$@p.Amount.ToString("F")</td>
+                        <td class="receipt"><a class="clickable" target="_blank" onmousedown="location.href = '@Url.Action("Receipt", "Account", new { userId = p.UserId, receiptId = p.Id })';" href="javascript:void(0);">@Ifly.Resources.Frontpage.PaymentHistory_DownloadReceipt</a></td>
+                    </tr>
+                }
+            </table>
+            }
+            else
+            {
+                <div class="empty">
+                    <span class="icon icon-inbox"></span>
+                    <span>@Ifly.Resources.Frontpage.PaymentHistory_Empty</span>
+                </div>
+            }
+        </div>
+    </div>
+    }
+
+    <button class="contact-support clickable" onclick="Ifly.Views.Account.FeedbackModal.getInstance().show();" title="@Ifly.Resources.Editor.SendFeedback">
+        <i class="icon-bullhorn"></i>
+        <span>@Ifly.Resources.Editor.SendFeedback</span>
+    </button>
+
+    <button class="account-name clickable" onclick="location.href = '/logout';" title="@Ifly.Resources.Frontpage.Account_ClickToLogout">
+        <i class="icon-lock"></i>
+        <span>@Ifly.Resources.Frontpage.Logout</span>
+    </button>
+
+
+</div>
+
+<div id="account-body">
+    @RenderBody()
+</div>

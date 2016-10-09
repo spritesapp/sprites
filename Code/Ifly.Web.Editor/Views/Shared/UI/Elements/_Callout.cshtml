@@ -1,0 +1,85 @@
+﻿<div class="element-callout">
+    @Html.Partial("UI/Elements/_Base", new { Type = "callout" })
+
+    <div class="no-overflow">
+        <label for="text-text">@(Ifly.Resources.Editor.Callout_Text):</label>
+
+        @Html.Partial("UI/_RichTextEditor", new { BindingExpression = "with: richText, visible: isRichTextAllowed()", CssClass = "richtext-editor-sidepanel" })
+        <textarea id="text-text" data-bind="visible: !isRichTextAllowed(), value: text, valueUpdate: 'keyup'"></textarea>
+    </div>
+
+    <div>
+        <label for="CalloutOrientationTopRight">@(Ifly.Resources.Editor.Callout_Orientation):</label>
+        <div class="callout-orientation">
+            <div class="callout">@Ifly.Resources.Editor.Callout_SampleText</div>
+
+            <div class="tail top-right" data-bind="visible: orientation() == 0 || orientation() == null || isNaN(orientation())"></div>
+            <div class="tail right" data-bind="visible: orientation() == 1"></div>
+            <div class="tail bottom-right" data-bind="visible: orientation() == 2"></div>
+            <div class="tail bottom" data-bind="visible: orientation() == 3"></div>
+            <div class="tail bottom-left" data-bind="visible: orientation() == 4"></div>
+            <div class="tail left" data-bind="visible: orientation() == 5"></div>
+            <div class="tail top-left" data-bind="visible: orientation() == 6"></div>
+            <div class="tail top" data-bind="visible: orientation() == 7"></div>
+
+            <div class="orientation top-right">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationTopRight" value="0" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationTopRight" title="@Ifly.Resources.Editor.Callout_Orientation_TopRight"><span></span></label>
+            </div>
+            <div class="orientation right">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationRight" value="1" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationRight" title="@Ifly.Resources.Editor.Callout_Orientation_Right"><span></span></label>
+            </div>
+            <div class="orientation bottom-right">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationBottomRight" value="2" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationBottomRight" title="@Ifly.Resources.Editor.Callout_Orientation_BottomRight"><span></span></label>
+            </div>
+            <div class="orientation bottom">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationBottom" value="3" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationBottom" title="@Ifly.Resources.Editor.Callout_Orientation_Bottom"><span></span></label>
+            </div>
+            <div class="orientation bottom-left">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationBottomLeft" value="4" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationBottomLeft" title="@Ifly.Resources.Editor.Callout_Orientation_BottomLeft"><span></span></label>
+            </div>
+            <div class="orientation left">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationLeft" value="5" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationLeft" title="@Ifly.Resources.Editor.Callout_Orientation_Left"><span></span></label>
+            </div>
+            <div class="orientation top-left">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationTopLeft" value="6" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationTopLeft" title="@Ifly.Resources.Editor.Callout_Orientation_TopLeft"><span></span></label>
+            </div>
+            <div class="orientation top">
+                <input type="radio" name="CalloutOrientation" id="CalloutOrientationTop" value="7" data-bind="checked: orientation.checkable" />
+                <label for="CalloutOrientationTop" title="@Ifly.Resources.Editor.Callout_Orientation_Top"><span></span></label>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label for="CalloutTailSizeMedium">@(Ifly.Resources.Editor.Callout_TailSize):</label>
+        <ul class="field checkable-list font-sizes">
+            <li>
+                <input type="radio" name="CalloutTailSize" id="CalloutTailSizeExtraSmall" value="2" data-bind="checked: tailSize.checkable" />
+                <label for="CalloutTailSizeExtraSmall" title="@Ifly.Resources.Editor.Callout_TailSize_ExtraSmall"><span class="font-size extrasmall">XS</span></label>
+            </li>
+            <li>
+                <input type="radio" name="CalloutTailSize" id="CalloutTailSizeSmall" value="1" data-bind="checked: tailSize.checkable" />
+                <label for="CalloutTailSizeSmall" title="@Ifly.Resources.Editor.Callout_TailSize_Small"><span class="font-size small">S</span></label>
+            </li>
+            <li>
+                <input type="radio" name="CalloutTailSize" id="CalloutTailSizeMedium" value="0" data-bind="checked: tailSize.checkable" />
+                <label for="CalloutTailSizeMedium" title="@Ifly.Resources.Editor.Callout_TailSize_Medium"><span class="font-size medium">M</span></label>
+            </li>
+            <li>
+                <input type="radio" name="CalloutTailSize" id="CalloutTailSizeLarge" value="3" data-bind="checked: tailSize.checkable" />
+                <label for="CalloutTailSizeLarge" title="@Ifly.Resources.Editor.Callout_TailSize_Large"><span class="font-size large">L</span></label>
+            </li>
+            <li>
+                <input type="radio" name="CalloutTailSize" id="CalloutTailSizeExtraLarge" value="4" data-bind="checked: tailSize.checkable" />
+                <label for="CalloutTailSizeExtraLarge" title="@Ifly.Resources.Editor.Callout_TailSize_ExtraLarge"><span class="font-size extralarge">XL</span></label>
+            </li>
+        </ul>
+    </div>
+</div>

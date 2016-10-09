@@ -1,0 +1,22 @@
+﻿<ul class="checkable-list densities">
+    <li>
+        <input type="radio" value="0" data-bind="attr: { 'name': 'Density' + $index() + '_' + $parentContext.$index(), 'id': 'Density' + $index() + '_' + $parentContext.$index() + 'None' }, css: { 'checked': parseInt(value(), 10) > 0 }, checked: value" />
+        <label title="@Ifly.Resources.Editor.Density_None" data-bind="attr: { 'for': 'Density' + $index() + '_' + $parentContext.$index() + 'None' }"><span class="density none"></span></label>
+    </li>
+    <li>
+        <input type="radio" value="1" data-bind="attr: { 'name': 'Density' + $index() + '_' + $parentContext.$index(), 'id': 'Density' + $index() + '_' + $parentContext.$index() + 'Low' }, css: { 'checked': parseInt(value(), 10) > 1 }, checked: value" />
+        <label title="@Ifly.Resources.Editor.Density_Low" data-bind="attr: { 'for': 'Density' + $index() + '_' + $parentContext.$index() + 'Low' }"><span class="density low"></span></label>
+    </li>
+    <li>
+        <input type="radio" value="2" data-bind="attr: { 'name': 'Density' + $index() + '_' + $parentContext.$index(), 'id': 'Density' + $index() + '_' + $parentContext.$index() + 'Medium' }, css: { 'checked': parseInt(value(), 10) > 2 }, checked: value" />
+        <label title="@Ifly.Resources.Editor.Density_Medium" data-bind="attr: { 'for': 'Density' + $index() + '_' + $parentContext.$index() + 'Medium' }"><span class="density medium"></span></label>
+    </li>
+    <li>
+        <input type="radio" value="3" data-bind="attr: { 'name': 'Density' + $index() + '_' + $parentContext.$index(), 'id': 'Density' + $index() + '_' + $parentContext.$index() + 'High' }, css: { 'checked': parseInt(value(), 10) > 3 }, checked: value" />
+        <label title="@Ifly.Resources.Editor.Density_High" data-bind="attr: { 'for': 'Density' + $index() + '_' + $parentContext.$index() + 'High' }"><span class="density high"></span></label>
+    </li>
+    <li>
+        <input type="radio" value="4" data-bind="attr: { 'name': 'Density' + $index() + '_' + $parentContext.$index(), 'id': 'Density' + $index() + '_' + $parentContext.$index() + 'Highest' }, checked: value" />
+        <label title="@Ifly.Resources.Editor.Density_Highest" data-bind="attr: { 'for': 'Density' + $index() + '_' + $parentContext.$index() + 'Highest' }"><span class="density highest"></span></label>
+    </li>
+</ul>

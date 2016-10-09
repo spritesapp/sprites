@@ -1,0 +1,9 @@
+﻿<div class="feedback">
+    <a href="javascript:void(0);" data-bind="click: function () { $data.keyboardShortcuts(); }"><i class="icon-keyboard"></i>@Ifly.Resources.Editor.KeyboardShortcuts</a>
+    <a href="javascript:void(0);" data-bind="click: function () { $data.feedback(); }"><i class="icon-bullhorn"></i>@Ifly.Resources.Editor.SendFeedback</a>
+
+    @if (Ifly.ApplicationContext.Current.User.Subscription.Type == Ifly.SubscriptionType.Agency)
+    {
+        @Html.Partial("UI/_ChatWindow")
+    }
+</div>

@@ -1,0 +1,18 @@
+﻿<div id="clone-presentation-modal" title="@Ifly.Resources.Editor.CloneInfographic" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <label for="clone-presentation-title">@(Ifly.Resources.Editor.CloneInfographic_Title):</label>
+            <input id="clone-presentation-title" type="text" data-bind="value: title, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }, event: { keyup: function (data, event) { return $parent.onKeyPress(event); } }" />
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ClonePresentationModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            saving: '@Ifly.Resources.Editor.Saving',
+            cancel: '@Ifly.Resources.Editor.Cancel'
+        }
+    });
+</script>

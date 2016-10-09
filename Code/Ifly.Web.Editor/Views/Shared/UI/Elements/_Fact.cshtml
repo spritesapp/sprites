@@ -1,0 +1,45 @@
+﻿<div class="element-fact">
+    @Html.Partial("UI/Elements/_Base", new { Type = "fact" })
+
+    <div>
+        <label for="fact-icon">@(Ifly.Resources.Editor.Component_Fact_Icon):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: selectIcon, text: iconText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.DeleteIcon" data-bind="visible: icon().length > 0, click: clearIcon"></button>
+        </div>
+    </div>
+
+    <div class="quantity">
+        <label for="fact-quantity">@(Ifly.Resources.Editor.Component_Fact_Quantity):</label>
+        <input type="text" id="fact-quantity" data-bind="value: quantity, valueUpdate: 'keyup'" />
+
+        <ul class="field checkable-list">
+            <li>
+                <input type="radio" name="QuantityColorAccent" id="QuantityColorAccent4" value="3" data-bind="checked: quantityColor.checkable" />
+                <label for="QuantityColorAccent4" title="@Ifly.Resources.Editor.ColorType_Accent4" class="theme-based"><span class="accent-4 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="QuantityColorAccent" id="QuantityColorAccent3" value="2" data-bind="checked: quantityColor.checkable" />
+                <label for="QuantityColorAccent3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="QuantityColorAccent" id="QuantityColorAccent2" value="1" data-bind="checked: quantityColor.checkable" />
+                <label for="QuantityColorAccent2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="QuantityColorAccent" id="QuantityColorAccent1" value="0" data-bind="checked: quantityColor.checkable" />
+                <label for="QuantityColorAccent1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label for="fact-measure">@(Ifly.Resources.Editor.Component_Fact_Measure):</label>
+        <input type="text" id="fact-measure" data-bind="value: measure, valueUpdate: 'keyup'" />
+    </div>
+
+    <div>
+        <label for="fact-description">@(Ifly.Resources.Editor.Component_Fact_Description):</label>
+        <textarea id="fact-description" data-bind="value: description, valueUpdate: 'keyup'"></textarea>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+}
+
+<div class="pitch">
+    <div class="pitch-inner">
+        <h1>@Html.Raw(Ifly.Resources.Frontpage.Headline)</h1>
+
+        <div class="call-to-action-buttons">
+            <a id="get-started-link" href="/signup" onclick="Ifly.App.getInstance().signUp(); return false;">@Ifly.Resources.Frontpage.SignUpButton</a>
+            <a id="watch-video" href="javascript:void(0);" onclick="Ifly.App.getInstance().openVideo();" rel="nofollow">@Ifly.Resources.Frontpage.WatchTheVideo</a>
+        </div>
+    </div>
+</div>
+

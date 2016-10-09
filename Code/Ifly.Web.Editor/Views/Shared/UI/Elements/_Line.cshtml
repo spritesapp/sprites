@@ -1,0 +1,22 @@
+﻿<div class="element-line">
+    @Html.Partial("UI/Elements/_Base", new { Type = "line" })
+
+    <div>
+        <label for="LineType0">@(Ifly.Resources.Editor.Component_Line_Type):</label>
+        <ul class="field checkable-list line-types">
+            <li>
+                <input type="radio" name="LineType" id="LineType0" value="0" data-bind="checked: type.checkable" />
+                <label for="LineType0" title="@Ifly.Resources.Editor.LineType_Horizontal"><span class="line-type">@Ifly.Resources.Editor.LineType_Horizontal</span></label>
+            </li>
+            <li>
+                <input type="radio" name="LineType" id="LineType1" value="1" data-bind="checked: type.checkable" />
+                <label for="LineType1" title="@Ifly.Resources.Editor.LineType_Vertical"><span class="line-type">@Ifly.Resources.Editor.LineType_Vertical</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Line_Length):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "length", CssClass = "element-property", Minimum = "5%", Maximum = "90%" })
+    </div>
+</div>

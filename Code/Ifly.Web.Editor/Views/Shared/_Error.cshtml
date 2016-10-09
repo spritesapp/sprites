@@ -1,0 +1,24 @@
+﻿@model Ifly.Web.Editor.Models.ErrorDetailsModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@Ifly.Resources.Editor.Oops&nbsp;(@Model.StatusCode)&nbsp;|&nbsp;Sprites</title>
+        <meta name="robots" content="noindex, nofollow" />
+    
+        <link rel="shortcut icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+        <link rel="icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+
+        @Styles.Render("~/css/normalize")
+        @Styles.Render("~/Assets/css/Error.css")
+    </head>
+    <body class="error">
+        <section>
+            @RenderBody()
+        </section>
+    </body>
+</html>

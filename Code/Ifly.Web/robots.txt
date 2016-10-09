@@ -1,0 +1,2 @@
+﻿User-agent: *
+Sitemap: https://spritesapp.com/sitemap.xml

@@ -1,0 +1,95 @@
+﻿@{
+    var context = ViewData.Eval("BindingContext") != null ?
+        ViewData.Eval("BindingContext").ToString() : "$data";
+
+    var bindingExpression = ViewData.Eval("BindingExpression") != null ?
+        ViewData.Eval("BindingExpression").ToString() : "with: $data";
+
+    var iconSelector = ViewData.Eval("IconSelector") != null &&
+        (bool)ViewData.Eval("Iconselector") == true;
+
+    var cssClass = ViewData.Eval("CssClass") != null ?
+        ViewData.Eval("CssClass").ToString() : null;
+}
+
+<div class="richtext-editor @cssClass" data-bind="@bindingExpression">
+    <ul class="richtext-toolbar dropdown-container">
+        <li data-bind="css: { 'active': currentSelection.isBold.isActive }"><button data-bind="click: function () { $data.currentSelection.isBold.toggle(); }"><span class="icon icon-bold" title="@Ifly.Resources.Editor.FontStyles_Bold"></span></button></li>
+        <li data-bind="css: { 'active': currentSelection.isItalic.isActive }"><button data-bind="click: function () { $data.currentSelection.isItalic.toggle(); }"><span class="icon icon-italic" title="@Ifly.Resources.Editor.FontStyles_Italic"></span></button></li>
+        <li data-bind="css: { 'active': currentSelection.isUnderline.isActive }"><button data-bind="click: function () { $data.currentSelection.isUnderline.toggle(); }"><span class="icon icon-underline" title="@Ifly.Resources.Editor.FontStyles_Underline"></span></button></li>
+        <li data-bind="css: { 'active': currentSelection.isStrikethrough.isActive }"><button data-bind="click: function () { $data.currentSelection.isStrikethrough.toggle(); }"><span class="icon icon-strikethrough" title="@Ifly.Resources.Editor.FontStyles_Strikethrough"></span></button></li>
+        <li>
+            <a href="javascript:void(0);" tabindex="0" class="richtext-dropdown richtext-fontcolor-dropdown">
+                <span class="icon icon-adjust" title="@Ifly.Resources.Editor.FontColor"></span>
+                <span class="icon-sort-down"></span>
+                <div class="richtext-dropdown-menu">
+                    <ul class="checkable-list colors">
+                        <li>
+                            <input id="RichTextFontColor1" name="RichTextFontColor" type="radio" value="0" data-bind="checked: currentSelection._fontColor" />
+                            <label for="RichTextFontColor1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+                        </li>
+                        <li>
+                            <input id="RichTextFontColor2" name="RichTextFontColor" type="radio" value="1" data-bind="checked: currentSelection._fontColor" />
+                            <label for="RichTextFontColor2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+                        </li>
+                        <li>
+                            <input id="RichTextFontColor3" name="RichTextFontColor" type="radio" value="2" data-bind="checked: currentSelection._fontColor" />
+                            <label for="RichTextFontColor3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+                        </li>
+                        <li>
+                            <input id="RichTextFontColor4" name="RichTextFontColor" type="radio" value="3" data-bind="checked: currentSelection._fontColor" />
+                            <label for="RichTextFontColor4" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-4 accent-background"></span></label>
+                        </li>
+                        <li>
+                            <input id="RichTextFontColor5" name="RichTextFontColor" type="radio" value="-1" data-bind="checked: currentSelection._fontColor" />
+                            <label for="RichTextFontColor5" title="@Ifly.Resources.Editor.ColorType_Auto"><span class="accent-auto accent-background"></span></label>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" tabindex="0" class="richtext-dropdown richtext-fontsize-dropdown" ondragstart="return false;">
+                <span class="icon icon-text-height" title="@Ifly.Resources.Editor.FontSize"></span>
+                <span class="text-precise">
+                    <input type="text" data-bind="number: { value: currentSelection._fontSizeScale, minimum: 1, maximum: 100 }" />
+                </span>
+                <span class="icon-sort-down"></span>
+                <div class="richtext-dropdown-menu">
+                    <div data-bind="fontSizeScale: { field: currentSelection._fontSizeScale, show: function(sender, args) { $data.onFontSizeSliderShow(sender, args); }, labels: { small: '@Ifly.Resources.Editor.FontSize_Small', medium: '@Ifly.Resources.Editor.FontSize_Medium', large: '@Ifly.Resources.Editor.FontSize_Large' } }"></div>
+                </div>
+            </a>
+        </li>
+
+        @if (iconSelector)
+        {
+            <li>
+                <button data-bind="click: function() { $data.currentSelection.insertIcon(); }"><span class="icon icon-picture" title="@Ifly.Resources.Editor.InsertIcon"></span></button>
+            </li>
+        }
+
+        <li class="clear-formatting-container"><button class="clear-formatting-activator" data-bind="click: clearFormatting" title="@Ifly.Resources.Editor.Font_ClearFormatting"><span class="icon icon-eraser"></span></button></li>
+        <li class="more-options">
+            <div class="border"></div>
+            <ul>
+                <li data-bind="css: { 'active': currentSelection.isAligned.left }"><button data-bind="click: function () { $data.currentSelection.align('left'); }"><span class="icon icon-align-left" title="@Ifly.Resources.Editor.Text_AlignLeft"></span></button></li>
+                <li data-bind="css: { 'active': currentSelection.isAligned.center }"><button data-bind="click: function () { $data.currentSelection.align('center'); }"><span class="icon icon-align-center" title="@Ifly.Resources.Editor.Text_AlignCenter"></span></button></li>
+                <li data-bind="css: { 'active': currentSelection.isAligned.right }"><button data-bind="click: function () { $data.currentSelection.align('right'); }"><span class="icon icon-align-right" title="@Ifly.Resources.Editor.Text_AlignRight"></span></button></li>
+                <li data-bind="css: { 'active': currentSelection.isAligned.full }"><button data-bind="click: function () { $data.currentSelection.align('full'); }"><span class="icon icon-align-justify" title="@Ifly.Resources.Editor.Text_AlignJustify"></span></button></li>
+
+                <li><button data-bind="click: function () { $data.currentSelection.superScript(); }"><span class="icon icon-superscript" title="@Ifly.Resources.Editor.Text_Superscript"></span></button></li>
+
+
+                <li><button data-bind="click: function () { $data.currentSelection.insertUnorderedList(); }"><span class="icon icon-list-ul" title="@Ifly.Resources.Editor.Text_MakeUnorderedList"></span></button></li>
+                <li><button data-bind="click: function () { $data.currentSelection.insertOrderedList(); }"><span class="icon icon-list-ol" title="@Ifly.Resources.Editor.Text_MakeOrderedList"></span></button></li>
+                <li><button data-bind="click: function () { $data.currentSelection.outdent(); }"><span class="icon icon-indent-left" title="@Ifly.Resources.Editor.Text_Unindent"></span></button></li>
+                <li><button data-bind="click: function () { $data.currentSelection.indent(); }"><span class="icon icon-indent-right" title="@Ifly.Resources.Editor.Text_Indent"></span></button></li>
+
+                <li><button data-bind="click: function () { $data.currentSelection.subScript(); }"><span class="icon icon-subscript" title="@Ifly.Resources.Editor.Text_Subscript"></span></button></li>
+            </ul>
+        </li>
+        <li class="more-options-container"><button class="more-options-activator" data-bind="click: function (data, e) { $data.toggleMoreOptions(e.target); }" title="@Ifly.Resources.Editor.MoreFormattingOptions"><span class="icon icon-ellipsis-horizontal"></span></button></li>
+    </ul>
+
+    <iframe class="text-editable richtext-loading" frameborder="0" src="@Url.Content("~/Assets/static/RichText.html")" data-bind="event: { 'load': function (data, e) { $data.initialize(e.target.contentDocument, e.target.contentWindow, e.target); } }"></iframe>
+</div>

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E3EE9C5-5E4F-45B9-8905-34E856721C95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ifly</RootNamespace>
+    <AssemblyName>Ifly</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Ifly.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.2.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="ExCSS">
+      <HintPath>..\packages\ExCSS.2.0.5\lib\net45\ExCSS.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\iTextSharp.5.5.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.2\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.2.5.2750\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.2.5.2750\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net">
+      <HintPath>..\packages\Stripe.net.2.2.6\lib\net40\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Collaborator.cs" />
+    <Compile Include="DataCell.cs" />
+    <Compile Include="DataColumn.cs" />
+    <Compile Include="DataRow.cs" />
+    <Compile Include="DataTable.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="ElementOffset.cs" />
+    <Compile Include="ElementOffsetViewport.cs" />
+    <Compile Include="ElementProperty.cs" />
+    <Compile Include="External\MailChimp\MailChimpClient.cs" />
+    <Compile Include="External\MailChimp\MailChimpException.cs" />
+    <Compile Include="External\OAuth\GoogleAnalyticsOAuthClient.cs" />
+    <Compile Include="External\OAuth\OAuthAuthorizationResult.cs" />
+    <Compile Include="External\OAuth\OAuthChannel.cs" />
+    <Compile Include="External\OAuth\OAuthClient.cs" />
+    <Compile Include="External\OAuth\OAuthClientNameAttribute.cs" />
+    <Compile Include="External\OAuth\OAuthCodeResponse.cs" />
+    <Compile Include="External\OAuth\OAuthState.cs" />
+    <Compile Include="External\OAuth\OAuthToken.cs" />
+    <Compile Include="External\UserApiAuthorization.cs" />
+    <Compile Include="HelpTopic.cs" />
+    <Compile Include="HelpTopicScore.cs" />
+    <Compile Include="HelpTopicSearchResult.cs" />
+    <Compile Include="HelpTopicSearchResultSet.cs" />
+    <Compile Include="Impression.cs" />
+    <Compile Include="ImpressionSummary.cs" />
+    <Compile Include="IntegrationSettings.cs" />
+    <Compile Include="Layout\GitHubInMemoryTheme.cs" />
+    <Compile Include="Layout\GitHubTheme.cs" />
+    <Compile Include="Layout\GitHubThemeResult.cs" />
+    <Compile Include="Layout\GitHubThemeSource.cs" />
+    <Compile Include="Layout\IThemeSource.cs" />
+    <Compile Include="Layout\ThemeMetadata.cs" />
+    <Compile Include="Layout\ThemeBase.cs" />
+    <Compile Include="Layout\ThemeReference.cs" />
+    <Compile Include="Layout\ThemeResultBase.cs" />
+    <Compile Include="Layout\ThemeSource.cs" />
+    <Compile Include="Layout\UserTheme.cs" />
+    <Compile Include="Layout\UserThemeResult.cs" />
+    <Compile Include="Layout\UserThemeSource.cs" />
+    <Compile Include="Logging\BufferedLog.cs" />
+    <Compile Include="IDependency.cs" />
+    <Compile Include="Logging\ILog.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Layout\XmlLayout.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\Message.cs" />
+    <Compile Include="Logging\MockLog.cs" />
+    <Compile Include="Media\IMediaItemRepository.cs" />
+    <Compile Include="Media\MediaItem.cs" />
+    <Compile Include="Media\MediaItemManager.cs" />
+    <Compile Include="Media\MediaItemRepository.cs" />
+    <Compile Include="Payments\PaymentOptions.cs" />
+    <Compile Include="Payments\IPaymentProcessor.cs" />
+    <Compile Include="Payments\ChargeException.cs" />
+    <Compile Include="Payments\PaymentHistoryEntry.cs" />
+    <Compile Include="Payments\PaymentProcessor.cs" />
+    <Compile Include="Presentation.cs" />
+    <Compile Include="PresentationSharing.cs" />
+    <Compile Include="PresentationSharingStatus.cs" />
+    <Compile Include="PresenterModeConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishConfiguration.cs" />
+    <Compile Include="RealtimeDataConfiguration.cs" />
+    <Compile Include="Resolver.cs" />
+    <Compile Include="Slide.cs" />
+    <Compile Include="SocialImpact.cs" />
+    <Compile Include="Storage\Configuration\FluentNHibernateAutoMappingConfiguration.cs" />
+    <Compile Include="Storage\Configuration\FluentNHibernateIdConvention.cs" />
+    <Compile Include="Storage\Configuration\ImpressionMappingOverride.cs" />
+    <Compile Include="Storage\Configuration\SocialImpactMappingOverride.cs" />
+    <Compile Include="Storage\IRecord.cs" />
+    <Compile Include="Storage\IRelationalRecord.cs" />
+    <Compile Include="Storage\PresentationRecordDescriptor.cs" />
+    <Compile Include="Storage\RecordDescriptor.cs" />
+    <Compile Include="Storage\Repositories\HelpTopicRepository.cs" />
+    <Compile Include="Storage\Repositories\IHelpTopicRepository.cs" />
+    <Compile Include="Storage\Repositories\IPresentationRepository.cs" />
+    <Compile Include="Storage\Repositories\IPresentationSharingRepository.cs" />
+    <Compile Include="Storage\Repositories\IRepository.cs" />
+    <Compile Include="Storage\Record.cs" />
+    <Compile Include="Storage\Repositories\IUserRepository.cs" />
+    <Compile Include="Storage\Repositories\NHibernateRepository.cs" />
+    <Compile Include="Storage\Repositories\PresentationRepository.cs" />
+    <Compile Include="Storage\Repositories\PresentationSharingRepository.cs" />
+    <Compile Include="Storage\Repositories\RavenRepository.cs" />
+    <Compile Include="Storage\Repositories\UserRepository.cs" />
+    <Compile Include="Storage\Services\DataService.cs" />
+    <Compile Include="Storage\Services\HelpTopicService.cs" />
+    <Compile Include="Storage\Services\IDataService.cs" />
+    <Compile Include="Storage\Services\IHelpTopicService.cs" />
+    <Compile Include="Storage\Services\IPresentationService.cs" />
+    <Compile Include="Storage\Services\PresentationService.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserPasswordDetails.cs" />
+    <Compile Include="UserSubscription.cs" />
+    <Compile Include="Utils\Aggregation\RssFeed.cs" />
+    <Compile Include="Utils\Aggregation\RssFeedItem.cs" />
+    <Compile Include="Utils\Aggregation\TwitterTimeline.cs" />
+    <Compile Include="Utils\Aggregation\WebSource.cs" />
+    <Compile Include="Utils\Associator\AssociationResult.cs" />
+    <Compile Include="Utils\Associator\ProxyList.cs" />
+    <Compile Include="Utils\Associator\UnitConverter.cs" />
+    <Compile Include="Utils\Associator\WolframAlphaClient.cs" />
+    <Compile Include="Utils\Crypto.cs" />
+    <Compile Include="Utils\DemoPrincipal.cs" />
+    <Compile Include="Utils\Input.cs" />
+    <Compile Include="Utils\Social\FacebookPopularityEstimator.cs" />
+    <Compile Include="Utils\Social\GooglePlusPopularityEstimator.cs" />
+    <Compile Include="Utils\Social\LinkedInPopularityEstimator.cs" />
+    <Compile Include="Utils\Social\PopularityEstimator.cs" />
+    <Compile Include="Utils\Social\TwitterPopularityEstimator.cs" />
+    <Compile Include="Utils\WebResource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PaymentReceiptTemplate.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

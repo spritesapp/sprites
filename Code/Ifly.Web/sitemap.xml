@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  <url>
+    <loc>https://spritesapp.com</loc>
+    <priority>1.000</priority>
+  </url>
+  <url>
+    <loc>https://spritesapp.com/features</loc>
+    <priority>0.5000</priority>
+  </url>
+  <url>
+    <loc>https://spritesapp.com/examples</loc>
+    <priority>0.5000</priority>
+  </url>
+  <url>
+    <loc>https://spritesapp.com/pricing</loc>
+    <priority>0.5000</priority>
+  </url>
+  <url>
+    <loc>https://spritesapp.com/team</loc>
+    <priority>0.5000</priority>
+  </url>
+  <url>
+    <loc>https://spritesapp.com/contact</loc>
+    <priority>0.5000</priority>
+  </url>
+</urlset>

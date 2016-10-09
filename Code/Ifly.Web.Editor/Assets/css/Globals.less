@@ -1,0 +1,44 @@
+﻿@toolbarWidth: 266px;
+@fontColor: #171717;
+@fontSize: 17px;
+@accentColor: #EB6841;
+
+@openSans: 'Open Sans', sans-serif;
+@openSansCondensed: 'Open Sans Condensed', sans-serif;
+
+.dimmed {
+    font-size: 15px;
+    color: #B4B4B4;
+
+    a, a:hover, a:focus, a:visited {
+        color: @accentColor;
+        text-decoration: none;
+    }
+}
+
+.separator {
+    border-top: 1px solid #ddd;
+
+    &.line {
+        margin: 0;
+        padding: 0;
+        height: 1px;
+    }
+}
+
+.block {
+    margin-top: 4px;
+}
+
+.center {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+    float: none !important;
+}
+
+.help {
+    cursor: help;
+}

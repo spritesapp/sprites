@@ -1,0 +1,27 @@
+﻿<div id="feedback-modal" title="@Ifly.Resources.Editor.SendFeedback" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <label for="feedback-name">@(Ifly.Resources.Editor.Feedback_Name):</label>
+            <input id="feedback-name" type="text" data-bind="value: name, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }" />
+        </div>
+        <div>
+            <label for="feedback-email">@(Ifly.Resources.Editor.Feedback_Email):</label>
+            <input id="feedback-email" type="text" data-bind="value: email, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }" />
+        </div>
+
+        <div>
+            <label for="feedback-text">@(Ifly.Resources.Editor.Feedback_Text):</label>
+            <textarea id="feedback-text" data-bind="value: text, attr: { disabled: !$parent.enabled() }"></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('FeedbackModal', {
+        terminology: {
+            send: '@Ifly.Resources.Editor.Send',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            oneMoment: '@Ifly.Resources.Editor.OneMoment'
+        }
+    });
+</script>

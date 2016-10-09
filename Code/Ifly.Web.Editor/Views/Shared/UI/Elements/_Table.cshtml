@@ -1,0 +1,11 @@
+﻿<div class="element-table">
+    @Html.Partial("UI/Elements/_Base", new { Type = "map" })
+
+    <div>
+        <label for="table-data">@(Ifly.Resources.Editor.Component_Table_Data):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editData, text: dataText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.ClearSelection" data-bind="visible: data.rows().length > 0, click: clearData"></button>
+        </div>
+    </div>
+</div>

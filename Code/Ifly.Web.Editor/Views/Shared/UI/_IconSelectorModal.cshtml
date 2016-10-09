@@ -1,0 +1,56 @@
+﻿<div id="icn-selector" title="@Ifly.Resources.Editor.SelectIcon" style="display: none">
+    <div class="selector-outer" data-bind="with: data">
+        <div class="selector-wrapper-with-search">
+            <div class="search-box">
+                <div class="search-sources dropdown" tabindex="0" data-bind="attr: { disabled: iconSource().isLoading() }">
+                    <span class="dropdown-arrow icon-angle-down"></span>
+                    <span class="dropdown-active">
+                        <i class="icon icon-search"></i>
+                        <span data-bind="text: iconSourceType.description"></span>
+                    </span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li data-bind="click: function (data, e) { $data.onSourceTypeChanging(Ifly.Models.UI.IconSourceType.sprites, e); }">
+                                <span>@Ifly.Resources.Editor.IconSourceType_Gallery</span>
+                            </li>
+
+                            <li data-bind="click: function (data, e) { $data.onSourceTypeChanging(Ifly.Models.UI.IconSourceType.iconFinder, e); }">
+                                <span>@Ifly.Resources.Editor.IconSourceType_Iconfinder</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <input type="text" placeholder="@Ifly.Resources.Editor.SearchIcons" data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+                <button class="clear" title="@Ifly.Resources.Editor.ClearSearch" data-bind="visible: searchTerm() != null && searchTerm().length > 0, click: function (data) { data.searchTerm(''); }"><i class="icon-remove"></i></button>
+            </div>
+
+            <div class="scroll-shadow"></div>
+
+            <div class="selector-wrapper">
+                <div class="icn-selector-loading" data-bind="visible: iconSource().isLoading">@Ifly.Resources.Editor.OneMoment</div>
+                <div class="icn-selector-contents" data-bind="css: { 'icn-selector-contents-visible': iconSource().isLoading.done }, visible: !iconSource().isLoading()">
+                    <ul data-bind="foreach: iconSource().icons">
+                        <li data-bind="visible: isActive">
+                            <input type="radio" name="icon" data-bind="attr: { 'id': 'opt-icon-' + name() }, value: name, checked: $parent.icon" />
+                            <label data-bind="attr: { 'for': 'opt-icon-' + name(), title: name }, html: previewHtml"></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('IconSelectorModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            sourceTypes: [
+                '@Ifly.Resources.Editor.IconSourceType_Gallery',
+                '@Ifly.Resources.Editor.IconSourceType_Iconfinder'
+            ]
+        }
+    });
+</script>

@@ -1,0 +1,33 @@
+﻿@{
+    var prefix = ViewData.Eval("Type");
+}
+
+<div>
+    <label for="text-text">@(Ifly.Resources.Editor.Position):</label>
+    <ul class="field checkable-list positions">
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionTop" value="0" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionTop" title="@Ifly.Resources.Editor.Position_Top"><span class="position top"></span></label>
+        </li>
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionLeft" value="1" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionLeft" title="@Ifly.Resources.Editor.Position_Left"><span class="position left"></span></label>
+        </li>
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionBottom" value="3" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionBottom" title="@Ifly.Resources.Editor.Position_Bottom"><span class="position bottom"></span></label>
+        </li>
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionRight" value="2" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionRight" title="@Ifly.Resources.Editor.Position_Right"><span class="position right"></span></label>
+        </li>
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionCenter" value="4" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionCenter" title="@Ifly.Resources.Editor.Position_Center"><span class="position center"></span></label>
+        </li>
+        <li>
+            <input type="radio" name="@(prefix)Position" id="@(prefix)PositionFree" value="5" data-bind="checked: position.checkable" />
+            <label for="@(prefix)PositionFree" title="@Ifly.Resources.Editor.Position_Free"><span class="position free"></span></label>
+        </li>
+    </ul>
+</div>

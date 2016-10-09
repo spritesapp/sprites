@@ -1,0 +1,173 @@
+﻿@import "Mixins.less";
+
+@media only screen and (max-width: 520px) {
+    body.landing {
+        font-size: 10pt;
+
+        h1 {
+            font-size: 48px;
+            line-height: 70px;
+
+            span.separator {
+                height: 44px;
+                margin: 0 15px;
+                top: 6px;
+            }
+        }
+
+        .wrapper .form .input-wrapper {
+            width: 340px;
+
+            .icon {
+                top: 14px;
+            }
+        }
+
+        .wrapper .form .results {
+            width: 340px;
+        }
+
+        footer {
+            .footer-wrap {
+                font-size: 100%;
+                width: 275px;
+            }
+        }
+
+        .wrapper .form .results .results-list-wrapper ul li {
+            padding: 5px 40px;
+        }
+
+        footer .footer-wrap {
+            width: 250px;
+        }
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    body.landing {
+        h1 {
+            font-size: 38px;
+            line-height: 60px;
+
+            span.separator {
+                height: 32px;
+                margin: 0 10px;
+                top: 4px;
+            }
+        }
+
+        h2 {
+            font-size: 120%;
+        }
+
+        .form {
+            margin: 0 10px;
+        }
+
+        .wrapper {
+            margin-top: -175px;
+            height: 300px;
+        }
+
+        .wrapper .form .input-wrapper {
+            width: 100%;
+
+            .icon {
+                display: none;
+            }
+
+            .submit {
+                width: 29%;
+            }
+        }
+
+        @fact-width-350: 296px;
+
+        .wrapper .form .results {
+            width: 100%;
+
+            .results-list-wrapper {
+                &.current-2 ul {
+                    .transform(translateX(-@fact-width-350));
+                }
+
+                &.current-3 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 2)));
+                }
+
+                &.current-4 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 3)));
+                }
+
+                &.current-5 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 4)));
+                }
+
+                &.current-6 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 5)));
+                }
+
+                &.current-7 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 6)));
+                }
+
+                &.current-8 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 7)));
+                }
+
+                &.current-9 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 8)));
+                }
+
+                &.current-10 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 9)));
+                }
+
+                &.current-11 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 10)));
+                }
+
+                &.current-12 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 11)));
+                }
+
+                &.current-13 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 12)));
+                }
+
+                &.current-14 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 13)));
+                }
+
+                &.current-15 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 14)));
+                }
+
+                &.current-16 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 15)));
+                }
+
+                &.current-17 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 16)));
+                }
+
+                &.current-18 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 17)));
+                }
+
+                &.current-19 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 18)));
+                }
+
+                &.current-20 ul {
+                    .transform(translateX(-1 * (@fact-width-350 * 19)));
+                }
+
+                ul li {
+                    width: @fact-width-350;
+                }
+            } 
+        }
+    }
+}

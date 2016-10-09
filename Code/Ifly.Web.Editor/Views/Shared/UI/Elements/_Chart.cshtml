@@ -1,0 +1,105 @@
+﻿@{
+    var chartTypes = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(0, Ifly.Resources.Editor.ChartType_Line_WithChart),
+        new Tuple<int, string>(4, Ifly.Resources.Editor.ChartType_Area_WithChart),
+        new Tuple<int, string>(8, Ifly.Resources.Editor.ChartType_StackedArea_WithChart),
+        new Tuple<int, string>(1, Ifly.Resources.Editor.ChartType_Column_WithChart),
+        new Tuple<int, string>(9, Ifly.Resources.Editor.ChartType_StackedColumn_WithChart),
+        new Tuple<int, string>(7, Ifly.Resources.Editor.ChartType_Bar_WithChart),
+        new Tuple<int, string>(10, Ifly.Resources.Editor.ChartType_StackedBar_WithChart),
+        new Tuple<int, string>(2, Ifly.Resources.Editor.ChartType_Pie_WithChart),
+        new Tuple<int, string>(3, Ifly.Resources.Editor.ChartType_Doughnut_WithChart),
+        new Tuple<int, string>(5, Ifly.Resources.Editor.ChartType_Bubble_WithChart),
+        new Tuple<int, string>(6, Ifly.Resources.Editor.ChartType_TreeMap_WithChart)
+    };    
+}
+
+@helper RenderChartType(Tuple<int, string> t)
+{
+    <li data-bind="css: { 'active': (type() == @t.Item1) }, click: function (data, e) { $data.onChartTypeChanging(@t.Item1, e); }">
+        <span>@t.Item2</span>
+    </li>
+}
+
+<div class="element-chart">
+    @Html.Partial("UI/Elements/_Base", new { Type = "chart" })
+
+    <div data-bind="css: { 'no-overflow': Ifly.Editor.getInstance().presentation.useCharts() == 1 }">
+        <label>@(Ifly.Resources.Editor.ChartType):</label>
+        <ul class="field checkable-list font-types" data-bind="visible: Ifly.Editor.getInstance().presentation.useCharts() == 0">
+            <li>
+                <input type="radio" name="ChartType" id="ChartTypeLine" value="0" data-bind="checked: type.checkable" />
+                <label for="ChartTypeLine" title="@Ifly.Resources.Editor.ChartType_Line"><span class="chart-type line">@Ifly.Resources.Editor.ChartType_Line</span></label>
+            </li>
+            <li>
+                <input type="radio" name="ChartType" id="ChartTypeBar" value="1" data-bind="checked: type.checkable" />
+                <label for="ChartTypeBar" title="@Ifly.Resources.Editor.ChartType_Bar"><span class="chart-type bar">@Ifly.Resources.Editor.ChartType_Bar</span></label>
+            </li>
+            <li>
+                <input type="radio" name="ChartType" id="ChartTypePie" value="2" data-bind="checked: type.checkable" />
+                <label for="ChartTypePie" title="@Ifly.Resources.Editor.ChartType_Pie"><span class="chart-type pie">@Ifly.Resources.Editor.ChartType_Pie</span></label>
+            </li>
+            <li>
+                <input type="radio" name="ChartType" id="ChartTypeDoughnut" value="3" data-bind="checked: type.checkable" />
+                <label for="ChartTypeDoughnut" title="@Ifly.Resources.Editor.ChartType_Doughnut"><span class="chart-type doughnut">@Ifly.Resources.Editor.ChartType_Doughnut</span></label>
+            </li>
+        </ul>
+
+        <div class="dropdown new-chart-types" tabindex="0" id="new-chart-types" data-bind="visible: Ifly.Editor.getInstance().presentation.useCharts() == 1">
+            <span class="dropdown-arrow icon-angle-down"></span>
+            <span class="dropdown-active" 
+                data-text-0="@Ifly.Resources.Editor.ChartType_Line_WithChart" 
+                data-text-1="@Ifly.Resources.Editor.ChartType_Column_WithChart" 
+                data-text-2="@Ifly.Resources.Editor.ChartType_Pie_WithChart" 
+                data-text-3="@Ifly.Resources.Editor.ChartType_Doughnut_WithChart" 
+                data-text-4="@Ifly.Resources.Editor.ChartType_Area_WithChart"
+                data-text-5="@Ifly.Resources.Editor.ChartType_Bubble_WithChart"
+                data-text-6="@Ifly.Resources.Editor.ChartType_TreeMap_WithChart"
+                data-text-7="@Ifly.Resources.Editor.ChartType_Bar_WithChart"
+                data-text-8="@Ifly.Resources.Editor.ChartType_StackedArea_WithChart"
+                data-text-9="@Ifly.Resources.Editor.ChartType_StackedColumn_WithChart"
+                data-text-10="@Ifly.Resources.Editor.ChartType_StackedBar_WithChart"
+                data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(type() || 0)"></span>
+            <div class="dropdown-menu">
+                <ul>
+                    @foreach (var t in chartTypes)
+                    {
+                        @RenderChartType(t);
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label for="chart-data">@(Ifly.Resources.Editor.Component_Chart_Data):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editData, text: dataText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.ClearSelection" data-bind="visible: data.rows().length > 0, click: clearData"></button>
+        </div>
+    </div>
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Chart_DataFormat):</label>
+        <p data-bind="text: dataFormatHelp"></p>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Chart_Size):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "size", CssClass = "element-property", Minimum = "5%", Maximum = "90%" })
+    </div>
+
+    <div data-bind="visible: Ifly.Editor.getInstance().presentation.useCharts() == 1">
+        <label for="ChartChrome0">@(Ifly.Resources.Editor.Component_Chart_Chrome):</label>
+        <ul class="field checkable-list text-types">
+            <li>
+                <input type="radio" name="ChartChrome" id="ChartChrome0" value="0" data-bind="checked: chrome.checkable" />
+                <label for="ChartChrome0" title="@Ifly.Resources.Editor.Component_Chart_Chrome_Show">@Ifly.Resources.Editor.Component_Chart_Chrome_Show</label>
+            </li>
+            <li>
+                <input type="radio" name="ChartChrome" id="ChartChrome1" value="1" data-bind="checked: chrome.checkable" />
+                <label for="ChartChrome1" title="@Ifly.Resources.Editor.Component_Chart_Chrome_Hide">@Ifly.Resources.Editor.Component_Chart_Chrome_Hide</label>
+            </li>
+        </ul>
+    </div>
+</div>

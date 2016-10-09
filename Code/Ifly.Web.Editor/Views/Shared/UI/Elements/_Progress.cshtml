@@ -1,0 +1,11 @@
+﻿<div class="element-progress">
+    @Html.Partial("UI/Elements/_Base", new { Type = "progress" })
+
+    <div>
+        <label for="map-bars">@(Ifly.Resources.Editor.Component_Progress_Bars):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editBars, text: barsText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.ClearSelection" data-bind="visible: bars().length > 0, click: clearBars"></button>
+        </div>
+    </div>
+</div>

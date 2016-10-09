@@ -1,0 +1,174 @@
+﻿@{
+    var selectPeriods = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(0, Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Day),
+        new Tuple<int, string>(1, Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Week),
+        new Tuple<int, string>(2, Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Month),
+        new Tuple<int, string>(3, Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Quarter),
+        new Tuple<int, string>(4, Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Year)
+    };    
+}
+
+@helper RenderSelectPeriod(Tuple<int, string> t)
+{
+    <li data-bind="css: { 'active': (selectPeriod() == @t.Item1) }, click: function (data, e) { $data.onSelectPeriodChanging(@t.Item1, e); }">
+        <span>@t.Item2</span>
+    </li>
+}
+
+<div id="realtime-data-import" class="data-import-modal realtime-data-modal" title="@Ifly.Resources.Editor.ConfigureLiveDataStream" style="display: none">
+    <div class="data-import-outer" data-bind="with: data">
+        <div class="import-sources-outer">
+            <h4 class="left">@(Ifly.Resources.Editor.RealtimeData_ChooseSource):</h4>
+
+            <div class="import-sources">
+                <ul>
+                    <li>
+                        <input type="radio" name="RealtimeDataSourceType" id="RealtimeDataSourceTypeGoogle" value="1" data-bind="checked: sourceType.checkable" />
+                        <label for="RealtimeDataSourceTypeGoogle"><span>@Ifly.Resources.Editor.DataImportSourceType_Google</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="RealtimeDataSourceType" id="RealtimeDataSourceTypeGoogleAnalytics" value="3" data-bind="checked: sourceType.checkable" />
+                        <label for="RealtimeDataSourceTypeGoogleAnalytics"><span>@Ifly.Resources.Editor.DataImportSourceType_GoogleAnalytics</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="RealtimeDataSourceType" id="RealtimeDataSourceTypeURL" value="2" data-bind="checked: sourceType.checkable" />
+                        <label for="RealtimeDataSourceTypeURL"><span>@Ifly.Resources.Editor.DataImportSourceType_URL</span></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="import-source-settings-outer">
+            <div class="import-source-settings import-source-settings-wide">
+                <div class="import-source-overlay" data-bind="visible: isBusy"></div>
+
+                <div class="import-source-googleanalytics form" data-bind="visible: sourceType() == 3, with: googleAnalytics">
+                    <div class="dimmed" data-bind="visible: isCheckingAuthorization">@Ifly.Resources.Editor.OneMoment</div>
+
+                    <div data-bind="css: { 'authorize-api-request': true, 'will-show': authorizationRequired, 'show': authorizationRequired.appearing }">
+                        <p>@Ifly.Resources.Editor.DataImportSourceType_GoogleAnalytics_Authorize_Description</p>
+                        <button data-bind="click: authorize"><i class="icon icon-unlock-alt"></i><span>@Ifly.Resources.Editor.DataImportSourceType_GoogleAnalytics_Authorize</span></button>
+                    </div>
+
+                    <div class="no-overflow data-view-id" data-bind="visible: !isCheckingAuthorization() && isCheckingAuthorization.finished() && !authorizationRequired()">
+                        <div class="analytics-view-id">
+                            <label>@Html.Raw(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_ProfileId):</label>
+                            <input type="text" autocomplete="off" spellcheck="false" data-bind="value: profileId, tooltip: { text: '@Html.Raw(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_ViewIdHowTo.Replace("\"", "&quot;"))' }" />
+                        </div>
+                        <div class="analytics-select-period">
+                            <label>@Html.Raw(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period):</label>
+                            <div class="dropdown new-chart-types" tabindex="0" id="analytics-select-periods">
+                                <span class="dropdown-arrow icon-angle-down"></span>
+                                <span class="dropdown-active" 
+                                    data-text-0="@Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Day" 
+                                    data-text-1="@Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Week" 
+                                    data-text-2="@Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Month" 
+                                    data-text-3="@Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Quarter"
+                                    data-text-4="@Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Period_Year"
+                                    data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(selectPeriod() || 0)"></span>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        @foreach (var t in selectPeriods)
+                                        {
+                                            @RenderSelectPeriod(t);
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="import-source-google form" data-bind="visible: sourceType() == 1, with: google">
+                    <div class="no-overflow data-url">
+                        <label>@Html.Raw(Ifly.Resources.Editor.RealtimeData_Google_URL):</label>
+                        <input type="text" autocomplete="off" spellcheck="false" data-bind="value: url, event: { 'keyup': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), null, e); }, 'blur': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), 50); } }" />
+                        <div class="data-validated help" title="@Ifly.Resources.Editor.RealtimeData_Validated" data-bind="visible: !wasError() && !wasValidationError() && sheetData.rows().length > 0"><i class="icon icon-ok"></i></div>
+                    </div>
+                    <div class="import-error" data-bind="visible: wasError">
+                        @Ifly.Resources.Editor.DataImport_GoogleImportError
+                    </div>
+                    <div class="import-error" data-bind="visible: !wasError() && wasValidationError()">
+                        @Html.Raw(Ifly.Resources.Editor.DataImport_GoogleValidationError)
+                    </div>
+                </div>
+                <div class="import-source-url form" data-bind="visible: sourceType() == 2, with: url">
+                    <div class="no-overflow data-url">
+                        <label>@Html.Raw(Ifly.Resources.Editor.RealtimeData_URL):</label>
+                        <input type="text" autocomplete="off" spellcheck="false" data-bind="value: url, event: { 'keyup': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), null, e); }, 'blur': function (data, e) { $data.onUrlChangedWithDelay($(e.target).val(), 50); } }" />
+                        <div class="data-validated help" title="@Ifly.Resources.Editor.RealtimeData_Validated" data-bind="visible: !wasError() && !wasValidationError() && sheetData.rows().length > 0"><i class="icon icon-ok"></i></div>
+                    </div>
+                    <div class="import-error" data-bind="visible: wasError">
+                        @Ifly.Resources.Editor.DataImport_UrlImportError
+                    </div>
+                    <div class="import-error" data-bind="visible: !wasError() && wasValidationError()">
+                        @Html.Raw(Ifly.Resources.Editor.DataImport_UrlValidationError)
+                    </div>
+                </div>
+                
+                <div class="push-b-25 realtime-element-properties" data-bind="visible: sourceType() != 3 || (!googleAnalytics.isCheckingAuthorization() && googleAnalytics.isCheckingAuthorization.finished() && !googleAnalytics.authorizationRequired() && elementProperties().length > 0)">
+                    <label><span data-bind="if: sourceType() == 3">@Html.Raw(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_ElementType)</span><span data-bind="if: sourceType() == 1">@Html.Raw(Ifly.Resources.Editor.RealtimeData_Google_ElementType)</span><span data-bind="if: sourceType() == 2">@Html.Raw(Ifly.Resources.Editor.RealtimeData_URL_ElementType)</span>:</label>
+                    <div data-bind="css: { 'with-element-properties': elementProperties().length > 0, 'element-ga-properties': sourceType() == 3 }">
+                        <ul class="element-property-list" data-bind="foreach: elementProperties, visible: elementProperties().length > 0">
+                            <li data-bind="css: { 'no-overflow': $parent.sourceType() == 3 }">
+                                <span class="mapping" data-bind="visible: $parent.sourceType() == 3">
+                                    <span class="typeahead">
+                                        <input type="text" data-bind="value: mapping, typeahead: mapping, attr: { title: mapping }" />
+                                        <span class="typeahead-suggestion"></span>
+                                    </span>
+                                    <span class="arrow">&rarr;</span>
+                                </span>
+                                <span class="property-name" data-bind="css: { 'follows-mapping': $parent.sourceType() == 3 }, text: name"></span>
+                                <span class="property-required help" title="@Ifly.Resources.Editor.RealtimeData_PropertyRequired_Title" data-bind="visible: required">@Ifly.Resources.Editor.RealtimeData_PropertyRequired</span>
+                            </li>
+                        </ul>
+
+                        <div class="empty dimmed" data-bind="visible: sourceType() != 3 && elementProperties().length == 0">@Ifly.Resources.Editor.RealtimeData_AnyTabularData</div>
+                    </div>
+                </div>
+                <div class="push-b-35 realtime-analytics-anydata" data-bind="visible: sourceType() == 3 && !googleAnalytics.isCheckingAuthorization() && googleAnalytics.isCheckingAuthorization.finished() && !googleAnalytics.authorizationRequired() && elementProperties().length == 0">
+                    <div class="anydata-row" data-bind="with: googleAnalytics.anyData.metric">
+                        <label for="realtime-analytics-anydata-metric">@(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Metric):</label>
+                        <div class="typeahead">
+                            <input id="realtime-analytics-anydata-metric" type="text" data-bind="value: value, typeahead: value, attr: { title: value }" />
+                            <div class="typeahead-suggestion"></div>
+                        </div>
+                    </div>
+                    <div class="anydata-row" data-bind="with: googleAnalytics.anyData.dimension">
+                        <label for="realtime-analytics-anydata-dimension">@(Ifly.Resources.Editor.RealtimeData_GoogleAnalytics_Dimension):</label>
+                        <div class="typeahead">
+                            <input id="realtime-analytics-anydata-dimension" type="text" data-bind="value: value, typeahead: value, attr: { title: value }" />
+                            <div class="typeahead-suggestion"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dimmed block center clear">@Html.Raw(Ifly.Resources.Editor.RealtimeData_Format)</div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('RealtimeDataModal', {
+        terminology: {
+            title: '@Ifly.Resources.Editor.ConfigureLiveDataStream',
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            saving: '@Ifly.Resources.Editor.Saving',
+            elementTypeNames: {
+                text: '@Ifly.Resources.Editor.Component_TextBlock',
+                fact: '@Ifly.Resources.Editor.Component_Fact',
+                image: '@Ifly.Resources.Editor.Component_Image',
+                map: '@Ifly.Resources.Editor.Component_Map',
+                chart: '@Ifly.Resources.Editor.Component_Chart',
+                table: '@Ifly.Resources.Editor.Component_Table',
+                figure: '@Ifly.Resources.Editor.Component_Figure',
+                progress: '@Ifly.Resources.Editor.Component_Progress',
+                callout: '@Ifly.Resources.Editor.Component_Callout',
+                timeline: '@Ifly.Resources.Editor.Component_Timeline'
+            }
+        }
+    });
+</script>

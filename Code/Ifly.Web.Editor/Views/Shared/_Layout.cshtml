@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        @Html.Partial("_Header")
+        @RenderSection("header", false)
+    </head>
+    <body>
+        <div class="editor" data-bind="css: { 'active': isActive }">
+            <div class="toolbar main">
+                <div class="toolbar-buttons">
+                    <div class="header-wrapper">
+                        <h1>
+                            <a href="/" target="_blank">
+                                <span class="back"></span>
+                                <span class="front"></span>
+                            </a>
+                        </h1>
+                    </div>
+                    <nav class="primary">
+                        <ul>
+                            <li class="has-children">
+                                <button tabindex="-1">
+                                    <i class="highlight big icon-inbox"></i>
+                                    <span class="highlight">@Ifly.Resources.Editor.Slides</span>&nbsp;(<small data-bind="text: presentation.slides().length"></small>)
+                                </button>
+
+                                <ul class="actions">
+                                    <li>
+                                        <button class="icon-plus new-slide-button" data-bind="click: function () { $data.slides.newSlide(); }" title="@Ifly.Resources.Editor.AddNewSlide"></button>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="slide-list">
+                                <div class="slide-list-outer nano">
+                                    <div class="slide-list-inner nano-content">
+                                        <ul class="slide-list-contents" data-bind="foreach: presentation.slides">
+                                            <li data-bind="attr: { 'data-slide': id }">
+                                                <a title="@Ifly.Resources.Editor.ClickToSelectSlide" data-bind="css: { 'selected': selected }, click: function () { $parent.slides.selectSlide($data); }, html: { toString: function () { return $parent.slides.getSlideTitle($data); } }"></a>
+
+                                                <ul class="actions">
+                                                    <li>
+                                                        <button class="icon-pencil" title="@Ifly.Resources.Editor.EditSlide" data-bind="click: function () { $parent.slides.editSlide($data); }"></button>
+                                                    </li>
+                                                    <li>
+                                                        <button class="icon-remove" title="@Ifly.Resources.Editor.DeleteSlide" data-bind="click: function () { $parent.slides.tryDeleteSlide($data, $index()); }"></button>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="previous-has-children ingredients" data-bind="css: { 'pressed': gallery.isOpen }">
+                                <button data-bind="enable: presentation.selectedSlideIndex() >= 0 || presentation.isSelectingSlide(), click: function () { $data.gallery.toggleVisibility(); }">
+                                    <i class="highlight big icon-beaker"></i>
+                                    <span class="highlight">@Ifly.Resources.Editor.Components</span>
+                                    <small data-bind="visible: presentation.selectedSlideIndex() >= 0 || presentation.isSelectingSlide()" class="sub-title">@Ifly.Resources.Editor.Components_SubTitle</small>
+                                    <small data-bind="visible: presentation.selectedSlideIndex() < 0 && !presentation.isSelectingSlide()" class="sub-title">@Ifly.Resources.Editor.Components_SelectSlide</small>
+                                </button>
+                                
+                                <ul class="actions dimmed" data-bind="css: { 'active': !gallery.isOpen() && !gallery.clipboard.isEmpty() }">
+                                    <li>
+                                        <button class="icon-file paste-element" data-bind="click: function() { $data.gallery.pasteElement(); }, attr: { title: '@(Ifly.Resources.Editor.ElementInClipboard) - ' + gallery.clipboard.name() }"></button>
+                                    </li>
+                                </ul>
+
+                                <div class="ingredients-gallery" data-bind="css: { 'ingredients-gallery-show': gallery.isOpen, 'ingredients-gallery-ready': gallery.isOpen.andReady, 'pro-elements': user.subscription.isPro }">
+                                    <div class="ingredients-list">
+                                        <ul>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.text, '@Ifly.Resources.Editor.Component_TextBlock'); }">
+                                                    <i class="icon-font"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_TextBlock</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.fact, '@Ifly.Resources.Editor.Component_Fact'); }">
+                                                    <i class="icon-info"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Fact</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.image, '@Ifly.Resources.Editor.Component_Image'); }">
+                                                    <i class="icon-picture"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Image</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.figure, '@Ifly.Resources.Editor.Component_Figure'); }">
+                                                    <i class="icon-male"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Figure</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.map, '@Ifly.Resources.Editor.Component_Map'); }">
+                                                    <i class="icon-globe"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Map</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.chart, '@Ifly.Resources.Editor.Component_Chart'); }">
+                                                    <i class="icon-bar-chart"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Chart</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.table, '@Ifly.Resources.Editor.Component_Table'); }">
+                                                    <i class="icon-th"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Table</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.line, '@Ifly.Resources.Editor.Component_Line'); }">
+                                                    <i class="icon-reorder"></i>
+                                                    <span>@Ifly.Resources.Editor.Component_Line</span>
+                                                </button>
+                                            </li>
+
+                                            @if (Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic)
+                                            {
+                                                <li>
+                                                    <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.progress, '@Ifly.Resources.Editor.Component_Progress'); }">
+                                                        <i class="icon-tasks"></i>
+                                                        <span>@Ifly.Resources.Editor.Component_Progress</span>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.callout, '@Ifly.Resources.Editor.Component_Callout'); }">
+                                                        <i class="icon-comments"></i>
+                                                        <span>@Ifly.Resources.Editor.Component_Callout</span>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.timeline, '@Ifly.Resources.Editor.Component_Timeline'); }">
+                                                        <i class="icon-flag"></i>
+                                                        <span>@Ifly.Resources.Editor.Component_Timeline</span>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button data-bind="click: function () { $data.gallery.newElement(Ifly.Models.ElementType.widget, '@Ifly.Resources.Editor.Component_Widget'); }">
+                                                        <i class="icon-code"></i>
+                                                        <span>@Ifly.Resources.Editor.Component_Widget</span>
+                                                    </button>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="shorten">
+                                <button class="settings-button" data-bind="click: settings">
+                                    <i class="highlight big icon-gear"></i>
+                                    <span class="highlight">@Ifly.Resources.Editor.Settings</span>
+                                    <small class="sub-title">@Ifly.Resources.Editor.Settings_SubTitle</small>
+                                </button>
+                            </li>
+
+                            <li data-bind="css: { 'separator': true, 'collapsed': gallery.isOpen }"></li>
+
+                            <li class="@(Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic ? "has-children" : null) shorten">
+                                <button class="publish-button" data-bind="click: publish">
+                                    <i class="highlight big icon-ok-sign"></i>
+                                    <span class="highlight">@Ifly.Resources.Editor.Publish</span>
+                                    <small class="sub-title">@Ifly.Resources.Editor.Publish_SubTitle</small>
+                                </button>
+
+                                @if (Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic)
+                                {
+                                    <ul class="actions" data-bind="visible: 1 > 2 && !gallery.isOpen() && presentation.totalImpressions() > 0">
+                                        <li>
+                                            <button class="icon-rss infographic-stats-button" data-bind="click: stats" title="@Ifly.Resources.Editor.ViewStats"></button>
+                                        </li>
+                                    </ul>
+                                }
+                            </li>
+                        </ul>
+                    </nav>
+                    @if (!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User) && Ifly.ApplicationContext.Current.User.Subscription != null && Ifly.ApplicationContext.Current.User.Subscription.RenewedTo == Ifly.SubscriptionType.Basic)
+                    {
+                        <a id="toolbar-upgrade-link" class="upgrade-link" data-bind="click: function () { $data.userMenu.openMyAccount(); }" href="javascript:void(0);">
+                            <i class="icon icon-rocket"></i>
+                            <span>@Ifly.Resources.Editor.UpgradeToUnlock</span>
+                        </a>    
+                    }
+                </div>
+            </div>
+
+            <div class="toolbar light element-properties" data-bind="css: { 'active': gallery.elementProperties.isOpen }">
+                <div class="toolbar-buttons" data-bind="with: gallery.elementProperties">
+                    <div class="header">
+                        <div class="left">
+                            <h3>@Ifly.Resources.Editor.Properties</h3>
+                            <small class="sub-title" data-bind="text: subTitle"></small>
+                        </div>
+                        
+                        <ul class="actions">
+                            <li>
+                                <button class="icon-arrow-left" title="@Ifly.Resources.Editor.Close" data-bind="click: toggleVisibility"></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-outer-wrapper">
+                        <div class="form-outer nano">
+                            <div class="form nano-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-container" data-bind="css: { 'with-help-panel': help.panel.isOpen }">
+                @Html.Partial("UI/_StatusBar")
+                @Html.Partial("UI/_Slide")
+                @Html.Partial("UI/_FeedbackBar")
+            </div>
+
+            @Html.Partial("UI/_HelpPanel")
+
+            @RenderBody()
+        </div>
+
+        @Scripts.Render("~/js/app")
+        @Scripts.Render("~/js/embed")
+        @Scripts.Render("~/js/jqvmap")
+        @Scripts.Render("~/js/charts")
+        @Scripts.Render("~/js/code-editor")
+        @Scripts.Render("~/js/editor")
+        
+        <script>
+            function onGoogleClientApiLoaded() {
+                Ifly.App.getInstance().api.google.onLoad();
+                Ifly.App.getInstance().api.google.modules.analytics.url = '@Html.Raw(Ifly.External.OAuth.OAuthClient.GetClient("GoogleAnalytics").GetAuthorizationUrl(this.Request.Url))';
+            }
+        </script>
+
+        <script src="signalr/hubs"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","treemap"]}]}'></script>
+        <script src="https://apis.google.com/js/client.js?onload=onGoogleClientApiLoaded"></script>
+
+        @Html.Partial("UI/_InitShared")
+        @Html.Partial("UI/_Progress")
+        @Html.Partial("UI/_PresentationSettingsModal")
+        @Html.Partial("UI/_SlideSettingsModal")
+        @Html.Partial("UI/_SlideManager")
+        @Html.Partial("UI/_ChatManager")
+        @Html.Partial("UI/_MapAnnotationsModal")
+        @Html.Partial("UI/_DataSourceSettingsModal")
+        @Html.Partial("UI/_IconSelectorModal")
+        @Html.Partial("UI/_PublishSettingsModal")
+        @Html.Partial("UI/_ElementLinkModal")
+        @Html.Partial("UI/_ImageUploadErrorModal")
+        @Html.Partial("UI/_ThemeUploadErrorModal")
+        @Html.Partial("UI/_ProgressBarsModal")
+        @Html.Partial("UI/_TimelineItemsModal")
+        @Html.Partial("UI/_CodeEditorModal")
+        @Html.Partial("UI/_PresentationStatsModal")
+        @Html.Partial("UI/_BindingHandlers")
+        @Html.Partial("UI/_SyncErrorModal")
+        @Html.Partial("UI/_NotSupportedBrowserModal")
+        @Html.Partial("UI/_DataImportModal")
+        @Html.Partial("UI/_FeedbackModal")
+        @Html.Partial("UI/_CloneSlideModal")
+        @Html.Partial("UI/_ClonePresentationModal")
+        @Html.Partial("UI/_ShortcutModal")
+        @Html.Partial("UI/_AudioUploadErrorModal")
+        @Html.Partial("UI/_BackgroundImageUploadErrorModal")
+        @Html.Partial("UI/_RealtimeDataModal")
+        @Html.Partial("UI/_CollaboratorEditModal")
+        @Html.Partial("UI/_MediaSelectorModal")
+        @Html.Partial("UI/_ThemeBuilderModal")
+        @Html.Partial("UI/_VoiceOverEditModal")
+
+        @{
+            var exportProviderUrl = System.Configuration.ConfigurationManager.AppSettings["ExportProviderUrl"];
+
+            if (!string.IsNullOrEmpty(exportProviderUrl))
+            {
+                exportProviderUrl = string.Format("{0}/download", exportProviderUrl.TrimEnd('/'));
+            }
+        }
+
+        @Html.Partial("UI/_BundleRegistration")
+
+        <script>
+            Ifly.App.getInstance().initialize({
+                instanceId: '@Ifly.ApplicationContext.Current.InstanceId',
+                root: '@Request.ApplicationPath',
+                demo: @(string.IsNullOrEmpty(Ifly.ApplicationContext.Current.User.ExternalId).ToString().ToLowerInvariant()),
+                terminology: {
+                    ok: '@Ifly.Resources.Editor.Ok',
+                    close: '@Ifly.Resources.Editor.Close',
+                    reload: '@Ifly.Resources.Editor.ReloadPage',
+                    unexpectedError: '@Ifly.Resources.Editor.UnexpectedError',
+                    oneMoment: '@Ifly.Resources.Editor.OneMoment',
+                    slideDefaultTitle: '@Ifly.Resources.Editor.Slide1'
+                },
+                user: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Ifly.ApplicationContext.Current.User.ToClientDefinition(), Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() })),
+                logging: @(System.Configuration.ConfigurationManager.AppSettings["LoggingEnabled"]),
+                overrideExportUrl: '@exportProviderUrl'
+            });
+        </script>
+
+        <div class="element-views">
+            @Html.Partial("UI/Elements/_Text")
+            @Html.Partial("UI/Elements/_Fact")
+            @Html.Partial("UI/Elements/_Image")
+            @Html.Partial("UI/Elements/_Map")
+            @Html.Partial("UI/Elements/_Chart")
+            @Html.Partial("UI/Elements/_Table")
+            @Html.Partial("UI/Elements/_Figure")
+            @Html.Partial("UI/Elements/_Line")
+            @Html.Partial("UI/Elements/_Progress")
+            @Html.Partial("UI/Elements/_Callout")
+            @Html.Partial("UI/Elements/_Timeline")
+            @Html.Partial("UI/Elements/_Widget")
+        </div>
+
+        <div class="element-misc">
+            <div class="element-table-inline-richtext">
+                @Html.Partial("UI/_RichTextEditor", new { BindingExpression = "with: richText", IconSelector = true })
+                <div class="modal-buttons">
+                    <button class="richtext-save modal-button-nested" data-bind="click: save">@Ifly.Resources.Editor.Save</button>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-46764627-4', 'auto');
+
+            @if (!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User))
+            {
+                var userId = Ifly.ApplicationContext.Current.User.Id.ToString();
+        
+                @:ga('set', 'userId', '@userId');
+                @:ga('set', '&uid', '@userId');
+            }
+
+            ga('send', 'pageview');
+        </script>
+
+        @Html.Partial("UI/_AppLoading")
+
+        @RenderSection("footer", false)
+    </body>
+</html>

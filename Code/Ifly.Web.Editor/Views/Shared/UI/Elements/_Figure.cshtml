@@ -1,0 +1,60 @@
+﻿<div class="element-figure">
+    @Html.Partial("UI/Elements/_Base", new { Type = "figure" })
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Figure_Icon):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: selectIcon, text: iconText"></a>
+        </div>
+    </div>
+
+    <div>
+        <label for="FigureSize5">@(Ifly.Resources.Editor.Component_Figure_Size):</label>
+        <ul class="field checkable-list figure-sizes">
+            <li>
+                <input type="radio" name="FigureSize" id="FigureSize5" value="5" data-bind="checked: size.checkable" />
+                <label for="FigureSize5" title="@Ifly.Resources.Editor.FigureSize_5"><span class="figure-size size5">5</span></label>
+            </li>
+            <li>
+                <input type="radio" name="FigureSize" id="FigureSize10" value="10" data-bind="checked: size.checkable" />
+                <label for="FigureSize10" title="@Ifly.Resources.Editor.FigureSize_10"><span class="figure-size size10">10</span></label>
+            </li>
+            <li>
+                <input type="radio" name="FigureSize" id="FigureSize20" value="20" data-bind="checked: size.checkable" />
+                <label for="FigureSize20" title="@Ifly.Resources.Editor.FigureSize20"><span class="figure-size size20">20</span></label>
+            </li>
+            <li>
+                <input type="radio" name="FigureSize" id="FigureSize30" value="30" data-bind="checked: size.checkable" />
+                <label for="FigureSize30" title="@Ifly.Resources.Editor.FigureSize_30"><span class="figure-size size30">30</span></label>
+            </li>
+            <li>
+                <input type="radio" name="FigureSize" id="FigureSize40" value="40" data-bind="checked: size.checkable" />
+                <label for="FigureSize40" title="@Ifly.Resources.Editor.FigureSize_40"><span class="figure-size size40">40</span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="quantity">
+        <label for="figure-highlight">@(Ifly.Resources.Editor.Component_Figure_Highlight):</label>
+        <input type="text" id="figure-highlight" data-bind="number: { value: highlight, minimum: 0, maximum: size.asNumber, valueUpdate: 'keyup' }" />
+
+        <ul class="field checkable-list" data-bind="visible: (icon() || '').indexOf('/') < 0">
+            <li>
+                <input type="radio" name="HighlightColorAccent" id="HighlightColorAccent4" value="3" data-bind="checked: highlightColor.checkable" />
+                <label for="HighlightColorAccent4" title="@Ifly.Resources.Editor.ColorType_Accent4" class="theme-based"><span class="accent-4 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="HighlightColorAccent" id="HighlightColorAccent3" value="2" data-bind="checked: highlightColor.checkable" />
+                <label for="HighlightColorAccent3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="HighlightColorAccent" id="HighlightColorAccent2" value="1" data-bind="checked: highlightColor.checkable" />
+                <label for="HighlightColorAccent2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="HighlightColorAccent" id="HighlightColorAccent1" value="0" data-bind="checked: highlightColor.checkable" />
+                <label for="HighlightColorAccent1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+            </li>
+        </ul>
+    </div>
+</div>

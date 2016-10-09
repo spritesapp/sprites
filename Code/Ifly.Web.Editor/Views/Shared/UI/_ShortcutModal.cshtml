@@ -1,0 +1,50 @@
+﻿<div id="shortcut-modal" title="@Ifly.Resources.Editor.KeyboardShortcuts" style="display: none">
+    <div class="keyboard-shortcuts">
+        <ul>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">&larr;</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_PreviousElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">&rarr;</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_NextElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">&uarr;</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_PromoteElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">&darr;</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_DemoteElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">C</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_CopyElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">V</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_PasteElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">@Ifly.Resources.Editor.Shortcut_Delete</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_DeleteElement</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key">@Ifly.Resources.Editor.Shortcut_Space</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_ToggleGrid</span>
+            </li>
+            <li>
+                <span class="shortcut"><span class="key modifier">Ctrl</span><span class="conjunction">+</span><span class="key text-alternate">@Ifly.Resources.Editor.Shortcut_MouseMove</span></span>
+                <span class="description">@Ifly.Resources.Editor.Shortcut_Magnet</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ShortcutModal', {
+        terminology: {
+            close: '@Ifly.Resources.Editor.Close'
+        }
+    });
+</script>

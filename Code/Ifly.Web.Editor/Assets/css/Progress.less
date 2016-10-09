@@ -1,0 +1,273 @@
+﻿@import "mixins.less";
+
+@keyframes bounce_progress_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(24px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@keyframes bounce_progress_2 {
+    0% {
+        .transform(translateX(24px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(24px));
+    }
+}
+
+@keyframes bounce_progress_2x_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(50px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@keyframes bounce_progress_2x_2 {
+    0% {
+        .transform(translateX(50px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(50px));
+    }
+}
+
+@-moz-keyframes bounce_progress_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(24px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@-moz-keyframes bounce_progress_2 {
+    0% {
+        .transform(translateX(24px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(24px));
+    }
+}
+
+@-moz-keyframes bounce_progress_2x_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(50px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@-moz-keyframes bounce_progress_2x_2 {
+    0% {
+        .transform(translateX(50px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(50px));
+    }
+}
+
+@-webkit-keyframes bounce_progress_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(24px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@-webkit-keyframes bounce_progress_2 {
+    0% {
+        .transform(translateX(24px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(24px));
+    }
+}
+
+@-webkit-keyframes bounce_progress_2x_1 {
+    0% {
+        .transform(translateX(0));
+    }
+
+    50% {
+        .transform(translateX(50px));
+    }
+
+    100% {
+        .transform(translateX(0));
+    }
+}
+
+@-webkit-keyframes bounce_progress_2x_2 {
+    0% {
+        .transform(translateX(50px));
+    }
+
+    50% {
+        .transform(translateX(0));
+    }
+
+    100% {
+        .transform(translateX(50px));
+    }
+}
+
+#app-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    background-color: #000;
+    opacity: 0.8;
+    .transition-single(opacity);
+
+    &.hidden {
+        opacity: 0 !important;
+        z-index: 1 !important;
+    }
+}
+
+#app-loading-progress-container {
+    position: absolute;
+    z-index: 9999999;
+    display: block;
+    margin: auto;
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+    width: 84px;
+    height: 32px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.progress {
+    position: relative;
+    display: inline-block;
+
+    width: 42px;
+    height: 16px;
+    
+    opacity: 0;
+    .transition-single(opacity);
+
+    &.progress-global {
+        position: absolute !important;
+        bottom: 20px;
+        left: 15px;
+        z-index: 999999;
+
+        &.progress-global-lift {
+            bottom: 55px !important;
+        }
+    }
+
+    &.progress-show {
+        opacity: 1 !important;
+    }
+
+    > div {
+        position: absolute;
+        
+        .border-radius(8px);
+
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 16px;
+
+        &.progress-1 {
+            background-color: #99173C;
+            .transform(translateX(0));
+            .animation-infinite(bounce_progress_1, 1.5s);
+        }
+
+        &.progress-2 {
+            background-color: #fff;
+            .transform(translateX(24px));
+            .animation-infinite(bounce_progress_2, 1.5s);
+        }
+    }
+}
+
+.progress-2x {
+    width: 84px;
+    height: 32px;
+
+    > div {
+        .border-radius(16px);
+        width: 32px;
+        height: 32px;
+
+        &.progress-1 {
+            .transform(translateX(0));
+            .animation-infinite(bounce_progress_2x_1, 1.5s);
+        }
+
+        &.progress-2 {
+            .transform(translateX(50px));
+            .animation-infinite(bounce_progress_2x_2, 1.5s);
+        }
+    }
+}

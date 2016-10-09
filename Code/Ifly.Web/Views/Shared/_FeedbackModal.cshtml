@@ -1,0 +1,27 @@
+﻿<div id="feedback-modal" class="modal-window feedback-modal">
+    <div class="modal-content-outer">
+        <h3 class="modal-title">@Ifly.Resources.Editor.SendFeedback</h3>
+        <div class="modal-content">
+            <div class="form">
+                <div>
+                    <label for="feedback-name">@(Ifly.Resources.Editor.Feedback_Name):</label>
+                    <input id="feedback-name" type="text" data-default-value="@Ifly.ApplicationContext.Current.User.Name" value="@Ifly.ApplicationContext.Current.User.Name" />
+                </div>
+                <div>
+                    <label for="feedback-email">@(Ifly.Resources.Editor.Feedback_Email):</label>
+                    <input id="feedback-email" type="text" data-default-value="@Ifly.ApplicationContext.Current.User.Email" value="@Ifly.ApplicationContext.Current.User.Email " />
+                </div>
+
+                <div>
+                    <label for="feedback-text">@(Ifly.Resources.Editor.Feedback_Text):</label>
+                    <textarea id="feedback-text"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-buttons">
+            <button class="primary" data-text-sending="@Ifly.Resources.Editor.OneMoment" data-text-normal="@Ifly.Resources.Editor.Send" onclick="Ifly.Views.Account.FeedbackModal.getInstance().submit();">@Ifly.Resources.Editor.Send</button>
+            <button class="secondary" onclick="Ifly.Views.Account.FeedbackModal.getInstance().hide();">@Ifly.Resources.Editor.Cancel</button>
+        </div>
+    </div>
+</div>

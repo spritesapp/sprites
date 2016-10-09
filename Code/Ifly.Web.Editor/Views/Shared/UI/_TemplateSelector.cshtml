@@ -1,0 +1,93 @@
+﻿<div class="dropdown theme-list" tabindex="0" id="template-selector" data-bind="with: templates">
+    <span class="dropdown-arrow icon-angle-down"></span>
+    <span class="dropdown-active" data-bind="text: selectedTemplate().name"></span>
+    <div class="dropdown-menu template-list">
+        <ul data-bind="foreach: templates">
+            <li data-bind="attr: { id: 'template-item-' + id }, css: { 'active': $parent.selectedTemplate().id === id }, click: function (data, e) { $parent.onTemplateChanging(data, e); }">
+                <div data-bind="attr: { 'class': 'template-layout ' + id }, html: getThumbnailHtml()"></div>
+                <div class="template-name" data-bind="text: name"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('TemplateSelector', {
+        terminology: {
+            templates: {
+                'blank': '@Ifly.Resources.Editor.Template_Empty',
+                'title-only': '@Ifly.Resources.Editor.Template_TitleOnly',
+                'text-only': '@Ifly.Resources.Editor.Template_TextOnly',
+                'title-and-chart': '@Ifly.Resources.Editor.Template_TitleAndChart',
+                'fact-and-figure': '@Ifly.Resources.Editor.Template_FactsAndFigure',
+                'fact-and-chart': '@Ifly.Resources.Editor.Template_FactsAndChart',
+                'map-and-table': '@Ifly.Resources.Editor.Template_MapAndTable',
+                'image-and-text': '@Ifly.Resources.Editor.Template_ImageAndText'
+            },
+            templateData: {
+                'title-only': {
+                    title: '@Ifly.Resources.Editor.Slide1'
+                },
+                'text-only': {
+                    text: "@Html.Raw(Ifly.Resources.Editor.TemplateElement_Text)"
+                },
+                'title-and-chart': {
+                    title: '@Ifly.Resources.Editor.Template_TitleAndChart_Title',
+                    description: '@Ifly.Resources.Editor.Template_TitleAndChart_Description',
+                    chartColumn0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartColumn0',
+                    chartColumn1: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartColumn1',
+                    chartRow0Column0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartRow0Column0',
+                    chartRow1Column0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartRow1Column0',
+                    chartRow2Column0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartRow2Column0',
+                    chartRow3Column0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartRow3Column0',
+                    chartRow4Column0: '@Ifly.Resources.Editor.Template_TitleAndChart_ChartRow4Column0'
+                },
+                'facts-and-figure': {
+                    fact0Measure: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndFigure_Fact1_Measure)",
+                    fact0Description: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndFigure_Fact1_Description)",
+                    fact1Measure: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndFigure_Fact2_Measure)",
+                    fact1Description: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndFigure_Fact2_Description)",
+                    figureText: '@Html.Raw(Ifly.Resources.Editor.Template_FactsAndFigure_FigureText)'
+                },
+                'facts-and-chart': {
+                    title: '@Ifly.Resources.Editor.Template_FactsAndChart_Title',
+                    chartColumn0: '@Ifly.Resources.Editor.Template_FactsAndChart_ChartColumn0',
+                    chartColumn1: '@Ifly.Resources.Editor.Template_FactsAndChart_ChartColumn1',
+                    chartColumn2: '@Ifly.Resources.Editor.Template_FactsAndChart_ChartColumn2',
+                    chartColumn3: '@Ifly.Resources.Editor.Template_FactsAndChart_ChartColumn3',
+                    chartRow0Column0: '@Ifly.Resources.Editor.Template_FactsAndChart_ChartRow0Column0',
+                    fact0Measure: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndChart_Fact1_Measure)",
+                    fact0Description: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndChart_Fact1_Description)",
+                    fact1Measure: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndChart_Fact2_Measure)",
+                    fact1Description: "@Html.Raw(Ifly.Resources.Editor.Template_FactsAndChart_Fact2_Description)",
+                },
+                'map-and-table': {
+                    title: '@Ifly.Resources.Editor.Template_MapAndTable_Title',
+                    mapAnnotation1Name: '@Ifly.Resources.Editor.Template_MapAndTable_MapAnnotation1Name',
+                    mapAnnotation1Tooltip: '@Ifly.Resources.Editor.Template_MapAndTable_MapAnnotation1Tooltip',
+                    tableColumn0: '@Ifly.Resources.Editor.Template_MapAndTable_TableColumn0',
+                    tableColumn1: '@Ifly.Resources.Editor.Template_MapAndTable_TableColumn1',
+                    tableRow0Column0: '@Ifly.Resources.Editor.Template_MapAndTable_TableRow0Column0',
+                    tableRow1Column0: '@Ifly.Resources.Editor.Template_MapAndTable_TableRow1Column0',
+                    tableRow2Column0: '@Ifly.Resources.Editor.Template_MapAndTable_TableRow2Column0',
+                    tableRow3Column0: '@Ifly.Resources.Editor.Template_MapAndTable_TableRow3Column0',
+                    tableRow4Column0: '@Ifly.Resources.Editor.Template_MapAndTable_TableRow4Column0'
+                },
+                'image-and-text': {
+                    title: '@Ifly.Resources.Editor.Template_ImageAndText_Title',
+                    text: "@Html.Raw(Ifly.Resources.Editor.TemplateElement_Text)"
+                }
+            },
+            elementTypes: {
+                chart: '@Ifly.Resources.Editor.Component_Chart',
+                text: '@Ifly.Resources.Editor.Component_TextBlock',
+                fact: '@Ifly.Resources.Editor.Component_Fact',
+                figure: '@Ifly.Resources.Editor.Component_Figure',
+                map: '@Ifly.Resources.Editor.Component_Map',
+                table: '@Ifly.Resources.Editor.Component_Table',
+                image: '@Ifly.Resources.Editor.Component_Image',
+                line: '@Ifly.Resources.Editor.Component_Line'
+            }
+        }
+    });
+</script>

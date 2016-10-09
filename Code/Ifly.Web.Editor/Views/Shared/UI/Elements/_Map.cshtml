@@ -1,0 +1,112 @@
+﻿@{
+    var mapTypes = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(0, Ifly.Resources.Editor.MapType_Usa),
+        new Tuple<int, string>(1, Ifly.Resources.Editor.MapType_Europe),
+        new Tuple<int, string>(2, Ifly.Resources.Editor.MapType_World),
+        new Tuple<int, string>(3, Ifly.Resources.Editor.MapType_Canada),
+        new Tuple<int, string>(4, Ifly.Resources.Editor.MapType_France),
+        new Tuple<int, string>(5, Ifly.Resources.Editor.MapType_India),
+        new Tuple<int, string>(6, Ifly.Resources.Editor.MapType_Germany),
+        new Tuple<int, string>(7, Ifly.Resources.Editor.MapType_Italy)
+    };
+}
+
+@helper RenderMapType(Tuple<int, string> t)
+{
+    <li data-bind="css: { 'active': (type() == @t.Item1) }, click: function (data, e) { $data.onMapTypeChanging(@t.Item1, e); }">
+        <span>@t.Item2</span>
+    </li>
+}
+
+<div class="element-map">
+    @Html.Partial("UI/Elements/_Base", new { Type = "map" })
+
+    <div class="no-overflow">
+        <label for="MapTypeUsa">@(Ifly.Resources.Editor.MapType):</label>
+
+        <div class="dropdown map-types" tabindex="0">
+            <span class="dropdown-arrow icon-angle-down"></span>
+            <span class="dropdown-active"
+                  data-text-0="@Ifly.Resources.Editor.MapType_Usa"
+                  data-text-1="@Ifly.Resources.Editor.MapType_Europe"
+                  data-text-2="@Ifly.Resources.Editor.MapType_World"
+                  data-text-3="@Ifly.Resources.Editor.MapType_Canada"
+                  data-text-4="@Ifly.Resources.Editor.MapType_France"
+                  data-text-5="@Ifly.Resources.Editor.MapType_India"
+                  data-text-6="@Ifly.Resources.Editor.MapType_Germany"
+                  data-text-7="@Ifly.Resources.Editor.MapType_Italy"
+                  data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(type() || 0)"></span>
+            <div class="dropdown-menu">
+                <ul>
+                    @foreach (var t in mapTypes)
+                    {
+                        @RenderMapType(t);
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label for="map-annotations">@(Ifly.Resources.Editor.Component_Map_Annotations):</label>
+        <div class="selection">
+            <a href="javascript:void(0);" data-bind="click: editAnnotations, text: annotationsText"></a>
+            <button class="icon-remove" title="@Ifly.Resources.Editor.ClearSelection" data-bind="visible: annotations().length > 0, click: clearAnnotations"></button>
+        </div>
+    </div>
+
+    <div class="accent-colors">
+        <label for="MapColorAccent0">@(Ifly.Resources.Editor.Component_Map_DefaultColor):</label>
+        <ul class="field checkable-list with-auto pull-left">
+            <li>
+                <input type="radio" name="MapColorAccent" id="MapColorAccent0" value="4" data-bind="checked: color.checkable" />
+                <label for="MapColorAccent0" title="@Ifly.Resources.Editor.ColorType_Auto"><span class="accent-auto accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="MapColorAccent" id="MapColorAccent1" value="0" data-bind="checked: color.checkable" />
+                <label for="MapColorAccent1" title="@Ifly.Resources.Editor.ColorType_Accent1" class="theme-based"><span class="accent-1 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="MapColorAccent" id="MapColorAccent2" value="1" data-bind="checked: color.checkable" />
+                <label for="MapColorAccent2" title="@Ifly.Resources.Editor.ColorType_Accent2" class="theme-based"><span class="accent-2 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="MapColorAccent" id="MapColorAccent3" value="2" data-bind="checked: color.checkable" />
+                <label for="MapColorAccent3" title="@Ifly.Resources.Editor.ColorType_Accent3" class="theme-based"><span class="accent-3 accent-background"></span></label>
+            </li>
+            <li>
+                <input type="radio" name="MapColorAccent" id="MapColorAccent4" value="3" data-bind="checked: color.checkable" />
+                <label for="MapColorAccent4" title="@Ifly.Resources.Editor.ColorType_Accent4" class="theme-based"><span class="accent-4 accent-background"></span></label>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <label>@(Ifly.Resources.Editor.Component_Map_Size):</label>
+        @Html.Partial("UI/_Slider", new { ValueExpression = "size", CssClass = "element-property", Minimum = "5%", Maximum = "90%" })
+    </div>
+
+    <div class="map-scale">
+        <label for="MapScale0" class="auto-width">@(Ifly.Resources.Editor.Component_Map_Scale):</label>
+        <ul class="field checkable-list dimensions">
+            <li>
+                <input type="radio" name="MapScale" id="MapScale0" value="0" data-bind="checked: scale.checkable" />
+                <label for="MapScale0" title="@Ifly.Resources.Editor.MapScale_1">@Ifly.Resources.Editor.MapScale_1</label>
+            </li>
+            <li>
+                <input type="radio" name="MapScale" id="MapScale1" value="1" data-bind="checked: scale.checkable" />
+                <label for="MapScale1" title="@Ifly.Resources.Editor.MapScale_2">@Ifly.Resources.Editor.MapScale_2</label>
+            </li>
+            <li>
+                <input type="radio" name="MapScale" id="MapScale2" value="2" data-bind="checked: scale.checkable" />
+                <label for="MapScale2" title="@Ifly.Resources.Editor.MapScale_3">@Ifly.Resources.Editor.MapScale_3</label>
+            </li>
+        </ul>
+
+        <div class="viewport-center">
+            <input type="text" class="left" data-bind="enable: scale() != null && scale() > 0, percentage: { field: viewportLeft, auto: true, allowNegative: true, keyboardNavigation: true, valueUpdate: 'keyup' }" maxlength="5" placeholder="@Ifly.Resources.Editor.MapViewportCenter_Left" />
+            <input type="text" class="top" data-bind="enable: scale() != null && scale() > 0, percentage: { field: viewportTop, auto: true, allowNegative: true, keyboardNavigation: true, valueUpdate: 'keyup' }" maxlength="5" placeholder="@Ifly.Resources.Editor.MapViewportCenter_Top" />
+        </div>
+    </div>
+</div>

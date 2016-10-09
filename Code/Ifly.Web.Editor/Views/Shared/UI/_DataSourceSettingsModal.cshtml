@@ -1,0 +1,59 @@
+﻿<div id="datasource-settings" class="datasource-settings" title="@Ifly.Resources.Editor.DataSourceSettings" style="display: none">
+    <div class="form">
+        <div class="datasource-outer" data-bind="with: data">
+            @Html.Partial("UI/_DataTableView", new { ClientSideModel = "records" })
+
+            <div class="dimmed block center clear">
+                @Ifly.Resources.Editor.EmptyRowsWillTrim
+
+                <div class="table-options-activator">
+                    <span>@Ifly.Resources.Editor.TableOptions</span>
+                    <div class="table-options">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"
+                                   class="data-import"
+                                   data-bind="click: function () { $parent.openDataImportDialog(); }">
+                                    <i class="icon-cloud-upload"></i>
+                                    <span>@Ifly.Resources.Editor.ImportData</span>
+                                </a>
+                            </li>
+                            <li data-bind="visible: !records.allowEnableRichFormatting()">
+                                <a class="disabled">
+                                    <i class="icon-magic"></i>
+                                    <span>@Ifly.Resources.Editor.TurnOnRichFormatting</span>
+                                </a>
+                            </li>
+                            <li data-bind="visible: records.allowEnableRichFormatting">
+                                <a href="javascript:void(0);"
+                                   class="table-rich-formatting"
+                                   data-bind="click: function () { $data.records.enableRichFormatting(!$data.records.enableRichFormatting()); }">
+                                    <i class="icon-magic"></i>
+                                    <span data-bind="text: (records.enableRichFormatting() ? '@Ifly.Resources.Editor.TurnOffRichFormatting' : '@Ifly.Resources.Editor.TurnOnRichFormatting')"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"
+                                   class="flip-data"
+                                   data-bind="click: function () { $data.records.rotateCounterClockwise(); }">
+                                    <i class="icon icon-undo"></i>
+                                    <span>@Ifly.Resources.Editor.RowsToColumns</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('DataSourceSettingsModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            column: '@Ifly.Resources.Editor.Column'
+        }
+    });
+</script>

@@ -1,0 +1,47 @@
+﻿<div id="choose-payment-method" class="modal-window payment-method-selector">
+    <div class="modal-content-outer">
+        <h3 class="modal-title">@Ifly.Resources.Frontpage.Payment_ChoosePaymentMethod</h3>
+        <div class="modal-content">
+            <h4>@Html.Raw(Ifly.Resources.Frontpage.Payment_PleaseChooseDuration):</h4>
+
+            <div class="payment-duration-wrapper">
+                <ul id="user-plan-duration" class="checkable-list">
+                    <li>
+                        <input type="radio" name="user-plan-duration" id="user-plan-duration-month" value="0" checked="checked" />
+                        <label for="user-plan-duration-month">@(Ifly.Resources.Frontpage.Payment_Duration_OneMonth)<span></span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="user-plan-duration" id="user-plan-duration-year" value="1" />
+                        <label for="user-plan-duration-year">@(Ifly.Resources.Frontpage.Payment_Duration_OneYear)<span></span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <h4>@Html.Raw(Ifly.Resources.Frontpage.Payment_PleaseChoosePaymentMethod):</h4>
+            
+            <div class="payment-methods-wrapper">
+                <ul class="payment-methods">
+                    <li class="paypal">
+                        <input type="radio" id="pmPaypal" name="payment-method" value="paypal" />
+                        <label for="pmPaypal">
+                            <img src="@Url.Content("~/Assets/img/payment-methods/payment-method-paypal.png")" alt="" />
+                            <span>@Html.Raw(Ifly.Resources.Frontpage.Payment_PayWithPayPal)</span>
+                        </label>
+                    </li>
+                    <li class="paypal">
+                        <input type="radio" id="pmStripe" name="payment-method" value="stripe" />
+                        <label for="pmStripe">
+                            <img src="@Url.Content("~/Assets/img/payment-methods/payment-method-card.png")" alt="" />
+                            <span>@Html.Raw(Ifly.Resources.Frontpage.Payment_PayWithCard)</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <button class="primary" disabled="disabled" id="btn-pay-paypal" style="display: none; text-shadow: none; background-color: #E6E6E6 !important; border: none !important;" onclick="Ifly.Views.Account.PaymentMethodModal.getInstance().beginApplyPayment();">@Html.Raw(Ifly.Resources.Frontpage.Payment_NotAccepted)</button>
+            <button class="primary" disabled="disabled" id="btn-pay-stripe" style="display: none; text-shadow: none; background-color: #E6E6E6 !important; border: none !important;" onclick="Ifly.Views.Account.PaymentMethodModal.getInstance().beginApplyPayment();">@Html.Raw(Ifly.Resources.Frontpage.Payment_NotAccepted)</button>
+            <button class="secondary" onclick="Ifly.Views.Account.PaymentMethodModal.getInstance().hide();">@Ifly.Resources.Frontpage.Cancel</button>
+        </div>
+    </div>
+</div>

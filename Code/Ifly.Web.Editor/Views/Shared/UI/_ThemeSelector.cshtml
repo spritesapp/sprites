@@ -1,0 +1,92 @@
+﻿@{
+    var themes = new List<Tuple<string, string>>()
+    {
+        new Tuple<string, string>("clean", Ifly.Resources.Editor.Theme_Clean),
+        new Tuple<string, string>("warm", Ifly.Resources.Editor.Theme_Warm),
+        new Tuple<string, string>("sky", Ifly.Resources.Editor.Theme_Sky),
+        new Tuple<string, string>("dark", Ifly.Resources.Editor.Theme_Dark),
+        new Tuple<string, string>("night", Ifly.Resources.Editor.Theme_Night),
+        new Tuple<string, string>("burning", Ifly.Resources.Editor.Theme_Burning),
+        new Tuple<string, string>("country", Ifly.Resources.Editor.Theme_Country),
+        new Tuple<string, string>("symphony-1", Ifly.Resources.Editor.Theme_Symphony_1),
+        new Tuple<string, string>("symphony-2", Ifly.Resources.Editor.Theme_Symphony_2),
+        new Tuple<string, string>("symphony-3", Ifly.Resources.Editor.Theme_Symphony_3)
+    };
+
+    var userThemes = new List<Tuple<string, string>>();
+
+    var importedGitHubThemes = Ifly.Layout.ThemeSource.GitHub.GetImportedThemes();
+
+    if (importedGitHubThemes.Themes != null && importedGitHubThemes.Themes.Any())
+    {
+        foreach (var t in importedGitHubThemes.Themes)
+        {
+            themes.Add(new Tuple<string, string>(t.Id, t.Name));
+        }
+    }
+
+    var importedUserThemes = Ifly.Layout.ThemeSource.User.GetImportedThemes();
+
+    if (importedUserThemes.Themes != null && importedUserThemes.Themes.Any())
+    {
+        foreach (var t in importedUserThemes.Themes)
+        {
+            userThemes.Add(new Tuple<string, string>(t.Id, t.Name));
+        }
+    }
+
+    var enableActionButtons = ViewData.Eval("EnableActionButtons") != null ? (bool)ViewData.Eval("EnableActionButtons") : false;
+}
+
+@helper RenderTheme(Tuple<string, string> t)
+{
+    <li data-theme-id="@t.Item1" data-bind="css: { 'active': (theme() == '@t.Item1') }, click: function (data, e) { $data.onThemeChanging('@t.Item1', e); }">
+        <div class="theme-preview-wrapper">
+            <span>@t.Item2</span>
+            <label title="@t.Item2">
+                <span class="slide theme-@t.Item1 background-image">
+                    <span class="accent-1 accent-background"></span>
+                    <span class="accent-2 accent-background"></span>
+                    <span class="accent-3 accent-background"></span>
+                    <span class="accent-4 accent-background"></span>
+                </span>
+            </label>
+        </div>
+    </li>
+}
+
+<div class="dropdown theme-list @(enableActionButtons ? "with-action-buttons" : null)" tabindex="0" id="theme-selector" data-bind="with: themes">
+    <span class="dropdown-arrow icon-angle-down"></span>
+    <span class="dropdown-active" data-bind="text: (function(t) { return t.substr(0, 1).toUpperCase() + t.substr(1); })(theme() || 'clean')"></span>
+    <div class="dropdown-menu">
+        <ul>
+            <li class="action-button">
+                <div data-bind="click: onCreateThemeClicked">
+                    <i class="icon icon-plus"></i>
+                    <span>@Ifly.Resources.Editor.ThemeSelector_CreateTheme</span>
+                </div>
+            </li>
+
+            <li class="action-button">
+                <div class="upload" data-bind="upload: true, enable: !isUploading(), event: { mousedown: function (data, e) { return false; } }">
+                    <i class="icon icon-cloud-upload"></i>
+                    <span>@Ifly.Resources.Editor.ThemeSelector_UploadTheme</span>
+                </div>
+            </li>
+
+            @foreach (var t in themes)
+            {
+                @RenderTheme(t);
+            }
+
+            @if (userThemes.Any())
+            {
+                <li class="separator"></li>
+                foreach (var t in userThemes.OrderBy(tm => tm.Item2))
+                {
+                    @RenderTheme(t);
+                }
+            }
+        </ul>
+    </div>
+</div>

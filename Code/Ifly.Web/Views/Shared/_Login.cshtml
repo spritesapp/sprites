@@ -1,0 +1,73 @@
+﻿<div id="login" class="modal-window login-form">
+    <div class="modal-content-outer">
+        <h3 class="modal-title">@Ifly.Resources.Frontpage.PleaseSignIn</h3>
+        <div class="modal-content">
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-oauth" }))
+            {
+                <input type="hidden" name="ReturnUrl" value="@Request.QueryString["ReturnUrl"]" />
+                
+                <div class="split">
+                    <div>
+                        <div class="split-item-inner">
+                            <h3>@Ifly.Resources.Frontpage.NormalSignIn</h3>
+                            <div class="form">
+                                <div class="row">
+                                    <input type="text" id="login-wp-email" name="LoginWithPassword.Email" class="form-field" placeholder="@Ifly.Resources.Frontpage.Email" />
+                                </div>
+                                <div class="row mode-login">
+                                    <input type="password" id="login-wp-password" name="LoginWithPassword.Password" class="form-field" placeholder="@Ifly.Resources.Frontpage.Password" />
+                                </div>
+                                <div class="row mode-reset" style="display: none">
+                                    <span class="mode-reset-sent" style="display: none">@Ifly.Resources.Frontpage.CheckYourEmail</span>
+                                </div>
+                                <div class="modal-buttons">
+                                    <input type="submit" class="primary" id="login-wp-login" name="LoginWithPassword" data-login-text="@Ifly.Resources.Frontpage.SignIn" data-reset-text="@Ifly.Resources.Frontpage.Reset" onclick="Ifly.App.getInstance().loginOrResetPassword(); return false;" value="@Ifly.Resources.Frontpage.SignIn" />
+                                    <div class="account-links">
+                                        <a class="left mode-login" href="javascript:void(0);" data-login-text="@Ifly.Resources.Frontpage.SignIn" data-reset-text="@Ifly.Resources.Frontpage.ResetPassword" onclick="Ifly.App.getInstance().toggleResetPassword();" rel="noindex nofollow">@Ifly.Resources.Frontpage.ResetPassword</a>
+                                        <a class="right" href="/signup" onclick="Ifly.App.getInstance().signUp(); return false;">@Ifly.Resources.Frontpage.CreateAccount</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="split-item-inner">
+                            <h3>@Ifly.Resources.Frontpage.SocialSignIn</h3>
+                            <ul class="providers">
+                                <li class="facebook">
+                                    <input type="radio" id="rbFacebook" name="provider" value="facebook" />
+                                    <label for="rbFacebook">@Ifly.Resources.Frontpage.SignIn_Facebook</label>
+                                </li>
+                                <li class="twitter">
+                                    <input type="radio" id="rbTwitter" name="provider" value="twitter" />
+                                    <label for="rbTwitter">@Ifly.Resources.Frontpage.SignIn_Twitter</label>
+                                </li>
+                                <li class="google">
+                                    <input type="radio" id="rbGoogle" name="provider" value="google" />
+                                    <label for="rbGoogle">@Ifly.Resources.Frontpage.SignIn_Google</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-container">
+                    <ul class="providers">
+                        <li class="demo">
+                            <input type="radio" id="rbDemo" name="provider" value="demo" />
+                            <label for="rbDemo">@Ifly.Resources.Frontpage.SignIn_Demo</label>
+                        </li>
+                    </ul>
+
+                    <p>@Ifly.Resources.Frontpage.DemoSignInNote</p>
+                </div>
+                <div class="terms-note">
+                    @Html.Raw(Ifly.Resources.Frontpage.SignIn_AcceptTerms)
+                </div>
+            }
+        </div>
+        <div class="modal-buttons">
+            <button class="primary" onclick="Ifly.App.getInstance().revert();">@Ifly.Resources.Frontpage.Close</button>
+        </div>
+    </div>
+</div>
+

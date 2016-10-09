@@ -1,0 +1,81 @@
+@keyframes action-button-glow {
+  0% {
+    color: #636363;
+  }
+  50% {
+    color: #ededed;
+  }
+  100% {
+    color: #636363;
+  }
+}
+@-moz-keyframes action-button-glow {
+  0% {
+    color: #636363;
+  }
+  50% {
+    color: #ededed;
+  }
+  100% {
+    color: #636363;
+  }
+}
+@-webkit-keyframes action-button-glow {
+  0% {
+    color: #636363;
+  }
+  50% {
+    color: #ededed;
+  }
+  100% {
+    color: #636363;
+  }
+}
+@keyframes social-expand {
+  0% {
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+}
+@-moz-keyframes social-expand {
+  0% {
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes social-expand {
+  0% {
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+}

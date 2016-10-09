@@ -1,0 +1,312 @@
+﻿@{
+    var noEditAttributes = "readonly=\"readonly\" onfocus=\"var self = this; setTimeout(function() { self.select(); }, 50);\" autocomplete=\"off\" spellcheck=\"false\"";
+
+    var imageWidths = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(800, Ifly.Resources.Editor.Low),
+        new Tuple<int, string>(1024, Ifly.Resources.Editor.Medium),
+        new Tuple<int, string>(1600, Ifly.Resources.Editor.High)
+    };
+
+    var videoWidths = new List<Tuple<int, string>>()
+    {
+        new Tuple<int, string>(1024, Ifly.Resources.Editor.Low),
+        new Tuple<int, string>(1280, Ifly.Resources.Editor.Medium),
+        new Tuple<int, string>(1600, Ifly.Resources.Editor.High)
+    };
+}
+
+@helper RenderWidthOption(Tuple<int, string> t)
+{
+    <li data-bind="css: { 'active': (width() == @t.Item1) }, click: function (data, e) { $data.onWidthChanging(@t.Item1, e); }">
+        <span>@t.Item2</span>
+    </li>
+}
+
+<div id="publish-settings" title="@Ifly.Resources.Editor.PublishSettings" style="display: none">
+    <div data-bind="with: data">
+        <ul class="tabs">
+            <li>
+                <input type="radio" id="PublishOptions_Web" name="PublishOptions" value="0" data-bind="checked: publishType.checkable, attr: { disabled: !$parent.enabled() }" />
+                <label for="PublishOptions_Web">@Ifly.Resources.Editor.PublishOptions_Web</label>
+            </li>
+            <li>
+                <input type="radio" id="PublishOptions_Present" name="PublishOptions" value="3" data-bind="checked: publishType.checkable, attr: { disabled: !$parent.enabled() }" />
+                <label for="PublishOptions_Present">@Ifly.Resources.Editor.PublishOptions_Present</label>
+            </li>
+            <li data-bind="visible: enableExport()">
+                <input type="radio" id="PublishOptions_Image" name="PublishOptions" value="1" data-bind="checked: publishType.checkable, attr: { disabled: !$parent.enabled() }" />
+                <label for="PublishOptions_Image">@Ifly.Resources.Editor.PublishOptions_Image</label>
+            </li>
+            <li data-bind="visible: enableVideoExport()">
+                <input type="radio" id="PublishOptions_Video" name="PublishOptions" value="2" data-bind="checked: publishType.checkable, attr: { disabled: !$parent.enabled() }" />
+                <label for="PublishOptions_Video">@Ifly.Resources.Editor.PublishOptions_Video</label>
+            </li>
+        </ul>
+
+        <div class="form tab-content" data-bind="visible: publishType() == 0">
+            <div>
+                <label for="Publish_AutoPlay0" class="help" title="@Ifly.Resources.Editor.AutoPlay_Help">@(Ifly.Resources.Editor.AutoPlay):</label>
+                <ul class="checkable-list">
+                    <li>
+                        <input type="radio" name="Publish_AutoPlay" id="Publish_AutoPlay1" value="1" data-bind="checked: autoPlay.checkable, attr: { disabled: !$parent.enabled() }" />
+                        <label for="Publish_AutoPlay1">@Ifly.Resources.Editor.Yes</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="Publish_AutoPlay" id="Publish_AutoPlay0" value="0" data-bind="checked: autoPlay.checkable, attr: { disabled: !$parent.enabled() }" />
+                        <label for="Publish_AutoPlay0">@Ifly.Resources.Editor.No</label>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <label for="Publish_Controls1" class="help" title="@Ifly.Resources.Editor.ShowControls_Help">@(Ifly.Resources.Editor.ShowControls):</label>
+                <ul class="checkable-list">
+                    <li>
+                        <input type="radio" name="Publish_Controls" id="Publish_Controls1" value="1" data-bind="checked: controls.checkable, attr: { disabled: !$parent.enabled() }" />
+                        <label for="Publish_Controls1">@Ifly.Resources.Editor.Yes</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="Publish_Controls" id="Publish_Controls0" value="0" data-bind="checked: controls.checkable, attr: { disabled: !$parent.enabled() }" />
+                        <label for="Publish_Controls0">@Ifly.Resources.Editor.No</label>
+                    </li>
+                </ul>
+            </div>
+            <div style="display: none">
+                <label for="Publish_Slide" class="help" title="@Ifly.Resources.Editor.SpecificSlide_Help" data-bind="css: { 'dimmed': totalSlides() <= 1 }">@(Ifly.Resources.Editor.SpecificSlide):</label>
+                <input type="text" class="specific-slide" name="Publish_Slide" id="Publish_Slide" data-bind="value: slide.editable, valueUpdate: 'keyup', attr: { disabled: totalSlides() <= 1 || !$parent.enabled() }" />
+                <span class="dimmed" data-bind="visible: totalSlides() > 1">&nbsp;(1&nbsp;-&nbsp;<span data-bind="    text: totalSlides"></span>)</span>
+            </div>
+            <div data-bind="visible: password.isEnabled">
+                <label for="Publish_Password" class="help" title="@Ifly.Resources.Editor.Password_Help">@(Ifly.Resources.Editor.Password):</label>
+                <input type="password" name="Publish_Password" id="Publish_Password" onfocus="$(this).select();" data-bind="visible: password.isInputVisible, value: password, valueUpdate: 'keyup', attr: { disabled: !$parent.enabled() }" />
+
+                <a class="password-trigger" href="javascript:void(0);" onclick="(function(e) {setTimeout(function() { e.parent().find('input').focus(); }, 10);})($(this));" data-bind="text: (password.isSet() ? '@Ifly.Resources.Editor.Password_ChangePassword    ' : '@Ifly.Resources.Editor.Password_SetPassword    '), click: function () { $data.password.isInputVisible(true); }"></a>
+                <button href="javascript:void(0);" class="dimmed icon-remove password-remove" title="@Ifly.Resources.Editor.Password_RemovePassword" data-bind="visible: password.isSet() && !password.isInputVisible(), click: removePassword"></button>
+            </div>
+            <div class="link-container separator-before">
+                <label for="Publish_Link" class="publish-url-label">
+                    @(Ifly.Resources.Editor.InfographicUrl):
+                </label>
+                <div class="publish-url">
+                    <div class="publish-target-toolbar">
+                        <ul class="checkable-list">
+                            <li>
+                                <input type="radio" name="publish-target" id="publish-target-url" value="0" data-bind="checked: publishTarget.checkable" />
+                                <label for="publish-target-url"><span>@Ifly.Resources.Editor.PublishTarget_Url</span></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="publish-target" id="publish-target-iframe" value="1" data-bind="checked: publishTarget.checkable" />
+                                <label for="publish-target-iframe"><span>@Ifly.Resources.Editor.PublishTarget_Iframe</span></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="publish-target" id="publish-target-wordpress" value="2" data-bind="checked: publishTarget.checkable" />
+                                <label for="publish-target-wordpress"><span>@Ifly.Resources.Editor.PublishTarget_WordPress</span></label>
+                            </li>
+                        </ul>
+                        <div class="width-field" title="@Ifly.Resources.Editor.PublishTarget_Width" data-bind="visible: publishTarget() == 1 || publishTarget() == 2">
+                            <span class="help" onclick="$(this).parents('.width-field').find('input').focus();">px</span>
+                            <input type="text" data-bind="value: publishTargetWidth, valueUpdate: 'afterkeydown'" length="4" maxlength="4" />
+                            <label class="help" for="embed-width" onclick="$(this).parents('.width-field').find('input').focus();">@(Ifly.Resources.Editor.PublishTarget_WidthLabel):</label>
+                        </div>
+                    </div>
+
+                    <textarea id="Publish_Link" data-bind="attr: { disabled: !enableSocialSharing() }, value: embedCode" @Html.Raw(noEditAttributes)></textarea>
+                </div>
+            </div>
+            <div data-bind="visible: enableSocialSharing">
+                <label>@(Ifly.Resources.Editor.ShareInfographic):</label>
+                <a class="share-activator" href="javascript:void(0);">@Ifly.Resources.Editor.Share</a>
+                <div class="presentation-share" data-bind="with: socialSharing" style="display: none">
+                    <ul>
+                        <li class="share-facebook"><a data-bind="attr: { 'href': facebook }" target="_blank" class="icon-facebook-sign" title="@Ifly.Resources.Editor.Share_Facebook"></a></li>
+                        <li class="share-twitter"><a data-bind="attr: { 'href': twitter }" target="_blank" class="icon-twitter-sign" title="@Ifly.Resources.Editor.Share_Twitter"></a></li>
+                        <li class="share-googleplus"><a data-bind="attr: { 'href': googlePlus }" target="_blank" class="icon-google-plus-sign" title="@Ifly.Resources.Editor.Share_GooglePlus"></a></li>
+                        <li class="share-linkedin"><a data-bind="attr: { 'href': linkedIn }" target="_blank" class="icon-linkedin-sign" title="@Ifly.Resources.Editor.Share_LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form tab-content" data-bind="visible: publishType() == 3, with: presenterSettings">
+            <div>
+                <label for="Present_Animations" class="help" title="@Ifly.Resources.Editor.Present_Animations_Help">@(Ifly.Resources.Editor.Present_Animations):</label>
+                <ul class="checkable-list">
+                    <li>
+                        <input type="radio" name="Present_Animations" id="Present_Animations1" value="1" data-bind="checked: animations.checkable, attr: { disabled:  !$parents[1].enabled() }" />
+                        <label for="Present_Animations1">@Ifly.Resources.Editor.Present_Animations_Normal</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="Present_Animations" id="Present_Animations0" value="0" data-bind="checked: animations.checkable, attr: { disabled:  !$parents[1].enabled() }" />
+                        <label for="Present_Animations0">@Ifly.Resources.Editor.Present_Animations_Minimal</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="Present_Animations" id="Present_Animations2" value="2" data-bind="checked: animations.checkable, attr: { disabled:  !$parents[1].enabled() }" />
+                        <label for="Present_Animations2">@Ifly.Resources.Editor.Present_Animations_None</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <label for="Present_AllowFullscreen" class="help" title="@Ifly.Resources.Editor.Present_AllowFullscreen_Help">@(Ifly.Resources.Editor.Present_AllowFullscreen):</label>
+                <div>
+                    <div class="checkbox allow-fullscreen">
+                        <input type="checkbox" name="allow-fullscreen" id="Present_AllowFullscreen" value="true" data-bind="checked: allowFullscreen, enable: $parents[1].enabled()" />
+                        <label for="Present_AllowFullscreen"><span>@Ifly.Resources.Editor.Allow</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="link-container separator-before">
+                <label for="Present_Link" class="publish-url-label">
+                    @(Ifly.Resources.Editor.PresentUrl):
+                </label>
+                <div class="publish-url">
+                    <textarea id="Present_Link" data-bind="attr: { disabled: !$parent.enableSocialSharing() }, value: url" @Html.Raw(noEditAttributes)></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form tab-content" data-bind="visible: publishType() == 1, with: imageExport">
+            <div>
+                <label for="ImageExportFormatJpg">@(Ifly.Resources.Editor.ImageFormat):</label>
+                <ul class="checkable-list">
+                    <li>
+                        <input type="radio" name="ImageExportFormat" id="ImageExportFormatJpg" value="0" data-bind="checked: format.checkable, attr: { disabled: !$parents[1].enabled() }" />
+                        <label for="ImageExportFormatJpg" title="@Ifly.Resources.Editor.TextType_Text">@Ifly.Resources.Editor.ImageFormat_Jpg</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="ImageExportFormat" id="ImageExportFormatPdf" value="1" data-bind="checked: format.checkable, attr: { disabled: !$parents[1].enabled() }" />
+                        <label for="ImageExportFormatPdf" title="@Ifly.Resources.Editor.TextType_Quote">@Ifly.Resources.Editor.ImageFormat_Pdf</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <label for="ImageExport_Slide" data-bind="css: { 'help': true, 'dimmed': format() == 1 }" title="@Ifly.Resources.Editor.SlideToDownload_Help ">@(Ifly.Resources.Editor.SlideToDownload):</label>
+                <input type="text" class="specific-slide" name="ImageExport_Slide" id="ImageExport_Slide" data-bind="value: slide.editable, valueUpdate: 'keyup', attr: { disabled: format() == 1 || totalSlides() <= 0 || !$parents[1].enabled() }" />
+                <span class="dimmed" data-bind="visible: totalSlides() > 0">&nbsp;(1&nbsp;-&nbsp;<span data-bind="text: totalSlides"></span>)</span>
+            </div>
+            <div class="no-overflow">
+                <label for="ImageExport_Width" class="help" title="@Ifly.Resources.Editor.ImageWidth_Help">@(Ifly.Resources.Editor.ImageWidth):</label>
+                <div class="dropdown image-width" tabindex="0" id="ImageExport_Width" data-bind="attr: { disabled: totalSlides() <= 0 || !$parents[1].enabled() }">
+                    <span class="dropdown-arrow icon-angle-down"></span>
+                    <span class="dropdown-active"
+                          data-text-800="@Ifly.Resources.Editor.Low"
+                          data-text-1024="@Ifly.Resources.Editor.Medium"
+                          data-text-1600="@Ifly.Resources.Editor.High"
+                          data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(width() || 0)"></span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            @foreach (var t in imageWidths)
+                            {
+                                @RenderWidthOption(t);
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="visible: isExporting">
+                <span class="dimmed lm-0" data-bind="visible: !isExporting.isDelayed()">@Ifly.Resources.Editor.ExportImage_OneMomentCreatingImage</span>
+                <span class="dimmed lm-0" data-bind="visible: isExporting.isDelayed()">@Ifly.Resources.Editor.ExportImage_OneMomentCreatingImageDelayed</span>
+            </div>
+            <div class="no-overflow" data-bind="visible: wasError">
+                <div class="export-error export-image span">
+                    @Html.Raw(Ifly.Resources.Editor.ExportImage_Error)
+                </div>
+            </div>
+        </div>
+        <div class="form tab-content" data-bind="visible: publishType() == 2, with: videoExport">
+            <div>
+                <label for="VideoExport_Length" class="help" title="@Ifly.Resources.Editor.VideoLength_Help">@(Ifly.Resources.Editor.VideoLength):</label>
+                <span class="no-margin" data-bind="text: estimatedVideoLength.formatted"></span>
+            </div>
+            <div class="no-overflow video-playback-hint-before">
+                <label for="VideoExport_Width" class="help" title="@Ifly.Resources.Editor.VideoWidth_Help">@(Ifly.Resources.Editor.VideoWidth):</label>
+                <div class="dropdown image-width" tabindex="0" id="VideoExport_Width" data-bind="attr: { disabled: !$parents[1].enabled() }">
+                    <span class="dropdown-arrow icon-angle-down"></span>
+                    <span class="dropdown-active"
+                          data-text-1024="@Ifly.Resources.Editor.Low"
+                          data-text-1280="@Ifly.Resources.Editor.Medium"
+                          data-text-1600="@Ifly.Resources.Editor.High"
+                          data-bind="text: (function (t) { return $($element).attr('data-text-' + t); })(width() || 0)"></span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            @foreach (var t in videoWidths)
+                            {
+                                @RenderWidthOption(t);
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="video-playback-hint" data-bind="visible: width() == 1600 && !youtubeUpload.enabled() && !facebookUpload.enabled()">
+                <label>&nbsp;</label>
+                <div class="dimmed">@Ifly.Resources.Editor.VideoPlaybackHint</div>
+            </div>
+            <div class="audio-file-selector">
+                <label for="VideoExport_Audio" class="help" title="@Ifly.Resources.Editor.AddAudio_Help">@(Ifly.Resources.Editor.AddAudio):</label>
+                <a class="upload link audio-file" href="javascript:void(0);" data-bind="upload: true, enable: $parents[1].enabled()">
+                    <span data-bind="visible: !audioFileSelected()">@Ifly.Resources.Editor.ChooseAudioFile</span>
+                    <span data-bind="visible: audioFileSelected">@Ifly.Resources.Editor.ChooseDifferentFile</span>
+                </a>
+                <button href="javascript:void(0);" class="dimmed icon-remove audio-remove" title="@Ifly.Resources.Editor.RemoveAudio" data-bind="visible: audioFileSelected, click: onFileCleared, enable: $parents[1].enabled()"></button>
+            </div>
+            <div class="no-overflow audio-requirements">
+                <label>&nbsp;</label>
+                <span class="dimmed no-margin">@Ifly.Resources.Editor.AudioFileRequirements</span>
+            </div>
+            <div class="voice-over-edit-controls">
+                <label>&nbsp;</label>
+                <a href="javascript:void(0);" data-bind="click: openVoiceOverEditModal">
+                    <span data-bind="visible: voiceOverDownloadLink().length == 0">@Ifly.Resources.Editor.VoiceOver_AddVoiceOver</span>
+                    <span data-bind="visible: voiceOverDownloadLink().length > 0">@Ifly.Resources.Editor.VoiceOver_ChangeVoiceOver</span>
+                </a>
+                <a class="dimmed icon-headphones audio-download" data-bind="visible: voiceOverDownloadLink().length > 0, attr: { href: voiceOverDownloadLink, download: 'sprites-voice-over.wav' }, enable: $parents[1].enabled()"></a>
+                <button href="javascript:void(0);" class="dimmed icon-remove audio-remove" title="@Ifly.Resources.Editor.VoiceOver_Remove" data-bind="visible: voiceOverDownloadLink().length > 0, click: removeVoiceOver, enable: $parents[1].enabled()"></button>
+            </div>
+            <div class="separator-before voice-over-edit-controls-after">
+                <label>@(Ifly.Resources.Editor.Video_SendTo):</label>
+                <div>
+                    <div class="checkbox stacked">
+                        <input type="checkbox" name="enable-youtube-upload" id="enable-youtube-upload" value="true" data-bind="checked: youtubeUpload.enabled, enable: $parents[1].enabled()" />
+                        <label title="@Ifly.Resources.Editor.Video_SendTo_YouTube_Title" for="enable-youtube-upload" data-bind="click: function (data, event) { if (!data.isExporting()) { data.youtubeUpload.tryChangeEnabled(!youtubeUpload.enabled()); event.preventDefault(); return false; } }"><span class="checkbox-off">@Ifly.Resources.Editor.Publish_YouTube</span><span class="checkbox-on">@Ifly.Resources.Editor.Publish_YouTube</span></label>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" name="enable-facebook-upload" id="enable-facebook-upload" value="true" data-bind="checked: facebookUpload.enabled, enable: $parents[1].enabled()" />
+                        <label title="@Ifly.Resources.Editor.Video_SendTo_Facebook_Title" for="enable-facebook-upload" data-bind="click: function (data, event) { if (!data.isExporting()) { data.facebookUpload.tryChangeEnabled(!facebookUpload.enabled()); event.preventDefault(); return false; } }"><span class="checkbox-off">@Ifly.Resources.Editor.Publish_Facebook</span><span class="checkbox-on">@Ifly.Resources.Editor.Publish_Facebook</span></label>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="visible: isExporting">
+                <span class="dimmed lm-0" data-bind="visible: currentTask() == 0 && !isExporting.isDelayed()">@Html.Raw(Ifly.Resources.Editor.ExportVideo_OneMomentCreatingVideo)</span>
+                <span class="dimmed lm-0" data-bind="visible: currentTask() == 0 && isExporting.isDelayed()">@Ifly.Resources.Editor.ExportImage_OneMomentCreatingImageDelayed</span>
+                <span class="dimmed lm-0" data-bind="visible: currentTask() == 1">@Ifly.Resources.Editor.Video_Uploading</span>
+            </div>
+            <div class="no-overflow" data-bind="visible: wasError">
+                <div class="export-error export-image span">
+                    @Html.Raw(Ifly.Resources.Editor.ExportImage_Error)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('PublishSettingsModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            saving: '@Ifly.Resources.Editor.Saving',
+            oneMoment: '@Ifly.Resources.Editor.OneMoment',
+            downloadImage: '@Ifly.Resources.Editor.DownloadImage',
+            createVideo: '@Ifly.Resources.Editor.CreateVideo',
+            createAndSend: '@Ifly.Resources.Editor.CreateVideoAndSend',
+            cannotShare: '@Ifly.Resources.Editor.CannotShareInThisMode',
+            timing: {
+                second: '@Ifly.Resources.Editor.Second',
+                seconds: '@Ifly.Resources.Editor.Seconds',
+                minute: '@Ifly.Resources.Editor.Minute',
+                minutes: '@Ifly.Resources.Editor.Minutes'
+            }
+        }
+    });
+</script>

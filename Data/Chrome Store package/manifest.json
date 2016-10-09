@@ -1,0 +1,20 @@
+{
+  "name": "Sprites",
+  "description": "Infographic creation tool",
+  "manifest_version": 2,
+  "version": "1.0",
+  "app": {
+    "urls": [
+      "*://spritesapp.com/edit/",
+      "*://www.spritesapp.com/edit/",
+      "*://spritesapp.com/",
+      "*://www.spritesapp.com/"
+    ],
+    "launch": {
+      "web_url": "https://spritesapp.com/edit/"
+    }
+  },
+  "icons": {
+    "128": "icon_128.png"
+  }
+}

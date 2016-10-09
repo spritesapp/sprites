@@ -1,0 +1,10 @@
+﻿@{
+    var id = ViewData["Id"] != null ? ViewData["Id"].ToString() : "progress";
+    var isGlobal = ViewData["IsGlobal"] != null ? (bool)ViewData["IsGlobal"] : true;
+    var isActive = ViewData["IsActive"] != null ? (bool)ViewData["IsActive"] : false;
+}
+
+<div id="@(!string.IsNullOrEmpty(id) ? id : null)" class="progress @(isGlobal ? "progress-global" : null) @(isActive ? "progress-show" : null)">
+    <div class="progress-1"></div>
+    <div class="progress-2"></div>
+</div>

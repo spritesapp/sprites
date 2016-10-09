@@ -1,0 +1,2238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddNewSlide" xml:space="preserve">
+    <value>Add new slide</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Elements</value>
+  </data>
+  <data name="Components_SelectSlide" xml:space="preserve">
+    <value>Please select a slide first.</value>
+  </data>
+  <data name="Components_SubTitle" xml:space="preserve">
+    <value>Pick them from the gallery.</value>
+  </data>
+  <data name="CreatePresentation" xml:space="preserve">
+    <value>Create infographic</value>
+  </data>
+  <data name="EditSlide" xml:space="preserve">
+    <value>Slide settings</value>
+  </data>
+  <data name="Ifly" xml:space="preserve">
+    <value>Ifly</value>
+  </data>
+  <data name="NewPresentation" xml:space="preserve">
+    <value>New infographic</value>
+  </data>
+  <data name="NewSlide" xml:space="preserve">
+    <value>New slide</value>
+  </data>
+  <data name="PresentationSettings" xml:space="preserve">
+    <value>Infographic settings</value>
+  </data>
+  <data name="PresentationTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Publish_SubTitle" xml:space="preserve">
+    <value>Share results on the Web.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_SubTitle" xml:space="preserve">
+    <value>Change title and theme.</value>
+  </data>
+  <data name="SlideDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Slides" xml:space="preserve">
+    <value>Slides</value>
+  </data>
+  <data name="SlideTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="SlideAnimation" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="SlideAnimationFade" xml:space="preserve">
+    <value>Fade</value>
+  </data>
+  <data name="SlideAnimationFade_Title" xml:space="preserve">
+    <value>Fade in and fade out</value>
+  </data>
+  <data name="SlideAnimationSlide" xml:space="preserve">
+    <value>Slide</value>
+  </data>
+  <data name="SlideAnimationSlide_Title" xml:space="preserve">
+    <value>Slide in predefined order</value>
+  </data>
+  <data name="NoTitle" xml:space="preserve">
+    <value>No title</value>
+  </data>
+  <data name="ClickToSelectSlide" xml:space="preserve">
+    <value>Click to select this slide</value>
+  </data>
+  <data name="DeleteSlide" xml:space="preserve">
+    <value>Delete slide</value>
+  </data>
+  <data name="DeleteSlide_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this slide?</value>
+  </data>
+  <data name="DataSourceSettings" xml:space="preserve">
+    <value>Edit data</value>
+  </data>
+  <data name="AddNewColumn" xml:space="preserve">
+    <value>Add new column</value>
+  </data>
+  <data name="AddNewRow" xml:space="preserve">
+    <value>Add new row</value>
+  </data>
+  <data name="Component_TextBlock" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="TextToDisplay" xml:space="preserve">
+    <value>Text to display</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position on a slide</value>
+  </data>
+  <data name="Position_Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Position_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Position_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Position_Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Position_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="SampleText" xml:space="preserve">
+    <value>Sample text</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="FontSize_ExtraLarge" xml:space="preserve">
+    <value>Extra large</value>
+  </data>
+  <data name="FontSize_ExtraSmall" xml:space="preserve">
+    <value>Extra small</value>
+  </data>
+  <data name="FontSize_Large" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="FontSize_Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="FontSize_Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="FontStyles" xml:space="preserve">
+    <value>Font styles</value>
+  </data>
+  <data name="FontStyles_Bold" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="FontStyles_Italic" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="SavedAt" xml:space="preserve">
+    <value>Saved at</value>
+  </data>
+  <data name="DeleteElement" xml:space="preserve">
+    <value>Delete element</value>
+  </data>
+  <data name="MoveElementDown" xml:space="preserve">
+    <value>Swap with next (when stacked)</value>
+  </data>
+  <data name="MoveElementUp" xml:space="preserve">
+    <value>Swap with previous (when stacked)</value>
+  </data>
+  <data name="PresentationPalette" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Theme_Clean" xml:space="preserve">
+    <value>Clean</value>
+  </data>
+  <data name="Theme_Warm" xml:space="preserve">
+    <value>Warm</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Theme_Fact_Measure" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="Theme_Fact_Number" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Theme_Fact_Description" xml:space="preserve">
+    <value>Is an average sleep duration.</value>
+  </data>
+  <data name="Component_Fact" xml:space="preserve">
+    <value>Fact</value>
+  </data>
+  <data name="Component_Fact_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Component_Fact_Measure" xml:space="preserve">
+    <value>Measure</value>
+  </data>
+  <data name="Component_Fact_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="SelectIcon" xml:space="preserve">
+    <value>Select icon</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Component_Fact_Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="DeleteIcon" xml:space="preserve">
+    <value>Remove icon</value>
+  </data>
+  <data name="NotSelected" xml:space="preserve">
+    <value>Not selected</value>
+  </data>
+  <data name="Component_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Component_Image_Dimensions" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="Component_Image_Url" xml:space="preserve">
+    <value>Image URL</value>
+  </data>
+  <data name="Component_Image_Width" xml:space="preserve">
+    <value>Relative image size</value>
+  </data>
+  <data name="Component_Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MapType" xml:space="preserve">
+    <value>Map type</value>
+  </data>
+  <data name="MapType_Europe" xml:space="preserve">
+    <value>Europe</value>
+  </data>
+  <data name="MapType_Usa" xml:space="preserve">
+    <value>USA</value>
+  </data>
+  <data name="MapType_World" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="EditMapAnnotations" xml:space="preserve">
+    <value>Edit map annotations</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Component_Map_Annotations" xml:space="preserve">
+    <value>Annotations</value>
+  </data>
+  <data name="Density" xml:space="preserve">
+    <value>Density</value>
+  </data>
+  <data name="EditSelection" xml:space="preserve">
+    <value>Edit selection</value>
+  </data>
+  <data name="Tooltip" xml:space="preserve">
+    <value>Tooltip</value>
+  </data>
+  <data name="Density_High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Density_Highest" xml:space="preserve">
+    <value>Highest</value>
+  </data>
+  <data name="Density_Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Density_Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Density_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="EmptyRowsWillTrim" xml:space="preserve">
+    <value>Empty rows will be removed automatically.</value>
+  </data>
+  <data name="ChartType" xml:space="preserve">
+    <value>Chart type</value>
+  </data>
+  <data name="ChartType_Bar" xml:space="preserve">
+    <value>Bar</value>
+  </data>
+  <data name="ChartType_Doughnut" xml:space="preserve">
+    <value>Donut</value>
+  </data>
+  <data name="ChartType_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ChartType_Pie" xml:space="preserve">
+    <value>Pie</value>
+  </data>
+  <data name="Component_Chart" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+  <data name="Component_Chart_Data" xml:space="preserve">
+    <value>Data to display</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="UnableToSync" xml:space="preserve">
+    <value>Can't sync</value>
+  </data>
+  <data name="ColorType_Accent1" xml:space="preserve">
+    <value>Accent color #1</value>
+  </data>
+  <data name="ColorType_Accent2" xml:space="preserve">
+    <value>Accent color #2</value>
+  </data>
+  <data name="ColorType_Accent3" xml:space="preserve">
+    <value>Accent color #3</value>
+  </data>
+  <data name="ColorType_Accent4" xml:space="preserve">
+    <value>Accent color #4</value>
+  </data>
+  <data name="PublishSettings" xml:space="preserve">
+    <value>Publish settings</value>
+  </data>
+  <data name="AutoPlay" xml:space="preserve">
+    <value>Auto-play</value>
+  </data>
+  <data name="AutoPlay_Help" xml:space="preserve">
+    <value>Start animating infographic as soon as it finishes loading</value>
+  </data>
+  <data name="InfographicUrl" xml:space="preserve">
+    <value>Share with</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OneMoment" xml:space="preserve">
+    <value>One moment...</value>
+  </data>
+  <data name="ShowControls" xml:space="preserve">
+    <value>Show controls</value>
+  </data>
+  <data name="ShowControls_Help" xml:space="preserve">
+    <value>Show navigation controls (back, forward, pause)</value>
+  </data>
+  <data name="SpecificSlide" xml:space="preserve">
+    <value>Show only one slide</value>
+  </data>
+  <data name="SpecificSlide_Help" xml:space="preserve">
+    <value>Show only the given slide, hide all others</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Error_NotImplemented" xml:space="preserve">
+    <value>Your browser is not supported.</value>
+  </data>
+  <data name="Error_NotImplemented_Description" xml:space="preserve">
+    <value>We're very sorry but your web browser is currently not supported by Sprites Editor. Although, we'd like you to know that this is not because of some missing features but rather because we didn't have time to polish the editor in order for it to look amazing and work great in all modern browsers. We absolutely understand this problem and will try to bring Sprites Editor to Firefox, Opera, Internet Explorer and Safari as soon as we can. In a meantime, please use &lt;a href="https://www.google.com/chrome/"&gt;Google Chrome&lt;/a&gt;.</value>
+  </data>
+  <data name="Error_NotImplemented_Description2" xml:space="preserve">
+    <value>Again, we're very sorry. We hope that you're not too sad.</value>
+  </data>
+  <data name="Oops" xml:space="preserve">
+    <value>Oops</value>
+  </data>
+  <data name="ColumnLabel" xml:space="preserve">
+    <value>Column label</value>
+  </data>
+  <data name="Component_Chart_DataFormat" xml:space="preserve">
+    <value>Data format</value>
+  </data>
+  <data name="Component_Chart_DataFormat_Bar" xml:space="preserve">
+    <value>Every column represents a new series of data. Rows contain values for every new bar in the current series.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_Line" xml:space="preserve">
+    <value>Every row represents a new line. Columns contain intermediate points.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_PieDonut" xml:space="preserve">
+    <value>One column, each row containing a number representing a portion of data.</value>
+  </data>
+  <data name="RowLabel" xml:space="preserve">
+    <value>Row label</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>Unexpected error</value>
+  </data>
+  <data name="NoSlideSelected" xml:space="preserve">
+    <value>No slide selected.</value>
+  </data>
+  <data name="NextSlide" xml:space="preserve">
+    <value>Next slide</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PreviousSlide" xml:space="preserve">
+    <value>Previous slide</value>
+  </data>
+  <data name="MyPresentations" xml:space="preserve">
+    <value>My infographics</value>
+  </data>
+  <data name="NoPresentationsCreated" xml:space="preserve">
+    <value>You haven't created any infographics yet.</value>
+  </data>
+  <data name="Component_Table_Data" xml:space="preserve">
+    <value>Table contents</value>
+  </data>
+  <data name="Component_Table" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="MarkSelected" xml:space="preserve">
+    <value>Mark this row as selected</value>
+  </data>
+  <data name="Mark" xml:space="preserve">
+    <value>Mark row</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="AboutElementLink" xml:space="preserve">
+    <value>Linking an element to a slide will make such element clickable and will allow viewers to navigate through different parts of your infographic.</value>
+  </data>
+  <data name="EditElementLink" xml:space="preserve">
+    <value>Edit element link</value>
+  </data>
+  <data name="LinkElementToSlide" xml:space="preserve">
+    <value>Link element with another slide</value>
+  </data>
+  <data name="SlideNumber" xml:space="preserve">
+    <value>Navigate to a slide</value>
+  </data>
+  <data name="DemoMode" xml:space="preserve">
+    <value>Demo mode! Changes will not be saved.</value>
+  </data>
+  <data name="ImageUploadError" xml:space="preserve">
+    <value>This image can't be uploaded. Make sure that the file is less than 1 MB in size and that you're choosing the correct format (supported formats are JPG, PNG, GIF, BMP and SVG).</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload image</value>
+  </data>
+  <data name="UploadError" xml:space="preserve">
+    <value>Upload error</value>
+  </data>
+  <data name="ImageWidth_1" xml:space="preserve">
+    <value>10%</value>
+  </data>
+  <data name="ImageWidth_2" xml:space="preserve">
+    <value>25%</value>
+  </data>
+  <data name="ImageWidth_3" xml:space="preserve">
+    <value>35%</value>
+  </data>
+  <data name="ImageWidth_4" xml:space="preserve">
+    <value>50%</value>
+  </data>
+  <data name="ImageWidth_Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="MyOtherPresentations" xml:space="preserve">
+    <value>Recently created</value>
+  </data>
+  <data name="Component_Figure" xml:space="preserve">
+    <value>Figure</value>
+  </data>
+  <data name="Component_Figure_Highlight" xml:space="preserve">
+    <value>Number of items to highlight</value>
+  </data>
+  <data name="Component_Figure_Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Component_Figure_Size" xml:space="preserve">
+    <value>Total number of items</value>
+  </data>
+  <data name="FigureSize20" xml:space="preserve">
+    <value>Twenty items</value>
+  </data>
+  <data name="FigureSize_10" xml:space="preserve">
+    <value>Ten items</value>
+  </data>
+  <data name="FigureSize_30" xml:space="preserve">
+    <value>Thirty items</value>
+  </data>
+  <data name="FigureSize_40" xml:space="preserve">
+    <value>Fourty items</value>
+  </data>
+  <data name="FigureSize_5" xml:space="preserve">
+    <value>Five items</value>
+  </data>
+  <data name="Component_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="Component_Line_Length" xml:space="preserve">
+    <value>Relative line length</value>
+  </data>
+  <data name="Component_Line_Type" xml:space="preserve">
+    <value>Line type</value>
+  </data>
+  <data name="ImageWidth_5" xml:space="preserve">
+    <value>75%</value>
+  </data>
+  <data name="LineType_Horizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="LineType_Vertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Theme_Sky" xml:space="preserve">
+    <value>Sky</value>
+  </data>
+  <data name="SelectToOpen" xml:space="preserve">
+    <value>Select to open for editing</value>
+  </data>
+  <data name="Theme_Night" xml:space="preserve">
+    <value>Night</value>
+  </data>
+  <data name="Component_Chart_Size" xml:space="preserve">
+    <value>Relative chart size</value>
+  </data>
+  <data name="Component_Map_Size" xml:space="preserve">
+    <value>Relative map size</value>
+  </data>
+  <data name="Position_Free" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ThemeUploadError" xml:space="preserve">
+    <value>This theme can't be uploaded. Make sure the file is less than 1 MB in size and that you're choosing a CSS stylesheet as your theme.</value>
+  </data>
+  <data name="ByBobMarley" xml:space="preserve">
+    <value>By Bob Marley</value>
+  </data>
+  <data name="QuoteTextAndSignature" xml:space="preserve">
+    <value>Quote text and signature</value>
+  </data>
+  <data name="TextType" xml:space="preserve">
+    <value>Text type</value>
+  </data>
+  <data name="TextType_Quote" xml:space="preserve">
+    <value>Quote</value>
+  </data>
+  <data name="TextType_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="FontStyles_Strikethrough" xml:space="preserve">
+    <value>Strikethrough</value>
+  </data>
+  <data name="FontStyles_Underline" xml:space="preserve">
+    <value>Underline</value>
+  </data>
+  <data name="Font_ClearFormatting" xml:space="preserve">
+    <value>Clear formatting</value>
+  </data>
+  <data name="FontColor" xml:space="preserve">
+    <value>Font color</value>
+  </data>
+  <data name="ColorType_Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="EditProgressBars" xml:space="preserve">
+    <value>Edit progress bars</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Percentage</value>
+  </data>
+  <data name="Component_Progress" xml:space="preserve">
+    <value>Bars</value>
+  </data>
+  <data name="Component_Progress_Bars" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="Callout_Orientation" xml:space="preserve">
+    <value>Callout position from the tail</value>
+  </data>
+  <data name="Callout_Orientation_Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Callout_Orientation_BottomLeft" xml:space="preserve">
+    <value>Bottom left</value>
+  </data>
+  <data name="Callout_Orientation_BottomRight" xml:space="preserve">
+    <value>Bottom right</value>
+  </data>
+  <data name="Callout_Orientation_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Callout_Orientation_Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Callout_Orientation_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Callout_Orientation_TopLeft" xml:space="preserve">
+    <value>Top left</value>
+  </data>
+  <data name="Callout_Orientation_TopRight" xml:space="preserve">
+    <value>Top right</value>
+  </data>
+  <data name="Callout_TailSize" xml:space="preserve">
+    <value>Callout size</value>
+  </data>
+  <data name="Callout_TailSize_ExtraLarge" xml:space="preserve">
+    <value>Extra large</value>
+  </data>
+  <data name="Callout_TailSize_ExtraSmall" xml:space="preserve">
+    <value>Extra small</value>
+  </data>
+  <data name="Callout_TailSize_Large" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="Callout_TailSize_Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Callout_TailSize_Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="Callout_Text" xml:space="preserve">
+    <value>Text to display</value>
+  </data>
+  <data name="Component_Callout" xml:space="preserve">
+    <value>Callout</value>
+  </data>
+  <data name="Callout_SampleText" xml:space="preserve">
+    <value>Callout text</value>
+  </data>
+  <data name="ClearContents" xml:space="preserve">
+    <value>Clear contents</value>
+  </data>
+  <data name="EditTimelineItems" xml:space="preserve">
+    <value>Edit timeline events</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Component_Timeline" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Component_Timeline_Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="Component_Timeline_Orientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="Orientation_Horizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="Orientation_Vertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Style_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Style_Dimmed" xml:space="preserve">
+    <value>Dimmed</value>
+  </data>
+  <data name="Component_Timeline_BarColor" xml:space="preserve">
+    <value>Bar color</value>
+  </data>
+  <data name="Component_Widget" xml:space="preserve">
+    <value>Widget</value>
+  </data>
+  <data name="EditContents" xml:space="preserve">
+    <value>Edit source code</value>
+  </data>
+  <data name="EditWidgetCode" xml:space="preserve">
+    <value>Edit widget source code</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="SampleWidget" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;var paragraph = $(\'&amp;lt_e;p&gt;\').css({ &amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;\'font-style\': \'italic\' &amp;n_e;&amp;t_e;&amp;t_e;});&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;paragraph.text(\'Hello from custom widget!\');&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;container.append(paragraph);&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="Component_Widget_Code" xml:space="preserve">
+    <value>Widget source code</value>
+  </data>
+  <data name="UnsafeContent_Abort" xml:space="preserve">
+    <value>Abort</value>
+  </data>
+  <data name="UnsafeContent_BlockUnsafeContentOnly" xml:space="preserve">
+    <value>Block unsafe content</value>
+  </data>
+  <data name="UnsafeContent_Description" xml:space="preserve">
+    <value>This infographic contains some content which might be unsafe (for example, a third-party widget). Do you want to abort immediately, block unsafe content or allow it?</value>
+  </data>
+  <data name="UnsafeContent_Proceed" xml:space="preserve">
+    <value>Allow unsafe content</value>
+  </data>
+  <data name="UnsafeContent_Title" xml:space="preserve">
+    <value>Unsafe content warning</value>
+  </data>
+  <data name="UnsafeContent_Aborted" xml:space="preserve">
+    <value>Aborted.</value>
+  </data>
+  <data name="Component_Widget_Description" xml:space="preserve">
+    <value>Take a look at the &lt;a href="https://github.com/spritesapp/sprites-sdk/wiki/Adding-rich-content-using-widgets" target="_blank"&gt;documentation&lt;/a&gt; which describes what the widget is and how to create one.</value>
+  </data>
+  <data name="Component_Widget_Description_Short" xml:space="preserve">
+    <value>Our  &lt;a href="https://github.com/spritesapp/sprites-sdk/wiki/Adding-rich-content-using-widgets" target="_blank"&gt;documentation&lt;/a&gt; will help you get started.</value>
+  </data>
+  <data name="Component_Widget_WhatIsWidget" xml:space="preserve">
+    <value>About widgets</value>
+  </data>
+  <data name="UnpublishedPresentation" xml:space="preserve">
+    <value>Sorry, this infographic has been unpublished.</value>
+  </data>
+  <data name="ViewStats" xml:space="preserve">
+    <value>View statistics</value>
+  </data>
+  <data name="PresentationStats" xml:space="preserve">
+    <value>Infographic statistics</value>
+  </data>
+  <data name="Stats_GoogleAnalytics" xml:space="preserve">
+    <value>Google Analytics integration</value>
+  </data>
+  <data name="Stats_Social" xml:space="preserve">
+    <value>Social impact</value>
+  </data>
+  <data name="Stats_Social_Facebook" xml:space="preserve">
+    <value>Facebook mentions</value>
+  </data>
+  <data name="Stats_Social_GooglePlus" xml:space="preserve">
+    <value>Google+ shares</value>
+  </data>
+  <data name="Stats_Social_LinkedIn" xml:space="preserve">
+    <value>LinkedIn posts</value>
+  </data>
+  <data name="Stats_Views" xml:space="preserve">
+    <value>Views, last 7 days</value>
+  </data>
+  <data name="Stats_GoogleAnalytics_TrackingId" xml:space="preserve">
+    <value>Enter Tracking ID</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved!</value>
+  </data>
+  <data name="PreviewPresentation" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="CopyElement" xml:space="preserve">
+    <value>Copy element</value>
+  </data>
+  <data name="ElementInClipboard" xml:space="preserve">
+    <value>Paste into the slide</value>
+  </data>
+  <data name="Slide1" xml:space="preserve">
+    <value>Slide 1</value>
+  </data>
+  <data name="Component_Image_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Component_Image_ImageColor" xml:space="preserve">
+    <value>Image color</value>
+  </data>
+  <data name="Component_Image_SelectImage" xml:space="preserve">
+    <value>Image type</value>
+  </data>
+  <data name="Component_Image_SelectImage_Gallery" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Component_Image_SelectImage_URL" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="ShareInfographic" xml:space="preserve">
+    <value>Social sharing</value>
+  </data>
+  <data name="Share_Facebook" xml:space="preserve">
+    <value>Share on Facebook</value>
+  </data>
+  <data name="Share_GooglePlus" xml:space="preserve">
+    <value>Share on Google+</value>
+  </data>
+  <data name="Share_LinkedIn" xml:space="preserve">
+    <value>Share on LinkedIn</value>
+  </data>
+  <data name="Share_Twitter" xml:space="preserve">
+    <value>Share on Twitter</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share...</value>
+  </data>
+  <data name="DeleteElement_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this element?</value>
+  </data>
+  <data name="Cell" xml:space="preserve">
+    <value>Cell</value>
+  </data>
+  <data name="Component_Progress_Item1" xml:space="preserve">
+    <value>Item 1</value>
+  </data>
+  <data name="Component_Progress_Item2" xml:space="preserve">
+    <value>Item 2</value>
+  </data>
+  <data name="Component_Progress_Item3" xml:space="preserve">
+    <value>Item 3</value>
+  </data>
+  <data name="Component_Timeline_Event1" xml:space="preserve">
+    <value>Primary school</value>
+  </data>
+  <data name="Component_Timeline_Event2" xml:space="preserve">
+    <value>College</value>
+  </data>
+  <data name="Component_Timeline_Event3" xml:space="preserve">
+    <value>Break</value>
+  </data>
+  <data name="Component_Timeline_Event4" xml:space="preserve">
+    <value>First job</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="Component_Map_NewYork" xml:space="preserve">
+    <value>New York</value>
+  </data>
+  <data name="Component_Map_Texas" xml:space="preserve">
+    <value>Texas</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>My account</value>
+  </data>
+  <data name="Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="SyncError" xml:space="preserve">
+    <value>Sprites needs to reload</value>
+  </data>
+  <data name="SyncError_Description" xml:space="preserve">
+    <value>Looks like Sprites briefly went offline to get itself updated with new cool stuff. Please reload the page to continue.</value>
+  </data>
+  <data name="ReloadPage" xml:space="preserve">
+    <value>Reload the page</value>
+  </data>
+  <data name="DataImport_ExcelUploadError" xml:space="preserve">
+    <value>This file can't be uploaded. Make sure that the file is less than 1 MB in size and that you're choosing the correct format (supported formats are XLSX and CSV).</value>
+  </data>
+  <data name="DataImportSourceType_Excel" xml:space="preserve">
+    <value>Microsoft Excel</value>
+  </data>
+  <data name="DataImportSourceType_Google" xml:space="preserve">
+    <value>Google Sheets</value>
+  </data>
+  <data name="DataImport_ChooseSource" xml:space="preserve">
+    <value>Import from</value>
+  </data>
+  <data name="ImportData" xml:space="preserve">
+    <value>Import data</value>
+  </data>
+  <data name="DataImportSourceType_URL" xml:space="preserve">
+    <value>Custom URL</value>
+  </data>
+  <data name="DataImport_Excel_ContainsRowLabels" xml:space="preserve">
+    <value>Has row labels</value>
+  </data>
+  <data name="DataImport_Excel_File" xml:space="preserve">
+    <value>File to import</value>
+  </data>
+  <data name="DataImport_Excel_Select" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="DataImport_Excel_Sheet" xml:space="preserve">
+    <value>Worksheet</value>
+  </data>
+  <data name="DataImport_Excel_StartsWithColumnNames" xml:space="preserve">
+    <value>Has column names</value>
+  </data>
+  <data name="DataImport_Imported" xml:space="preserve">
+    <value>Successfully imported</value>
+  </data>
+  <data name="DataImport_GoogleImportError" xml:space="preserve">
+    <value>This spreadsheet can't be downloaded. Make sure that the URL is pointing to the published spreadsheet and that it contains some data. Also, we don't support Google Apps for Business.</value>
+  </data>
+  <data name="DataImport_Google_URL" xml:space="preserve">
+    <value>Spreadsheet URL</value>
+  </data>
+  <data name="DataImport_URL" xml:space="preserve">
+    <value>Data URL (&lt;a target="_blank" href="Assets/js/import-sample.json"&gt;see example&lt;/a&gt;)</value>
+  </data>
+  <data name="DataImport_UrlImportError" xml:space="preserve">
+    <value>This data can't be downloaded. Make sure that the URL is valid, contains some data and that the data can be understood by Sprites.</value>
+  </data>
+  <data name="PlayAgain" xml:space="preserve">
+    <value>Watch again</value>
+  </data>
+  <data name="ShareThisInfographic" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="ThanksForWatching" xml:space="preserve">
+    <value>Thanks for watching!</value>
+  </data>
+  <data name="ChartType_Area_WithChart" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ChartType_Bar_WithChart" xml:space="preserve">
+    <value>Bar</value>
+  </data>
+  <data name="ChartType_Bubble_WithChart" xml:space="preserve">
+    <value>Bubble</value>
+  </data>
+  <data name="ChartType_Doughnut_WithChart" xml:space="preserve">
+    <value>Donut</value>
+  </data>
+  <data name="ChartType_Line_WithChart" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ChartType_Pie_WithChart" xml:space="preserve">
+    <value>Pie</value>
+  </data>
+  <data name="ChartType_TreeMap_WithChart" xml:space="preserve">
+    <value>Tree Map</value>
+  </data>
+  <data name="Component_Chart_DataFormat_Area" xml:space="preserve">
+    <value>Every row represents a new area. Columns contain intermediate points.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_Bubble" xml:space="preserve">
+    <value>Every row represents a bubble. Columns contain X and Y coordinate, name of the series and a bubble size.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_TreeMap" xml:space="preserve">
+    <value>Every row represents a new tree node. The only column contains the value (make sure to specify row labels as well).</value>
+  </data>
+  <data name="Component_Map_DefaultColor" xml:space="preserve">
+    <value>Map color</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordProtection" xml:space="preserve">
+    <value>Password protection</value>
+  </data>
+  <data name="Password_ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="Password_Help" xml:space="preserve">
+    <value>Protect your infographic by setting a password</value>
+  </data>
+  <data name="Password_RemovePassword" xml:space="preserve">
+    <value>Remove password</value>
+  </data>
+  <data name="Password_SetPassword" xml:space="preserve">
+    <value>Set password...</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>Sorry, the password is incorrect.</value>
+  </data>
+  <data name="PlaybackTime" xml:space="preserve">
+    <value>Playback time</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="PlaybackSettings" xml:space="preserve">
+    <value>Change playback settings</value>
+  </data>
+  <data name="PublishOptions_Image" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="PublishOptions_Web" xml:space="preserve">
+    <value>Embed</value>
+  </data>
+  <data name="CreateVideo" xml:space="preserve">
+    <value>Download video</value>
+  </data>
+  <data name="DownloadImage" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="ExportSize_1024" xml:space="preserve">
+    <value>1024x615</value>
+  </data>
+  <data name="ExportSize_1280" xml:space="preserve">
+    <value>1280x768</value>
+  </data>
+  <data name="ExportSize_1600" xml:space="preserve">
+    <value>1600x960</value>
+  </data>
+  <data name="ExportSize_640" xml:space="preserve">
+    <value>640x385</value>
+  </data>
+  <data name="ExportSize_800" xml:space="preserve">
+    <value>800x480</value>
+  </data>
+  <data name="ExportSize_960" xml:space="preserve">
+    <value>960x576</value>
+  </data>
+  <data name="ImageWidth" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="ImageWidth_Help" xml:space="preserve">
+    <value>Choose the desired image quality</value>
+  </data>
+  <data name="SlideToDownload" xml:space="preserve">
+    <value>Slide to download</value>
+  </data>
+  <data name="SlideToDownload_Help" xml:space="preserve">
+    <value>Choose the slide to be downloaded</value>
+  </data>
+  <data name="ExportImage_Error" xml:space="preserve">
+    <value>Oops, something went wrong. Please try again in a few moments and if that doesn't help, &lt;a target="_blank" href="https://spritesapp.com/contact"&gt;contact us&lt;/a&gt;.</value>
+  </data>
+  <data name="ExportImage_OneMomentCreatingImage" xml:space="preserve">
+    <value>One moment, creating the file...</value>
+  </data>
+  <data name="ExportImage_OneMomentCreatingImageDelayed" xml:space="preserve">
+    <value>Taking a bit longer than expected. Almost there...</value>
+  </data>
+  <data name="CreatedWithSprites" xml:space="preserve">
+    <value>This infographic was created with Sprites. Try it yourself at https://spritesapp.com</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Feedback_Email" xml:space="preserve">
+    <value>Your email</value>
+  </data>
+  <data name="Feedback_Name" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="Feedback_Text" xml:space="preserve">
+    <value>Your message</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendFeedback" xml:space="preserve">
+    <value>Contact support</value>
+  </data>
+  <data name="ChartType_Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="ChartType_Column_WithChart" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="ChartType_StackedArea" xml:space="preserve">
+    <value>Area (stacked)</value>
+  </data>
+  <data name="ChartType_StackedArea_WithChart" xml:space="preserve">
+    <value>Area (stacked)</value>
+  </data>
+  <data name="ChartType_StackedBar" xml:space="preserve">
+    <value>Bar (stacked)</value>
+  </data>
+  <data name="ChartType_StackedBar_WithChart" xml:space="preserve">
+    <value>Bar (stacked)</value>
+  </data>
+  <data name="ChartType_StackedColumn" xml:space="preserve">
+    <value>Column (stacked)</value>
+  </data>
+  <data name="ChartType_StackedColumn_WithChart" xml:space="preserve">
+    <value>Column (stacked)</value>
+  </data>
+  <data name="Component_Chart_Chrome" xml:space="preserve">
+    <value>Legend, axis and values</value>
+  </data>
+  <data name="Component_Chart_Chrome_Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Component_Chart_Chrome_Show" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="Component_Chart_DataFormat_Column" xml:space="preserve">
+    <value>Every column represents a new series of data. Rows contain values for every new column in the current series.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_StackedArea" xml:space="preserve">
+    <value>Every row represents a new area. Columns contain intermediate points.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_StackedBar" xml:space="preserve">
+    <value>Every column represents a new series of data. Rows contain values for every new bar in the current series.</value>
+  </data>
+  <data name="Component_Chart_DataFormat_StackedColumn" xml:space="preserve">
+    <value>Every column represents a new series of data. Rows contain values for every new column in the current series.</value>
+  </data>
+  <data name="CloneSlide" xml:space="preserve">
+    <value>Clone (copy) this slide</value>
+  </data>
+  <data name="CloneSlide_About" xml:space="preserve">
+    <value>Cloning a slide will copy all its attributes including description, playback settings and all the elements.</value>
+  </data>
+  <data name="CloneSlide_Title" xml:space="preserve">
+    <value>New title</value>
+  </data>
+  <data name="HideGrid" xml:space="preserve">
+    <value>Hide gridlines</value>
+  </data>
+  <data name="ShowGrid" xml:space="preserve">
+    <value>Show gridlines</value>
+  </data>
+  <data name="Theme_Burning" xml:space="preserve">
+    <value>Burning</value>
+  </data>
+  <data name="Theme_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="KeyboardShortcuts" xml:space="preserve">
+    <value>Keyboard shortcuts</value>
+  </data>
+  <data name="Shortcut_CopyElement" xml:space="preserve">
+    <value>Copy current element.</value>
+  </data>
+  <data name="Shortcut_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Shortcut_DeleteElement" xml:space="preserve">
+    <value>Delete current element.</value>
+  </data>
+  <data name="Shortcut_DemoteElement" xml:space="preserve">
+    <value>Send current element backward.</value>
+  </data>
+  <data name="Shortcut_NextElement" xml:space="preserve">
+    <value>Select next element.</value>
+  </data>
+  <data name="Shortcut_PasteElement" xml:space="preserve">
+    <value>Paste copied element.</value>
+  </data>
+  <data name="Shortcut_PreviousElement" xml:space="preserve">
+    <value>Select previous element.</value>
+  </data>
+  <data name="Shortcut_PromoteElement" xml:space="preserve">
+    <value>Bring current element forward.</value>
+  </data>
+  <data name="Shortcut_Space" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="Shortcut_ToggleGrid" xml:space="preserve">
+    <value>Toggle gridlines.</value>
+  </data>
+  <data name="UpgradeToUnlock" xml:space="preserve">
+    <value>Upgrade to unlock great features!</value>
+  </data>
+  <data name="Component_Map_Scale" xml:space="preserve">
+    <value>Zoom level and offset from center (%)</value>
+  </data>
+  <data name="MapScale_1" xml:space="preserve">
+    <value>1x</value>
+  </data>
+  <data name="MapScale_2" xml:space="preserve">
+    <value>2x</value>
+  </data>
+  <data name="MapScale_3" xml:space="preserve">
+    <value>4x</value>
+  </data>
+  <data name="MapViewportCenter_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="MapViewportCenter_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="PublishOptions_Video" xml:space="preserve">
+    <value>Create video</value>
+  </data>
+  <data name="ExportVideo_OneMomentCreatingVideo" xml:space="preserve">
+    <value>Creating video, &lt;span class="time-remaining help" data-bind="text: timeRemaining" title="Estimated wait time"&gt;&lt;/span&gt; to go...</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>second</value>
+  </data>
+  <data name="VideoLength" xml:space="preserve">
+    <value>Video length</value>
+  </data>
+  <data name="VideoLength_Help" xml:space="preserve">
+    <value>Estimated final length of the video</value>
+  </data>
+  <data name="VideoWidth" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="VideoWidth_Help" xml:space="preserve">
+    <value>Choose the desired video quality</value>
+  </data>
+  <data name="AddAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="AddAudio_Help" xml:space="preserve">
+    <value>Specify the audio file to be mixed with the video</value>
+  </data>
+  <data name="AudioFileRequirements" xml:space="preserve">
+    <value>VMA or MP3, up to 10 MB in size. If the video is shorter than the audio, the latter will be trimmed.</value>
+  </data>
+  <data name="AudioUploadError" xml:space="preserve">
+    <value>This audio file can't be uploaded. Make sure that the file is less than 10 MB in size and that you're choosing the correct format (supported formats are VMA and MP3).</value>
+  </data>
+  <data name="ChooseAudioFile" xml:space="preserve">
+    <value>Choose audio file</value>
+  </data>
+  <data name="ChooseDifferentFile" xml:space="preserve">
+    <value>Choose different file</value>
+  </data>
+  <data name="RemoveAudio" xml:space="preserve">
+    <value>Do not upload audio file</value>
+  </data>
+  <data name="InsertIcon" xml:space="preserve">
+    <value>Insert icon</value>
+  </data>
+  <data name="TurnOffRichFormatting" xml:space="preserve">
+    <value>Rich formatting: On</value>
+  </data>
+  <data name="TurnOnRichFormatting" xml:space="preserve">
+    <value>Rich formatting: Off</value>
+  </data>
+  <data name="WidgetSnippet_InsertShippet" xml:space="preserve">
+    <value>Insert widget</value>
+  </data>
+  <data name="WidgetSnippet_None_Option" xml:space="preserve">
+    <value>Please choose</value>
+  </data>
+  <data name="WidgetSnippet_Twitter" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;container.append($('&amp;lt_e;a class="twitter-timeline"&gt;').attr({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;width: 500,&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;height: 400,&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'data-widget-id': '{param:widgetId}',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;href: 'https:/' + '/twitter.com/{param:handle}'&amp;n_e;&amp;t_e;&amp;t_e;}).text('One moment...'));&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;$.getScript('https:/' + '/platform.twitter.com/widgets.js', function () {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;twttr.widgets.load(container.get(0));&amp;n_e;&amp;t_e;&amp;t_e;});&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="WidgetSnippet_Twitter_Handle" xml:space="preserve">
+    <value>Twitter handle</value>
+  </data>
+  <data name="WidgetSnippet_Twitter_Option" xml:space="preserve">
+    <value>Twitter: Timeline</value>
+  </data>
+  <data name="WidgetSnippet_Twitter_WidgetId" xml:space="preserve">
+    <value>Widget Id&lt;a target="_blank" href="https://dev.twitter.com/discussions/20722"&gt;What is this?&lt;/a&gt;</value>
+  </data>
+  <data name="WidgetSnippet_YouTube" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;container.append($('&amp;lt_e;iframe&gt;').attr({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;width: 640,&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;height: 360,&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;frameborder: 0,&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;type: 'text/html',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;allowfullscreen: 'true',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;src: 'https:/' + '/{param:url}'&amp;n_e;&amp;t_e;&amp;t_e;}));&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="WidgetSnippet_YouTube_Option" xml:space="preserve">
+    <value>YouTube: Video</value>
+  </data>
+  <data name="WidgetSnippet_YouTube_Url" xml:space="preserve">
+    <value>Video URL</value>
+  </data>
+  <data name="ConfigureLiveDataStream" xml:space="preserve">
+    <value>Connect to live data feed</value>
+  </data>
+  <data name="RealtimeData_AnyTabularData" xml:space="preserve">
+    <value>Any tabular data structure can be used.</value>
+  </data>
+  <data name="RealtimeData_ChooseSource" xml:space="preserve">
+    <value>Connect to</value>
+  </data>
+  <data name="RealtimeData_Google_ElementType" xml:space="preserve">
+    <value>Supported columns</value>
+  </data>
+  <data name="RealtimeData_Format" xml:space="preserve">
+    <value>To get started, take a look at &lt;a target="_blank" href="https://github.com/spritesapp/sprites-sdk/wiki/Live-data-format"&gt;live data format&lt;/a&gt; for this element.</value>
+  </data>
+  <data name="RealtimeData_Google_URL" xml:space="preserve">
+    <value>Spreadsheet URL</value>
+  </data>
+  <data name="RealtimeData_PropertyRequired" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="RealtimeData_PropertyRequired_Title" xml:space="preserve">
+    <value>This property must exist in a live data feed</value>
+  </data>
+  <data name="RealtimeData_URL" xml:space="preserve">
+    <value>Data URL</value>
+  </data>
+  <data name="RealtimeData_Validated" xml:space="preserve">
+    <value>Successfully validated</value>
+  </data>
+  <data name="SpecifyElementLiveData" xml:space="preserve">
+    <value>Connect element to live data feed</value>
+  </data>
+  <data name="DataImport_GoogleValidationError" xml:space="preserve">
+    <value>Sorry, we couldn't understand the format of the data you supplied. &lt;a target="_blank" href="https://github.com/spritesapp/sprites-sdk/wiki/Live-data-format"&gt;Fix the issue&lt;/a&gt;</value>
+  </data>
+  <data name="DataImport_UrlValidationError" xml:space="preserve">
+    <value>Sorry, we couldn't understand the format of the data you supplied. &lt;a target="_blank" href="https://github.com/spritesapp/sprites-sdk/wiki/Live-data-format"&gt;Fix the issue&lt;/a&gt;</value>
+  </data>
+  <data name="RealtimeData_URL_ElementType" xml:space="preserve">
+    <value>Supported fields&lt;span class="help" title="Data structure must represent an array of objects with given fields" data-bind="visible: isArrayElement"&gt; (per array item)&lt;/span&gt;</value>
+  </data>
+  <data name="CloneInfographic" xml:space="preserve">
+    <value>Clone (copy) infographic</value>
+  </data>
+  <data name="CloneInfographic_Title" xml:space="preserve">
+    <value>New title</value>
+  </data>
+  <data name="DeleteElements" xml:space="preserve">
+    <value>Delete elements</value>
+  </data>
+  <data name="DeleteElements_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete all selected elements?</value>
+  </data>
+  <data name="Component_Timeline_Size" xml:space="preserve">
+    <value>Relative size</value>
+  </data>
+  <data name="TimelineSize_1" xml:space="preserve">
+    <value>50%</value>
+  </data>
+  <data name="TimelineSize_2" xml:space="preserve">
+    <value>65%</value>
+  </data>
+  <data name="TimelineSize_3" xml:space="preserve">
+    <value>75%</value>
+  </data>
+  <data name="TimelineSize_4" xml:space="preserve">
+    <value>90%</value>
+  </data>
+  <data name="LockElement" xml:space="preserve">
+    <value>Lock element position</value>
+  </data>
+  <data name="WidgetSnippet_Typeform" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;container.append($('&amp;lt_e;div&gt;').attr({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'class': 'typeform-widget',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'data-url': 'https:/' + '/{param:url}',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'data-text': ''&amp;n_e;&amp;t_e;&amp;t_e;}).css({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'width': '70vw',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'height': '60vh'&amp;n_e;&amp;t_e;&amp;t_e;}));&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;var qs, js, q, s, d = container.get(0).ownerDocument, &amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;gi = d.getElementById, ce = d.createElement, &amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;gt = d.getElementsByTagName, id='typef_orm', &amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;b = 'https:/' + '/s3-eu-west-1.amazonaws.com/share.typeform.com/';&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;if (!gi.call(d, id)) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js = ce.call(d,'script');&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js.id = id;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js.src = b + 'widget.js';&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;q = gt.call(d, 'script')[0];&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;q.parentNode.insertBefore(js, q);&amp;n_e;&amp;t_e;&amp;t_e;} else if (d.defaultView['Typeform']) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;new d.defaultView['Typeform'].Widget();&amp;n_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="WidgetSnippet_Typeform_Option" xml:space="preserve">
+    <value>Typeform: Survey</value>
+  </data>
+  <data name="WidgetSnippet_Typeform_Url" xml:space="preserve">
+    <value>Survey URL</value>
+  </data>
+  <data name="ChangeOrientationToLandscape" xml:space="preserve">
+    <value>Rotate your device!</value>
+  </data>
+  <data name="DataImportSourceType_GoogleAnalytics" xml:space="preserve">
+    <value>Google Analytics</value>
+  </data>
+  <data name="DataImportSourceType_GoogleAnalytics_Authorize" xml:space="preserve">
+    <value>Allow access</value>
+  </data>
+  <data name="DataImportSourceType_GoogleAnalytics_Authorize_Description" xml:space="preserve">
+    <value>Please click "Allow access" below to allow Sprites to read your Google Analytics data:</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_ElementType" xml:space="preserve">
+    <value>Assign metrics to fields</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period" xml:space="preserve">
+    <value>Select data for the period</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period_Day" xml:space="preserve">
+    <value>Last day</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period_Month" xml:space="preserve">
+    <value>Last month</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period_Quarter" xml:space="preserve">
+    <value>Last quarter</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period_Week" xml:space="preserve">
+    <value>Last week</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Period_Year" xml:space="preserve">
+    <value>Last year</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_ProfileId" xml:space="preserve">
+    <value>View ID</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_ViewIdHowTo" xml:space="preserve">
+    <value>To get view ID, sign in to Analytics, go to "Admin" and click "View Settings" under the "View" column.</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Dimension" xml:space="preserve">
+    <value>Dimension</value>
+  </data>
+  <data name="RealtimeData_GoogleAnalytics_Metric" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="CreatedWithSpritesShort" xml:space="preserve">
+    <value>Created with &lt;a href="https://spritesapp.com"&gt;Sprites&lt;/a&gt;</value>
+  </data>
+  <data name="WidgetSnippet_Facebook" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;var d = container.get(0).ownerDocument, s = 'script', root, node, fbr = 'fb-root',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;id = 'facebook-jssdk', url = 'https&amp;c_wp;connect.facebook.net/en_US/sdk.js' +&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;'#xfbml=1&amp;appId=521113044653315&amp;version=v2.0', js, fjs, outer;&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;outer = $('&amp;lt_e;div class="widget-fb-post"&gt;');&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;outer.append($('&amp;lt_e;fb:post&gt;').attr({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'href': '{param:postUrl}',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;'width': '500'&amp;n_e;&amp;t_e;&amp;t_e;}));&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;container.append(outer);&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;if (!d.getElementById(fbr)) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;root = document.createElement('div');&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;root.id = fbr;&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;d.body.appendChild(root);&amp;n_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;fjs = d.getElementsByTagName(s)[0];&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;if (!d.getElementById(id)) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js = d.createElement(s); &amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js.id = id;&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;js.src = url;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;fjs.parentNode.insertBefore(js, fjs);&amp;n_e;&amp;t_e;&amp;t_e;} else if (d.defaultView['FB'] &amp;&amp; d.defaultView['FB'].XFBML) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;d.defaultView['FB'].XFBML.parse(container.get(0));&amp;n_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="WidgetSnippet_Facebook_Option" xml:space="preserve">
+    <value>Facebook: Post</value>
+  </data>
+  <data name="WidgetSnippet_Facebook_PostUrl" xml:space="preserve">
+    <value>Post URL</value>
+  </data>
+  <data name="WidgetSnippet_TwitterTweet" xml:space="preserve">
+    <value>#!#!var widget = {&amp;n_e;&amp;t_e;&amp;c_s_e;*&amp;n_e;&amp;t_e; * Renders the widget.&amp;n_e;&amp;t_e; * @param {jQuery} container Widget container.&amp;n_e;&amp;t_e; &amp;c_e_e;&amp;n_e;&amp;t_e;render: function (container) {&amp;n_e;&amp;t_e;&amp;t_e;var tweetId = '{param:tweetId}', cache = typeof (window.localStorage) !== 'undefined' ?&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;window.localStorage : null, html, keyPrefix = 'sprites.widget.', onPlatform = function () {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;twttr.widgets.load(container.get(0));&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;}, pasteTweet = function() {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;container.get(0).innerHTML = html;&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;if (typeof (twttr) !== 'undefined') {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;onPlatform();&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;} else {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;$.getScript('https&amp;c_wp;platform.twitter.com/widgets.js', function () {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;onPlatform();&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;});&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;};&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;if (cache) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;html = cache.getItem(keyPrefix + tweetId);&amp;n_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;if (!html || !html.length) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;$.ajax({&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;url: 'https&amp;c_wp;api.twitter.com/1/statuses/oembed.json?id=' + tweetId +&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;'&amp;hide_thread=1&amp;omit_script=1',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;dataType: 'jsonp',&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;success: function (result) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;html = result.html;&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;if (cache) {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;cache.setItem(keyPrefix + tweetId, html);&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;pasteTweet();&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;});&amp;n_e;&amp;t_e;&amp;t_e;} else {&amp;n_e;&amp;t_e;&amp;t_e;&amp;t_e;pasteTweet();&amp;n_e;&amp;t_e;&amp;t_e;}&amp;n_e;&amp;t_e;}&amp;n_e;}</value>
+  </data>
+  <data name="WidgetSnippet_TwitterTweet_Option" xml:space="preserve">
+    <value>Twitter: Single tweet</value>
+  </data>
+  <data name="WidgetSnippet_Twitter_TweetId" xml:space="preserve">
+    <value>Tweet Id or URL</value>
+  </data>
+  <data name="Video_YouTube_Upload" xml:space="preserve">
+    <value>Send to YouTube</value>
+  </data>
+  <data name="Video_YouTube_Upload_Off" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Video_YouTube_Upload_On" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Video_YouTube_Upload_Title" xml:space="preserve">
+    <value>Upload the video on YouTube upon completion</value>
+  </data>
+  <data name="CreateVideoAndSend" xml:space="preserve">
+    <value>Create and send</value>
+  </data>
+  <data name="Video_YouTube_Uploading" xml:space="preserve">
+    <value>Uploading your video on YouTube...</value>
+  </data>
+  <data name="SlideTemplate" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="Clone" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="TemplateElement_Text" xml:space="preserve">
+    <value>Wikipedia is a free-access, free content Internet encyclopedia, supported&lt;br /&gt; and hosted by the non-profit Wikimedia Foundation. Anyone who can&lt;br /&gt;access the site can edit almost any of its articles.&lt;br /&gt;&lt;br /&gt;Wikipedia is the sixth-most popular website and constitutes the&lt;br /&gt;Internet's largest and most popular general reference work.</value>
+  </data>
+  <data name="Template_Empty" xml:space="preserve">
+    <value>Blank</value>
+  </data>
+  <data name="Template_FactsAndChart" xml:space="preserve">
+    <value>Chart and facts</value>
+  </data>
+  <data name="Template_FactsAndChart_ChartColumn0" xml:space="preserve">
+    <value>Direct</value>
+  </data>
+  <data name="Template_FactsAndChart_ChartColumn1" xml:space="preserve">
+    <value>Referrals</value>
+  </data>
+  <data name="Template_FactsAndChart_ChartColumn2" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Template_FactsAndChart_ChartColumn3" xml:space="preserve">
+    <value>Social</value>
+  </data>
+  <data name="Template_FactsAndChart_ChartRow0Column0" xml:space="preserve">
+    <value>Visits</value>
+  </data>
+  <data name="Template_FactsAndChart_Fact1_Description" xml:space="preserve">
+    <value>comes to Wikipedia via various search engines.</value>
+  </data>
+  <data name="Template_FactsAndChart_Fact1_Measure" xml:space="preserve">
+    <value>of all traffic</value>
+  </data>
+  <data name="Template_FactsAndChart_Fact2_Description" xml:space="preserve">
+    <value>have links pointing to wikipedia.org.</value>
+  </data>
+  <data name="Template_FactsAndChart_Fact2_Measure" xml:space="preserve">
+    <value>million sites</value>
+  </data>
+  <data name="Template_FactsAndChart_Title" xml:space="preserve">
+    <value>Visits to Wikipedia</value>
+  </data>
+  <data name="Template_FactsAndFigure" xml:space="preserve">
+    <value>Facts and figure</value>
+  </data>
+  <data name="Template_FactsAndFigure_Fact1_Description" xml:space="preserve">
+    <value>are currently on Wikipedia available for everyone.</value>
+  </data>
+  <data name="Template_FactsAndFigure_Fact1_Measure" xml:space="preserve">
+    <value>million articles</value>
+  </data>
+  <data name="Template_FactsAndFigure_Fact2_Description" xml:space="preserve">
+    <value>has received wikipedia.org in September, 2014.</value>
+  </data>
+  <data name="Template_FactsAndFigure_Fact2_Measure" xml:space="preserve">
+    <value>billion visits</value>
+  </data>
+  <data name="Template_FactsAndFigure_FigureText" xml:space="preserve">
+    <value>Of the &lt;span class="richtext-color accent-3"&gt;&lt;b&gt;34 million&lt;/b&gt;&lt;/span&gt; articles, &lt;span class="richtext-color accent-3"&gt;&lt;b&gt;4.6 million&lt;/b&gt;&lt;/span&gt; of them&lt;br /&gt;are written in the English language.</value>
+  </data>
+  <data name="Template_ImageAndText" xml:space="preserve">
+    <value>Text and image</value>
+  </data>
+  <data name="Template_ImageAndText_Title" xml:space="preserve">
+    <value>About Wikipedia</value>
+  </data>
+  <data name="Template_MapAndTable" xml:space="preserve">
+    <value>Map and table</value>
+  </data>
+  <data name="Template_MapAndTable_MapAnnotation1Name" xml:space="preserve">
+    <value>United States of America</value>
+  </data>
+  <data name="Template_MapAndTable_MapAnnotation1Tooltip" xml:space="preserve">
+    <value>United States</value>
+  </data>
+  <data name="Template_MapAndTable_TableColumn0" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Template_MapAndTable_TableColumn1" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Template_MapAndTable_TableRow0Column0" xml:space="preserve">
+    <value>United States</value>
+  </data>
+  <data name="Template_MapAndTable_TableRow1Column0" xml:space="preserve">
+    <value>United Kingdom</value>
+  </data>
+  <data name="Template_MapAndTable_TableRow2Column0" xml:space="preserve">
+    <value>Brazil</value>
+  </data>
+  <data name="Template_MapAndTable_TableRow3Column0" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="Template_MapAndTable_TableRow4Column0" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="Template_MapAndTable_Title" xml:space="preserve">
+    <value>Wikipedia Geography</value>
+  </data>
+  <data name="Template_TextOnly" xml:space="preserve">
+    <value>Text only</value>
+  </data>
+  <data name="Template_TitleAndChart" xml:space="preserve">
+    <value>Title and chart</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartColumn0" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartColumn1" xml:space="preserve">
+    <value>Number of articles</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartRow0Column0" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartRow1Column0" xml:space="preserve">
+    <value>DE</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartRow2Column0" xml:space="preserve">
+    <value>FR</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartRow3Column0" xml:space="preserve">
+    <value>RU</value>
+  </data>
+  <data name="Template_TitleAndChart_ChartRow4Column0" xml:space="preserve">
+    <value>SP</value>
+  </data>
+  <data name="Template_TitleAndChart_Description" xml:space="preserve">
+    <value>Distribution by country, as of November 2014.</value>
+  </data>
+  <data name="Template_TitleAndChart_Title" xml:space="preserve">
+    <value>Wikipedia Articles</value>
+  </data>
+  <data name="Template_TitleOnly" xml:space="preserve">
+    <value>Title only</value>
+  </data>
+  <data name="PublishTarget_Iframe" xml:space="preserve">
+    <value>IFrame</value>
+  </data>
+  <data name="PublishTarget_Url" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="PublishTarget_Width" xml:space="preserve">
+    <value>Container width</value>
+  </data>
+  <data name="PublishTarget_WidthLabel" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="PublishTarget_WordPress" xml:space="preserve">
+    <value>WordPress</value>
+  </data>
+  <data name="CannotShareInThisMode" xml:space="preserve">
+    <value>Cannot share in this mode.</value>
+  </data>
+  <data name="ClearSearch" xml:space="preserve">
+    <value>Clear search</value>
+  </data>
+  <data name="SearchIcons" xml:space="preserve">
+    <value>Search for icons</value>
+  </data>
+  <data name="NotSupporterBrowser" xml:space="preserve">
+    <value>Not supported browser</value>
+  </data>
+  <data name="NotSupporterBrowser_Description" xml:space="preserve">
+    <value>Looks like you are using web browser which we don't currently support. Feel free to switch to either &lt;a href="https://www.google.com/chrome/browser/"&gt;Chrome&lt;/a&gt; or &lt;a href="https://www.mozilla.org/en-US/firefox/new/"&gt;Firefox&lt;/a&gt; for the best Sprites editor experience.</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="BackgroundImage_Auto" xml:space="preserve">
+    <value>Choose image</value>
+  </data>
+  <data name="ChooseDifferentBackgroundImage" xml:space="preserve">
+    <value>Change image</value>
+  </data>
+  <data name="ClearBackgroundImage" xml:space="preserve">
+    <value>Clear background image</value>
+  </data>
+  <data name="BackgroundImageUploadError" xml:space="preserve">
+    <value>This background image can't be uploaded. Make sure that the file is less than 1 MB in size and that you're choosing the correct format (supported formats are JPG, PNG, GIF and BMP).</value>
+  </data>
+  <data name="Theme_Symphony_1" xml:space="preserve">
+    <value>Symphony 1</value>
+  </data>
+  <data name="Theme_Symphony_2" xml:space="preserve">
+    <value>Symphony 2</value>
+  </data>
+  <data name="Theme_Symphony_3" xml:space="preserve">
+    <value>Symphony 3</value>
+  </data>
+  <data name="Component_Text_Width" xml:space="preserve">
+    <value>Maximum text width</value>
+  </data>
+  <data name="MoreFormattingOptions" xml:space="preserve">
+    <value>More formatting options</value>
+  </data>
+  <data name="Text_AlignCenter" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Text_AlignJustify" xml:space="preserve">
+    <value>Justify</value>
+  </data>
+  <data name="Text_AlignLeft" xml:space="preserve">
+    <value>Align left</value>
+  </data>
+  <data name="Text_AlignRight" xml:space="preserve">
+    <value>Align right</value>
+  </data>
+  <data name="Text_Indent" xml:space="preserve">
+    <value>Increase indentation</value>
+  </data>
+  <data name="Text_MakeOrderedList" xml:space="preserve">
+    <value>Make ordered list</value>
+  </data>
+  <data name="Text_MakeUnorderedList" xml:space="preserve">
+    <value>Make unordered list</value>
+  </data>
+  <data name="Text_Subscript" xml:space="preserve">
+    <value>Subscript</value>
+  </data>
+  <data name="Text_Superscript" xml:space="preserve">
+    <value>Superscript</value>
+  </data>
+  <data name="Text_Unindent" xml:space="preserve">
+    <value>Decrease indentation</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="ImageFormat" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="ImageFormat_Jpg" xml:space="preserve">
+    <value>JPG</value>
+  </data>
+  <data name="ImageFormat_Pdf" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Collaboration" xml:space="preserve">
+    <value>Collaboration</value>
+  </data>
+  <data name="Collaboration_Collaborators" xml:space="preserve">
+    <value>Collaborators</value>
+  </data>
+  <data name="Collaboration_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="NewPresentation_Short" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Collaboration_EditCollaborators" xml:space="preserve">
+    <value>Edit collaborators</value>
+  </data>
+  <data name="Collaboration_Add" xml:space="preserve">
+    <value>Add collaborator</value>
+  </data>
+  <data name="Collaboration_AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Collaboration_AddSearch" xml:space="preserve">
+    <value>Enter email address</value>
+  </data>
+  <data name="Collaboration_NoCollaborators" xml:space="preserve">
+    <value>No collaborators.</value>
+  </data>
+  <data name="Collaboration_PresentationName" xml:space="preserve">
+    <value>Infographic</value>
+  </data>
+  <data name="Collaboration_RemoveCollaborator" xml:space="preserve">
+    <value>Remove this person from the list of collaborators</value>
+  </data>
+  <data name="SharedWithMe" xml:space="preserve">
+    <value>Infographics that are shared with me</value>
+  </data>
+  <data name="Chat_Anonymous" xml:space="preserve">
+    <value>Anonymous</value>
+  </data>
+  <data name="Chat_ParticipantJoined" xml:space="preserve">
+    <value>&lt;strong&gt;{0}&lt;/strong&gt; has joined.</value>
+  </data>
+  <data name="Chat_ParticipantLeft" xml:space="preserve">
+    <value>&lt;strong&gt;{0}&lt;/strong&gt; has left.</value>
+  </data>
+  <data name="Chart_ParticipantIsOnline" xml:space="preserve">
+    <value>&lt;strong&gt;{0}&lt;/strong&gt; is online.</value>
+  </data>
+  <data name="Chat_ContainsNewMessages" xml:space="preserve">
+    <value>There are new messages</value>
+  </data>
+  <data name="Chat_Empty" xml:space="preserve">
+    <value>Start a conversation by &lt;a href="javascript:void(0);" data-bind="click: function (){ Ifly.Editor.getInstance().userMenu.toggleVisibility(); $data.toggleVisibility(); }"&gt;sharing&lt;/a&gt; this infographic with your teammates.</value>
+  </data>
+  <data name="Chat_Me" xml:space="preserve">
+    <value>Me</value>
+  </data>
+  <data name="Chat_TeamChat" xml:space="preserve">
+    <value>Team chat</value>
+  </data>
+  <data name="Chat_TypeYourMessage" xml:space="preserve">
+    <value>Type your message...</value>
+  </data>
+  <data name="Collaboration_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Collaboration_About_Text" xml:space="preserve">
+    <value>&lt;p&gt;The collaborators will be able to view and edit the given infographic. If the person does not have a Sprites account, he will be asked to create one first. You may revoke collaborator access at any time.&lt;/p&gt;</value>
+  </data>
+  <data name="Collaboration_AboutModal" xml:space="preserve">
+    <value>About collaboration</value>
+  </data>
+  <data name="MapType_Canada" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="MapType_France" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="MapType_Germany" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="MapType_India" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="MapType_Italy" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="SearchMedia" xml:space="preserve">
+    <value>Search for images</value>
+  </data>
+  <data name="SelectMedia" xml:space="preserve">
+    <value>Select image</value>
+  </data>
+  <data name="NoImagesFound" xml:space="preserve">
+    <value>No images found.</value>
+  </data>
+  <data name="SelectImage" xml:space="preserve">
+    <value>Select image</value>
+  </data>
+  <data name="SelectImageFrom" xml:space="preserve">
+    <value>Select from</value>
+  </data>
+  <data name="SelectImageFrom_Dropbox" xml:space="preserve">
+    <value>Dropbox</value>
+  </data>
+  <data name="SelectImageFrom_GoogleDrive" xml:space="preserve">
+    <value>Google Drive</value>
+  </data>
+  <data name="SelectImage_ShareWarning_Drive" xml:space="preserve">
+    <value>You've selected a file from Google Drive. Make sure &lt;a target="_blank" href="https://support.google.com/drive/answer/2494886?hl=en"&gt;it's shared&lt;/a&gt;  publicly.</value>
+  </data>
+  <data name="UploadButton" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="MediaSourceType_Flickr" xml:space="preserve">
+    <value>Flickr</value>
+  </data>
+  <data name="MediaSourceType_MyLibrary" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="Publish_Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Publish_YouTube" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="Video_SendTo" xml:space="preserve">
+    <value>Send to</value>
+  </data>
+  <data name="Video_SendTo_Facebook_Title" xml:space="preserve">
+    <value>Automatically upload to Facebook upon completion</value>
+  </data>
+  <data name="Video_SendTo_YouTube_Title" xml:space="preserve">
+    <value>Automatically upload to YouTube upon completion</value>
+  </data>
+  <data name="Video_Uploading" xml:space="preserve">
+    <value>Uploading your video...</value>
+  </data>
+  <data name="IconSourceType_Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="IconSourceType_Iconfinder" xml:space="preserve">
+    <value>Iconfinder</value>
+  </data>
+  <data name="PresentPresentation" xml:space="preserve">
+    <value>Present</value>
+  </data>
+  <data name="PresentUrl" xml:space="preserve">
+    <value>Presentation URL</value>
+  </data>
+  <data name="Present_Animations" xml:space="preserve">
+    <value>Animations</value>
+  </data>
+  <data name="Present_Animations_Help" xml:space="preserve">
+    <value>Choose how rich the animations should be when you are presenting</value>
+  </data>
+  <data name="Present_Animations_Minimal" xml:space="preserve">
+    <value>Minimal</value>
+  </data>
+  <data name="Present_Animations_None" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Present_Animations_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PreviewAndPresent" xml:space="preserve">
+    <value>View &amp; present</value>
+  </data>
+  <data name="PublishOptions_Present" xml:space="preserve">
+    <value>Present</value>
+  </data>
+  <data name="Allow" xml:space="preserve">
+    <value>Allow</value>
+  </data>
+  <data name="GoFullScreen" xml:space="preserve">
+    <value>Yes, go fullscreen</value>
+  </data>
+  <data name="GoFullScreen_Question" xml:space="preserve">
+    <value>Would you like to go fullscreen?</value>
+  </data>
+  <data name="NoThanks" xml:space="preserve">
+    <value>No, thanks</value>
+  </data>
+  <data name="Present_AllowFullscreen" xml:space="preserve">
+    <value>Fullscreen mode</value>
+  </data>
+  <data name="Present_AllowFullscreen_Help" xml:space="preserve">
+    <value>Allow Sprites to ask to go fullscreen</value>
+  </data>
+  <data name="VideoPlaybackHint" xml:space="preserve">
+    <value>Video not playing? Choose medium quality.</value>
+  </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="ArchivedPresentations" xml:space="preserve">
+    <value>Infographics that I've archived</value>
+  </data>
+  <data name="UnArchive" xml:space="preserve">
+    <value>Unarchive</value>
+  </data>
+  <data name="Archive_Hide" xml:space="preserve">
+    <value>hide</value>
+  </data>
+  <data name="Archive_Show" xml:space="preserve">
+    <value>show</value>
+  </data>
+  <data name="CreateTheme" xml:space="preserve">
+    <value>Create theme</value>
+  </data>
+  <data name="CreateTheme_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="CreateTheme_Create" xml:space="preserve">
+    <value>Create theme</value>
+  </data>
+  <data name="CreateTheme_Creating" xml:space="preserve">
+    <value>One moment...</value>
+  </data>
+  <data name="CreateTheme_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ClearImage" xml:space="preserve">
+    <value>Clear image</value>
+  </data>
+  <data name="CreateTheme_AccentColor1" xml:space="preserve">
+    <value>Accent color #1</value>
+  </data>
+  <data name="CreateTheme_AccentColor2" xml:space="preserve">
+    <value>Accent color #2</value>
+  </data>
+  <data name="CreateTheme_AccentColor3" xml:space="preserve">
+    <value>Accent color #3</value>
+  </data>
+  <data name="CreateTheme_AccentColor4" xml:space="preserve">
+    <value>Accent color #4</value>
+  </data>
+  <data name="CreateTheme_BackgroundColor" xml:space="preserve">
+    <value>Background color</value>
+  </data>
+  <data name="CreateTheme_BackgroundImage" xml:space="preserve">
+    <value>Background image</value>
+  </data>
+  <data name="CreateTheme_BaseTheme" xml:space="preserve">
+    <value>Existing theme</value>
+  </data>
+  <data name="CreateTheme_Confirmation" xml:space="preserve">
+    <value>Name it and start using it!</value>
+  </data>
+  <data name="CreateTheme_Confirmation_Description" xml:space="preserve">
+    <value>Finally, give your theme a good name and click "Create theme" to add it to Sprites.</value>
+  </data>
+  <data name="CreateTheme_Customization" xml:space="preserve">
+    <value>Give it a personal touch</value>
+  </data>
+  <data name="CreateTheme_Customization_Description" xml:space="preserve">
+    <value>Personalize your theme by changing font, accent colors and background.</value>
+  </data>
+  <data name="CreateTheme_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="CreateTheme_SelectTemplate" xml:space="preserve">
+    <value>Start from existing theme</value>
+  </data>
+  <data name="CreateTheme_SelectTemplate_Description" xml:space="preserve">
+    <value>Pick an existing theme that you like most. You'll be able to customize it in the next step.</value>
+  </data>
+  <data name="CreateTheme_ThemeName" xml:space="preserve">
+    <value>Theme name</value>
+  </data>
+  <data name="Example" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="FontPreviewText" xml:space="preserve">
+    <value>The quick brown fox jumps over the lazy dog.</value>
+  </data>
+  <data name="ImageSelector_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="CopyOf" xml:space="preserve">
+    <value>Copy of</value>
+  </data>
+  <data name="CreateTheme_InspireMe" xml:space="preserve">
+    <value>Help me choose colors</value>
+  </data>
+  <data name="CreateTheme_Logo" xml:space="preserve">
+    <value>Business logo</value>
+  </data>
+  <data name="FontSelector_SearchTip" xml:space="preserve">
+    <value>Start typing to search for fonts.</value>
+  </data>
+  <data name="ThemeSelector_CreateTheme" xml:space="preserve">
+    <value>Make your own</value>
+  </data>
+  <data name="ThemeSelector_UploadTheme" xml:space="preserve">
+    <value>Upload CSS file</value>
+  </data>
+  <data name="CreateTheme_NameIsNotUnique" xml:space="preserve">
+    <value>There's already a theme with this name. It will be overwritten by the current one.</value>
+  </data>
+  <data name="CreateTheme_FontColor" xml:space="preserve">
+    <value>Font color</value>
+  </data>
+  <data name="Help_CloneSlide" xml:space="preserve">
+    <value>Copies the title and all the elements from the current slide and puts them onto the new one.</value>
+  </data>
+  <data name="Help_CloneInfographic" xml:space="preserve">
+    <value>Copies the title, theme and all the slides from the current infographic and puts them onto the new one.</value>
+  </data>
+  <data name="DropFilesHere" xml:space="preserve">
+    <value>Drop images here</value>
+  </data>
+  <data name="Shortcut_Magnet" xml:space="preserve">
+    <value>Click to bring element forward.</value>
+  </data>
+  <data name="Shortcut_MouseMove" xml:space="preserve">
+    <value>Mouse move</value>
+  </data>
+  <data name="VoiceOver_AddVoiceOver" xml:space="preserve">
+    <value>Record voice-over</value>
+  </data>
+  <data name="VoiceOver_ClickToStartRecording" xml:space="preserve">
+    <value>Click to start recording.</value>
+  </data>
+  <data name="VoiceOver_LoadingPresentation" xml:space="preserve">
+    <value>Loading your infographic...</value>
+  </data>
+  <data name="VoiceOver_RecordVoiceOver" xml:space="preserve">
+    <value>Record voice-over</value>
+  </data>
+  <data name="VoiceOver_StartRecording" xml:space="preserve">
+    <value>Start recording</value>
+  </data>
+  <data name="VoiceOver_MicrophoneRequred" xml:space="preserve">
+    <value>Please allow Sprites to use microhpone.</value>
+  </data>
+  <data name="VoiceOver_MicrophoneRequredError" xml:space="preserve">
+    <value>Can't use your microphone. Please check web page media settings.</value>
+  </data>
+  <data name="VoiceOver_TimeRemaining" xml:space="preserve">
+    <value>Time remaining</value>
+  </data>
+  <data name="VoiceOver_RestartRecording" xml:space="preserve">
+    <value>Restart presentation</value>
+  </data>
+  <data name="SaveRecording" xml:space="preserve">
+    <value>Save recording</value>
+  </data>
+  <data name="SavingRecording" xml:space="preserve">
+    <value>Saving recording...</value>
+  </data>
+  <data name="VoiceOver_ChangeVoiceOver" xml:space="preserve">
+    <value>Change voice-over</value>
+  </data>
+  <data name="VoiceOver_Download" xml:space="preserve">
+    <value>Download as audio file</value>
+  </data>
+  <data name="VoiceOver_Remove" xml:space="preserve">
+    <value>Do not use voice-over</value>
+  </data>
+  <data name="CopyToDifferentInfographic" xml:space="preserve">
+    <value>Copy to a different infographic</value>
+  </data>
+  <data name="TargetPresentation" xml:space="preserve">
+    <value>Copy to</value>
+  </data>
+  <data name="RowsToColumns" xml:space="preserve">
+    <value>Rotate contents</value>
+  </data>
+  <data name="TableOptions" xml:space="preserve">
+    <value>Table options</value>
+  </data>
+  <data name="Component_Image_Rotation" xml:space="preserve">
+    <value>Rotation angle</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>Help center</value>
+  </data>
+  <data name="Help_CheckIndex" xml:space="preserve">
+    <value>Check &lt;a href="javascript:void(0);" data-bind="click: function() { $data.loadTopic('index'); }"&gt;table of contents&lt;/a&gt; for complete list of help topics.</value>
+  </data>
+  <data name="Help_CreatingNewInfographic" xml:space="preserve">
+    <value>Creating new infographic</value>
+  </data>
+  <data name="Help_ExploringBuildingBlocks" xml:space="preserve">
+    <value>Exploring building blocks</value>
+  </data>
+  <data name="Help_GettingStarted" xml:space="preserve">
+    <value>Getting started</value>
+  </data>
+  <data name="Help_GoBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Help_Loading" xml:space="preserve">
+    <value>One moment, please...</value>
+  </data>
+  <data name="Help_ManagingSlides" xml:space="preserve">
+    <value>Managing slides</value>
+  </data>
+  <data name="Help_NoTopic" xml:space="preserve">
+    <value>Topic not found...</value>
+  </data>
+  <data name="Help_NoTopic_Description" xml:space="preserve">
+    <value>&lt;p&gt;Thanks for checking in. This particular help topic has not been put together yet but we are working on it!&lt;/p&gt;&lt;p&gt; In the meantime, don't hesitate to email us at &lt;a target="_blank" href="mailto:contact@spritesapp.com"&gt;contact@spritesapp.com&lt;/a&gt; and we will help you out!&lt;/p&gt;</value>
+  </data>
+  <data name="Help_PublishingYourInfographic" xml:space="preserve">
+    <value>Publishing an infographic</value>
+  </data>
+  <data name="Help_Thanks" xml:space="preserve">
+    <value>Happy storytelling!</value>
+  </data>
+  <data name="Help_Welcome" xml:space="preserve">
+    <value>Welcome to Sprites!</value>
+  </data>
+  <data name="Help_Welcome_Description" xml:space="preserve">
+    <value>Sprites is a tool for creating beautiful and engaging infographics and online presentations. </value>
+  </data>
+  <data name="SearchTopics" xml:space="preserve">
+    <value>Search for topics</value>
+  </data>
+  <data name="Help_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Help_NoSearchResults" xml:space="preserve">
+    <value>Nothing found...</value>
+  </data>
+  <data name="Help_NoSearchResults_Description" xml:space="preserve">
+    <value>&lt;p&gt;No topics match your search. Maybe, try out different keywords?&lt;/p&gt;</value>
+  </data>
+  <data name="Help_EmailUs" xml:space="preserve">
+    <value>Still have a question? &lt;a href="mailto:contact@spritesapp.com" target="_blank"&gt;Get in touch!&lt;/a&gt;</value>
+  </data>
+  <data name="Help_ClickToView" xml:space="preserve">
+    <value>Click to enlarge this image</value>
+  </data>
+  <data name="Help_GoHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Help_RelatedImages" xml:space="preserve">
+    <value>Related images</value>
+  </data>
+</root>

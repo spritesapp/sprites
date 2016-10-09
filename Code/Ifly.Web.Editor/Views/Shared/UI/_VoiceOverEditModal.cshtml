@@ -1,0 +1,70 @@
+﻿<div id="voice-over-edit" class="voice-over-edit-modal" title="@Ifly.Resources.Editor.VoiceOver_RecordVoiceOver" style="display: none">
+    <div class="voice-over-edit-outer" data-bind="with: data">
+        <div class="presentation-view-outer">
+            <div class="presentation-view"></div>
+            <div class="presentation-view-overlay">
+                <span>@Ifly.Resources.Editor.VoiceOver_LoadingPresentation</span>
+                @{
+                    var progressViewData = new ViewDataDictionary();
+
+                    progressViewData.Add("Id", "voice-over-progress");
+                    progressViewData.Add("IsGlobal", false);
+                    progressViewData.Add("IsActive", true);
+                }
+
+                @Html.Partial("UI/_Progress", progressViewData)
+            </div>
+
+            <div class="presentation-view-start-recording" data-bind="css: { 'inactive': recorderStatus() != 1 }">
+                <span data-bind="visible: recorderStatus() == 3" class="text">@Ifly.Resources.Editor.VoiceOver_MicrophoneRequred</span>
+                <span data-bind="visible: recorderStatus() == 2" class="text error">@Ifly.Resources.Editor.VoiceOver_MicrophoneRequredError</span>
+                <span data-bind="click: beginRecording, visible: recorderStatus() == 1" class="text">@Ifly.Resources.Editor.VoiceOver_ClickToStartRecording</span>
+                <button data-bind="click: beginRecording, attr: { 'disabled': recorderStatus() != 1 }" title="@Ifly.Resources.Editor.VoiceOver_StartRecording">
+                    <i class="icon icon-microphone"></i>
+                </button>
+            </div>
+            <div class="presentation-view-countdown">
+                <div class="count-down">
+                    <div class="circle">
+                        <div class="mask full">
+                            <div class="fill"></div>
+                        </div>
+                        <div class="mask half">
+                            <div class="fill"></div>
+                            <div class="fill fix"></div>
+                        </div>
+                    </div>
+                    <div class="inset"><span class="showing" data-bind="text: countDown"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="presentation-view-controls">
+            <ul>
+                <li class="separator-after">
+                    <button class="button" data-bind="attr: { 'disabled': isCapturingRecording }, click: function () { $data.beginRecording(true); }" title="@Ifly.Resources.Editor.VoiceOver_RestartRecording">
+                        <i class="icon icon-undo"></i>
+                    </button>
+                </li>
+                <li title="@Ifly.Resources.Editor.VoiceOver_TimeRemaining" class="separator-after">
+                    <button class="button label time-remaining">
+                        <i class="icon icon-time"></i>
+                        <span class="text" data-bind="css: { 'inactive': timeRemaining() == '0:00' }, text: timeRemaining"></span>
+                    </button>
+                </li>
+                <li class="equalizer">
+                    <canvas width="40" height="20"></canvas>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('VoiceOverEditModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.SaveRecording',
+            saving: '@Ifly.Resources.Editor.SavingRecording',
+            cancel: '@Ifly.Resources.Editor.Cancel'
+        }
+    });
+</script>

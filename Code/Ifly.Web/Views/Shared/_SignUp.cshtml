@@ -1,0 +1,91 @@
+﻿<div id="signup" class="modal-window signup-form">
+    <div class="modal-content-outer">
+        <h3 class="modal-title">@Ifly.Resources.Frontpage.NewAccount</h3>
+        <div class="modal-content account-wrapper">
+            <div class="account-details signup-details">
+                <div class="form-wrapper">
+                    <div class="signup-inprogress">
+                        <h3>@Ifly.Resources.Frontpage.SignUp</h3>
+                        <div class="form">
+                            <div class="form-field account-details-name validatable">
+                                <div class="form-field-label">
+                                    <label for="user-name">@Ifly.Resources.Frontpage.Account_YourName</label>
+                                    <span>@Ifly.Resources.Frontpage.Account_YourName_Description</span>
+                                    <i class="validation-message hidden">@Ifly.Resources.Frontpage.Account_YourName_Required</i>
+                                </div>
+                                <div class="form-field-value">
+                                    <input id="user-name" type="text" name="Name" />
+                                </div>
+                            </div>
+                            <div class="form-field account-details-email validatable">
+                                <div class="form-field-label">
+                                    <label for="user-email">@Ifly.Resources.Frontpage.Account_YourEmail</label>
+                                    <span>@Ifly.Resources.Frontpage.Account_YourEmail_Description</span>
+                                    <i class="validation-message hidden">@Ifly.Resources.Frontpage.Account_YourEmail_Required</i>
+                                    <i class="validation-message hidden existing-email conditional">@Ifly.Resources.Frontpage.Account_YourEmail_Exists</i>
+                                </div>
+                                <div class="form-field-value">
+                                    <input id="user-email" type="text" name="Email" />
+                                </div>
+                            </div>
+                            <div class="form-field account-details-password validatable">
+                                <div class="form-field-label">
+                                    <label for="user-password">@Ifly.Resources.Frontpage.Account_YourPassword</label>
+                                    <span>@Ifly.Resources.Frontpage.Account_YourPassword_Description</span>
+                                    <i class="validation-message hidden">@Ifly.Resources.Frontpage.Account_YourPassword_Required</i>
+                                </div>
+                                <div class="form-field-value">
+                                    <input id="user-password" type="password" name="Password" />
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-field-label">
+                                    <label>@Ifly.Resources.Frontpage.Account_YourPlan</label>
+                                    <span>@Ifly.Resources.Frontpage.Account_YourPlan_Description</span>
+                                </div>
+                                <div class="form-field-value">
+                                    <ul id="user-plan" class="checkable-list">
+                                        <li>
+                                            <input type="radio" name="user-plan" id="user-plan-free" value="0" checked="checked" />
+                                            <label for="user-plan-free">@Ifly.Resources.Frontpage.Plan_Free</label>
+                                        </li>
+                                        @*<li>
+                                            <input type="radio" name="user-plan" id="user-plan-pro" value="1" />
+                                            <label for="user-plan-pro">@Ifly.Resources.Frontpage.Plan_Pro</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="user-plan" id="user-plan-agency" value="2" />
+                                            <label for="user-plan-agency">@Ifly.Resources.Frontpage.Plan_Agency</label>
+                                        </li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="user-signup-subscription-type" value="" />
+
+                        <div class="rotator">
+                            <div class="signin">
+                                @Html.Raw(Ifly.Resources.Frontpage.AlreadyHaveAccount)
+                            </div>
+                            <div class="upgrade">
+                                @Html.Raw(Ifly.Resources.Frontpage.UpgradePlan)
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="signup-success">
+                        <h3>@Ifly.Resources.Frontpage.SignUp_Success</h3>
+                        <p>@Ifly.Resources.Frontpage.SignUp_Success_Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <input type="button" id="account-details-save" class="primary" onclick="Ifly.App.getInstance().trySignUp();" data-text-busy="@Ifly.Resources.Frontpage.OneMoment" data-text-normal="@Ifly.Resources.Frontpage.CreateAccount" data-text-success="@Ifly.Resources.Frontpage.CreateAccount" value="@Ifly.Resources.Frontpage.CreateAccount" />
+            <input type="button" class="secondary" onclick="Ifly.App.getInstance().revert();" value="@Ifly.Resources.Frontpage.Close" />
+        </div>
+    </div>
+</div>
+

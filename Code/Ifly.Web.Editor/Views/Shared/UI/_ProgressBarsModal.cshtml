@@ -1,0 +1,20 @@
+﻿<div id="progress-bars" class="progress-bars" title="@Ifly.Resources.Editor.EditProgressBars" style="display: none">
+    <div class="form">
+        <div class="map-annotations-outer" data-bind="with: data">
+            @Html.Partial("UI/_DataTableView", new { ClientSideModel = "bars", FixedColumns = 3, CssClass = "bars-table", FirstCellPlaceholder = string.Empty })
+            <div class="dimmed block center clear">@Ifly.Resources.Editor.EmptyRowsWillTrim</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('ProgressBarsModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            columnDescription: '@Ifly.Resources.Editor.Description',
+            columnPercentage: '@Ifly.Resources.Editor.Percentage',
+            columnColor: '@Ifly.Resources.Editor.Color'
+        }
+    });
+</script>

@@ -1,0 +1,58 @@
+﻿<div id="presentation-settings" title="@Ifly.Resources.Editor.PresentationSettings" style="display: none">
+    <div class="form" data-bind="with: data">
+        <div>
+            <label for="presentation-title">@(Ifly.Resources.Editor.PresentationTitle):</label>
+            <input id="presentation-title" type="text" data-bind="value: title, valueUpdate: 'afterkeydown', attr: { disabled: !$parent.enabled() }, event: { keypress: function (data, event) { return $parent.onKeyPress(event); } }" />
+        </div>
+
+        <div class="no-overflow">
+            <label>@(Ifly.Resources.Editor.PresentationPalette):</label>
+            @Html.Partial("UI/_ThemeSelector", new { EnableActionButtons = Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic && !Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User) })
+        </div>
+
+        @if (!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User))
+        {
+            <div class="separator line" data-bind="visible: (isNew() && existingPresentations().length > 0)"></div>
+        }
+
+        <div data-bind="visible: (isNew() && existingPresentations().length > 0)" class="no-overflow">
+            <label>@(Ifly.Resources.Editor.MyOtherPresentations):</label>
+            <div class="dropdown" tabindex="0" id="existing-presentations">
+                <span class="dropdown-arrow icon-angle-down"></span>
+                <span class="dropdown-active">@Ifly.Resources.Editor.SelectToOpen</span>
+                <div class="dropdown-menu">
+                    <ul data-bind="foreach: existingPresentations">
+                        <li data-bind="text: name, click: function (data, e) { $parent.onPresentationSelected(data, e); }"></li>
+                    </ul>
+                </div>
+            </div>
+
+            @if (!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User))
+            {
+                <button data-bind="click: function (data, e) { $data.onMyAccountClicked(data, e); }" class="my-account icon-gear" title="@Ifly.Resources.Editor.MyAccount"></button>
+            }
+        </div>
+
+        @if (!Ifly.Utils.DemoPrincipal.IsDemo(Ifly.ApplicationContext.Current.User) && Ifly.ApplicationContext.Current.User.Subscription.Type != Ifly.SubscriptionType.Basic)
+        {
+            @Html.Partial("UI/_ImageSelector", new { Label = Ifly.Resources.Editor.BackgroundImage, BindingExpression = "with: backgroundImageSelector, visible: !isNew()", Preview = true })
+
+    <button class="infographic-clone-button" data-bind="visible: !isNew(), click: beginClonePresentation, tooltip: { text: '@Ifly.Resources.Editor.Help_CloneInfographic', title: '@Ifly.Resources.Editor.CloneInfographic', icon: 'copy' }">
+        <i class="icon-copy"></i><span>@Ifly.Resources.Editor.Clone</span>
+    </button>
+        }
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('PresentationSettingsModal', {
+        terminology: {
+            save: '@Ifly.Resources.Editor.Save',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            saving: '@Ifly.Resources.Editor.Saving',
+            newPresentation: '@Ifly.Resources.Editor.NewPresentation',
+            createPresentation: '@Ifly.Resources.Editor.CreatePresentation',
+            presentationSettings: '@Ifly.Resources.Editor.PresentationSettings'
+        }
+    });
+</script>

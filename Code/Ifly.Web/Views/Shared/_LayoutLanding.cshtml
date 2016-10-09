@@ -1,0 +1,382 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "landing";
+}
+
+@section scripts {
+    @RenderSection("scripts", false)
+}
+
+@section footer {
+    @RenderSection("footer", false)
+}
+
+<div class="primary-stripe" style="opacity: 0"></div>
+
+<div id="sign-in">
+    <a href="javascript:void(0);" rel="nofollow" onclick="Ifly.App.getInstance().start({ isLoggedIn: @((Ifly.ApplicationContext.Current.User != null).ToString().ToLowerInvariant()) });"><span>@Ifly.Resources.Frontpage.SignIn</span></a>
+</div>
+
+@Html.Partial("_FeaturesDetailed")
+@Html.Partial("_PricingFAQ")
+
+@*<div id="ticker" style="opacity: 0; display: none">
+    <div tabindex="0" class="button">
+        <span class="activator" title="@Ifly.Resources.Frontpage.NewsAndUpdates">
+            <span class="overlay"></span>
+
+            <svg class="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850" version="1.1" width="100%" height="100%" style="shape-rendering:geometricPrecision;">
+                <g transform="matrix(1,0,0,-1,98.711864,1297.8644)">
+                    <path d="m 848,-160 q 0,16 -16,16 -59,0 -101.5,42.5 Q 688,-59 688,0 688,16 672,16 656,16 656,0 656,-73 707.5,-124.5 759,-176 832,-176 q 16,0 16,16 z m 816,288 q 0,-52 -38,-90 -38,-38 -90,-38 h -448 q 0,-106 -75,-181 -75,-75 -181,-75 -106,0 -181,75 -75,75 -75,181 H 128 Q 76,0 38,38 0,76 0,128 190,289 287,525.5 384,762 384,1024 q 0,165 96,262 96,97 264,117 -8,18 -8,37 0,40 28,68 28,28 68,28 40,0 68,-28 28,-28 28,-68 0,-19 -8,-37 168,-20 264,-117 96,-97 96,-262 0,-262 97,-498.5 Q 1474,289 1664,128 z"
+                        style="fill:#fff;fill-opacity:1" />
+                </g>
+            </svg>
+        </span>
+
+        <span class="news-and-updates">
+            <div class="split">
+                <div class="news-twitter separator">
+                    <h3><i class="icon-twitter"></i><a href="https://www.twitter.com/spritesapp">@Ifly.Resources.Frontpage.News_Twitter</a></h3>
+
+                    @{
+                        var tweets = Ifly.Utils.Aggregation.TwitterTimeline.GetTweets("spritesapp", Ifly.Utils.Aggregation.WebSource.StandardCacheDuration).ToList();
+                        int tweetCount = tweets.Count, tweetMax = 5;
+                        
+                        if(tweetCount < tweetMax)
+                        {
+                            tweetMax = tweetCount;
+                        }
+                    }
+
+                    @if (tweetCount > 0)
+                    {
+                    <ul>
+                        @for (int i = 0; i < tweetMax; i++)
+                        {
+                            <li class="item_@(i + 1)">
+                                <span class="text">
+                                    @Html.Raw(tweets[i])
+                                </span>
+                                <i class="separator icon-ellipsis-horizontal"></i>
+                            </li>
+                        }
+                    </ul>
+                    }
+                    else
+                    {
+                        <div class="empty text">@Html.Raw(Ifly.Resources.Frontpage.News_NoTweets)</div>
+                    }
+                </div>
+                <div class="news-blog">
+                    <h3><i class="icon-pencil"></i><a href="http://blog.spritesapp.com">@Ifly.Resources.Frontpage.News_Blog</a></h3>
+
+                    @{
+                        var posts = Ifly.Utils.Aggregation.RssFeed.GetItems("http://blog.spritesapp.com/feed.xml", Ifly.Utils.Aggregation.WebSource.StandardCacheDuration).ToList();
+                        int postCount = posts.Count, postMax = 5;
+
+                        if (postCount < postMax)
+                        {
+                            postMax = postCount;
+                        }
+                    }
+
+                    @if (postCount > 0)
+                    {
+                    <ul>
+                        @for (int i = 0; i < postMax; i++)
+                        {
+                            <li class="item_@(i + 1)">
+                                <i class="icon-circle"></i>
+                                <a class="text" href="@posts[i].Url">@posts[i].Title</a>
+                            </li>
+                        }
+                    </ul>
+                    }
+                    else
+                    {
+                        <div class="empty text">@Html.Raw(Ifly.Resources.Frontpage.News_NoPosts)</div>
+                    }
+                </div>
+            </div>
+        </span>
+    </div>
+</div>*@
+
+<div id="cover" class="section" style="opacity: 0">
+    @RenderBody()
+    <a class="section-next section-next-pitch" href="/features" onclick="Ifly.App.getInstance().features(); return false;">@Ifly.Resources.Frontpage.LearnMore</a>
+</div>
+
+<div id="features" class="section section-relative" style="opacity: 0">
+    <div class="pitch">
+        <div class="pitch-row">
+            <div class="first">
+                <h3><i class="icon-thumbs-up-alt"></i>@Ifly.Resources.Frontpage.Pitch_1</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_1_Description)</p>
+            </div>
+            <div class="second">
+                <h3><i class="icon-heart-empty"></i>@Ifly.Resources.Frontpage.Pitch_2</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_2_Description)</p>
+            </div>
+            <div class="third">
+                <h3><i class="icon-spinner"></i>@Ifly.Resources.Frontpage.Pitch_3</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_3_Description)</p>
+            </div>
+        </div>
+        <div class="pitch-row">
+            <div class="first">
+                <h3><i class="icon-file-alt"></i>@Ifly.Resources.Frontpage.Pitch_4</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_4_Description)</p>
+            </div>
+            <div class="second">
+                <h3><i class="icon-tablet"></i>@Ifly.Resources.Frontpage.Pitch_5</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_5_Description)</p>
+            </div>
+            <div class="third">
+                <h3><i class="icon-code"></i>@Ifly.Resources.Frontpage.Pitch_6</h3>
+                <p>@Html.Raw(Ifly.Resources.Frontpage.Pitch_6_Description)</p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <input type="button" class="form-control" onclick="Ifly.App.getInstance().featuresDetailed(); return false;" value="@Ifly.Resources.Frontpage.SeeFullList" />
+            </div>
+        </div>
+    </div>
+    <a class="section-next section-next-video section-next-light" href="/video" onclick="Ifly.App.getInstance().video(); return false;">@Ifly.Resources.Frontpage.MakeVideos</a>
+</div>
+
+<div id="video" class="section section-relative" style="opacity: 0">
+    <div class="video-inner">
+        <h3>@Ifly.Resources.Frontpage.MakeVideoInfographics</h3>
+        <div class="video-pitch">
+            <div class="video-pitch-left">
+                <ul>
+                    <li><span class="icon icon-magic"></span><span class="text">@Ifly.Resources.Frontpage.VideoPitch_1</span></li>
+                    <li><span class="icon icon-volume-up"></span><span class="text">@Ifly.Resources.Frontpage.VideoPitch_2</span></li>
+                    <li><span class="icon icon-cloud-download"></span><span class="text">@Ifly.Resources.Frontpage.VideoPitch_3</span></li>
+                </ul>
+            </div>
+            <div class="video-pitch-right">
+                <div class="image" style="background-image: url('/Assets/img/video-snapshot.png');"></div>
+            </div>
+        </div>
+        <p class="watch-example">
+            <i class="icon icon-youtube-play"></i>
+            <span><a href="https://www.youtube.com/watch?v=aYLAg78qunY">@Ifly.Resources.Frontpage.WatchExampleInfographic</a></span>
+        </p>
+        <div class="form">
+            <div class="row">
+                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(2); return false;" value="@Ifly.Resources.Frontpage.StartMakingVideos" />
+            </div>
+        </div>
+    </div>
+    <a class="section-next section-next-examples section-next-light" href="/examples" onclick="Ifly.App.getInstance().examples(); return false;">@Ifly.Resources.Frontpage.Examples</a>
+</div>
+
+<div id="examples" class="section section-relative" style="opacity: 0">
+    <div class="examples-inner">
+        <h3>@Ifly.Resources.Frontpage.ExampleInfographics</h3>
+
+        <ul class="example-list">
+            <li>
+                <a href="https://spritesapp.com/view/embed/2465">
+                    <img src="@Url.Content("~/Assets/img/example-sleep.png")" title="@Ifly.Resources.Frontpage.Examples_Sleep" />
+                </a>
+                <h4><a href="https://spritesapp.com/view/embed/2465">@Ifly.Resources.Frontpage.Examples_Sleep</a></h4>
+                <p>
+                    @Ifly.Resources.Frontpage.Examples_Sleep_Description
+                </p>
+            </li>
+            <li>
+                <a href="https://spritesapp.com/view/embed/1825">
+                    <img class="dark" src="@Url.Content("~/Assets/img/example-dxb.png")" title="@Ifly.Resources.Frontpage.Examples_Dxb" />
+                </a>
+                <h4><a href="https://spritesapp.com/view/embed/1825">@Ifly.Resources.Frontpage.Examples_Dxb</a></h4>
+                <p>
+                    @Ifly.Resources.Frontpage.Examples_Dxb_Description
+                </p>
+            </li>
+            <li>
+                <a href="https://spritesapp.com/view/embed/3384">
+                    <img src="@Url.Content("~/Assets/img/example-internet.png")" title="@Ifly.Resources.Frontpage.Examples_Internet" />
+                </a>
+                <h4><a href="https://spritesapp.com/view/embed/3384">@Ifly.Resources.Frontpage.Examples_Internet</a></h4>
+                <p>
+                    @Ifly.Resources.Frontpage.Examples_Internet_Description
+                </p>
+            </li>
+            <li>
+                <a href="https://spritesapp.com/view/embed/9090">
+                    <img src="@Url.Content("~/Assets/img/example-coffee.png")" title="@Ifly.Resources.Frontpage.Examples_Coffee" />
+                </a>
+                <h4><a href="https://spritesapp.com/view/embed/9090">@Ifly.Resources.Frontpage.Examples_Coffee</a></h4>
+                <p>
+                    @Ifly.Resources.Frontpage.Examples_Coffee_Description
+                </p>
+            </li>
+        </ul>
+        <p class="tutorial">
+            @Html.Raw(Ifly.Resources.Frontpage.LearnHowTo)
+        </p>
+        <div class="form">
+            <div class="row">
+                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(0); return false;" value="@Ifly.Resources.Frontpage.MakeYourOwn" />
+            </div>
+        </div>
+    </div>
+    <a class="section-next section-next-pricing section-next-light" href="/pricing" onclick="Ifly.App.getInstance().pricing(); return false;">@Ifly.Resources.Frontpage.Pricing</a>
+</div>
+
+<div id="pricing" class="section section-relative" style="opacity: 0">
+    <div class="pricing-inner">
+        <h3>@Ifly.Resources.Frontpage.SubscriptionPlans</h3>
+        <ul class="plans">
+            <li class="free">
+                <div class="box">
+                    <h4>@Ifly.Resources.Frontpage.Plan_Free</h4>
+                    <div class="amount">
+                        <div class="figure">@Ifly.Resources.Frontpage.Plan_Free_Figure</div>
+                        <div class="transcript">@Ifly.Resources.Frontpage.Plan_Free_Transcript</div>
+                    </div>
+                    <div class="description">
+                        <p>@(Ifly.Resources.Frontpage.About):</p>
+                        <ul>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Free_Description</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <div class="form">
+                            <div class="row">
+                                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(0); return false;" value="@Ifly.Resources.Frontpage.Choose" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="pro">
+                <div class="box">
+                    <h4>@Ifly.Resources.Frontpage.Plan_Pro</h4>
+                    <div class="amount">
+                        <div class="figure"><span>@Html.Raw(Ifly.Resources.Frontpage.Plan_Pro_Figure)</span></div>
+                        <div class="transcript">@Html.Raw(Ifly.Resources.Frontpage.Plan_Pro_Transcript)</div>
+                    </div>
+                    <div class="description">
+                        <p>@(Ifly.Resources.Frontpage.About):</p>
+                        <ul>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature1</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature2</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature3</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature4</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature8</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature5</li>
+                            @*<li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature6</li>*@
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature7</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Pro_Feature9</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <div class="form">
+                            <div class="row">
+                                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(1); return false;" value="@Ifly.Resources.Frontpage.Choose" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="agency">
+                <div class="box">
+                    <h4>@Ifly.Resources.Frontpage.Plan_Agency</h4>
+                    <div class="amount">
+                        <div class="figure"><span>@Html.Raw(Ifly.Resources.Frontpage.Plan_Agency_Figure)</span></div>
+                        <div class="transcript">@Html.Raw(Ifly.Resources.Frontpage.Plan_Agency_Transcript)</div>
+                    </div>
+                    <div class="description">
+                        <p>@(Ifly.Resources.Frontpage.About):</p>
+                        <ul>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature1</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature2</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature5</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature4</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature6</li>
+                            <li><i class="icon-ok"></i>@Ifly.Resources.Frontpage.Plan_Agency_Feature3</li>
+                        </ul>
+                    </div>
+
+                    <div class="actions">
+                        <div class="form">
+                            <div class="row">
+                                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(2); return false;" value="@Ifly.Resources.Frontpage.Choose" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="pricing-toolbar">
+            <ul>
+                <li>
+                    <a href="/pricing/faq" onclick="Ifly.App.getInstance().pricingFAQ(); return false;">
+                        <i class="icon icon-question-sign"></i>
+                        <span>@Ifly.Resources.Frontpage.Pricing_Toolbar_FAQ</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="last" href="/contact" onclick="Ifly.App.getInstance().contact(); return false;">
+                        <i class="icon icon-rocket"></i>
+                        <span>@Ifly.Resources.Frontpage.Pricing_Toolbar_FreeTrial</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <a class="section-next section-next-testimonials section-next-light" href="/testimonials" onclick="Ifly.App.getInstance().testimonials(); return false;">@Ifly.Resources.Frontpage.WhatOurUsersSay</a>
+</div>
+
+<div id="testimonials" class="section section-relative" style="opacity: 0">
+    <div class="testimonials-inner">
+        <h3>@Ifly.Resources.Frontpage.WhatOurUsersSay_Long</h3>
+        <ul class="quotes">
+            <li>
+                <p class="quote">@Ifly.Resources.Frontpage.Testimonial_1</p>
+                <span class="author">@Html.Raw(Ifly.Resources.Frontpage.Testimonial_1_Author)</span>
+            </li>
+            <li class="middle">
+                <p class="quote">@Ifly.Resources.Frontpage.Testimonial_3</p>
+                <span class="author">@Html.Raw(Ifly.Resources.Frontpage.Testimonial_3_Author)</span>
+            </li>
+            <li>
+                <p class="quote">@Ifly.Resources.Frontpage.Testimonial_2</p>
+                <span class="author">@Html.Raw(Ifly.Resources.Frontpage.Testimonial_2_Author)</span>
+            </li>
+        </ul>
+        <div class="form">
+            <div class="row">
+                <input type="button" class="form-control" onclick="Ifly.App.getInstance().scrollAndSignUp(0); return false;" value="@Ifly.Resources.Frontpage.JoinFamily" />
+            </div>
+        </div>
+    </div>
+    
+    <a class="section-next section-next-contact section-next-light" href="/contact" onclick="Ifly.App.getInstance().contact(); return false;">@Ifly.Resources.Frontpage.Feedback</a>
+</div>
+
+<div id="contact" class="section" style="opacity: 0">
+    <div class="contact-inner">
+        <h3>@Ifly.Resources.Frontpage.Feedback</h3>
+        <p>@Html.Raw(Ifly.Resources.Frontpage.Feedback_Body)</p>
+        
+        <div class="form">
+            <div class="row fields-2">
+                <input type="text" id="feedback-name" class="form-field" placeholder="@Ifly.Resources.Frontpage.YourName" />
+                <input type="text" id="feedback-email" class="form-field form-field-last" placeholder="@Ifly.Resources.Frontpage.YourEmail" />
+            </div>
+            <div class="row">
+                <textarea id="feedback-text" class="form-field full-size" placeholder="@Ifly.Resources.Frontpage.YourMessage"></textarea>
+            </div>
+            <div class="row">
+                <input id="feedback-submit" type="button" class="form-field" data-text-normal="@Ifly.Resources.Frontpage.SendMessage" data-text-busy="@Ifly.Resources.Frontpage.SendingMessage" value="@Ifly.Resources.Frontpage.SendMessage" onclick="Ifly.App.getInstance().submitFeedback();" />
+                <span id="feedback-sent">@Ifly.Resources.Frontpage.MessageSent</span>
+            </div>
+        </div>    
+    </div>
+</div>

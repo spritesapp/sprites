@@ -1,0 +1,208 @@
+﻿@model Ifly.Web.Editor.Models.PresentationDisplayModel
+@{
+    Layout = null;
+    int presentationId = Ifly.PublishConfiguration.GetPresentationIdFromUri(Request.Url);
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@(!string.IsNullOrEmpty(Model.PresentationTitle) ? Model.PresentationTitle : "Sprites")</title>
+        <link rel="shortcut icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+        <link rel="icon" href="@Url.Content("/favicon.ico")" type="image/x-icon" />
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="@Ifly.Resources.Editor.CreatedWithSprites" />
+
+        <meta property="og:image" content="@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~/Assets/img/sprites-128x128.png"))" />
+        <meta property="og:description" content="@Ifly.Resources.Editor.CreatedWithSprites" />
+        <meta property="og:title" content="@Model.PresentationTitle" />
+        <meta property="og:url" content="@Model.PresentationUrl" />
+        <meta property="og:type" content="website" />
+
+        @Styles.Render("~/css/normalize")
+        @Styles.Render("~/css/embed")
+        
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/github")?theme=@Server.UrlEncode(Ifly.Layout.ThemeSource.GetThemeUrlFromRequest(HttpContext.Current.Request))" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/user" + (presentationId > 0 ? ("?presentationId=" + presentationId) : string.Empty))" />
+
+        @Styles.Render("~/css/progress")
+    </head>
+
+    <body class="player @(Model.IsCefConnected ? "cef" : null)">
+        <div class="orientation-change" style="display: none">
+            <div class="inner">
+                <i class="icon icon-mobile-phone"></i>
+                <h3>@Ifly.Resources.Editor.ChangeOrientationToLandscape</h3>
+            </div>
+        </div>
+
+        <div class="simple-response unpublished-presentation" style="display: none"><div>@Ifly.Resources.Editor.UnpublishedPresentation</div></div>
+
+        <div class="password-protect-background" style="display: none"></div>
+        <div class="password-protect" style="display: none">
+            <h3 class="password-protect-title">@Ifly.Resources.Editor.PasswordProtection</h3>
+            <div class="password-protect-body">
+                <p>@(Ifly.Resources.Editor.EnterPassword):</p>
+                <input type="password" class="password-protect-challenge" />
+                <span class="incorrect-password">@Ifly.Resources.Editor.IncorrectPassword</span>
+            </div>
+            <div class="password-protect-buttons">
+                <button data-text-loading="@Ifly.Resources.Editor.OneMoment" data-text-normal="@Ifly.Resources.Editor.Submit">@Ifly.Resources.Editor.Submit</button>
+            </div>
+        </div>
+
+        <div class="unsafe-content-background" style="display: none" data-aborted-text="@Ifly.Resources.Editor.UnsafeContent_Aborted"></div>
+        <div class="unsafe-content" style="display: none">
+            <h3 class="unsafe-content-title">@Ifly.Resources.Editor.UnsafeContent_Title</h3>
+            <div class="unsafe-content-body">
+                @Ifly.Resources.Editor.UnsafeContent_Description
+            </div>
+            <div class="unsafe-content-buttons">
+                <button data-response="0">@Ifly.Resources.Editor.UnsafeContent_Abort</button>
+                <button data-response="1">@Ifly.Resources.Editor.UnsafeContent_BlockUnsafeContentOnly</button>
+                <button data-response="2">@Ifly.Resources.Editor.UnsafeContent_Proceed</button>
+            </div>
+        </div>
+
+        <div class="full-screen-request-background" style="display: none"></div>
+        <div class="full-screen-request" style="display: none">
+            <h3 class="full-screen-request-title">@Ifly.Resources.Editor.Present_AllowFullscreen</h3>
+            <div class="full-screen-request-body">
+                <p>@Html.Raw(Ifly.Resources.Editor.GoFullScreen_Question)</p>
+            </div>
+            <div class="full-screen-request-buttons">
+                <button class="enter-fullscreen">@Ifly.Resources.Editor.GoFullScreen</button>
+                <button>@Ifly.Resources.Editor.NoThanks</button>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="canvas">
+            </div>
+
+            <span class="logo" onclick="javascript:location.href = '/';" title="Go to spritesapp.com" style="display: none">
+                <span class="subtext">
+                    Created with
+                    <span class="back"></span>
+                    <span class="front"></span>
+                </span>
+                <span class="brand-name">Sprites</span>
+                <span class="brand-url">spritesapp.com</span>
+            </span>
+
+            <span class="company-logo" style="display: none"></span>
+        </div>
+
+        <button style="display: none" class="playback-control backward icon-step-backward" title="@Ifly.Resources.Editor.PreviousSlide" onclick="Ifly.Models.Embed.Player.getInstance().controls.backward();"></button>
+        <button style="display: none" class="playback-control pause icon-pause" title="@Ifly.Resources.Editor.Pause" onclick="Ifly.Models.Embed.Player.getInstance().controls.pause();"></button>
+        <button style="display: none" class="playback-control play icon-play" title="@Ifly.Resources.Editor.Play" onclick="Ifly.Models.Embed.Player.getInstance().controls.play();"></button>
+        <button style="display: none" class="playback-control forward icon-step-forward" title="@Ifly.Resources.Editor.NextSlide" onclick="Ifly.Models.Embed.Player.getInstance().controls.forward();"></button>
+        <div style="display: none" class="playback-progress"><span class="playback-progress-fill"></span></div>
+        <div style="display: none" class="playback-ticker"></div>
+
+        <div style="display: none" class="share-and-repeat">
+            <div class="sar-cover"></div>
+            <div class="sar-content">
+                <div class="sar-outer">
+                    <div class="thanks">
+                        <h2>@Ifly.Resources.Editor.ThanksForWatching</h2>
+                    </div>
+
+                    <div class="sar-columns-wrapper">
+                        <div class="sar-columns">
+                            <div class="sar-share">
+                                <h3>@(Ifly.Resources.Editor.ShareThisInfographic):</h3>
+                                <div class="sar-section-content">
+                                    <div class="input-container">
+                                        <input type="text" spellcheck="false" autocomplete="off" readonly="readonly" onfocus="var elm = this; setTimeout(function() { elm.select(); }, 10);" 
+                                            value="@Ifly.PublishConfiguration.GetAbsoluteUri(Request.Url, Model.PresentationId).Replace("https://", string.Empty).Replace("http://", string.Empty)" data-url="@Ifly.PublishConfiguration.GetAbsoluteUri(Request.Url, Model.PresentationId)" />
+                                    </div>
+
+                                    <ul class="sar-share-options">
+                                        <li><a target="_blank" class="facebook icon-facebook-sign" title="@Ifly.Resources.Editor.Share_Facebook"></a></li>
+                                        <li><a target="_blank" class="twitter icon-twitter-sign" title="@Ifly.Resources.Editor.Share_Twitter"></a></li>
+                                        <li><a target="_blank" class="google-plus icon-google-plus-sign" title="@Ifly.Resources.Editor.Share_GooglePlus"></a></li>
+                                        <li><a target="_blank" class="linkedin icon-linkedin-sign" title="@Ifly.Resources.Editor.Share_LinkedIn"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sar-divider"><div></div></div>
+                            <div class="sar-repeat">
+                                <h3>@(Ifly.Resources.Editor.PlayAgain):</h3>
+                                <div class="sar-section-content">
+                                    <button class="icon-repeat"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sar-created-with">
+                            @Html.Raw(Ifly.Resources.Editor.CreatedWithSpritesShort)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Scripts.Render("~/js/app")
+        @Scripts.Render("~/js/embed")
+        @Scripts.Render("~/js/jqvmap")
+        @Scripts.Render("~/js/charts")
+
+         <script>
+             function onGoogleClientApiLoaded() {
+                 Ifly.App.getInstance().api.google.onLoad();
+             }
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","treemap"]}]}'></script>
+        <script src="https://apis.google.com/js/client.js?onload=onGoogleClientApiLoaded"></script>
+
+        <script>
+            var data = null, presentationId = @Model.PresentationId, presentationUserId = @Model.PresentationUserId,
+                opt = { id: presentationId, title: '@((Model.PresentationTitle ?? string.Empty).Replace("'", "\\'"))', requiresPassword: @Model.RequiresPassword.ToString().ToLowerInvariant(), loopPlayback: @Model.LoopPlayback.ToString() };
+
+            @if (Model.Presentation != null)
+            {
+            if (Model.Presentation.Id != 1)
+            {
+            @:data = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Presentation, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() }));
+            }
+            else
+            {
+            @:data = Ifly.App.getInstance().api.getDemo();
+            }
+            }
+
+            Ifly.App.getInstance().addEventListener('loaded', function () {
+                setTimeout(function () {
+                    Ifly.Models.Embed.Player.getInstance().selectInfographic(data, opt);
+                }, 50);
+            });
+
+            Ifly.App.getInstance().initialize({
+                embedded: true,
+                data: { id: presentationId || -1, userId: presentationUserId || -1 },
+                preload: Ifly.Models.Embed.Player.getInstance().getPreloadableContent(data)
+            });
+        </script>
+
+        @if (Model.PresentationIntegrationSettings != null && !string.IsNullOrEmpty(Model.PresentationIntegrationSettings.GoogleAnalyticsTrackingId))
+        {
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '@Model.PresentationIntegrationSettings.GoogleAnalyticsTrackingId', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        }
+
+        @Html.Partial("UI/_AppLoading")
+    </body>
+</html>

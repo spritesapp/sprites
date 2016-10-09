@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+    int presentationId = Ifly.PublishConfiguration.GetPresentationIdFromUri(Request.Url);
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        @Styles.Render("~/css/normalize")
+        @Styles.Render("~/css/embed")
+        
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/github")?theme=@Server.UrlEncode(Ifly.Layout.ThemeSource.GetThemeUrlFromRequest(HttpContext.Current.Request))" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/themes/user" + (presentationId > 0 ? ("?presentationId=" + presentationId) : string.Empty))" />
+    </head>
+
+    <body class="player">
+        <div class="wrapper">
+            <div class="canvas">
+                <div class="slide publish">
+                    <ul class="stack stack-center"></ul>
+                    <ul class="stack stack-top"></ul>
+                    <ul class="stack stack-left"></ul>
+                    <ul class="stack stack-right"></ul>
+                    <ul class="stack stack-bottom"></ul>
+                </div>
+            </div>
+        </div>
+
+        @Scripts.Render("~/js/app")
+
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+        <script>
+            Ifly.App.getInstance().addEventListener('loaded', function () {
+                window.parent.Ifly.Models.Embed.Player.getInstance().onCanvasLoaded(document);
+            });
+
+            Ifly.App.getInstance().initialize({
+                embedded: true
+            });
+        </script>
+    </body>
+</html>

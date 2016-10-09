@@ -1,0 +1,101 @@
+﻿@{
+    var fixedColumns = ViewData.Eval("FixedColumns") != null ?
+        (int)ViewData.Eval("FixedColumns") : 0;
+
+    var editableColumns = fixedColumns <= 0;
+
+    var cssClass = ViewData.Eval("CssClass") != null ?
+        ViewData.Eval("CssClass").ToString() : null;
+
+    var firstCellPlaceholder = ViewData.Eval("FirstCellPlaceholder") != null ?
+        ViewData.Eval("FirstCellPlaceholder").ToString() : @Ifly.Resources.Editor.RowLabel;
+}
+
+<div class="clear data-table-view @cssClass @(fixedColumns > 0 ? string.Format("data-table-fixed data-table-fixed-{0}", fixedColumns) : null)" data-bind="with: @ViewData.Eval("ClientSideModel")">
+    <div class="ruler-x"></div>
+
+    @if (editableColumns)
+    {
+    <div class="ruler-y"></div>
+    }
+
+    <div class="table-wrapper" data-bind="with: data">
+        <ul class="header">
+            <!-- ko foreach: columns -->
+            <li data-bind="attr: { 'class': 'header-cell ' + cssClass() }">
+                @if (editableColumns)
+                {
+                <!-- ko if: $index() > 0 -->
+                <div class="value">
+                    <input type="text" data-bind="attr: { placeholder: '@Ifly.Resources.Editor.ColumnLabel' }, value: name, event: { keydown: function(data, event) { return $parents[1].onKeyDown(event); } }" />
+                </div>
+                <!-- /ko -->
+                    
+                <!-- ko if: $index() == 0 -->
+                <div class="value">&nbsp;</div>
+                <!-- /ko -->
+                }
+                else
+                {
+                <span class="value" data-bind="text: name"></span>
+                }
+            </li>
+            <!-- /ko -->
+            @if (editableColumns)
+            {
+            <li class="header-cell new-column">
+                <div class="value">
+                    <button class="icon-plus" data-bind="click: function() { $parent.newColumn(); }" title="@Ifly.Resources.Editor.AddNewColumn"></button>
+                </div>
+            </li>
+            }
+        </ul>
+        <!-- ko foreach: rows -->
+        <ul class="row">
+            <!-- ko foreach: cells -->
+            <li data-bind="attr: { 'class': ('row-cell ' + (function(i) { var c = $parents[1].columns()[i]; return !c ? '': c.cssClass(); })($index())) }">
+                <div class="value" data-bind="visible: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 0; })($index())">
+                    <input type="text" data-bind="attr: { placeholder: $index() == 0 ? '@firstCellPlaceholder    ' : '' }, value: value, event: { keydown: function(data, event) { return $parents[2].onKeyDown(event); }, focus: function(data, event) { return $parents[2].onTextFocus(event); } }" />
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 1; })($index())">
+                    @Html.Partial("UI/Tables/_Density")
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 2; })($index())">
+                    @Html.Partial("UI/Tables/_TypeAhead")
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 3; })($index())">
+                    @Html.Partial("UI/Tables/_Mark")
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 4; })($index())">
+                    @Html.Partial("UI/Tables/_Color")
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 5; })($index())">
+                    @Html.Partial("UI/Tables/_Percentage")
+                </div>
+
+                <div class="value" data-bind="if: (function(i) { var c = $parents[1].columns()[i]; return c != null && c.inputType() == 6; })($index())">
+                    @Html.Partial("UI/Tables/_Styles")
+                </div>
+            </li>
+            <!-- /ko -->
+        </ul>
+        <!-- /ko -->
+        <ul class="row new-row">
+            @if (editableColumns)
+            {
+            <li>&nbsp;</li>
+            }
+
+            <li class="new-row-button">
+                <button class="icon-plus" data-bind="click: function() { $parent.newRow(); }" title="@Ifly.Resources.Editor.AddNewRow">
+                    <span data-bind="visible: columns().length > 2">@Ifly.Resources.Editor.AddNewRow</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <style type="text/css">
+            html, body {{
+                margin: 0;
+                padding: 0;
+            }}
+
+            body {{
+                color: #464646;
+                font-size: 16px;
+                margin: 20px;
+            }}
+
+            .link {{
+                color: #EB6841;
+            }}
+
+            .center {{
+                text-align: center;
+            }}
+
+            p {{
+                margin: 50px 0;
+                padding: 0;
+                line-height: 24px;
+            }}
+
+            p.description {{
+                width: 620px;
+                margin: 0 auto;
+                margin-bottom: 30px;
+            }}
+
+            p.footer {{
+                color: #c3c3c3;
+                font-size: 75%;
+            }}
+
+            p.footer span {{
+                display: block;
+            }}
+
+            strong {{
+                font-weight: bold;
+            }}
+
+            h1 {{
+                font-size: 200%;
+                margin: 20px 0;
+                padding: 0;
+            }}
+
+            .table .field-name,
+            .table .field-value {{
+                padding: 8px 10px;
+                float: left;
+            }}
+
+            .table .field-name {{
+                width: 300px;
+                padding-left: 150px;
+            }}
+
+            .table .field-value {{
+                width: 350px;
+            }}
+        </style>
+    </head>
+
+    <body>
+        <h1 class="center">Receipt</h1>
+
+        <p class="center description">
+            We've received your payment for your Sprites subscription. You can keep this receipt for your records. 
+            For questions, contact us anytime at <span class="link">spritesapp.com/contact</span>.
+        </p>
+
+        <div class="table">
+            <div>
+                <div class="field-name">Date</div>
+                <div class="field-value"><strong>{Date}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Account billed</div>
+                <div class="field-value"><strong>{UserName}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Company name</div>
+                <div class="field-value"><strong>{CompanyName}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Company address</div>
+                <div class="field-value"><strong>{CompanyAddress}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Subscription</div>
+                <div class="field-value"><strong>{SubscriptionType}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Amount charged</div>
+                <div class="field-value"><strong>USD ${Amount}</strong></div>
+            </div>
+            <div>
+                <div class="field-name">Charged to</div>
+                <div class="field-value"><strong>{ChargedTo}</strong></div>
+            </div>
+            <div>
+                <div class="field-name last">Transaction ID</div>
+                <div class="field-value last"><strong>{TransactionId}</strong></div>
+            </div>
+        </div>
+
+        <p class="footer center">
+            <span>spritesapp.com</span>
+        </p>
+    </body>
+</html>

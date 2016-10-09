@@ -1,0 +1,13 @@
+﻿<script>
+    Ifly.App.getInstance().registerComponent('UserMenu', {
+        canShare: @((Ifly.ApplicationContext.Current.User.Subscription.Type == Ifly.SubscriptionType.Agency).ToString().ToLowerInvariant()),
+        terminology: {
+            noTitle: '@Ifly.Resources.Editor.NoTitle',
+            editCollaborators: '@Ifly.Resources.Editor.Collaboration_Edit',
+            archive: '@Ifly.Resources.Editor.Archive',
+            unArchive: '@Ifly.Resources.Editor.UnArchive',
+            archiveShow: '@Ifly.Resources.Editor.Archive_Show',
+            archiveHide: '@Ifly.Resources.Editor.Archive_Hide'
+        }
+    });
+</script>

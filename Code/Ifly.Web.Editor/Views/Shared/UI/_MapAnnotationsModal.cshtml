@@ -1,0 +1,21 @@
+﻿<div id="map-annotations" class="map-annotations" title="@Ifly.Resources.Editor.EditMapAnnotations" style="display: none">
+    <div class="form">
+        <div class="map-annotations-outer" data-bind="with: data">
+            @Html.Partial("UI/_DataTableView", new { ClientSideModel = "annotations", FixedColumns = 4, CssClass = "annotations-table" })
+            <div class="dimmed block center clear">@Ifly.Resources.Editor.EmptyRowsWillTrim</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Ifly.App.getInstance().registerComponent('MapAnnotationsModal', {
+        terminology: {
+            ok: '@Ifly.Resources.Editor.Ok',
+            cancel: '@Ifly.Resources.Editor.Cancel',
+            columnArea: '@Ifly.Resources.Editor.Area',
+            columnDensity: '@Ifly.Resources.Editor.Density',
+            columnBaseColor: '@Ifly.Resources.Editor.Color',
+            columnTooltip: '@Ifly.Resources.Editor.Tooltip'
+        }
+    });
+</script>

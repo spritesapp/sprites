@@ -1,0 +1,45 @@
+﻿@{
+    Func<string, string, string> prop = (string name, string defaultValue) => {
+        object o = ViewData.Eval(name);
+        return o != null ? o.ToString() : defaultValue;
+    };
+    
+    Func<string, string> getInt = (string value) =>
+    {
+        var m = System.Text.RegularExpressions.Regex.Match(value, "[0-9]+");
+        return m != null ? m.Value : string.Empty;
+    };
+
+    Func<string, string[]> split = (string value) =>
+    {
+        string[] result = (value ?? string.Empty).Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+        
+        if (result.Length < 2)
+        {
+            result = new string[] { value, value };
+        }
+
+        return result;
+    };
+
+    var bindingExpression = prop("BindingExpression", "with: $data");
+    var valueExpression = prop("ValueExpression", "value");
+    var min = split(prop("Minimum", "5"));
+    var max = split(prop("Maximum", "100"));
+    var step = prop("Step", "1");
+    var orientation = prop("Orientation", "horizontal");
+    var cssClass = prop("CssClass", string.Empty);
+    var showBounds = bool.Parse(prop("ShowBounds", "true"));
+}
+
+<div class="slider-control orientation-@orientation @cssClass" data-bind="@bindingExpression">
+    @if (showBounds)
+    {
+        <span class="bound lower-bound" data-bind="css: { 'active': @(valueExpression)() <= @getInt(min[0]) }, click: function () { @(valueExpression)(@getInt(min[0])); }">@min[1]</span>
+    }
+    <input type="range" orient="@orientation" data-bind="attr: {title: @valueExpression}, value: @valueExpression, event: { input: function (data, e) { data['@valueExpression'](e.target.value); } }" min="@getInt(min[0])" max="@getInt(max[0])" step="@step" />
+    @if (showBounds)
+    {
+        <span class="bound upper-bound" data-bind="css: { 'active': @(valueExpression)() >= @getInt(max[0]) }, click: function () { @(valueExpression)(@getInt(max[0])); }">@max[1]</span>
+    }
+</div>
